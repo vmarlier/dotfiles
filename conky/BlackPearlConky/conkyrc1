@@ -1,0 +1,144 @@
+## conky by ninquitassar (2012)
+## my deviantart: http://ninquitassar.deviantart.com/
+## special thanks to Iacoporosso
+##..: Conky status :..
+##
+  total_run_times 0                   #Time in seconds; 0 = ever
+  background no                       #No fork in background
+##
+##..: System Settings :..
+##
+  cpu_avg_samples 1                   #The number of samples to average for CPU monitoring
+  net_avg_samples 2                   #The number of samples to average for net data 
+##
+##..: Memory :..
+##
+  double_buffer yes                   #eliminates flicker
+  no_buffers yes                      #Subtract (file system) buffers from used memory?
+  text_buffer_size 1024               #Textual buffer memory
+##
+##..: Display :..
+  out_to_console no                   #Print text to stdout
+  update_interval 1                   #Update interval
+##
+##..: Conky Window :..
+##
+  alignment top_left                  #Alignement
+  #
+  minimum_size 500                    #Minimum width (px)
+  maximum_width 500                   #Maximum width(px)
+  #
+  gap_x 0                            #Gap between left/right border
+  gap_y 300                           #Gap between upper/lower border
+  #
+  draw_shades no                      #Draw shadows?
+  draw_outline no                     #Draw outline?
+  draw_borders no                     #Borders to the text?
+  border_width 1                      #Width of borders
+  border_inner_margin 1               #Width of margins
+  #
+  own_window yes                      #Create own window to draw
+  own_window_type override            #Type of window
+  own_window_transparent yes          #Pseudo transparency
+##
+##..: Format :..
+##
+  use_xft yes                         #Use Xft
+  xftalpha .1                         #Alpha of Xft
+  override_utf8_locale yes            #UTF8 forcing
+  uppercase no                        #Only capital letters
+  use_spacer right                    #Adds spaces around certain objects to stop them from moving other things around
+  #
+  xftfont saxMono:size=9              #Default font
+  #
+  default_bar_size 82 3               #Specify a default width and height for bars
+  stippled_borders 3                  #Border dashing
+##
+##..: Colors :..
+##
+  default_color FFFFFF                #Default color
+  default_shade_color 333333          #Default color for shadows
+  default_outline_color black         #Default border color
+  #
+  color1 D6D6D6                       #Silver
+  color2 EFEFEF                       #Pearl white
+  color3 A3ADB0                       #Grey
+##
+##..: Misc :..
+##
+  short_units yes                       #Shortens units to a single character
+  pad_percents 2                        #Number of decimals
+##
+##..: Clock and rings :..
+##-- SET TO YOUR PATH!!! --
+##
+  lua_load ~/.config/conky/BlackPearlConky/lua/clock2.lua
+  lua_draw_hook_pre clock_rings
+
+
+TEXT
+${color d7d7d7}${voffset 3}${cpugraph cpu6 1,300}${voffset 1}${cpugraph cpu6 17,1}${color4}
+#
+#..: NET & MAIL :..
+#-- CORRECT GMAIL SCRIPT TO YOUR PATH
+#--- if you use another client, use conkyEmail (uncomment #)
+${font Nimbus Mono L:size=8 style=bold}${offset 0}
+#${offset 10}  ${voffset -10}${font neuropol:size=20}  ${execi 300 conkyEmail --servertype=POP --servername=pop3.live.com --username=******** --password=******* --ssl}${font Nimbus Mono L:size=8 style=bold}  Gmail
+${offset 20}${voffset -50}${cpubar cpu6 0, 210}${voffset 2}${color1}
+${offset 10}${if_up wlp59s0}${color2} WiFi    Online $else ${color3}WiFi    Offline $endif
+${offset 10}${if_up enp58s0f1}${color2} Ethernet    Online $else ${color3}Eth0    Offline $endif
+${offset 40}${if_up wlp59s0}${font FontAwesome:size=8}      ${offset 40}${font Nimbus Mono L:size=8 style=bold}${wireless_essid wlp59s0} $endif
+${offset 40}${if_up wlp59s0}${font FontAwesome:size=8}      ${offset 40}${font Nimbus Mono L:size=8 style=bold}${addr wlp59s0} $endif
+${offset 40}${if_up wlp59s0}${font FontAwesome:size=8}      ${offset 40}${font Nimbus Mono L:size=8 style=bold}${exec curl -4 icanhazip.com} $endif
+
+
+#..: NET TRAFFIC :..
+${color d7d7d7}${voffset 1}${cpugraph cpu6 1,200}${voffset 1}${cpugraph cpu6 17,1}${color3}
+
+${offset 15}${if_up wlp59s0}${font Nimbus Mono L:size=8 style=bold}${voffset -5}Dw ${font neuropol:size=20} ${voffset -8}${downspeed wlp59s0}$else${font Nimbus Mono L:size=8 style=bold}${voffset -5}Dw ${font neuropol:size=20} --- ${voffset -8}$endif${font Nimbus Mono L:size=8 style=bold}
+${offset 15}${if_up wlp59s0}${font Nimbus Mono L:size=8 style=bold}${voffset 6}Up ${font neuropol:size=20} ${voffset -7}${upspeed wlp59s0}$else${font Nimbus Mono L:size=8 style=bold}${voffset 6}Up ${font neuropol:size=20} --- ${voffset -7}$endif${font Nimbus Mono L:size=8 style=bold}
+${offset 20}${voffset -1}${cpubar cpu6 0, 110}${voffset 2}${color1}
+${offset 15}${if_up wlp59s0} tDown   ${totaldown wlp59s0}$endif
+#
+#..: USB DEVICES :..
+#-- set for your use --
+${color d7d7d7}${voffset 21}${cpugraph cpu6 1,190}${voffset 1}${cpugraph cpu6 17,1}${color3}
+${offset 40}${voffset -5}USB Devices
+${offset 40}${voffset -1}${cpubar cpu6 0, 110}${voffset 2}${color1}
+${offset 15}${voffset 7}${if_existing /dev/sdc}${exec df -h | grep "sdc1" | cut -c48-70}   $else.:No Device:.$endif
+${offset 15}${voffset 7}${if_existing /dev/sdd}${exec df -h | grep "sdd1" | cut -c48-70}   $else.:No Device:.$endif
+${offset 15}${voffset 7}${if_existing /dev/sdc}${exec df -h | grep "sdc2" | cut -c48-70}$endif
+${offset 15}${voffset 7}${if_existing /dev/sdd}${exec df -h | grep "sdd2" | cut -c48-70}$endif
+#
+#
+#
+${voffset 15}${color d7d7d7}${cpugraph cpu6 1,100}${font neuropol:bold:size=11} Système Information ${cpugraph cpu6 1,50}${voffset 1}
+${voffset 5}${font Bitstream Vera Sans:size=8}${offset 50}${color2}PAC${color}${goto 190}${execi 1000 checkupdates | wc -l}
+${color2}${offset 50}AUR${goto 190}${color}${execi 1000 cower -u | wc -l}
+${color2}${offset 50}${font FontAwesome:size=8}${goto 190}${color}${font Bitstream Vera Sans:size=8}${execi 1000 pacman -Qe | wc -l}
+${color2}${offset 50}${font FontAwesome:size=8}${goto 190}${color}${font Bitstream Vera Sans:size=8}${execi 1000 pacman -Qdtq | wc -l} 
+${color2}${offset 50}Docker${goto 190}${color}${if_match "${execi 2 ps -a | pgrep dockerd}" != ""}${font FontAwesome:size=8}${else}${font FontAwesome:size=8}${endif}
+${color2}${offset 50}${font Bitstream Vera Sans:size=8}VMWare${goto 190}${color}${if_match "${execi 2 ps -a | pgrep vmware}" != ""}${font FontAwesome:size=8}${else}${font FontAwesome:size=8}${endif}
+#..: MUSIC :..
+#-- SETTINGS FOR MPD --
+#--- if you use Exaile, uncomment commented section and comment mpd one ---
+#--- if you use other player, search setting on google :P ---
+#${color d7d7d7}${voffset 20}${cpugraph cpu6 1,300}${voffset 1}${cpugraph cpu6 17,1}${color3}
+#${if_mpd_playing}${voffset -8}${offset 55}${voffset -2}${font neuropol:size=20}${mpd_elapsed}
+#${if_mpd_playing}${voffset -8}${offset 55}${voffset -2}${font neuropol:size=20}${mpd_elapsed}
+#${offset 165}${voffset -27}${font neuropol:size=14}/ ${mpd_length}
+#${offset 55}${color3}${cpubar cpu6 0, 190}${voffset 2}${font Nimbus Mono L:size=8 style=bold}
+#${offset 55}${scroll 36 ${mpd_title}}
+#${offset 55}${scroll 36 ${color 3273b5}${mpd_artist}}${color3}
+#${offset 55}${scroll 36 ${mpd_album}}
+#$else       ..:: MPD not running ::..
+#${if_running exaile}${voffset -8}${offset 55}${voffset -2}${font neuropol:size=20} ${exec conkyExaile --datatype=PT} ${voffset -5}${font PizzaDude Bullets:size=10}BBBBB${offset -65}${color 0778ec}${exec conkyExaile -n --datatype=RT --ratingchar=D}$color
+#${offset 55}${color3}${cpubar cpu6 0, 190}${voffset 2}${font Nimbus Mono L:size=8 style=bold}
+#${offset 55}${scroll 36 ${exec conkyExaile --datatype=TI}}
+#${offset 55}${scroll 36 ${exec conkyExaile --datatype=AR}}
+#${offset 55}${scroll 36 ${exec conkyExaile --datatype=AL}}
+#${else}       ..:: Exaile not running ::..
+
+#$endif
+
+

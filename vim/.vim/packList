@@ -1,0 +1,30 @@
+All Config Plugins:
+
+	colorizer
+		https://github.com/lilydjwg/colorizer.git
+	delimitMate
+		https://github.com/Raimondi/delimitMate.git
+	supertab
+		https://github.com/ervandew/supertab.git
+	vim-airline
+		https://github.com/vim-airline/vim-airline.git
+	vim-anyfold
+		https://github.com/pseewald/vim-anyfold.git
+	NerdTree
+		https://github.com/scrooloose/nerdtree.git
+
+
+HTML Plugins:
+	
+	sparkup
+		https://github.com/rstacruz/sparkup.git	
+
+
+CSS Plugins:
+
+	csscomplete
+		https://github.com/othree/csscomplete.vim.git
+
+BASH Plugins:
+
+	https://github.com/vim-scripts/bash-support.vim.git

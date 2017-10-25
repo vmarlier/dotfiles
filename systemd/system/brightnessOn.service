@@ -1,0 +1,8 @@
+[Unit]
+Description=brightnessOn
+
+[Service]
+ExecStart=/usr/bin/brightnessOn
+
+[Install]
+WantedBy=multi-user.target
