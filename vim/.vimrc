@@ -91,12 +91,6 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
-" Supertab
-" Default KeyBinds
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-"""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""
 " HTML file
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd BufRead,BufNewFile *.html let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -156,4 +150,31 @@ autocmd BufRead,BufNewFile *.js nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#C
 autocmd BufRead,BufNewFile *.js nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 " JS back to basic omnifunc
 autocmd BufRead,BufNewFile *.js nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""
+" Cpp file
+" http://www.commentcamarche.net/faq/17019-l-autocompletion-c-c-sous-vim
+" http://vim.wikia.com/wiki/C%2B%2B_code_completion
+autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
+autocmd BufRead,BufNewFile *.cpp let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/cpp
+autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/gl
+autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/sdl
+autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/qt4
+"each time modify project do F12
+autocmd BufRead,BufNewFile *.cpp noremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
+autocmd BufRead,BufNewFile *.cpp inoremap <F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
+"OmniCppComplete
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_NamespaceSearch = 1
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_GlobalScopeSearch = 1
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_ShowAccess = 1
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_MayCompleteDot = 1 " autocomplete after .
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
+autocmd BufRead,BufNewFile *.cpp let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+" automatically open and close the popup menu / preview window
+autocmd BufRead,BufNewFile *.cpp au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+autocmd BufRead,BufNewFile *.cpp set completeopt=menuone,menu,longest,preview
 """""""""""""""""""""""""""

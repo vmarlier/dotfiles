@@ -20,6 +20,8 @@ HTML Plugins:
 		https://github.com/rstacruz/sparkup.git	
 	closetag
 		https://github.com/alvan/vim-closetag.git
+	html5
+		https://github.com/othree/html5.vim.git
 
 
 CSS Plugins:
@@ -27,12 +29,20 @@ CSS Plugins:
 	csscomplete
 		https://github.com/othree/csscomplete.vim.git
 
+
 BASH Plugins:
 
 	bash-support
 		https://github.com/vim-scripts/bash-support.vim.git
 
+
 PHP Plugins:
 
 	phpcomplete
 		git@github.com:shawncplus/phpcomplete.vim.git
+
+
+Cpp Plugins:
+	
+	omnicpp
+		https://github.com/vim-scripts/OmniCppComplete.git
