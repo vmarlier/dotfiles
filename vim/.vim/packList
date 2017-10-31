@@ -14,10 +14,15 @@ All Config Plugins:
 		https://github.com/pseewald/vim-anyfold.git
 	NerdTree
 		https://github.com/scrooloose/nerdtree.git
-	Syntastic
-		https://github.com/vim-syntastic/syntastic.git
 	Tagbar
 		https://github.com/majutsushi/tagbar.git
+	Linter
+					Syntastic
+						https://github.com/vim-syntastic/syntastic.git
+					Validator
+						https://github.com/maralla/validator.vim.git
+					Ale
+						https://github.com/w0rp/ale.git
 
 
 HTML Plugins:

@@ -110,12 +110,16 @@ autocmd BufRead,BufNewFile *.html nnoremap <C-c> <Esc>:setlocal omnifunc=csscomp
 autocmd BufRead,BufNewFile *.html  nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "HTML back to basic omnifunc
 autocmd BufRead,BufNewFile *.html nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"HTML syntastic
+autocmd BufRead,BufNewFile *.html let g:syntastic_html_checkers = ['htmlhint']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
 " CSS file
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS noci
 autocmd BufRead,BufNewFile *.css let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"CSS syntastic
+autocmd BufRead,BufNewFile *.css let g:syntastic_css_checkers = ['csslint']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -133,13 +137,16 @@ autocmd BufRead,BufNewFile *.php nnoremap <C-d> <Esc>:set dictionary+=/home/robo
 autocmd BufRead,BufNewFile *.php nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "PHP back to basic omnifunc
 autocmd BufRead,BufNewFile *.php nnoremap <C-p> <Esc>:set omnifunc=phpcomplete#CompletePHP \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
-autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+"Syntastic PHP
+autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['phpmd']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
 " SQL file
 autocmd FileType sql set dictionary+=/home/robot/.vim/dictionnary/function.sql dictionary+=/home/robot/.vim/dictionnary/keyword.sql
 autocmd BufRead,BufNewFile *.sql let g:SuperTabDefaultCompletionType = "<c-x><c-k>"
+"Syntastic Sql
+autocmd BufRead,BufNewFile *.sql let g:syntastic_sql_checkers = ['sqlint']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -153,6 +160,8 @@ autocmd BufRead,BufNewFile *.js nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#C
 autocmd BufRead,BufNewFile *.js nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 " JS back to basic omnifunc
 autocmd BufRead,BufNewFile *.js nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"Syntastic JS
+autocmd BufRead,BufNewFile *.js let g:syntastic_javascript_checkers = ['jshint']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -184,10 +193,13 @@ autocmd BufRead,BufNewFile *.cpp au CursorMovedI,InsertLeave * if pumvisible() =
 autocmd BufRead,BufNewFile *.cpp set completeopt=menuone,menu,longest,preview
 " start TagBar
 autocmd BufRead,BufNewFile *.cpp :TagbarToggle
+"Syntastic Cpp
+autocmd BufRead,BufNewFile *.cpp let g:syntastic_javascript_checkers = ['cppcheck']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
 " Syntastic
+" Doc https://github.com/vim-syntastic/syntastic/blob/master/doc/syntastic-checkers.txt
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -197,8 +209,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 """""""""""""""""""""""""""
-
-
 
 "autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
 "autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
