@@ -113,12 +113,12 @@ ${offset 15}${voffset 7}${if_existing /dev/sdd}${exec df -h | grep "sdd2" | cut 
 #
 #
 ${voffset 15}${color d7d7d7}${cpugraph cpu6 1,100}${font neuropol:bold:size=11} Système Information ${cpugraph cpu6 1,50}${voffset 1}
-${voffset 5}${font Bitstream Vera Sans:size=8}${offset 50}${color2}PAC${color}${goto 190}${execi 1000 checkupdates | wc -l}
+${voffset 5}${font Bitstream Vera Sans:size=12}${offset 50}${color2}PAC${color}${goto 190}${execi 1000 checkupdates | wc -l}
 ${color2}${offset 50}AUR${goto 190}${color}${execi 1000 cower -u | wc -l}
-${color2}${offset 50}${font FontAwesome:size=8}${goto 190}${color}${font Bitstream Vera Sans:size=8}${execi 1000 pacman -Qe | wc -l}
-${color2}${offset 50}${font FontAwesome:size=8}${goto 190}${color}${font Bitstream Vera Sans:size=8}${execi 1000 pacman -Qdtq | wc -l} 
-${color2}${offset 50}Docker${goto 190}${color}${if_match "${execi 2 ps -a | pgrep dockerd}" != ""}${font FontAwesome:size=8}${else}${font FontAwesome:size=8}${endif}
-${color2}${offset 50}${font Bitstream Vera Sans:size=8}VMWare${goto 190}${color}${if_match "${execi 2 ps -a | pgrep vmware}" != ""}${font FontAwesome:size=8}${else}${font FontAwesome:size=8}${endif}
+${color2}${offset 50}${font FontAwesome:size=12}${goto 190}${color}${font Bitstream Vera Sans:size=12}${execi 1000 pacman -Qe | wc -l}
+${color2}${offset 50}${font FontAwesome:size=12}${goto 190}${color}${font Bitstream Vera Sans:size=12}${execi 1000 pacman -Qdtq | wc -l} 
+${color2}${offset 50}Docker${goto 190}${color}${if_match "${execi 2 ps -a | pgrep dockerd}" != ""}${font FontAwesome:size=12}${else}${font FontAwesome:size=12}${endif}
+${color2}${offset 50}${font Bitstream Vera Sans:size=12}VMWare${goto 190}${color}${if_match "${execi 2 ps -a | pgrep vmware}" != ""}${font FontAwesome:size=12}${else}${font FontAwesome:size=12}${endif}
 #..: MUSIC :..
 #-- SETTINGS FOR MPD --
 #--- if you use Exaile, uncomment commented section and comment mpd one ---

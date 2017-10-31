@@ -1,0 +1,71 @@
+conky.config = {
+	alignment = 'bottom_right',
+	background = true,
+	color2 = '2ECC71',
+	cpu_avg_samples = 2,
+	default_color = 'FFFFFF',
+	double_buffer = true,
+	font = 'Bitstream Vera Sans:size=8',
+	gap_x =15,
+	gap_y = 13,
+	minimum_width = 200,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 1.5,
+	use_xft = true,
+}
+conky.text = [[
+${if_up wlp59s0}
+${font Bitstream Vera Sans:bold:size=10}${color}${goto 40}Network
+${font FontAwesome:size=8}${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}${color}$alignr$wireless_essid
+${font FontAwesome:size=8}${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}${color}$alignr${addr wlp59s0}
+${font FontAwesome:size=8}${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}${color}$alignr${downspeedf wlp59s0} kB/s
+${font FontAwesome:size=8}${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}${color}$alignr${upspeedf wlp59s0} kB/s
+${font FontAwesome:size=8}${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}${color}$alignr${exec wget -qO- http://ipecho.net/plain ; echo}
+${else}${font Bitstream Vera Sans:bold:size=10}${color}${goto 40}No Network Con. 
+${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}----
+${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}----
+${voffset 5}${goto 40}${color2}${font Bitstream Vera Sans:size=8}----
+${endif}
+#
+${font Bitstream Vera Sans:bold:size=10}${voffset 10}${goto 40}${color}CPU$alignr$cpu%
+${voffset 5}${goto 40}$font$color2${top name 1}$alignr$color${top cpu 1}%
+${goto 40}$color2${top name 2}$alignr$color${top cpu 2}%
+${goto 40}$color2${top name 3}$alignr$color${top cpu 3}%
+${goto 40}$color2${top name 4}$alignr$color${top cpu 4}%
+${goto 40}$color2${top name 5}$alignr$color${top cpu 5}%
+#
+${font Bitstream Vera Sans:bold:size=10}${voffset 10}${goto 40}${color}RAM$alignr$mem$font
+${goto 40}${voffset 5}$color2${top_mem name 1}$alignr$color${top_mem mem_res 1}
+${goto 40}$color2${top_mem name 2}$alignr$color${top_mem mem_res 2}
+${goto 40}$color2${top_mem name 3}$alignr$color${top_mem mem_res 3}
+${goto 40}$color2${top_mem name 4}$alignr$color${top_mem mem_res 4}
+#${goto 40}$color2${top_mem name 5}$alignr$color${top_mem mem_res 5}
+#
+${font Bitstream Vera Sans:bold:size=10}${voffset 10}${goto 40}${color}Swap$alignr${swap}/ ${swapfree}
+${font Bitstream Vera Sans:bold:size=8}${voffset 10}${goto 40}${color}Cache$alignr${cached}
+${font Bitstream Vera Sans:bold:size=8}${voffset 10}${goto 40}${color}Buffer$alignr${buffers}
+#
+${goto 40}${font Bitstream Vera Sans:bold:size=10}${voffset 10}${color}System
+${goto 40}${voffset 5}${font Bitstream Vera Sans:size=8}${color2}PAC${goto 200}${color}${execi 1000 checkupdates | wc -l}
+${goto 40}${voffset 2}${color2}AUR${goto 200}${color}${execi 1000 cower -u | wc -l}
+${goto 40}${voffset 2}${color2}${font FontAwesome:size=8}$alignr${color}${font Bitstream Vera Sans:size=8}${execi 1000 pacman -Qe | wc -l}
+${goto 40}${voffset 2}${color2}${font FontAwesome:size=8}$alignr${color}${font Bitstream Vera Sans:size=8}${execi 1000 pacman -Qdtq | wc -l} 
+${goto 40}${voffset 7}${color2}Docker$alignr${color}${if_match "${execi 2 ps -a | pgrep dockerd}" != ""}${font FontAwesome:size=8}${else}${font FontAwesome:size=8}${endif}
+${goto 40}${voffset 2}${color2}${font Bitstream Vera Sans:size=8}VMWare$alignr${color}${if_match "${execi 2 ps -a | pgrep vmware}" != ""}${font FontAwesome:size=8}${else}${font FontAwesome:size=8}${endif}
+#
+${goto 40}${font Bitstream Vera Sans:bold:size=10}${voffset 10}${color}Filesystem
+${goto 40}${voffset 5}${font Bitstream Vera Sans:size=8}${color2}/$alignr${color}${fs_free /}    [${fs_used_perc /}%]
+${goto 40}${voffset 5}${font FontAwesome:size=8}${color2}${font Bitstream Vera Sans:size=8}$alignr${color}${fs_free /home}    [${fs_used_perc /home}%]
+${goto 40}${voffset 5}${font FontAwesome:size=8}${color2}${font Bitstream Vera Sans:size=8} /opt$alignr${color}${fs_free /opt}    [${fs_used_perc /opt}%]
+${goto 40}${voffset 5}${font FontAwesome:size=8}${color2}${font Bitstream Vera Sans:size=8} /media$alignr${color}${fs_free /media}    [${fs_used_perc /media}%]
+
+#
+${voffset 15}$font$alignr${execi 10000 awk -F= '/TION/ {print $2}' /etc/lsb-release |sed 's/"//g'} \
+${execi 10000 awk -F= '/EASE=/ {printf $2" "} /NAME/ {print $2}' /etc/lsb-release}
+${voffset 10}${color2}${alignr}${execi 1200 whoami}@${nodename}
+${alignr}${color2}${font Bitstream Vera Sans:size=8}uptime: ${color}${uptime_short}
+${voffset 5}${color2}${font Bitstream Vera Sans:size=8}${alignr}kernel: ${color}${kernel}
+]]

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-username=""
+username="valentin.marlier@gmail.com"
 password=""
 echo
 mail=$(curl -u $username:$password --silent "https://mail.google.com/mail/feed/atom" |  grep -oPm1 "(?<=<title>)[^<]+" | sed '1d' | wc -l)

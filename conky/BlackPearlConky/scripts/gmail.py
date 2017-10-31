@@ -2,7 +2,7 @@ import os
  
 #Enter your username and password below within double quotes
 # eg. username="username" and password="password"
-username=""
+username="valentin.marlier@gmail.com"
 password=""
 com="wget -q -O - https://"+username+":"+password+"@mail.google.com/mail/feed/atom --no-check-certificate"
 

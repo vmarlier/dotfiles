@@ -18,6 +18,8 @@ HTML Plugins:
 	
 	sparkup
 		https://github.com/rstacruz/sparkup.git	
+	closetag
+		https://github.com/alvan/vim-closetag.git
 
 
 CSS Plugins:
@@ -27,4 +29,10 @@ CSS Plugins:
 
 BASH Plugins:
 
-	https://github.com/vim-scripts/bash-support.vim.git
+	bash-support
+		https://github.com/vim-scripts/bash-support.vim.git
+
+PHP Plugins:
+
+	phpcomplete
+		git@github.com:shawncplus/phpcomplete.vim.git

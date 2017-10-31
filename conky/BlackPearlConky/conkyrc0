@@ -100,7 +100,7 @@ ${offset 195}${battery_time BAT0}
 #--- if you use a multi-core system, change values ---
 #--- in this case, you may cange position of objects (offset, voffset) ---
 ${color d7d7d7}${offset 80}${voffset 3}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
-${offset 177}${voffset -7}${font neuropol:size=20}${cpu cpu0}% ${font Nimbus Mono L:size=8 style=bold}Cpu
+${offset 177}${voffset -7}${font neuropol:size=20}${cpu cpu}% ${font Nimbus Mono L:size=8 style=bold}Cpu
 ${offset 170}${voffset -5}${cpubar cpu6 0, 110}${voffset 2}${color1}
 ${offset 135}${voffset -1}${font Nimbus Mono L:size=8 style=bold}${top name 1}${offset -25}${top cpu 1}%
 ${offset 135}${voffset -1}${font Nimbus Mono L:size=8 style=bold}${top name 2}${offset -25}${top cpu 2}%
