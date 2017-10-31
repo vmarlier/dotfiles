@@ -31,6 +31,8 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 "Use the buffer tabline extension of airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='badcat'
+let g:tagbar_width = 20
 "Next And Previous Buffer
 nnoremap <C-n> :bnext<CR>
 " <C-p> conflict with aliases for change omnifunc
@@ -131,6 +133,7 @@ autocmd BufRead,BufNewFile *.php nnoremap <C-d> <Esc>:set dictionary+=/home/robo
 autocmd BufRead,BufNewFile *.php nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "PHP back to basic omnifunc
 autocmd BufRead,BufNewFile *.php nnoremap <C-p> <Esc>:set omnifunc=phpcomplete#CompletePHP \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -162,6 +165,8 @@ autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/cpp
 autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/gl
 autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/sdl
 autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/qt4
+" Compile and Run
+autocmd BufRead,BufNewFile *.cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 "each time modify project do F12
 autocmd BufRead,BufNewFile *.cpp noremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 autocmd BufRead,BufNewFile *.cpp inoremap <F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
@@ -177,4 +182,23 @@ autocmd BufRead,BufNewFile *.cpp let OmniCpp_DefaultNamespaces = ["std", "_GLIBC
 " automatically open and close the popup menu / preview window
 autocmd BufRead,BufNewFile *.cpp au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 autocmd BufRead,BufNewFile *.cpp set completeopt=menuone,menu,longest,preview
+" start TagBar
+autocmd BufRead,BufNewFile *.cpp :TagbarToggle
 """""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"""""""""""""""""""""""""""
+
+
+
+"autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
+"autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>

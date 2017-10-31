@@ -8,10 +8,16 @@ All Config Plugins:
 		https://github.com/ervandew/supertab.git
 	vim-airline
 		https://github.com/vim-airline/vim-airline.git
+	vim-airline-themer
+		https://github.com/vim-airline/vim-airline-themes.git
 	vim-anyfold
 		https://github.com/pseewald/vim-anyfold.git
 	NerdTree
 		https://github.com/scrooloose/nerdtree.git
+	Syntastic
+		https://github.com/vim-syntastic/syntastic.git
+	Tagbar
+		https://github.com/majutsushi/tagbar.git
 
 
 HTML Plugins:
