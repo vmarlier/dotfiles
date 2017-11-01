@@ -112,6 +112,8 @@ autocmd BufRead,BufNewFile *.html  nnoremap <C-j> <Esc>:set omnifunc=javascriptc
 autocmd BufRead,BufNewFile *.html nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "HTML syntastic
 autocmd BufRead,BufNewFile *.html let g:syntastic_html_checkers = ['htmlhint']
+"Import html model
+autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -139,6 +141,8 @@ autocmd BufRead,BufNewFile *.php nnoremap <C-j> <Esc>:set omnifunc=javascriptcom
 autocmd BufRead,BufNewFile *.php nnoremap <C-p> <Esc>:set omnifunc=phpcomplete#CompletePHP \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "Syntastic PHP
 autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['phpmd']
+"Import php model
+autocmd BufNewFile *.php 0r ~/.vim/templates/template.php
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -179,6 +183,8 @@ autocmd BufRead,BufNewFile *.cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape
 "each time modify project do F12
 autocmd BufRead,BufNewFile *.cpp noremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 autocmd BufRead,BufNewFile *.cpp inoremap <F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
+autocmd BufRead,BufNewFile *.hpp noremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
+autocmd BufRead,BufNewFile *.hpp inoremap <F12> <Esc>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 "OmniCppComplete
 autocmd BufRead,BufNewFile *.cpp let OmniCpp_NamespaceSearch = 1
 autocmd BufRead,BufNewFile *.cpp let OmniCpp_GlobalScopeSearch = 1
@@ -192,9 +198,12 @@ autocmd BufRead,BufNewFile *.cpp let OmniCpp_DefaultNamespaces = ["std", "_GLIBC
 autocmd BufRead,BufNewFile *.cpp au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 autocmd BufRead,BufNewFile *.cpp set completeopt=menuone,menu,longest,preview
 " start TagBar
-autocmd BufRead,BufNewFile *.cpp :TagbarToggle
+autocmd BufRead,BufNewFile *.cpp :Tagbar
 "Syntastic Cpp
 autocmd BufRead,BufNewFile *.cpp let g:syntastic_javascript_checkers = ['cppcheck']
+"Import Cpp and Hpp model
+autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.cpp
+autocmd BufNewFile *.hpp 0r ~/.vim/templates/template.hpp
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
