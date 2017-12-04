@@ -11,8 +11,11 @@ filetype  indent plugin on
 set ruler
 "set mouse=a
 set ttyfast
-set tabstop=2
-set  noexpandtab	
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set  noexpandtab
+set smartindent
 set  nu
 set path+=**
 set wildmenu
@@ -35,8 +38,7 @@ let g:airline_theme='badcat'
 let g:tagbar_width = 20
 "Next And Previous Buffer
 nnoremap <C-n> :bnext<CR>
-" <C-p> conflict with aliases for change omnifunc
-"nnoremap <C-p> :bprev<CR>
+nnoremap <C-p> :bprev<CR>
 """""""""""""""""""""""""""
 
 """"""""""""""""""""""""""
@@ -105,13 +107,13 @@ autocmd BufRead,BufNewFile *.html let g:closetag_shortcut = '>'
 autocmd BufRead,BufNewFile *.html let g:closetag_close_shortcut = '<leader>>'
 " HTML file can contain 
 "CSS 
-autocmd BufRead,BufNewFile *.html nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.html nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "JS 
-autocmd BufRead,BufNewFile *.html  nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.html  nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "HTML back to basic omnifunc
-autocmd BufRead,BufNewFile *.html nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.html nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "HTML syntastic
-autocmd BufRead,BufNewFile *.html let g:syntastic_html_checkers = ['htmlhint']
+"autocmd BufRead,BufNewFile *.html let g:syntastic_html_checkers = ['htmlhint']
 "Import html model
 autocmd BufNewFile *.html 0r ~/.vim/templates/template.html
 """""""""""""""""""""""""""
@@ -126,21 +128,21 @@ autocmd BufRead,BufNewFile *.css let g:syntastic_css_checkers = ['csslint']
 
 """""""""""""""""""""""""""
 " PHP file
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd BufRead,BufNewFile *.php let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " PHP file can contain
 "HTML
-autocmd BufRead,BufNewFile *.php nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.php nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "CSS
-autocmd BufRead,BufNewFile *.php nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.php nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "SQL
-autocmd BufRead,BufNewFile *.php nnoremap <C-d> <Esc>:set dictionary+=/home/robot/.vim/dictionnary/function.sql dictionary+=/home/robot/.vim/dictionnary/keyword.sql \| let g:SuperTabDefaultCompletionType = "<c-x><c-k>"<CR>
+"autocmd BufRead,BufNewFile *.php nnoremap <C-d> <Esc>:set dictionary+=/home/robot/.vim/dictionnary/function.sql dictionary+=/home/robot/.vim/dictionnary/keyword.sql \| let g:SuperTabDefaultCompletionType = "<c-x><c-k>"<CR>
 "JS
-autocmd BufRead,BufNewFile *.php nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.php nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "PHP back to basic omnifunc
-autocmd BufRead,BufNewFile *.php nnoremap <C-p> <Esc>:set omnifunc=phpcomplete#CompletePHP \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.php nnoremap <C-p> <Esc>:setlocal omnifunc=phpcomplete#CompletePHP \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "Syntastic PHP
-autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['phpmd']
+autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['php']
 "Import php model
 autocmd BufNewFile *.php 0r ~/.vim/templates/template.php
 """""""""""""""""""""""""""
@@ -159,11 +161,11 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd BufRead,BufNewFile *.js let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " JS file can contain
 " HTML
-autocmd BufRead,BufNewFile *.js nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.js nnoremap <C-h> <Esc>:set omnifunc=htmlcomplete#CompleteTags \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 " CSS
-autocmd BufRead,BufNewFile *.js nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.js nnoremap <C-c> <Esc>:setlocal omnifunc=csscomplete#CompleteCSS noci \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 " JS back to basic omnifunc
-autocmd BufRead,BufNewFile *.js nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
+"autocmd BufRead,BufNewFile *.js nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "Syntastic JS
 autocmd BufRead,BufNewFile *.js let g:syntastic_javascript_checkers = ['jshint']
 """""""""""""""""""""""""""
@@ -176,7 +178,7 @@ autocmd FileType cpp set omnifunc=omni#cpp#complete#Main
 autocmd BufRead,BufNewFile *.cpp let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/cpp
 autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/gl
-autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/sdl
+autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/sdl2
 autocmd BufRead,BufNewFile *.cpp set tags+=~/.vim/tags/qt4
 " Compile and Run
 autocmd BufRead,BufNewFile *.cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
@@ -204,6 +206,7 @@ autocmd BufRead,BufNewFile *.cpp let g:syntastic_javascript_checkers = ['cppchec
 "Import Cpp and Hpp model
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.cpp
 autocmd BufNewFile *.hpp 0r ~/.vim/templates/template.hpp
+autocmd BufNewFile main.cpp 0r ~/.vim/templates/template.main.cpp
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
