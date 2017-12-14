@@ -26,6 +26,19 @@ ERROR_INVALID_PIXEL_TYPE_ARB	/usr/include/GL/wglew.h	282;"	d
 ERROR_INVALID_PIXEL_TYPE_EXT	/usr/include/GL/wglew.h	608;"	d
 ERROR_INVALID_PROFILE_ARB	/usr/include/GL/wglew.h	207;"	d
 ERROR_INVALID_VERSION_ARB	/usr/include/GL/wglew.h	206;"	d
+FGAPI	/usr/include/GL/freeglut_std.h	114;"	d
+FGAPI	/usr/include/GL/freeglut_std.h	68;"	d
+FGAPI	/usr/include/GL/freeglut_std.h	85;"	d
+FGAPI	/usr/include/GL/freeglut_std.h	87;"	d
+FGAPIENTRY	/usr/include/GL/freeglut_std.h	115;"	d
+FGAPIENTRY	/usr/include/GL/freeglut_std.h	69;"	d
+FGAPIENTRY	/usr/include/GL/freeglut_std.h	83;"	d
+FGUNUSED	/usr/include/GL/freeglut_std.h	633;"	d
+FGUNUSED	/usr/include/GL/freeglut_std.h	635;"	d
+FREEGLUT	/usr/include/GL/freeglut_std.h	122;"	d
+FREEGLUT_LIB_PRAGMAS	/usr/include/GL/freeglut_std.h	51;"	d
+FREEGLUT_LIB_PRAGMAS	/usr/include/GL/freeglut_std.h	53;"	d
+FREEGLUT_VERSION_2_0	/usr/include/GL/freeglut_std.h	127;"	d
 Flags	/usr/include/GL/wglew.h	/^  DWORD Flags; $/;"	m	struct:_GPU_DEVICE	access:public
 GLAPI	/usr/include/GL/gl.h	45;"	d
 GLAPI	/usr/include/GL/gl.h	47;"	d
@@ -907,6 +920,238 @@ GLEXT_64_TYPES_DEFINED	/usr/include/GL/glcorearb.h	1499;"	d
 GLEXT_64_TYPES_DEFINED	/usr/include/GL/glext.h	1386;"	d
 GLEXT_64_TYPES_DEFINED	/usr/include/GL/glxext.h	638;"	d
 GLLOGPROCREGAL	/usr/include/GL/glew.h	/^typedef void (APIENTRY *GLLOGPROCREGAL)(GLenum stream, GLsizei length, const GLchar *message, void *context);$/;"	t
+GLUT_ACCUM	/usr/include/GL/freeglut_std.h	191;"	d
+GLUT_ACTION_CONTINUE_EXECUTION	/usr/include/GL/freeglut_ext.h	53;"	d
+GLUT_ACTION_EXIT	/usr/include/GL/freeglut_ext.h	51;"	d
+GLUT_ACTION_GLUTMAINLOOP_RETURNS	/usr/include/GL/freeglut_ext.h	52;"	d
+GLUT_ACTION_ON_WINDOW_CLOSE	/usr/include/GL/freeglut_ext.h	74;"	d
+GLUT_ACTIVE_ALT	/usr/include/GL/freeglut_std.h	351;"	d
+GLUT_ACTIVE_CTRL	/usr/include/GL/freeglut_std.h	350;"	d
+GLUT_ACTIVE_SHIFT	/usr/include/GL/freeglut_std.h	349;"	d
+GLUT_ALLOW_DIRECT_CONTEXT	/usr/include/GL/freeglut_ext.h	65;"	d
+GLUT_ALPHA	/usr/include/GL/freeglut_std.h	192;"	d
+GLUT_API_VERSION	/usr/include/GL/freeglut_std.h	123;"	d
+GLUT_APPSTATUS_PAUSE	/usr/include/GL/freeglut_ext.h	255;"	d
+GLUT_APPSTATUS_RESUME	/usr/include/GL/freeglut_ext.h	256;"	d
+GLUT_AUX	/usr/include/GL/freeglut_ext.h	98;"	d
+GLUT_AUX1	/usr/include/GL/freeglut_ext.h	100;"	d
+GLUT_AUX2	/usr/include/GL/freeglut_ext.h	101;"	d
+GLUT_AUX3	/usr/include/GL/freeglut_ext.h	102;"	d
+GLUT_AUX4	/usr/include/GL/freeglut_ext.h	103;"	d
+GLUT_BITMAP_8_BY_13	/usr/include/GL/freeglut_std.h	220;"	d
+GLUT_BITMAP_8_BY_13	/usr/include/GL/freeglut_std.h	246;"	d
+GLUT_BITMAP_9_BY_15	/usr/include/GL/freeglut_std.h	219;"	d
+GLUT_BITMAP_9_BY_15	/usr/include/GL/freeglut_std.h	245;"	d
+GLUT_BITMAP_HELVETICA_10	/usr/include/GL/freeglut_std.h	223;"	d
+GLUT_BITMAP_HELVETICA_10	/usr/include/GL/freeglut_std.h	249;"	d
+GLUT_BITMAP_HELVETICA_12	/usr/include/GL/freeglut_std.h	224;"	d
+GLUT_BITMAP_HELVETICA_12	/usr/include/GL/freeglut_std.h	250;"	d
+GLUT_BITMAP_HELVETICA_18	/usr/include/GL/freeglut_std.h	225;"	d
+GLUT_BITMAP_HELVETICA_18	/usr/include/GL/freeglut_std.h	251;"	d
+GLUT_BITMAP_TIMES_ROMAN_10	/usr/include/GL/freeglut_std.h	221;"	d
+GLUT_BITMAP_TIMES_ROMAN_10	/usr/include/GL/freeglut_std.h	247;"	d
+GLUT_BITMAP_TIMES_ROMAN_24	/usr/include/GL/freeglut_std.h	222;"	d
+GLUT_BITMAP_TIMES_ROMAN_24	/usr/include/GL/freeglut_std.h	248;"	d
+GLUT_BLUE	/usr/include/GL/freeglut_std.h	385;"	d
+GLUT_BORDERLESS	/usr/include/GL/freeglut_ext.h	262;"	d
+GLUT_CAPTIONLESS	/usr/include/GL/freeglut_ext.h	261;"	d
+GLUT_COMPATIBILITY_PROFILE	/usr/include/GL/freeglut_ext.h	125;"	d
+GLUT_CORE_PROFILE	/usr/include/GL/freeglut_ext.h	124;"	d
+GLUT_CREATE_NEW_CONTEXT	/usr/include/GL/freeglut_ext.h	58;"	d
+GLUT_CURSOR_BOTTOM_LEFT_CORNER	/usr/include/GL/freeglut_std.h	375;"	d
+GLUT_CURSOR_BOTTOM_RIGHT_CORNER	/usr/include/GL/freeglut_std.h	374;"	d
+GLUT_CURSOR_BOTTOM_SIDE	/usr/include/GL/freeglut_std.h	369;"	d
+GLUT_CURSOR_CROSSHAIR	/usr/include/GL/freeglut_std.h	365;"	d
+GLUT_CURSOR_CYCLE	/usr/include/GL/freeglut_std.h	361;"	d
+GLUT_CURSOR_DESTROY	/usr/include/GL/freeglut_std.h	359;"	d
+GLUT_CURSOR_FULL_CROSSHAIR	/usr/include/GL/freeglut_std.h	378;"	d
+GLUT_CURSOR_HELP	/usr/include/GL/freeglut_std.h	360;"	d
+GLUT_CURSOR_INFO	/usr/include/GL/freeglut_std.h	358;"	d
+GLUT_CURSOR_INHERIT	/usr/include/GL/freeglut_std.h	376;"	d
+GLUT_CURSOR_LEFT_ARROW	/usr/include/GL/freeglut_std.h	357;"	d
+GLUT_CURSOR_LEFT_RIGHT	/usr/include/GL/freeglut_std.h	367;"	d
+GLUT_CURSOR_LEFT_SIDE	/usr/include/GL/freeglut_std.h	370;"	d
+GLUT_CURSOR_NONE	/usr/include/GL/freeglut_std.h	377;"	d
+GLUT_CURSOR_RIGHT_ARROW	/usr/include/GL/freeglut_std.h	356;"	d
+GLUT_CURSOR_RIGHT_SIDE	/usr/include/GL/freeglut_std.h	371;"	d
+GLUT_CURSOR_SPRAY	/usr/include/GL/freeglut_std.h	362;"	d
+GLUT_CURSOR_TEXT	/usr/include/GL/freeglut_std.h	364;"	d
+GLUT_CURSOR_TOP_LEFT_CORNER	/usr/include/GL/freeglut_std.h	372;"	d
+GLUT_CURSOR_TOP_RIGHT_CORNER	/usr/include/GL/freeglut_std.h	373;"	d
+GLUT_CURSOR_TOP_SIDE	/usr/include/GL/freeglut_std.h	368;"	d
+GLUT_CURSOR_UP_DOWN	/usr/include/GL/freeglut_std.h	366;"	d
+GLUT_CURSOR_WAIT	/usr/include/GL/freeglut_std.h	363;"	d
+GLUT_DEBUG	/usr/include/GL/freeglut_ext.h	117;"	d
+GLUT_DEPTH	/usr/include/GL/freeglut_std.h	193;"	d
+GLUT_DEVICE_IGNORE_KEY_REPEAT	/usr/include/GL/freeglut_std.h	308;"	d
+GLUT_DEVICE_KEY_REPEAT	/usr/include/GL/freeglut_std.h	309;"	d
+GLUT_DIRECT_RENDERING	/usr/include/GL/freeglut_ext.h	83;"	d
+GLUT_DISPLAY_MODE_POSSIBLE	/usr/include/GL/freeglut_std.h	286;"	d
+GLUT_DOUBLE	/usr/include/GL/freeglut_std.h	190;"	d
+GLUT_DOWN	/usr/include/GL/freeglut_std.h	178;"	d
+GLUT_ELAPSED_TIME	/usr/include/GL/freeglut_std.h	292;"	d
+GLUT_ENTERED	/usr/include/GL/freeglut_std.h	181;"	d
+GLUT_FORCE_DIRECT_CONTEXT	/usr/include/GL/freeglut_ext.h	67;"	d
+GLUT_FORCE_INDIRECT_CONTEXT	/usr/include/GL/freeglut_ext.h	64;"	d
+GLUT_FORWARD_COMPATIBLE	/usr/include/GL/freeglut_ext.h	118;"	d
+GLUT_FULLY_COVERED	/usr/include/GL/freeglut_std.h	209;"	d
+GLUT_FULLY_RETAINED	/usr/include/GL/freeglut_std.h	207;"	d
+GLUT_FULL_SCREEN	/usr/include/GL/freeglut_ext.h	85;"	d
+GLUT_GAME_MODE_ACTIVE	/usr/include/GL/freeglut_std.h	402;"	d
+GLUT_GAME_MODE_DISPLAY_CHANGED	/usr/include/GL/freeglut_std.h	408;"	d
+GLUT_GAME_MODE_HEIGHT	/usr/include/GL/freeglut_std.h	405;"	d
+GLUT_GAME_MODE_PIXEL_DEPTH	/usr/include/GL/freeglut_std.h	406;"	d
+GLUT_GAME_MODE_POSSIBLE	/usr/include/GL/freeglut_std.h	403;"	d
+GLUT_GAME_MODE_REFRESH_RATE	/usr/include/GL/freeglut_std.h	407;"	d
+GLUT_GAME_MODE_WIDTH	/usr/include/GL/freeglut_std.h	404;"	d
+GLUT_GEOMETRY_VISUALIZE_NORMALS	/usr/include/GL/freeglut_ext.h	89;"	d
+GLUT_GREEN	/usr/include/GL/freeglut_std.h	384;"	d
+GLUT_HAS_DIAL_AND_BUTTON_BOX	/usr/include/GL/freeglut_std.h	301;"	d
+GLUT_HAS_JOYSTICK	/usr/include/GL/freeglut_std.h	310;"	d
+GLUT_HAS_KEYBOARD	/usr/include/GL/freeglut_std.h	298;"	d
+GLUT_HAS_MOUSE	/usr/include/GL/freeglut_std.h	299;"	d
+GLUT_HAS_MULTI	/usr/include/GL/freeglut_ext.h	203;"	d
+GLUT_HAS_OVERLAY	/usr/include/GL/freeglut_std.h	321;"	d
+GLUT_HAS_SPACEBALL	/usr/include/GL/freeglut_std.h	300;"	d
+GLUT_HAS_TABLET	/usr/include/GL/freeglut_std.h	302;"	d
+GLUT_HIDDEN	/usr/include/GL/freeglut_std.h	206;"	d
+GLUT_INDEX	/usr/include/GL/freeglut_std.h	188;"	d
+GLUT_INIT_DISPLAY_MODE	/usr/include/GL/freeglut_std.h	291;"	d
+GLUT_INIT_FLAGS	/usr/include/GL/freeglut_ext.h	111;"	d
+GLUT_INIT_MAJOR_VERSION	/usr/include/GL/freeglut_ext.h	109;"	d
+GLUT_INIT_MINOR_VERSION	/usr/include/GL/freeglut_ext.h	110;"	d
+GLUT_INIT_PROFILE	/usr/include/GL/freeglut_ext.h	112;"	d
+GLUT_INIT_STATE	/usr/include/GL/freeglut_ext.h	72;"	d
+GLUT_INIT_WINDOW_HEIGHT	/usr/include/GL/freeglut_std.h	290;"	d
+GLUT_INIT_WINDOW_WIDTH	/usr/include/GL/freeglut_std.h	289;"	d
+GLUT_INIT_WINDOW_X	/usr/include/GL/freeglut_std.h	287;"	d
+GLUT_INIT_WINDOW_Y	/usr/include/GL/freeglut_std.h	288;"	d
+GLUT_JOYSTICK_AXES	/usr/include/GL/freeglut_std.h	313;"	d
+GLUT_JOYSTICK_BUTTONS	/usr/include/GL/freeglut_std.h	312;"	d
+GLUT_JOYSTICK_BUTTON_A	/usr/include/GL/freeglut_std.h	394;"	d
+GLUT_JOYSTICK_BUTTON_B	/usr/include/GL/freeglut_std.h	395;"	d
+GLUT_JOYSTICK_BUTTON_C	/usr/include/GL/freeglut_std.h	396;"	d
+GLUT_JOYSTICK_BUTTON_D	/usr/include/GL/freeglut_std.h	397;"	d
+GLUT_JOYSTICK_POLL_RATE	/usr/include/GL/freeglut_std.h	314;"	d
+GLUT_KEY_ALT_L	/usr/include/GL/freeglut_ext.h	45;"	d
+GLUT_KEY_ALT_R	/usr/include/GL/freeglut_ext.h	46;"	d
+GLUT_KEY_BEGIN	/usr/include/GL/freeglut_ext.h	39;"	d
+GLUT_KEY_CTRL_L	/usr/include/GL/freeglut_ext.h	43;"	d
+GLUT_KEY_CTRL_R	/usr/include/GL/freeglut_ext.h	44;"	d
+GLUT_KEY_DELETE	/usr/include/GL/freeglut_ext.h	40;"	d
+GLUT_KEY_DOWN	/usr/include/GL/freeglut_std.h	165;"	d
+GLUT_KEY_END	/usr/include/GL/freeglut_std.h	169;"	d
+GLUT_KEY_F1	/usr/include/GL/freeglut_std.h	150;"	d
+GLUT_KEY_F10	/usr/include/GL/freeglut_std.h	159;"	d
+GLUT_KEY_F11	/usr/include/GL/freeglut_std.h	160;"	d
+GLUT_KEY_F12	/usr/include/GL/freeglut_std.h	161;"	d
+GLUT_KEY_F2	/usr/include/GL/freeglut_std.h	151;"	d
+GLUT_KEY_F3	/usr/include/GL/freeglut_std.h	152;"	d
+GLUT_KEY_F4	/usr/include/GL/freeglut_std.h	153;"	d
+GLUT_KEY_F5	/usr/include/GL/freeglut_std.h	154;"	d
+GLUT_KEY_F6	/usr/include/GL/freeglut_std.h	155;"	d
+GLUT_KEY_F7	/usr/include/GL/freeglut_std.h	156;"	d
+GLUT_KEY_F8	/usr/include/GL/freeglut_std.h	157;"	d
+GLUT_KEY_F9	/usr/include/GL/freeglut_std.h	158;"	d
+GLUT_KEY_HOME	/usr/include/GL/freeglut_std.h	168;"	d
+GLUT_KEY_INSERT	/usr/include/GL/freeglut_std.h	170;"	d
+GLUT_KEY_LEFT	/usr/include/GL/freeglut_std.h	162;"	d
+GLUT_KEY_NUM_LOCK	/usr/include/GL/freeglut_ext.h	38;"	d
+GLUT_KEY_PAGE_DOWN	/usr/include/GL/freeglut_std.h	167;"	d
+GLUT_KEY_PAGE_UP	/usr/include/GL/freeglut_std.h	166;"	d
+GLUT_KEY_REPEAT_DEFAULT	/usr/include/GL/freeglut_std.h	392;"	d
+GLUT_KEY_REPEAT_OFF	/usr/include/GL/freeglut_std.h	390;"	d
+GLUT_KEY_REPEAT_ON	/usr/include/GL/freeglut_std.h	391;"	d
+GLUT_KEY_RIGHT	/usr/include/GL/freeglut_std.h	164;"	d
+GLUT_KEY_SHIFT_L	/usr/include/GL/freeglut_ext.h	41;"	d
+GLUT_KEY_SHIFT_R	/usr/include/GL/freeglut_ext.h	42;"	d
+GLUT_KEY_UP	/usr/include/GL/freeglut_std.h	163;"	d
+GLUT_LAYER_IN_USE	/usr/include/GL/freeglut_std.h	320;"	d
+GLUT_LEFT	/usr/include/GL/freeglut_std.h	180;"	d
+GLUT_LEFT_BUTTON	/usr/include/GL/freeglut_std.h	175;"	d
+GLUT_LUMINANCE	/usr/include/GL/freeglut_std.h	197;"	d
+GLUT_MENU_IN_USE	/usr/include/GL/freeglut_std.h	203;"	d
+GLUT_MENU_NOT_IN_USE	/usr/include/GL/freeglut_std.h	202;"	d
+GLUT_MENU_NUM_ITEMS	/usr/include/GL/freeglut_std.h	285;"	d
+GLUT_MIDDLE_BUTTON	/usr/include/GL/freeglut_std.h	176;"	d
+GLUT_MULTISAMPLE	/usr/include/GL/freeglut_std.h	195;"	d
+GLUT_NORMAL	/usr/include/GL/freeglut_std.h	343;"	d
+GLUT_NORMAL_DAMAGED	/usr/include/GL/freeglut_std.h	323;"	d
+GLUT_NOT_VISIBLE	/usr/include/GL/freeglut_std.h	204;"	d
+GLUT_NUM_BUTTON_BOX_BUTTONS	/usr/include/GL/freeglut_std.h	305;"	d
+GLUT_NUM_DIALS	/usr/include/GL/freeglut_std.h	306;"	d
+GLUT_NUM_MOUSE_BUTTONS	/usr/include/GL/freeglut_std.h	303;"	d
+GLUT_NUM_SPACEBALL_BUTTONS	/usr/include/GL/freeglut_std.h	304;"	d
+GLUT_NUM_TABLET_BUTTONS	/usr/include/GL/freeglut_std.h	307;"	d
+GLUT_OVERLAY	/usr/include/GL/freeglut_std.h	344;"	d
+GLUT_OVERLAY_DAMAGED	/usr/include/GL/freeglut_std.h	324;"	d
+GLUT_OVERLAY_POSSIBLE	/usr/include/GL/freeglut_std.h	319;"	d
+GLUT_OWNS_JOYSTICK	/usr/include/GL/freeglut_std.h	311;"	d
+GLUT_PARTIALLY_RETAINED	/usr/include/GL/freeglut_std.h	208;"	d
+GLUT_RED	/usr/include/GL/freeglut_std.h	383;"	d
+GLUT_RENDERING_CONTEXT	/usr/include/GL/freeglut_ext.h	82;"	d
+GLUT_RGB	/usr/include/GL/freeglut_std.h	186;"	d
+GLUT_RGBA	/usr/include/GL/freeglut_std.h	187;"	d
+GLUT_RIGHT_BUTTON	/usr/include/GL/freeglut_std.h	177;"	d
+GLUT_SCREEN_HEIGHT	/usr/include/GL/freeglut_std.h	282;"	d
+GLUT_SCREEN_HEIGHT_MM	/usr/include/GL/freeglut_std.h	284;"	d
+GLUT_SCREEN_WIDTH	/usr/include/GL/freeglut_std.h	281;"	d
+GLUT_SCREEN_WIDTH_MM	/usr/include/GL/freeglut_std.h	283;"	d
+GLUT_SINGLE	/usr/include/GL/freeglut_std.h	189;"	d
+GLUT_SKIP_STALE_MOTION_EVENTS	/usr/include/GL/freeglut_ext.h	87;"	d
+GLUT_SRGB	/usr/include/GL/freeglut_ext.h	263;"	d
+GLUT_STENCIL	/usr/include/GL/freeglut_std.h	194;"	d
+GLUT_STEREO	/usr/include/GL/freeglut_std.h	196;"	d
+GLUT_STROKE_FONT_DRAW_JOIN_DOTS	/usr/include/GL/freeglut_ext.h	91;"	d
+GLUT_STROKE_MONO_ROMAN	/usr/include/GL/freeglut_std.h	218;"	d
+GLUT_STROKE_MONO_ROMAN	/usr/include/GL/freeglut_std.h	244;"	d
+GLUT_STROKE_ROMAN	/usr/include/GL/freeglut_std.h	217;"	d
+GLUT_STROKE_ROMAN	/usr/include/GL/freeglut_std.h	243;"	d
+GLUT_TRANSPARENT_INDEX	/usr/include/GL/freeglut_std.h	322;"	d
+GLUT_TRY_DIRECT_CONTEXT	/usr/include/GL/freeglut_ext.h	66;"	d
+GLUT_UP	/usr/include/GL/freeglut_std.h	179;"	d
+GLUT_USE_CURRENT_CONTEXT	/usr/include/GL/freeglut_ext.h	59;"	d
+GLUT_VERSION	/usr/include/GL/freeglut_ext.h	80;"	d
+GLUT_VIDEO_RESIZE_HEIGHT	/usr/include/GL/freeglut_std.h	338;"	d
+GLUT_VIDEO_RESIZE_HEIGHT_DELTA	/usr/include/GL/freeglut_std.h	334;"	d
+GLUT_VIDEO_RESIZE_IN_USE	/usr/include/GL/freeglut_std.h	330;"	d
+GLUT_VIDEO_RESIZE_POSSIBLE	/usr/include/GL/freeglut_std.h	329;"	d
+GLUT_VIDEO_RESIZE_WIDTH	/usr/include/GL/freeglut_std.h	337;"	d
+GLUT_VIDEO_RESIZE_WIDTH_DELTA	/usr/include/GL/freeglut_std.h	333;"	d
+GLUT_VIDEO_RESIZE_X	/usr/include/GL/freeglut_std.h	335;"	d
+GLUT_VIDEO_RESIZE_X_DELTA	/usr/include/GL/freeglut_std.h	331;"	d
+GLUT_VIDEO_RESIZE_Y	/usr/include/GL/freeglut_std.h	336;"	d
+GLUT_VIDEO_RESIZE_Y_DELTA	/usr/include/GL/freeglut_std.h	332;"	d
+GLUT_VISIBLE	/usr/include/GL/freeglut_std.h	205;"	d
+GLUT_WINDOW_ACCUM_ALPHA_SIZE	/usr/include/GL/freeglut_std.h	271;"	d
+GLUT_WINDOW_ACCUM_BLUE_SIZE	/usr/include/GL/freeglut_std.h	270;"	d
+GLUT_WINDOW_ACCUM_GREEN_SIZE	/usr/include/GL/freeglut_std.h	269;"	d
+GLUT_WINDOW_ACCUM_RED_SIZE	/usr/include/GL/freeglut_std.h	268;"	d
+GLUT_WINDOW_ALPHA_SIZE	/usr/include/GL/freeglut_std.h	267;"	d
+GLUT_WINDOW_BLUE_SIZE	/usr/include/GL/freeglut_std.h	266;"	d
+GLUT_WINDOW_BORDER_HEIGHT	/usr/include/GL/freeglut_ext.h	77;"	d
+GLUT_WINDOW_BORDER_WIDTH	/usr/include/GL/freeglut_ext.h	76;"	d
+GLUT_WINDOW_BUFFER_SIZE	/usr/include/GL/freeglut_std.h	261;"	d
+GLUT_WINDOW_COLORMAP_SIZE	/usr/include/GL/freeglut_std.h	276;"	d
+GLUT_WINDOW_CURSOR	/usr/include/GL/freeglut_std.h	279;"	d
+GLUT_WINDOW_DEPTH_SIZE	/usr/include/GL/freeglut_std.h	263;"	d
+GLUT_WINDOW_DOUBLEBUFFER	/usr/include/GL/freeglut_std.h	272;"	d
+GLUT_WINDOW_FORMAT_ID	/usr/include/GL/freeglut_std.h	293;"	d
+GLUT_WINDOW_GREEN_SIZE	/usr/include/GL/freeglut_std.h	265;"	d
+GLUT_WINDOW_HEADER_HEIGHT	/usr/include/GL/freeglut_ext.h	78;"	d
+GLUT_WINDOW_HEIGHT	/usr/include/GL/freeglut_std.h	260;"	d
+GLUT_WINDOW_NUM_CHILDREN	/usr/include/GL/freeglut_std.h	275;"	d
+GLUT_WINDOW_NUM_SAMPLES	/usr/include/GL/freeglut_std.h	277;"	d
+GLUT_WINDOW_PARENT	/usr/include/GL/freeglut_std.h	274;"	d
+GLUT_WINDOW_RED_SIZE	/usr/include/GL/freeglut_std.h	264;"	d
+GLUT_WINDOW_RGBA	/usr/include/GL/freeglut_std.h	273;"	d
+GLUT_WINDOW_STENCIL_SIZE	/usr/include/GL/freeglut_std.h	262;"	d
+GLUT_WINDOW_STEREO	/usr/include/GL/freeglut_std.h	278;"	d
+GLUT_WINDOW_WIDTH	/usr/include/GL/freeglut_std.h	259;"	d
+GLUT_WINDOW_X	/usr/include/GL/freeglut_std.h	257;"	d
+GLUT_WINDOW_Y	/usr/include/GL/freeglut_std.h	258;"	d
+GLUT_XLIB_IMPLEMENTATION	/usr/include/GL/freeglut_std.h	124;"	d
+GLUTproc	/usr/include/GL/freeglut_ext.h	/^typedef void (*GLUTproc)();$/;"	t
 GLU_AUTO_LOAD_MATRIX	/usr/include/GL/glu.h	167;"	d
 GLU_BEGIN	/usr/include/GL/glu.h	215;"	d
 GLU_CCW	/usr/include/GL/glu.h	233;"	d
@@ -1073,8 +1318,8 @@ GLUtriangulatorObj	/usr/include/GL/glu.h	/^typedef GLUtesselator GLUtriangulator
 GLVULKANPROCNV	/usr/include/GL/glcorearb.h	/^typedef void (APIENTRY  *GLVULKANPROCNV)(void);$/;"	t
 GLVULKANPROCNV	/usr/include/GL/glew.h	/^typedef void (APIENTRY *GLVULKANPROCNV)(void);$/;"	t
 GLVULKANPROCNV	/usr/include/GL/glext.h	/^typedef void (APIENTRY  *GLVULKANPROCNV)(void);$/;"	t
-GLXBufferClobberEventSGIX	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	t	typeref:struct:__anon6
-GLXBufferSwapComplete	/usr/include/GL/glx.h	/^} GLXBufferSwapComplete;$/;"	t	typeref:struct:__anon13
+GLXBufferClobberEventSGIX	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	t	typeref:struct:__anon13
+GLXBufferSwapComplete	/usr/include/GL/glx.h	/^} GLXBufferSwapComplete;$/;"	t	typeref:struct:__anon7
 GLXContext	/usr/include/GL/glx.h	/^typedef struct __GLXcontextRec *GLXContext;$/;"	t	typeref:struct:__GLXcontextRec
 GLXContext	/usr/include/GL/glxew.h	/^typedef struct __GLXcontextRec *GLXContext;$/;"	t	typeref:struct:__GLXcontextRec
 GLXContext	/usr/include/GL/glxew.h	/^typedef struct __glXContextRec *GLXContext;$/;"	t	typeref:struct:__glXContextRec
@@ -1170,24 +1415,24 @@ GLXFBConfigID	/usr/include/GL/glxew.h	/^typedef XID GLXFBConfigID;$/;"	t
 GLXFBConfigIDSGIX	/usr/include/GL/glxew.h	/^typedef XID GLXFBConfigIDSGIX;$/;"	t
 GLXFBConfigSGIX	/usr/include/GL/glxew.h	/^typedef struct __GLXFBConfigRec *GLXFBConfigSGIX;$/;"	t	typeref:struct:__GLXFBConfigRec
 GLXFBConfigSGIX	/usr/include/GL/glxext.h	/^typedef struct __GLXFBConfigRec *GLXFBConfigSGIX;$/;"	t	typeref:struct:__GLXFBConfigRec
-GLXHyperpipeConfigSGIX	/usr/include/GL/glxew.h	/^} GLXHyperpipeConfigSGIX;$/;"	t	typeref:struct:__anon4
-GLXHyperpipeConfigSGIX	/usr/include/GL/glxext.h	/^} GLXHyperpipeConfigSGIX;$/;"	t	typeref:struct:__anon9
-GLXHyperpipeNetworkSGIX	/usr/include/GL/glxew.h	/^} GLXHyperpipeNetworkSGIX;$/;"	t	typeref:struct:__anon2
-GLXHyperpipeNetworkSGIX	/usr/include/GL/glxext.h	/^} GLXHyperpipeNetworkSGIX;$/;"	t	typeref:struct:__anon8
+GLXHyperpipeConfigSGIX	/usr/include/GL/glxew.h	/^} GLXHyperpipeConfigSGIX;$/;"	t	typeref:struct:__anon11
+GLXHyperpipeConfigSGIX	/usr/include/GL/glxext.h	/^} GLXHyperpipeConfigSGIX;$/;"	t	typeref:struct:__anon3
+GLXHyperpipeNetworkSGIX	/usr/include/GL/glxew.h	/^} GLXHyperpipeNetworkSGIX;$/;"	t	typeref:struct:__anon9
+GLXHyperpipeNetworkSGIX	/usr/include/GL/glxext.h	/^} GLXHyperpipeNetworkSGIX;$/;"	t	typeref:struct:__anon2
 GLXPbuffer	/usr/include/GL/glx.h	/^typedef XID GLXPbuffer;$/;"	t
 GLXPbuffer	/usr/include/GL/glxew.h	/^typedef XID GLXPbuffer;$/;"	t
 GLXPbuffer	/usr/include/GL/glxext.h	/^typedef XID GLXPbuffer;$/;"	t
-GLXPbufferClobberEvent	/usr/include/GL/glx.h	/^} GLXPbufferClobberEvent;$/;"	t	typeref:struct:__anon12
-GLXPbufferClobberEvent	/usr/include/GL/glxew.h	/^} GLXPbufferClobberEvent;$/;"	t	typeref:struct:__anon1
+GLXPbufferClobberEvent	/usr/include/GL/glx.h	/^} GLXPbufferClobberEvent;$/;"	t	typeref:struct:__anon6
+GLXPbufferClobberEvent	/usr/include/GL/glxew.h	/^} GLXPbufferClobberEvent;$/;"	t	typeref:struct:__anon8
 GLXPbufferSGIX	/usr/include/GL/glxew.h	/^typedef XID GLXPbufferSGIX;$/;"	t
 GLXPbufferSGIX	/usr/include/GL/glxext.h	/^typedef XID GLXPbufferSGIX;$/;"	t
-GLXPipeRect	/usr/include/GL/glxew.h	/^} GLXPipeRect;$/;"	t	typeref:struct:__anon5
-GLXPipeRect	/usr/include/GL/glxext.h	/^} GLXPipeRect;$/;"	t	typeref:struct:__anon10
-GLXPipeRectLimits	/usr/include/GL/glxew.h	/^} GLXPipeRectLimits;$/;"	t	typeref:struct:__anon3
-GLXPipeRectLimits	/usr/include/GL/glxext.h	/^} GLXPipeRectLimits;$/;"	t	typeref:struct:__anon11
+GLXPipeRect	/usr/include/GL/glxew.h	/^} GLXPipeRect;$/;"	t	typeref:struct:__anon12
+GLXPipeRect	/usr/include/GL/glxext.h	/^} GLXPipeRect;$/;"	t	typeref:struct:__anon4
+GLXPipeRectLimits	/usr/include/GL/glxew.h	/^} GLXPipeRectLimits;$/;"	t	typeref:struct:__anon10
+GLXPipeRectLimits	/usr/include/GL/glxext.h	/^} GLXPipeRectLimits;$/;"	t	typeref:struct:__anon5
 GLXPixmap	/usr/include/GL/glx.h	/^typedef XID GLXPixmap;$/;"	t
 GLXPixmap	/usr/include/GL/glxew.h	/^typedef XID GLXPixmap;$/;"	t
-GLXStereoNotifyEventEXT	/usr/include/GL/glxext.h	/^} GLXStereoNotifyEventEXT;$/;"	t	typeref:struct:__anon7
+GLXStereoNotifyEventEXT	/usr/include/GL/glxext.h	/^} GLXStereoNotifyEventEXT;$/;"	t	typeref:struct:__anon1
 GLXVideoCaptureDeviceNV	/usr/include/GL/glxew.h	/^typedef XID GLXVideoCaptureDeviceNV;$/;"	t
 GLXVideoCaptureDeviceNV	/usr/include/GL/glxext.h	/^typedef XID GLXVideoCaptureDeviceNV;$/;"	t
 GLXVideoDeviceNV	/usr/include/GL/glxew.h	/^typedef unsigned int GLXVideoDeviceNV; $/;"	t
@@ -16205,6 +16450,7 @@ HVIDEOINPUTDEVICENV	/usr/include/GL/wglew.h	/^DECLARE_HANDLE(HVIDEOINPUTDEVICENV
 HVIDEOOUTPUTDEVICENV	/usr/include/GL/wglew.h	/^DECLARE_HANDLE(HVIDEOOUTPUTDEVICENV);$/;"	v
 MANGLE	/usr/include/GL/gl_mangle.h	27;"	d
 MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB	/usr/include/GL/glew.h	17314;"	d
+NOMINMAX	/usr/include/GL/freeglut_std.h	61;"	d
 OSMESA_ACCUM_BITS	/usr/include/GL/osmesa.h	103;"	d
 OSMESA_ARGB	/usr/include/GL/osmesa.h	74;"	d
 OSMESA_BGR	/usr/include/GL/osmesa.h	76;"	d
@@ -23457,6 +23703,7 @@ WGL_VIDEO_OUT_FIELD_2	/usr/include/GL/wglew.h	1169;"	d
 WGL_VIDEO_OUT_FRAME	/usr/include/GL/wglew.h	1167;"	d
 WGL_VIDEO_OUT_STACKED_FIELDS_1_2	/usr/include/GL/wglew.h	1170;"	d
 WGL_VIDEO_OUT_STACKED_FIELDS_2_1	/usr/include/GL/wglew.h	1171;"	d
+WIN32_LEAN_AND_MEAN	/usr/include/GL/freeglut_std.h	58;"	d
 WIN32_LEAN_AND_MEAN	/usr/include/GL/gl.h	74;"	d
 WIN32_LEAN_AND_MEAN	/usr/include/GL/glcorearb.h	39;"	d
 WIN32_LEAN_AND_MEAN	/usr/include/GL/glext.h	39;"	d
@@ -23464,10 +23711,10 @@ WIN32_LEAN_AND_MEAN	/usr/include/GL/wglew.h	68;"	d
 WIN32_LEAN_AND_MEAN	/usr/include/GL/wglew.h	71;"	d
 WINGDIAPI	/usr/include/GL/glew.h	162;"	d
 WINGDIAPI	/usr/include/GL/glew.h	23680;"	d
-XOrigin	/usr/include/GL/glxew.h	/^  int XOrigin; $/;"	m	struct:__anon3	access:public
-XOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
-YOrigin	/usr/include/GL/glxew.h	/^  int YOrigin; $/;"	m	struct:__anon3	access:public
-YOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
+XOrigin	/usr/include/GL/glxew.h	/^  int XOrigin; $/;"	m	struct:__anon10	access:public
+XOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
+YOrigin	/usr/include/GL/glxew.h	/^  int YOrigin; $/;"	m	struct:__anon10	access:public
+YOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
 _GLUfuncptr	/usr/include/GL/glu.h	/^typedef void (GLAPIENTRYP _GLUfuncptr)(void);$/;"	t
 _GL_H	/usr/include/GL/glew.h	106;"	d
 _GPU_DEVICE	/usr/include/GL/wglew.h	/^typedef struct _GPU_DEVICE {$/;"	s
@@ -23999,6 +24246,9 @@ __DRIversionRec	/usr/include/GL/internal/dri_interface.h	/^struct __DRIversionRe
 __DRIversionRec::major	/usr/include/GL/internal/dri_interface.h	/^    int    major;        \/**< Major version number. *\/$/;"	m	struct:__DRIversionRec	access:public
 __DRIversionRec::minor	/usr/include/GL/internal/dri_interface.h	/^    int    minor;        \/**< Minor version number. *\/$/;"	m	struct:__DRIversionRec	access:public
 __DRIversionRec::patch	/usr/include/GL/internal/dri_interface.h	/^    int    patch;        \/**< Patch-level. *\/$/;"	m	struct:__DRIversionRec	access:public
+__FREEGLUT_EXT_H__	/usr/include/GL/freeglut_ext.h	2;"	d
+__FREEGLUT_H__	/usr/include/GL/freeglut.h	2;"	d
+__FREEGLUT_STD_H__	/usr/include/GL/freeglut_std.h	2;"	d
 __GLEW_3DFX_multisample	/usr/include/GL/glew.h	/^GLEW_VAR_EXPORT GLboolean __GLEW_3DFX_multisample;$/;"	v
 __GLEW_3DFX_tbuffer	/usr/include/GL/glew.h	/^GLEW_VAR_EXPORT GLboolean __GLEW_3DFX_tbuffer;$/;"	v
 __GLEW_3DFX_texture_compression_FXT1	/usr/include/GL/glew.h	/^GLEW_VAR_EXPORT GLboolean __GLEW_3DFX_texture_compression_FXT1;$/;"	v
@@ -24803,6 +25053,7 @@ __GLEW_WIN_scene_markerXXX	/usr/include/GL/glew.h	/^GLEW_VAR_EXPORT GLboolean __
 __GLEW_WIN_specular_fog	/usr/include/GL/glew.h	/^GLEW_VAR_EXPORT GLboolean __GLEW_WIN_specular_fog;$/;"	v
 __GLEW_WIN_swap_hint	/usr/include/GL/glew.h	/^GLEW_VAR_EXPORT GLboolean __GLEW_WIN_swap_hint;$/;"	v
 __GLEXT_H_	/usr/include/GL/glew.h	111;"	d
+__GLUT_H__	/usr/include/GL/glut.h	2;"	d
 __GLXEW_3DFX_multisample	/usr/include/GL/glxew.h	/^GLXEW_VAR_EXPORT GLboolean __GLXEW_3DFX_multisample;$/;"	v
 __GLXEW_AMD_gpu_association	/usr/include/GL/glxew.h	/^GLXEW_VAR_EXPORT GLboolean __GLXEW_AMD_gpu_association;$/;"	v
 __GLXEW_ARB_context_flush_control	/usr/include/GL/glxew.h	/^GLXEW_VAR_EXPORT GLboolean __GLXEW_ARB_context_flush_control;$/;"	v
@@ -24949,102 +25200,102 @@ __WGLEW_NV_video_output	/usr/include/GL/wglew.h	/^WGLEW_VAR_EXPORT GLboolean __W
 __WGLEW_OML_sync_control	/usr/include/GL/wglew.h	/^WGLEW_VAR_EXPORT GLboolean __WGLEW_OML_sync_control;$/;"	v
 __WIN32__	/usr/include/GL/gl.h	40;"	d
 __X_GL_H	/usr/include/GL/glew.h	109;"	d
-__anon10::destHeight	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-__anon10::destWidth	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-__anon10::destXOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-__anon10::destYOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-__anon10::pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon10	access:public
-__anon10::srcHeight	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-__anon10::srcWidth	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-__anon10::srcXOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-__anon10::srcYOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-__anon11::XOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
-__anon11::YOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
-__anon11::maxHeight	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
-__anon11::maxWidth	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
-__anon11::pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon11	access:public
-__anon12::aux_buffer	/usr/include/GL/glx.h	/^    unsigned int aux_buffer;	\/* which aux buffer was affected *\/$/;"	m	struct:__anon12	access:public
-__anon12::buffer_mask	/usr/include/GL/glx.h	/^    unsigned int buffer_mask;	\/* mask indicating which buffers are affected *\/$/;"	m	struct:__anon12	access:public
-__anon12::count	/usr/include/GL/glx.h	/^    int count;			\/* if nonzero, at least this many more *\/$/;"	m	struct:__anon12	access:public
-__anon12::display	/usr/include/GL/glx.h	/^    Display *display;		\/* display the event was read from *\/$/;"	m	struct:__anon12	access:public
-__anon12::draw_type	/usr/include/GL/glx.h	/^    int draw_type;		\/* GLX_WINDOW or GLX_PBUFFER *\/$/;"	m	struct:__anon12	access:public
-__anon12::drawable	/usr/include/GL/glx.h	/^    GLXDrawable drawable;	\/* XID of Drawable *\/$/;"	m	struct:__anon12	access:public
-__anon12::event_type	/usr/include/GL/glx.h	/^    int event_type;		\/* GLX_DAMAGED or GLX_SAVED *\/$/;"	m	struct:__anon12	access:public
-__anon12::height	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon12	access:public
-__anon12::send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came for SendEvent request *\/$/;"	m	struct:__anon12	access:public
-__anon12::serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon12	access:public
-__anon12::width	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon12	access:public
-__anon12::x	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon12	access:public
-__anon12::y	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon12	access:public
-__anon13::display	/usr/include/GL/glx.h	/^    Display *display;		\/* Display the event was read from *\/$/;"	m	struct:__anon13	access:public
-__anon13::drawable	/usr/include/GL/glx.h	/^    Drawable drawable;	\/* drawable on which event was requested in event mask *\/$/;"	m	struct:__anon13	access:public
-__anon13::event_type	/usr/include/GL/glx.h	/^    int event_type;$/;"	m	struct:__anon13	access:public
-__anon13::msc	/usr/include/GL/glx.h	/^    int64_t msc;$/;"	m	struct:__anon13	access:public
-__anon13::sbc	/usr/include/GL/glx.h	/^    int64_t sbc;$/;"	m	struct:__anon13	access:public
-__anon13::send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came from a SendEvent request *\/$/;"	m	struct:__anon13	access:public
-__anon13::serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon13	access:public
-__anon13::type	/usr/include/GL/glx.h	/^    int type;$/;"	m	struct:__anon13	access:public
-__anon13::ust	/usr/include/GL/glx.h	/^    int64_t ust;$/;"	m	struct:__anon13	access:public
-__anon1::aux_buffer	/usr/include/GL/glxew.h	/^  unsigned int aux_buffer; $/;"	m	struct:__anon1	access:public
-__anon1::buffer_mask	/usr/include/GL/glxew.h	/^  unsigned int buffer_mask; $/;"	m	struct:__anon1	access:public
-__anon1::count	/usr/include/GL/glxew.h	/^  int count; $/;"	m	struct:__anon1	access:public
-__anon1::display	/usr/include/GL/glxew.h	/^  Display *display; $/;"	m	struct:__anon1	access:public
-__anon1::draw_type	/usr/include/GL/glxew.h	/^  int draw_type; $/;"	m	struct:__anon1	access:public
-__anon1::drawable	/usr/include/GL/glxew.h	/^  GLXDrawable drawable; $/;"	m	struct:__anon1	access:public
-__anon1::event_type	/usr/include/GL/glxew.h	/^  int event_type; $/;"	m	struct:__anon1	access:public
-__anon1::height	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon1	access:public
-__anon1::send_event	/usr/include/GL/glxew.h	/^  Bool send_event; $/;"	m	struct:__anon1	access:public
-__anon1::serial	/usr/include/GL/glxew.h	/^  unsigned long serial; $/;"	m	struct:__anon1	access:public
-__anon1::width	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon1	access:public
-__anon1::x	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon1	access:public
-__anon1::y	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon1	access:public
-__anon2::networkId	/usr/include/GL/glxew.h	/^  int  networkId; $/;"	m	struct:__anon2	access:public
-__anon2::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon2	access:public
-__anon3::XOrigin	/usr/include/GL/glxew.h	/^  int XOrigin; $/;"	m	struct:__anon3	access:public
-__anon3::YOrigin	/usr/include/GL/glxew.h	/^  int YOrigin; $/;"	m	struct:__anon3	access:public
-__anon3::maxHeight	/usr/include/GL/glxew.h	/^  int maxHeight; $/;"	m	struct:__anon3	access:public
-__anon3::maxWidth	/usr/include/GL/glxew.h	/^  int maxWidth; $/;"	m	struct:__anon3	access:public
-__anon3::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon3	access:public
-__anon4::channel	/usr/include/GL/glxew.h	/^  int channel; $/;"	m	struct:__anon4	access:public
-__anon4::participationType	/usr/include/GL/glxew.h	/^  unsigned int participationType; $/;"	m	struct:__anon4	access:public
-__anon4::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon4	access:public
-__anon4::timeSlice	/usr/include/GL/glxew.h	/^  int timeSlice; $/;"	m	struct:__anon4	access:public
-__anon5::destHeight	/usr/include/GL/glxew.h	/^  int destHeight; $/;"	m	struct:__anon5	access:public
-__anon5::destWidth	/usr/include/GL/glxew.h	/^  int destWidth; $/;"	m	struct:__anon5	access:public
-__anon5::destXOrigin	/usr/include/GL/glxew.h	/^  int destXOrigin; $/;"	m	struct:__anon5	access:public
-__anon5::destYOrigin	/usr/include/GL/glxew.h	/^  int destYOrigin; $/;"	m	struct:__anon5	access:public
-__anon5::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon5	access:public
-__anon5::srcHeight	/usr/include/GL/glxew.h	/^  int srcHeight; $/;"	m	struct:__anon5	access:public
-__anon5::srcWidth	/usr/include/GL/glxew.h	/^  int srcWidth; $/;"	m	struct:__anon5	access:public
-__anon5::srcXOrigin	/usr/include/GL/glxew.h	/^  int srcXOrigin; $/;"	m	struct:__anon5	access:public
-__anon5::srcYOrigin	/usr/include/GL/glxew.h	/^  int srcYOrigin; $/;"	m	struct:__anon5	access:public
-__anon6::count	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::display	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::draw_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::drawable	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::event_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::height	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::mask	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::send_event	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::serial	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::width	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::x	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon6::y	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-__anon7::display	/usr/include/GL/glxext.h	/^    Display *display;$/;"	m	struct:__anon7	access:public
-__anon7::evtype	/usr/include/GL/glxext.h	/^    int evtype;$/;"	m	struct:__anon7	access:public
-__anon7::extension	/usr/include/GL/glxext.h	/^    int extension;$/;"	m	struct:__anon7	access:public
-__anon7::send_event	/usr/include/GL/glxext.h	/^    Bool send_event;$/;"	m	struct:__anon7	access:public
-__anon7::serial	/usr/include/GL/glxext.h	/^    unsigned long serial;$/;"	m	struct:__anon7	access:public
-__anon7::stereo_tree	/usr/include/GL/glxext.h	/^    Bool stereo_tree;$/;"	m	struct:__anon7	access:public
-__anon7::type	/usr/include/GL/glxext.h	/^    int type;$/;"	m	struct:__anon7	access:public
-__anon7::window	/usr/include/GL/glxext.h	/^    GLXDrawable window;$/;"	m	struct:__anon7	access:public
-__anon8::networkId	/usr/include/GL/glxext.h	/^    int     networkId;$/;"	m	struct:__anon8	access:public
-__anon8::pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon8	access:public
-__anon9::channel	/usr/include/GL/glxext.h	/^    int     channel;$/;"	m	struct:__anon9	access:public
-__anon9::participationType	/usr/include/GL/glxext.h	/^    unsigned int participationType;$/;"	m	struct:__anon9	access:public
-__anon9::pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon9	access:public
-__anon9::timeSlice	/usr/include/GL/glxext.h	/^    int     timeSlice;$/;"	m	struct:__anon9	access:public
+__anon10::XOrigin	/usr/include/GL/glxew.h	/^  int XOrigin; $/;"	m	struct:__anon10	access:public
+__anon10::YOrigin	/usr/include/GL/glxew.h	/^  int YOrigin; $/;"	m	struct:__anon10	access:public
+__anon10::maxHeight	/usr/include/GL/glxew.h	/^  int maxHeight; $/;"	m	struct:__anon10	access:public
+__anon10::maxWidth	/usr/include/GL/glxew.h	/^  int maxWidth; $/;"	m	struct:__anon10	access:public
+__anon10::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon10	access:public
+__anon11::channel	/usr/include/GL/glxew.h	/^  int channel; $/;"	m	struct:__anon11	access:public
+__anon11::participationType	/usr/include/GL/glxew.h	/^  unsigned int participationType; $/;"	m	struct:__anon11	access:public
+__anon11::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon11	access:public
+__anon11::timeSlice	/usr/include/GL/glxew.h	/^  int timeSlice; $/;"	m	struct:__anon11	access:public
+__anon12::destHeight	/usr/include/GL/glxew.h	/^  int destHeight; $/;"	m	struct:__anon12	access:public
+__anon12::destWidth	/usr/include/GL/glxew.h	/^  int destWidth; $/;"	m	struct:__anon12	access:public
+__anon12::destXOrigin	/usr/include/GL/glxew.h	/^  int destXOrigin; $/;"	m	struct:__anon12	access:public
+__anon12::destYOrigin	/usr/include/GL/glxew.h	/^  int destYOrigin; $/;"	m	struct:__anon12	access:public
+__anon12::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon12	access:public
+__anon12::srcHeight	/usr/include/GL/glxew.h	/^  int srcHeight; $/;"	m	struct:__anon12	access:public
+__anon12::srcWidth	/usr/include/GL/glxew.h	/^  int srcWidth; $/;"	m	struct:__anon12	access:public
+__anon12::srcXOrigin	/usr/include/GL/glxew.h	/^  int srcXOrigin; $/;"	m	struct:__anon12	access:public
+__anon12::srcYOrigin	/usr/include/GL/glxew.h	/^  int srcYOrigin; $/;"	m	struct:__anon12	access:public
+__anon13::count	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::display	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::draw_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::drawable	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::event_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::height	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::mask	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::send_event	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::serial	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::width	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::x	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon13::y	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+__anon1::display	/usr/include/GL/glxext.h	/^    Display *display;$/;"	m	struct:__anon1	access:public
+__anon1::evtype	/usr/include/GL/glxext.h	/^    int evtype;$/;"	m	struct:__anon1	access:public
+__anon1::extension	/usr/include/GL/glxext.h	/^    int extension;$/;"	m	struct:__anon1	access:public
+__anon1::send_event	/usr/include/GL/glxext.h	/^    Bool send_event;$/;"	m	struct:__anon1	access:public
+__anon1::serial	/usr/include/GL/glxext.h	/^    unsigned long serial;$/;"	m	struct:__anon1	access:public
+__anon1::stereo_tree	/usr/include/GL/glxext.h	/^    Bool stereo_tree;$/;"	m	struct:__anon1	access:public
+__anon1::type	/usr/include/GL/glxext.h	/^    int type;$/;"	m	struct:__anon1	access:public
+__anon1::window	/usr/include/GL/glxext.h	/^    GLXDrawable window;$/;"	m	struct:__anon1	access:public
+__anon2::networkId	/usr/include/GL/glxext.h	/^    int     networkId;$/;"	m	struct:__anon2	access:public
+__anon2::pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon2	access:public
+__anon3::channel	/usr/include/GL/glxext.h	/^    int     channel;$/;"	m	struct:__anon3	access:public
+__anon3::participationType	/usr/include/GL/glxext.h	/^    unsigned int participationType;$/;"	m	struct:__anon3	access:public
+__anon3::pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon3	access:public
+__anon3::timeSlice	/usr/include/GL/glxext.h	/^    int     timeSlice;$/;"	m	struct:__anon3	access:public
+__anon4::destHeight	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+__anon4::destWidth	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+__anon4::destXOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+__anon4::destYOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+__anon4::pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon4	access:public
+__anon4::srcHeight	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+__anon4::srcWidth	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+__anon4::srcXOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+__anon4::srcYOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+__anon5::XOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
+__anon5::YOrigin	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
+__anon5::maxHeight	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
+__anon5::maxWidth	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
+__anon5::pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon5	access:public
+__anon6::aux_buffer	/usr/include/GL/glx.h	/^    unsigned int aux_buffer;	\/* which aux buffer was affected *\/$/;"	m	struct:__anon6	access:public
+__anon6::buffer_mask	/usr/include/GL/glx.h	/^    unsigned int buffer_mask;	\/* mask indicating which buffers are affected *\/$/;"	m	struct:__anon6	access:public
+__anon6::count	/usr/include/GL/glx.h	/^    int count;			\/* if nonzero, at least this many more *\/$/;"	m	struct:__anon6	access:public
+__anon6::display	/usr/include/GL/glx.h	/^    Display *display;		\/* display the event was read from *\/$/;"	m	struct:__anon6	access:public
+__anon6::draw_type	/usr/include/GL/glx.h	/^    int draw_type;		\/* GLX_WINDOW or GLX_PBUFFER *\/$/;"	m	struct:__anon6	access:public
+__anon6::drawable	/usr/include/GL/glx.h	/^    GLXDrawable drawable;	\/* XID of Drawable *\/$/;"	m	struct:__anon6	access:public
+__anon6::event_type	/usr/include/GL/glx.h	/^    int event_type;		\/* GLX_DAMAGED or GLX_SAVED *\/$/;"	m	struct:__anon6	access:public
+__anon6::height	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon6	access:public
+__anon6::send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came for SendEvent request *\/$/;"	m	struct:__anon6	access:public
+__anon6::serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon6	access:public
+__anon6::width	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon6	access:public
+__anon6::x	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon6	access:public
+__anon6::y	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon6	access:public
+__anon7::display	/usr/include/GL/glx.h	/^    Display *display;		\/* Display the event was read from *\/$/;"	m	struct:__anon7	access:public
+__anon7::drawable	/usr/include/GL/glx.h	/^    Drawable drawable;	\/* drawable on which event was requested in event mask *\/$/;"	m	struct:__anon7	access:public
+__anon7::event_type	/usr/include/GL/glx.h	/^    int event_type;$/;"	m	struct:__anon7	access:public
+__anon7::msc	/usr/include/GL/glx.h	/^    int64_t msc;$/;"	m	struct:__anon7	access:public
+__anon7::sbc	/usr/include/GL/glx.h	/^    int64_t sbc;$/;"	m	struct:__anon7	access:public
+__anon7::send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came from a SendEvent request *\/$/;"	m	struct:__anon7	access:public
+__anon7::serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon7	access:public
+__anon7::type	/usr/include/GL/glx.h	/^    int type;$/;"	m	struct:__anon7	access:public
+__anon7::ust	/usr/include/GL/glx.h	/^    int64_t ust;$/;"	m	struct:__anon7	access:public
+__anon8::aux_buffer	/usr/include/GL/glxew.h	/^  unsigned int aux_buffer; $/;"	m	struct:__anon8	access:public
+__anon8::buffer_mask	/usr/include/GL/glxew.h	/^  unsigned int buffer_mask; $/;"	m	struct:__anon8	access:public
+__anon8::count	/usr/include/GL/glxew.h	/^  int count; $/;"	m	struct:__anon8	access:public
+__anon8::display	/usr/include/GL/glxew.h	/^  Display *display; $/;"	m	struct:__anon8	access:public
+__anon8::draw_type	/usr/include/GL/glxew.h	/^  int draw_type; $/;"	m	struct:__anon8	access:public
+__anon8::drawable	/usr/include/GL/glxew.h	/^  GLXDrawable drawable; $/;"	m	struct:__anon8	access:public
+__anon8::event_type	/usr/include/GL/glxew.h	/^  int event_type; $/;"	m	struct:__anon8	access:public
+__anon8::height	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon8	access:public
+__anon8::send_event	/usr/include/GL/glxew.h	/^  Bool send_event; $/;"	m	struct:__anon8	access:public
+__anon8::serial	/usr/include/GL/glxew.h	/^  unsigned long serial; $/;"	m	struct:__anon8	access:public
+__anon8::width	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon8	access:public
+__anon8::x	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon8	access:public
+__anon8::y	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon8	access:public
+__anon9::networkId	/usr/include/GL/glxew.h	/^  int  networkId; $/;"	m	struct:__anon9	access:public
+__anon9::pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon9	access:public
 __gl2_h_	/usr/include/GL/glew.h	104;"	d
 __gl_ATI_h_	/usr/include/GL/glew.h	112;"	d
 __gl_h_	/usr/include/GL/gl.h	28;"	d
@@ -27777,6 +28028,9 @@ __glext_h_	/usr/include/GL/glew.h	110;"	d
 __glext_h_	/usr/include/GL/glext.h	2;"	d
 __gltypes_h_	/usr/include/GL/glew.h	107;"	d
 __glu_h__	/usr/include/GL/glu.h	32;"	d
+__glutCreateMenuWithExit	/usr/include/GL/freeglut_std.h	/^FGAPI int FGAPIENTRY __glutCreateMenuWithExit(void (* func)(int), void (__cdecl *exitfunc)(int));$/;"	p	signature:(void (* func)(int), void (__cdecl *exitfunc)(int))
+__glutCreateWindowWithExit	/usr/include/GL/freeglut_std.h	/^FGAPI int FGAPIENTRY __glutCreateWindowWithExit(const char *title, void (__cdecl *exitfunc)(int));$/;"	p	signature:(const char *title, void (__cdecl *exitfunc)(int))
+__glutInitWithExit	/usr/include/GL/freeglut_std.h	/^FGAPI void FGAPIENTRY __glutInitWithExit(int *argcp, char **argv, void (__cdecl *exitfunc)(int));$/;"	p	signature:(int *argcp, char **argv, void (__cdecl *exitfunc)(int))
 __glx_h__	/usr/include/GL/glxew.h	96;"	d
 __glxew_h__	/usr/include/GL/glxew.h	81;"	d
 __glxext_h_	/usr/include/GL/glxew.h	92;"	d
@@ -27904,8 +28158,8 @@ __wglew_h__	/usr/include/GL/wglew.h	57;"	d
 __wglext_h_	/usr/include/GL/wglew.h	64;"	d
 allocateBuffer	/usr/include/GL/internal/dri_interface.h	/^   __DRIbuffer *(*allocateBuffer)(__DRIscreen *screen,$/;"	m	struct:__DRIdri2ExtensionRec	access:public
 attachment	/usr/include/GL/internal/dri_interface.h	/^    unsigned int attachment;$/;"	m	struct:__DRIbufferRec	access:public
-aux_buffer	/usr/include/GL/glx.h	/^    unsigned int aux_buffer;	\/* which aux buffer was affected *\/$/;"	m	struct:__anon12	access:public
-aux_buffer	/usr/include/GL/glxew.h	/^  unsigned int aux_buffer; $/;"	m	struct:__anon1	access:public
+aux_buffer	/usr/include/GL/glx.h	/^    unsigned int aux_buffer;	\/* which aux buffer was affected *\/$/;"	m	struct:__anon6	access:public
+aux_buffer	/usr/include/GL/glxew.h	/^  unsigned int aux_buffer; $/;"	m	struct:__anon8	access:public
 back	/usr/include/GL/internal/dri_interface.h	/^   __DRIimage *back;$/;"	m	struct:__DRIimageList	access:public
 base	/usr/include/GL/internal/dri_interface.h	/^    __DRIextension base;$/;"	m	struct:__DRI2flushExtensionRec	access:public
 base	/usr/include/GL/internal/dri_interface.h	/^    __DRIextension base;$/;"	m	struct:__DRIDriverVtableExtensionRec	access:public
@@ -27941,11 +28195,11 @@ base	/usr/include/GL/internal/dri_interface.h	/^   __DRIextension base;$/;"	m	st
 base	/usr/include/GL/internal/dri_interface.h	/^   __DRIextension base;$/;"	m	struct:__DRIuseInvalidateExtensionRec	access:public
 bindContext	/usr/include/GL/internal/dri_interface.h	/^    int (*bindContext)(__DRIcontext *ctx,$/;"	m	struct:__DRIcoreExtensionRec	access:public
 blitImage	/usr/include/GL/internal/dri_interface.h	/^   void (*blitImage)(__DRIcontext *context, __DRIimage *dst, __DRIimage *src,$/;"	m	struct:__DRIimageExtensionRec	access:public
-buffer_mask	/usr/include/GL/glx.h	/^    unsigned int buffer_mask;	\/* mask indicating which buffers are affected *\/$/;"	m	struct:__anon12	access:public
-buffer_mask	/usr/include/GL/glxew.h	/^  unsigned int buffer_mask; $/;"	m	struct:__anon1	access:public
+buffer_mask	/usr/include/GL/glx.h	/^    unsigned int buffer_mask;	\/* mask indicating which buffers are affected *\/$/;"	m	struct:__anon6	access:public
+buffer_mask	/usr/include/GL/glxew.h	/^  unsigned int buffer_mask; $/;"	m	struct:__anon8	access:public
 cb	/usr/include/GL/wglew.h	/^  DWORD cb; $/;"	m	struct:_GPU_DEVICE	access:public
-channel	/usr/include/GL/glxew.h	/^  int channel; $/;"	m	struct:__anon4	access:public
-channel	/usr/include/GL/glxext.h	/^    int     channel;$/;"	m	struct:__anon9	access:public
+channel	/usr/include/GL/glxew.h	/^  int channel; $/;"	m	struct:__anon11	access:public
+channel	/usr/include/GL/glxext.h	/^    int     channel;$/;"	m	struct:__anon3	access:public
 cl_context	/usr/include/GL/glew.h	/^typedef struct _cl_context *cl_context;$/;"	t	typeref:struct:_cl_context
 cl_event	/usr/include/GL/glew.h	/^typedef struct _cl_event *cl_event;$/;"	t	typeref:struct:_cl_event
 client_wait_sync	/usr/include/GL/internal/dri_interface.h	/^   GLboolean (*client_wait_sync)(__DRIcontext *ctx, void *fence,$/;"	m	struct:__DRI2fenceExtensionRec	access:public
@@ -27954,9 +28208,9 @@ configQueryf	/usr/include/GL/internal/dri_interface.h	/^   int (*configQueryf)(_
 configQueryi	/usr/include/GL/internal/dri_interface.h	/^   int (*configQueryi)(__DRIscreen *screen, const char *var, int *val);$/;"	m	struct:__DRI2configQueryExtensionRec	access:public
 copyContext	/usr/include/GL/internal/dri_interface.h	/^    int (*copyContext)(__DRIcontext *dest,$/;"	m	struct:__DRIcoreExtensionRec	access:public
 copySubBuffer	/usr/include/GL/internal/dri_interface.h	/^    void (*copySubBuffer)(__DRIdrawable *drawable, int x, int y, int w, int h);$/;"	m	struct:__DRIcopySubBufferExtensionRec	access:public
-count	/usr/include/GL/glx.h	/^    int count;			\/* if nonzero, at least this many more *\/$/;"	m	struct:__anon12	access:public
-count	/usr/include/GL/glxew.h	/^  int count; $/;"	m	struct:__anon1	access:public
-count	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
+count	/usr/include/GL/glx.h	/^    int count;			\/* if nonzero, at least this many more *\/$/;"	m	struct:__anon6	access:public
+count	/usr/include/GL/glxew.h	/^  int count; $/;"	m	struct:__anon8	access:public
+count	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
 cpp	/usr/include/GL/internal/dri_interface.h	/^    unsigned int cpp;$/;"	m	struct:__DRIbufferRec	access:public
 createContextAttribs	/usr/include/GL/internal/dri_interface.h	/^   __DRIcontext *(*createContextAttribs)(__DRIscreen *screen,$/;"	m	struct:__DRIswrastExtensionRec	access:public
 createContextAttribs	/usr/include/GL/internal/dri_interface.h	/^   __DRIcreateContextAttribsFunc        createContextAttribs;$/;"	m	struct:__DRIdri2ExtensionRec	access:public
@@ -27989,14 +28243,14 @@ createNewScreen2	/usr/include/GL/internal/dri_interface.h	/^   __DRIcreateNewScr
 createNewScreen2	/usr/include/GL/internal/dri_interface.h	/^   __DRIscreen *(*createNewScreen2)(int screen,$/;"	m	struct:__DRIswrastExtensionRec	access:public
 create_fence	/usr/include/GL/internal/dri_interface.h	/^   void *(*create_fence)(__DRIcontext *ctx);$/;"	m	struct:__DRI2fenceExtensionRec	access:public
 create_fence_fd	/usr/include/GL/internal/dri_interface.h	/^   void *(*create_fence_fd)(__DRIcontext *ctx, int fd);$/;"	m	struct:__DRI2fenceExtensionRec	access:public
-destHeight	/usr/include/GL/glxew.h	/^  int destHeight; $/;"	m	struct:__anon5	access:public
-destHeight	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-destWidth	/usr/include/GL/glxew.h	/^  int destWidth; $/;"	m	struct:__anon5	access:public
-destWidth	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-destXOrigin	/usr/include/GL/glxew.h	/^  int destXOrigin; $/;"	m	struct:__anon5	access:public
-destXOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
-destYOrigin	/usr/include/GL/glxew.h	/^  int destYOrigin; $/;"	m	struct:__anon5	access:public
-destYOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon10	access:public
+destHeight	/usr/include/GL/glxew.h	/^  int destHeight; $/;"	m	struct:__anon12	access:public
+destHeight	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+destWidth	/usr/include/GL/glxew.h	/^  int destWidth; $/;"	m	struct:__anon12	access:public
+destWidth	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+destXOrigin	/usr/include/GL/glxew.h	/^  int destXOrigin; $/;"	m	struct:__anon12	access:public
+destXOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
+destYOrigin	/usr/include/GL/glxew.h	/^  int destYOrigin; $/;"	m	struct:__anon12	access:public
+destYOrigin	/usr/include/GL/glxext.h	/^    int destXOrigin, destYOrigin, destWidth, destHeight;$/;"	m	struct:__anon4	access:public
 destroyContext	/usr/include/GL/internal/dri_interface.h	/^    void (*destroyContext)(__DRIcontext *context);$/;"	m	struct:__DRIcoreExtensionRec	access:public
 destroyDrawable	/usr/include/GL/internal/dri_interface.h	/^    void (*destroyDrawable)(__DRIdrawable *drawable);$/;"	m	struct:__DRIcoreExtensionRec	access:public
 destroyImage	/usr/include/GL/internal/dri_interface.h	/^    void (*destroyImage)(__DRIimage *image);$/;"	m	struct:__DRIimageExtensionRec	access:public
@@ -28004,29 +28258,29 @@ destroyScreen	/usr/include/GL/internal/dri_interface.h	/^    void (*destroyScree
 destroy_fence	/usr/include/GL/internal/dri_interface.h	/^   void (*destroy_fence)(__DRIscreen *screen, void *fence);$/;"	m	struct:__DRI2fenceExtensionRec	access:public
 dev_priv	/usr/include/GL/internal/dri_interface.h	/^    void *dev_priv;         \/**< Pointer to the driver's dev-priv structure. *\/$/;"	m	struct:__DRIframebufferRec	access:public
 dev_priv_size	/usr/include/GL/internal/dri_interface.h	/^    int dev_priv_size;      \/**< Size of the driver's dev-priv structure. *\/$/;"	m	struct:__DRIframebufferRec	access:public
-display	/usr/include/GL/glx.h	/^    Display *display;		\/* Display the event was read from *\/$/;"	m	struct:__anon13	access:public
-display	/usr/include/GL/glx.h	/^    Display *display;		\/* display the event was read from *\/$/;"	m	struct:__anon12	access:public
-display	/usr/include/GL/glxew.h	/^  Display *display; $/;"	m	struct:__anon1	access:public
-display	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-display	/usr/include/GL/glxext.h	/^    Display *display;$/;"	m	struct:__anon7	access:public
-draw_type	/usr/include/GL/glx.h	/^    int draw_type;		\/* GLX_WINDOW or GLX_PBUFFER *\/$/;"	m	struct:__anon12	access:public
-draw_type	/usr/include/GL/glxew.h	/^  int draw_type; $/;"	m	struct:__anon1	access:public
-draw_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-drawable	/usr/include/GL/glx.h	/^    Drawable drawable;	\/* drawable on which event was requested in event mask *\/$/;"	m	struct:__anon13	access:public
-drawable	/usr/include/GL/glx.h	/^    GLXDrawable drawable;	\/* XID of Drawable *\/$/;"	m	struct:__anon12	access:public
-drawable	/usr/include/GL/glxew.h	/^  GLXDrawable drawable; $/;"	m	struct:__anon1	access:public
-drawable	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
+display	/usr/include/GL/glx.h	/^    Display *display;		\/* Display the event was read from *\/$/;"	m	struct:__anon7	access:public
+display	/usr/include/GL/glx.h	/^    Display *display;		\/* display the event was read from *\/$/;"	m	struct:__anon6	access:public
+display	/usr/include/GL/glxew.h	/^  Display *display; $/;"	m	struct:__anon8	access:public
+display	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+display	/usr/include/GL/glxext.h	/^    Display *display;$/;"	m	struct:__anon1	access:public
+draw_type	/usr/include/GL/glx.h	/^    int draw_type;		\/* GLX_WINDOW or GLX_PBUFFER *\/$/;"	m	struct:__anon6	access:public
+draw_type	/usr/include/GL/glxew.h	/^  int draw_type; $/;"	m	struct:__anon8	access:public
+draw_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+drawable	/usr/include/GL/glx.h	/^    Drawable drawable;	\/* drawable on which event was requested in event mask *\/$/;"	m	struct:__anon7	access:public
+drawable	/usr/include/GL/glx.h	/^    GLXDrawable drawable;	\/* XID of Drawable *\/$/;"	m	struct:__anon6	access:public
+drawable	/usr/include/GL/glxew.h	/^  GLXDrawable drawable; $/;"	m	struct:__anon8	access:public
+drawable	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
 drm_clip_rect_t	/usr/include/GL/internal/dri_interface.h	/^typedef struct drm_clip_rect drm_clip_rect_t;$/;"	t	typeref:struct:drm_clip_rect
 drm_context_t	/usr/include/GL/internal/dri_interface.h	/^typedef unsigned int drm_context_t;$/;"	t
 drm_drawable_t	/usr/include/GL/internal/dri_interface.h	/^typedef unsigned int drm_drawable_t;$/;"	t
 dupImage	/usr/include/GL/internal/dri_interface.h	/^   __DRIimage *(*dupImage)(__DRIimage *image, void *loaderPrivate);$/;"	m	struct:__DRIimageExtensionRec	access:public
-event_type	/usr/include/GL/glx.h	/^    int event_type;		\/* GLX_DAMAGED or GLX_SAVED *\/$/;"	m	struct:__anon12	access:public
-event_type	/usr/include/GL/glx.h	/^    int event_type;$/;"	m	struct:__anon13	access:public
-event_type	/usr/include/GL/glxew.h	/^  int event_type; $/;"	m	struct:__anon1	access:public
-event_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-evtype	/usr/include/GL/glxext.h	/^    int evtype;$/;"	m	struct:__anon7	access:public
+event_type	/usr/include/GL/glx.h	/^    int event_type;		\/* GLX_DAMAGED or GLX_SAVED *\/$/;"	m	struct:__anon6	access:public
+event_type	/usr/include/GL/glx.h	/^    int event_type;$/;"	m	struct:__anon7	access:public
+event_type	/usr/include/GL/glxew.h	/^  int event_type; $/;"	m	struct:__anon8	access:public
+event_type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+evtype	/usr/include/GL/glxext.h	/^    int evtype;$/;"	m	struct:__anon1	access:public
 export_object	/usr/include/GL/internal/dri_interface.h	/^   int (*export_object)(__DRIcontext *ctx,$/;"	m	struct:__DRI2interopExtensionRec	access:public
-extension	/usr/include/GL/glxext.h	/^    int extension;$/;"	m	struct:__anon7	access:public
+extension	/usr/include/GL/glxext.h	/^    int extension;$/;"	m	struct:__anon1	access:public
 flags	/usr/include/GL/internal/dri_interface.h	/^    unsigned int flags;$/;"	m	struct:__DRIbufferRec	access:public
 flush	/usr/include/GL/internal/dri_interface.h	/^    void (*flush)(__DRIdrawable *drawable);$/;"	m	struct:__DRI2flushExtensionRec	access:public
 flushFrontBuffer	/usr/include/GL/internal/dri_interface.h	/^    void (*flushFrontBuffer)(__DRIdrawable *driDrawable, void *loaderPrivate);$/;"	m	struct:__DRIdri2LoaderExtensionRec	access:public
@@ -38510,15 +38764,196 @@ gluUnProject	/usr/include/GL/glu.h	/^GLAPI GLint GLAPIENTRY gluUnProject (GLdoub
 gluUnProject	/usr/include/GL/glu_mangle.h	31;"	d
 gluUnProject4	/usr/include/GL/glu.h	/^GLAPI GLint GLAPIENTRY gluUnProject4 (GLdouble winX, GLdouble winY, GLdouble winZ, GLdouble clipW, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble nearVal, GLdouble farVal, GLdouble* objX, GLdouble* objY, GLdouble* objZ, GLdouble* objW);$/;"	p	signature:(GLdouble winX, GLdouble winY, GLdouble winZ, GLdouble clipW, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble nearVal, GLdouble farVal, GLdouble* objX, GLdouble* objY, GLdouble* objZ, GLdouble* objW)
 gluUnProject4	/usr/include/GL/glu_mangle.h	82;"	d
+glutAddMenuEntry	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutAddMenuEntry( const char* label, int value );$/;"	p	signature:( const char* label, int value )
+glutAddSubMenu	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutAddSubMenu( const char* label, int subMenu );$/;"	p	signature:( const char* label, int subMenu )
+glutAppStatusFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutAppStatusFunc(void (* callback)(int));$/;"	p	signature:(void (* callback)(int))
+glutAttachMenu	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutAttachMenu( int button );$/;"	p	signature:( int button )
+glutBitmapCharacter	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutBitmapCharacter( void* font, int character );$/;"	p	signature:( void* font, int character )
+glutBitmapHeight	/usr/include/GL/freeglut_ext.h	/^FGAPI int     FGAPIENTRY glutBitmapHeight( void* font );$/;"	p	signature:( void* font )
+glutBitmapLength	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutBitmapLength( void* font, const unsigned char* string );$/;"	p	signature:( void* font, const unsigned char* string )
+glutBitmapString	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutBitmapString( void* font, const unsigned char *string );$/;"	p	signature:( void* font, const unsigned char *string )
+glutBitmapWidth	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutBitmapWidth( void* font, int character );$/;"	p	signature:( void* font, int character )
+glutButtonBoxFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutButtonBoxFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutChangeToMenuEntry	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutChangeToMenuEntry( int item, const char* label, int value );$/;"	p	signature:( int item, const char* label, int value )
+glutChangeToSubMenu	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutChangeToSubMenu( int item, const char* label, int value );$/;"	p	signature:( int item, const char* label, int value )
+glutCloseFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutCloseFunc( void (* callback)( void ) );$/;"	p	signature:( void (* callback)( void ) )
+glutCopyColormap	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutCopyColormap( int window );$/;"	p	signature:( int window )
+glutCreateMenu	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutCreateMenu( void (* callback)( int menu ) );$/;"	p	signature:( void (* callback)( int menu ) )
+glutCreateMenu	/usr/include/GL/freeglut_std.h	642;"	d
+glutCreateMenu_ATEXIT_HACK	/usr/include/GL/freeglut_std.h	/^static int FGAPIENTRY FGUNUSED glutCreateMenu_ATEXIT_HACK(void (* func)(int)) { return __glutCreateMenuWithExit(func, exit); }$/;"	f	signature:(void (* func)(int))
+glutCreateSubWindow	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutCreateSubWindow( int window, int x, int y, int width, int height );$/;"	p	signature:( int window, int x, int y, int width, int height )
+glutCreateWindow	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutCreateWindow( const char* title );$/;"	p	signature:( const char* title )
+glutCreateWindow	/usr/include/GL/freeglut_std.h	640;"	d
+glutCreateWindow_ATEXIT_HACK	/usr/include/GL/freeglut_std.h	/^static int FGAPIENTRY FGUNUSED glutCreateWindow_ATEXIT_HACK(const char *title) { return __glutCreateWindowWithExit(title, exit); }$/;"	f	signature:(const char *title)
+glutDestroyMenu	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutDestroyMenu( int menu );$/;"	p	signature:( int menu )
+glutDestroyWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutDestroyWindow( int window );$/;"	p	signature:( int window )
+glutDetachMenu	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutDetachMenu( int button );$/;"	p	signature:( int button )
+glutDeviceGet	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutDeviceGet( GLenum query );$/;"	p	signature:( GLenum query )
+glutDialsFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutDialsFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutDisplayFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutDisplayFunc( void (* callback)( void ) );$/;"	p	signature:( void (* callback)( void ) )
+glutEnterGameMode	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutEnterGameMode( void );$/;"	p	signature:( void )
+glutEntryFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutEntryFunc( void (* callback)( int ) );$/;"	p	signature:( void (* callback)( int ) )
+glutEstablishOverlay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutEstablishOverlay( void );$/;"	p	signature:( void )
+glutExit	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutExit         ( void );$/;"	p	signature:( void )
+glutExtensionSupported	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutExtensionSupported( const char* extension );$/;"	p	signature:( const char* extension )
+glutForceJoystickFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutForceJoystickFunc( void );$/;"	p	signature:( void )
+glutFullScreen	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutFullScreen( void );$/;"	p	signature:( void )
+glutFullScreenToggle	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutFullScreenToggle( void );$/;"	p	signature:( void )
+glutGameModeGet	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutGameModeGet( GLenum query );$/;"	p	signature:( GLenum query )
+glutGameModeString	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutGameModeString( const char* string );$/;"	p	signature:( const char* string )
+glutGet	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutGet( GLenum query );$/;"	p	signature:( GLenum query )
+glutGetColor	/usr/include/GL/freeglut_std.h	/^FGAPI GLfloat FGAPIENTRY glutGetColor( int color, int component );$/;"	p	signature:( int color, int component )
+glutGetMenu	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutGetMenu( void );$/;"	p	signature:( void )
+glutGetMenuData	/usr/include/GL/freeglut_ext.h	/^FGAPI void*   FGAPIENTRY glutGetMenuData( void );$/;"	p	signature:( void )
+glutGetModeValues	/usr/include/GL/freeglut_ext.h	/^FGAPI int *   FGAPIENTRY glutGetModeValues(GLenum mode, int * size);$/;"	p	signature:(GLenum mode, int * size)
+glutGetModifiers	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutGetModifiers( void );$/;"	p	signature:( void )
+glutGetProcAddress	/usr/include/GL/freeglut_ext.h	/^FGAPI GLUTproc FGAPIENTRY glutGetProcAddress( const char *procName );$/;"	p	signature:( const char *procName )
+glutGetWindow	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutGetWindow( void );$/;"	p	signature:( void )
+glutGetWindowData	/usr/include/GL/freeglut_ext.h	/^FGAPI void*   FGAPIENTRY glutGetWindowData( void );$/;"	p	signature:( void )
+glutHideOverlay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutHideOverlay( void );$/;"	p	signature:( void )
+glutHideWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutHideWindow( void );$/;"	p	signature:( void )
+glutIconifyWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutIconifyWindow( void );$/;"	p	signature:( void )
+glutIdleFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutIdleFunc( void (* callback)( void ) );$/;"	p	signature:( void (* callback)( void ) )
+glutIgnoreKeyRepeat	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutIgnoreKeyRepeat( int ignore );$/;"	p	signature:( int ignore )
+glutInit	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutInit( int* pargc, char** argv );$/;"	p	signature:( int* pargc, char** argv )
+glutInit	/usr/include/GL/freeglut_std.h	638;"	d
+glutInitContextFlags	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutInitContextFlags( int flags );$/;"	p	signature:( int flags )
+glutInitContextFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutInitContextFunc(void (* callback)());$/;"	p	signature:(void (* callback)())
+glutInitContextProfile	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutInitContextProfile( int profile );$/;"	p	signature:( int profile )
+glutInitContextVersion	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutInitContextVersion( int majorVersion, int minorVersion );$/;"	p	signature:( int majorVersion, int minorVersion )
+glutInitDisplayMode	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutInitDisplayMode( unsigned int displayMode );$/;"	p	signature:( unsigned int displayMode )
+glutInitDisplayString	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutInitDisplayString( const char* displayMode );$/;"	p	signature:( const char* displayMode )
+glutInitErrorFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutInitErrorFunc( void (* callback)( const char *fmt, va_list ap ) );$/;"	p	signature:( void (* callback)( const char *fmt, va_list ap ) )
+glutInitWarningFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutInitWarningFunc( void (* callback)( const char *fmt, va_list ap ) );$/;"	p	signature:( void (* callback)( const char *fmt, va_list ap ) )
+glutInitWindowPosition	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutInitWindowPosition( int x, int y );$/;"	p	signature:( int x, int y )
+glutInitWindowSize	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutInitWindowSize( int width, int height );$/;"	p	signature:( int width, int height )
+glutInit_ATEXIT_HACK	/usr/include/GL/freeglut_std.h	/^static void FGAPIENTRY FGUNUSED glutInit_ATEXIT_HACK(int *argcp, char **argv) { __glutInitWithExit(argcp, argv, exit); }$/;"	f	signature:(int *argcp, char **argv)
+glutJoystickFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutJoystickFunc( void (* callback)( unsigned int, int, int, int ), int pollInterval );$/;"	p	signature:( void (* callback)( unsigned int, int, int, int ), int pollInterval )
+glutJoystickGetCenter	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickGetCenter( int ident, float *axes );$/;"	p	signature:( int ident, float *axes )
+glutJoystickGetDeadBand	/usr/include/GL/freeglut_ext.h	/^float   glutJoystickGetDeadBand( int ident, int axis );$/;"	p	signature:( int ident, int axis )
+glutJoystickGetMaxRange	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickGetMaxRange( int ident, float *axes );$/;"	p	signature:( int ident, float *axes )
+glutJoystickGetMinRange	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickGetMinRange( int ident, float *axes );$/;"	p	signature:( int ident, float *axes )
+glutJoystickGetNumAxes	/usr/include/GL/freeglut_ext.h	/^int     glutJoystickGetNumAxes( int ident );$/;"	p	signature:( int ident )
+glutJoystickGetNumButtons	/usr/include/GL/freeglut_ext.h	/^int     glutJoystickGetNumButtons( int ident );$/;"	p	signature:( int ident )
+glutJoystickGetSaturation	/usr/include/GL/freeglut_ext.h	/^float   glutJoystickGetSaturation( int ident, int axis );$/;"	p	signature:( int ident, int axis )
+glutJoystickNotWorking	/usr/include/GL/freeglut_ext.h	/^int     glutJoystickNotWorking( int ident );$/;"	p	signature:( int ident )
+glutJoystickSetCenter	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickSetCenter( int ident, float *axes );$/;"	p	signature:( int ident, float *axes )
+glutJoystickSetDeadBand	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickSetDeadBand( int ident, int axis, float db );$/;"	p	signature:( int ident, int axis, float db )
+glutJoystickSetMaxRange	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickSetMaxRange( int ident, float *axes );$/;"	p	signature:( int ident, float *axes )
+glutJoystickSetMinRange	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickSetMinRange( int ident, float *axes );$/;"	p	signature:( int ident, float *axes )
+glutJoystickSetSaturation	/usr/include/GL/freeglut_ext.h	/^void    glutJoystickSetSaturation( int ident, int axis, float st );$/;"	p	signature:( int ident, int axis, float st )
+glutKeyboardFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutKeyboardFunc( void (* callback)( unsigned char, int, int ) );$/;"	p	signature:( void (* callback)( unsigned char, int, int ) )
+glutKeyboardUpFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutKeyboardUpFunc( void (* callback)( unsigned char, int, int ) );$/;"	p	signature:( void (* callback)( unsigned char, int, int ) )
+glutLayerGet	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutLayerGet( GLenum query );$/;"	p	signature:( GLenum query )
+glutLeaveFullScreen	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutLeaveFullScreen( void );$/;"	p	signature:( void )
+glutLeaveGameMode	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutLeaveGameMode( void );$/;"	p	signature:( void )
+glutLeaveMainLoop	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutLeaveMainLoop( void );$/;"	p	signature:( void )
+glutMainLoop	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutMainLoop( void );$/;"	p	signature:( void )
+glutMainLoopEvent	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutMainLoopEvent( void );$/;"	p	signature:( void )
+glutMenuDestroyFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutMenuDestroyFunc( void (* callback)( void ) );$/;"	p	signature:( void (* callback)( void ) )
+glutMenuStateFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutMenuStateFunc( void (* callback)( int ) );$/;"	p	signature:( void (* callback)( int ) )
+glutMenuStatusFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutMenuStatusFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutMotionFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutMotionFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutMouseFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutMouseFunc( void (* callback)( int, int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int, int ) )
+glutMouseWheelFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutMouseWheelFunc( void (* callback)( int, int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int, int ) )
+glutMultiButtonFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void FGAPIENTRY glutMultiButtonFunc( void (* callback)( int, int, int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int, int, int ) )
+glutMultiEntryFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void FGAPIENTRY glutMultiEntryFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutMultiMotionFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void FGAPIENTRY glutMultiMotionFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutMultiPassiveFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void FGAPIENTRY glutMultiPassiveFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutOverlayDisplayFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutOverlayDisplayFunc( void (* callback)( void ) );$/;"	p	signature:( void (* callback)( void ) )
+glutPassiveMotionFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPassiveMotionFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutPopWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPopWindow( void );$/;"	p	signature:( void )
+glutPositionFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutPositionFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutPositionWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPositionWindow( int x, int y );$/;"	p	signature:( int x, int y )
+glutPostOverlayRedisplay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPostOverlayRedisplay( void );$/;"	p	signature:( void )
+glutPostRedisplay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPostRedisplay( void );$/;"	p	signature:( void )
+glutPostWindowOverlayRedisplay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPostWindowOverlayRedisplay( int window );$/;"	p	signature:( int window )
+glutPostWindowRedisplay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPostWindowRedisplay( int window );$/;"	p	signature:( int window )
+glutPushWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutPushWindow( void );$/;"	p	signature:( void )
+glutRemoveMenuItem	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutRemoveMenuItem( int item );$/;"	p	signature:( int item )
+glutRemoveOverlay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutRemoveOverlay( void );$/;"	p	signature:( void )
+glutReportErrors	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutReportErrors( void );$/;"	p	signature:( void )
+glutReshapeFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutReshapeFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutReshapeWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutReshapeWindow( int width, int height );$/;"	p	signature:( int width, int height )
+glutSetColor	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetColor( int color, GLfloat red, GLfloat green, GLfloat blue );$/;"	p	signature:( int color, GLfloat red, GLfloat green, GLfloat blue )
+glutSetCursor	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetCursor( int cursor );$/;"	p	signature:( int cursor )
+glutSetIconTitle	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetIconTitle( const char* title );$/;"	p	signature:( const char* title )
+glutSetKeyRepeat	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetKeyRepeat( int repeatMode );$/;"	p	signature:( int repeatMode )
+glutSetMenu	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetMenu( int menu );$/;"	p	signature:( int menu )
+glutSetMenuData	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetMenuData(void* data);$/;"	p	signature:(void* data)
+glutSetMenuFont	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetMenuFont( int menuID, void* font );$/;"	p	signature:( int menuID, void* font )
+glutSetOption	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetOption ( GLenum option_flag, int value );$/;"	p	signature:( GLenum option_flag, int value )
+glutSetVertexAttribCoord3	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetVertexAttribCoord3(GLint attrib);$/;"	p	signature:(GLint attrib)
+glutSetVertexAttribNormal	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetVertexAttribNormal(GLint attrib);$/;"	p	signature:(GLint attrib)
+glutSetVertexAttribTexCoord2	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetVertexAttribTexCoord2(GLint attrib);$/;"	p	signature:(GLint attrib)
+glutSetWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetWindow( int window );$/;"	p	signature:( int window )
+glutSetWindowData	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSetWindowData(void* data);$/;"	p	signature:(void* data)
+glutSetWindowTitle	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetWindowTitle( const char* title );$/;"	p	signature:( const char* title )
+glutSetupVideoResizing	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSetupVideoResizing( void );$/;"	p	signature:( void )
+glutShowOverlay	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutShowOverlay( void );$/;"	p	signature:( void )
+glutShowWindow	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutShowWindow( void );$/;"	p	signature:( void )
+glutSolidCone	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidCone( double base, double height, GLint slices, GLint stacks );$/;"	p	signature:( double base, double height, GLint slices, GLint stacks )
+glutSolidCube	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidCube( double size );$/;"	p	signature:( double size )
+glutSolidCylinder	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSolidCylinder( double radius, double height, GLint slices, GLint stacks);$/;"	p	signature:( double radius, double height, GLint slices, GLint stacks)
+glutSolidDodecahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidDodecahedron( void );$/;"	p	signature:( void )
+glutSolidIcosahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidIcosahedron( void );$/;"	p	signature:( void )
+glutSolidOctahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidOctahedron( void );$/;"	p	signature:( void )
+glutSolidRhombicDodecahedron	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSolidRhombicDodecahedron( void );$/;"	p	signature:( void )
+glutSolidSierpinskiSponge	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSolidSierpinskiSponge ( int num_levels, double offset[3], double scale );$/;"	p	signature:( int num_levels, double offset[3], double scale )
+glutSolidSphere	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidSphere( double radius, GLint slices, GLint stacks );$/;"	p	signature:( double radius, GLint slices, GLint stacks )
+glutSolidTeacup	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSolidTeacup( double size );$/;"	p	signature:( double size )
+glutSolidTeapot	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidTeapot( double size );$/;"	p	signature:( double size )
+glutSolidTeaspoon	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutSolidTeaspoon( double size );$/;"	p	signature:( double size )
+glutSolidTetrahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidTetrahedron( void );$/;"	p	signature:( void )
+glutSolidTorus	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSolidTorus( double innerRadius, double outerRadius, GLint sides, GLint rings );$/;"	p	signature:( double innerRadius, double outerRadius, GLint sides, GLint rings )
+glutSpaceballButtonFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSpaceballButtonFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutSpaceballMotionFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSpaceballMotionFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutSpaceballRotateFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSpaceballRotateFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutSpecialFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSpecialFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutSpecialUpFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSpecialUpFunc( void (* callback)( int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int ) )
+glutStopVideoResizing	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutStopVideoResizing( void );$/;"	p	signature:( void )
+glutStrokeCharacter	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutStrokeCharacter( void* font, int character );$/;"	p	signature:( void* font, int character )
+glutStrokeHeight	/usr/include/GL/freeglut_ext.h	/^FGAPI GLfloat FGAPIENTRY glutStrokeHeight( void* font );$/;"	p	signature:( void* font )
+glutStrokeLength	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutStrokeLength( void* font, const unsigned char* string );$/;"	p	signature:( void* font, const unsigned char* string )
+glutStrokeLengthf	/usr/include/GL/freeglut_std.h	/^FGAPI GLfloat FGAPIENTRY glutStrokeLengthf( void* font, const unsigned char *string ); \/* GLUT 3.8 *\/$/;"	p	signature:( void* font, const unsigned char *string )
+glutStrokeString	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutStrokeString( void* font, const unsigned char *string );$/;"	p	signature:( void* font, const unsigned char *string )
+glutStrokeWidth	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutStrokeWidth( void* font, int character );$/;"	p	signature:( void* font, int character )
+glutStrokeWidthf	/usr/include/GL/freeglut_std.h	/^FGAPI GLfloat FGAPIENTRY glutStrokeWidthf( void* font, int character ); \/* GLUT 3.8 *\/$/;"	p	signature:( void* font, int character )
+glutSwapBuffers	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutSwapBuffers( void );$/;"	p	signature:( void )
+glutTabletButtonFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutTabletButtonFunc( void (* callback)( int, int, int, int ) );$/;"	p	signature:( void (* callback)( int, int, int, int ) )
+glutTabletMotionFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutTabletMotionFunc( void (* callback)( int, int ) );$/;"	p	signature:( void (* callback)( int, int ) )
+glutTimerFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutTimerFunc( unsigned int time, void (* callback)( int ), int value );$/;"	p	signature:( unsigned int time, void (* callback)( int ), int value )
+glutUseLayer	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutUseLayer( GLenum layer );$/;"	p	signature:( GLenum layer )
+glutVideoPan	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutVideoPan( int x, int y, int width, int height );$/;"	p	signature:( int x, int y, int width, int height )
+glutVideoResize	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutVideoResize( int x, int y, int width, int height );$/;"	p	signature:( int x, int y, int width, int height )
+glutVideoResizeGet	/usr/include/GL/freeglut_std.h	/^FGAPI int     FGAPIENTRY glutVideoResizeGet( GLenum query );$/;"	p	signature:( GLenum query )
+glutVisibilityFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutVisibilityFunc( void (* callback)( int ) );$/;"	p	signature:( void (* callback)( int ) )
+glutWMCloseFunc	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutWMCloseFunc( void (* callback)( void ) );$/;"	p	signature:( void (* callback)( void ) )
+glutWarpPointer	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWarpPointer( int x, int y );$/;"	p	signature:( int x, int y )
+glutWindowStatusFunc	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWindowStatusFunc( void (* callback)( int ) );$/;"	p	signature:( void (* callback)( int ) )
+glutWireCone	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireCone( double base, double height, GLint slices, GLint stacks );$/;"	p	signature:( double base, double height, GLint slices, GLint stacks )
+glutWireCube	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireCube( double size );$/;"	p	signature:( double size )
+glutWireCylinder	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutWireCylinder( double radius, double height, GLint slices, GLint stacks);$/;"	p	signature:( double radius, double height, GLint slices, GLint stacks)
+glutWireDodecahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireDodecahedron( void );$/;"	p	signature:( void )
+glutWireIcosahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireIcosahedron( void );$/;"	p	signature:( void )
+glutWireOctahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireOctahedron( void );$/;"	p	signature:( void )
+glutWireRhombicDodecahedron	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutWireRhombicDodecahedron( void );$/;"	p	signature:( void )
+glutWireSierpinskiSponge	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutWireSierpinskiSponge ( int num_levels, double offset[3], double scale );$/;"	p	signature:( int num_levels, double offset[3], double scale )
+glutWireSphere	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireSphere( double radius, GLint slices, GLint stacks );$/;"	p	signature:( double radius, GLint slices, GLint stacks )
+glutWireTeacup	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutWireTeacup( double size );$/;"	p	signature:( double size )
+glutWireTeapot	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireTeapot( double size );$/;"	p	signature:( double size )
+glutWireTeaspoon	/usr/include/GL/freeglut_ext.h	/^FGAPI void    FGAPIENTRY glutWireTeaspoon( double size );$/;"	p	signature:( double size )
+glutWireTetrahedron	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireTetrahedron( void );$/;"	p	signature:( void )
+glutWireTorus	/usr/include/GL/freeglut_std.h	/^FGAPI void    FGAPIENTRY glutWireTorus( double innerRadius, double outerRadius, GLint sides, GLint rings );$/;"	p	signature:( double innerRadius, double outerRadius, GLint sides, GLint rings )
 glxbufferswapcomplete	/usr/include/GL/glx.h	/^    GLXBufferSwapComplete glxbufferswapcomplete;$/;"	m	union:__GLXEvent	access:public
 glxewGetExtension	/usr/include/GL/glxew.h	/^GLEWAPI GLboolean GLEWAPIENTRY glxewGetExtension (const char *name);$/;"	p	signature:(const char *name)
 glxewInit	/usr/include/GL/glxew.h	/^GLEWAPI GLenum GLEWAPIENTRY glxewInit ();$/;"	p	signature:()
 glxewIsSupported	/usr/include/GL/glxew.h	/^GLEWAPI GLboolean GLEWAPIENTRY glxewIsSupported (const char *name);$/;"	p	signature:(const char *name)
 glxpbufferclobber	/usr/include/GL/glx.h	/^    GLXPbufferClobberEvent glxpbufferclobber;$/;"	m	union:__GLXEvent	access:public
 glxpbufferclobber	/usr/include/GL/glxew.h	/^  GLXPbufferClobberEvent glxpbufferclobber; $/;"	m	union:__GLXEvent	access:public
-height	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon12	access:public
-height	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon1	access:public
-height	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
+height	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon6	access:public
+height	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon8	access:public
+height	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
 height	/usr/include/GL/internal/dri_interface.h	/^    int height;             \/**< Pixel height of the framebuffer. *\/$/;"	m	struct:__DRIframebufferRec	access:public
 image_mask	/usr/include/GL/internal/dri_interface.h	/^   uint32_t image_mask;$/;"	m	struct:__DRIimageList	access:public
 indexConfigAttrib	/usr/include/GL/internal/dri_interface.h	/^    int (*indexConfigAttrib)(const __DRIconfig *config, int index,$/;"	m	struct:__DRIcoreExtensionRec	access:public
@@ -38542,30 +38977,30 @@ isThreadSafe	/usr/include/GL/internal/dri_interface.h	/^   GLboolean (*isThreadS
 lookupEGLImage	/usr/include/GL/internal/dri_interface.h	/^    __DRIimage *(*lookupEGLImage)(__DRIscreen *screen, void *image,$/;"	m	struct:__DRIimageLookupExtensionRec	access:public
 major	/usr/include/GL/internal/dri_interface.h	/^    int    major;        \/**< Major version number. *\/$/;"	m	struct:__DRIversionRec	access:public
 mapImage	/usr/include/GL/internal/dri_interface.h	/^   void *(*mapImage)(__DRIcontext *context, __DRIimage *image,$/;"	m	struct:__DRIimageExtensionRec	access:public
-mask	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-maxHeight	/usr/include/GL/glxew.h	/^  int maxHeight; $/;"	m	struct:__anon3	access:public
-maxHeight	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
-maxWidth	/usr/include/GL/glxew.h	/^  int maxWidth; $/;"	m	struct:__anon3	access:public
-maxWidth	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon11	access:public
+mask	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+maxHeight	/usr/include/GL/glxew.h	/^  int maxHeight; $/;"	m	struct:__anon10	access:public
+maxHeight	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
+maxWidth	/usr/include/GL/glxew.h	/^  int maxWidth; $/;"	m	struct:__anon10	access:public
+maxWidth	/usr/include/GL/glxext.h	/^    int XOrigin, YOrigin, maxHeight, maxWidth;$/;"	m	struct:__anon5	access:public
 minor	/usr/include/GL/internal/dri_interface.h	/^    int    minor;        \/**< Minor version number. *\/$/;"	m	struct:__DRIversionRec	access:public
-msc	/usr/include/GL/glx.h	/^    int64_t msc;$/;"	m	struct:__anon13	access:public
+msc	/usr/include/GL/glx.h	/^    int64_t msc;$/;"	m	struct:__anon7	access:public
 name	/usr/include/GL/internal/dri_interface.h	/^    const char *name;$/;"	m	struct:__DRIextensionRec	access:public
 name	/usr/include/GL/internal/dri_interface.h	/^    unsigned int name;$/;"	m	struct:__DRIbufferRec	access:public
-networkId	/usr/include/GL/glxew.h	/^  int  networkId; $/;"	m	struct:__anon2	access:public
-networkId	/usr/include/GL/glxext.h	/^    int     networkId;$/;"	m	struct:__anon8	access:public
+networkId	/usr/include/GL/glxew.h	/^  int  networkId; $/;"	m	struct:__anon9	access:public
+networkId	/usr/include/GL/glxext.h	/^    int     networkId;$/;"	m	struct:__anon2	access:public
 pad	/usr/include/GL/glx.h	/^    long pad[24];$/;"	m	union:__GLXEvent	access:public
 pad	/usr/include/GL/glxew.h	/^  long pad[24]; $/;"	m	union:__GLXEvent	access:public
-participationType	/usr/include/GL/glxew.h	/^  unsigned int participationType; $/;"	m	struct:__anon4	access:public
-participationType	/usr/include/GL/glxext.h	/^    unsigned int participationType;$/;"	m	struct:__anon9	access:public
+participationType	/usr/include/GL/glxew.h	/^  unsigned int participationType; $/;"	m	struct:__anon11	access:public
+participationType	/usr/include/GL/glxext.h	/^    unsigned int participationType;$/;"	m	struct:__anon3	access:public
 patch	/usr/include/GL/internal/dri_interface.h	/^    int    patch;        \/**< Patch-level. *\/$/;"	m	struct:__DRIversionRec	access:public
-pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon2	access:public
-pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon3	access:public
-pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon4	access:public
-pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon5	access:public
-pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon8	access:public
-pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon9	access:public
-pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon10	access:public
-pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon11	access:public
+pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon10	access:public
+pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon11	access:public
+pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon12	access:public
+pipeName	/usr/include/GL/glxew.h	/^  char pipeName[GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX]; $/;"	m	struct:__anon9	access:public
+pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon2	access:public
+pipeName	/usr/include/GL/glxext.h	/^    char    pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon3	access:public
+pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon4	access:public
+pipeName	/usr/include/GL/glxext.h	/^    char pipeName[80]; \/* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] *\/$/;"	m	struct:__anon5	access:public
 pitch	/usr/include/GL/internal/dri_interface.h	/^    unsigned int pitch;$/;"	m	struct:__DRIbufferRec	access:public
 ptrdiff_t	/usr/include/GL/glew.h	/^typedef _W64 int ptrdiff_t;$/;"	t
 ptrdiff_t	/usr/include/GL/glew.h	/^typedef __int64 ptrdiff_t;$/;"	t
@@ -38582,17 +39017,17 @@ rcVirtualScreen	/usr/include/GL/wglew.h	/^  RECT rcVirtualScreen; $/;"	m	struct:
 releaseBuffer	/usr/include/GL/internal/dri_interface.h	/^   void (*releaseBuffer)(__DRIscreen *screen,$/;"	m	struct:__DRIdri2ExtensionRec	access:public
 releaseTexBuffer	/usr/include/GL/internal/dri_interface.h	/^    void (*releaseTexBuffer)(__DRIcontext *pDRICtx,$/;"	m	struct:__DRItexBufferExtensionRec	access:public
 reportDamage	/usr/include/GL/internal/dri_interface.h	/^    void (*reportDamage)(__DRIdrawable *draw,$/;"	m	struct:__DRIdamageExtensionRec	access:public
-sbc	/usr/include/GL/glx.h	/^    int64_t sbc;$/;"	m	struct:__anon13	access:public
-send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came for SendEvent request *\/$/;"	m	struct:__anon12	access:public
-send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came from a SendEvent request *\/$/;"	m	struct:__anon13	access:public
-send_event	/usr/include/GL/glxew.h	/^  Bool send_event; $/;"	m	struct:__anon1	access:public
-send_event	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-send_event	/usr/include/GL/glxext.h	/^    Bool send_event;$/;"	m	struct:__anon7	access:public
-serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon12	access:public
-serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon13	access:public
-serial	/usr/include/GL/glxew.h	/^  unsigned long serial; $/;"	m	struct:__anon1	access:public
-serial	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-serial	/usr/include/GL/glxext.h	/^    unsigned long serial;$/;"	m	struct:__anon7	access:public
+sbc	/usr/include/GL/glx.h	/^    int64_t sbc;$/;"	m	struct:__anon7	access:public
+send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came for SendEvent request *\/$/;"	m	struct:__anon6	access:public
+send_event	/usr/include/GL/glx.h	/^    Bool send_event;		\/* true if this came from a SendEvent request *\/$/;"	m	struct:__anon7	access:public
+send_event	/usr/include/GL/glxew.h	/^  Bool send_event; $/;"	m	struct:__anon8	access:public
+send_event	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+send_event	/usr/include/GL/glxext.h	/^    Bool send_event;$/;"	m	struct:__anon1	access:public
+serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon6	access:public
+serial	/usr/include/GL/glx.h	/^    unsigned long serial;	\/* # of last request processed by server *\/$/;"	m	struct:__anon7	access:public
+serial	/usr/include/GL/glxew.h	/^  unsigned long serial; $/;"	m	struct:__anon8	access:public
+serial	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+serial	/usr/include/GL/glxext.h	/^    unsigned long serial;$/;"	m	struct:__anon1	access:public
 server_wait_sync	/usr/include/GL/internal/dri_interface.h	/^   void (*server_wait_sync)(__DRIcontext *ctx, void *fence, unsigned flags);$/;"	m	struct:__DRI2fenceExtensionRec	access:public
 setBackgroundContext	/usr/include/GL/internal/dri_interface.h	/^   void (*setBackgroundContext)(void *loaderPrivate);$/;"	m	struct:__DRIbackgroundCallableExtensionRec	access:public
 setSwapInterval	/usr/include/GL/internal/dri_interface.h	/^    void (*setSwapInterval)(__DRIdrawable *drawable, unsigned int inteval);$/;"	m	struct:__DRIswapControlExtensionRec	access:public
@@ -38600,23 +39035,23 @@ setTexBuffer	/usr/include/GL/internal/dri_interface.h	/^    void (*setTexBuffer)
 setTexBuffer2	/usr/include/GL/internal/dri_interface.h	/^    void (*setTexBuffer2)(__DRIcontext *pDRICtx,$/;"	m	struct:__DRItexBufferExtensionRec	access:public
 setTexOffset	/usr/include/GL/internal/dri_interface.h	/^    void (*setTexOffset)(__DRIcontext *pDRICtx, GLint texname,$/;"	m	struct:__DRItexOffsetExtensionRec	access:public
 size	/usr/include/GL/internal/dri_interface.h	/^    int size;               \/**< Framebuffer size, in bytes. *\/$/;"	m	struct:__DRIframebufferRec	access:public
-srcHeight	/usr/include/GL/glxew.h	/^  int srcHeight; $/;"	m	struct:__anon5	access:public
-srcHeight	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-srcWidth	/usr/include/GL/glxew.h	/^  int srcWidth; $/;"	m	struct:__anon5	access:public
-srcWidth	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-srcXOrigin	/usr/include/GL/glxew.h	/^  int srcXOrigin; $/;"	m	struct:__anon5	access:public
-srcXOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-srcYOrigin	/usr/include/GL/glxew.h	/^  int srcYOrigin; $/;"	m	struct:__anon5	access:public
-srcYOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon10	access:public
-stereo_tree	/usr/include/GL/glxext.h	/^    Bool stereo_tree;$/;"	m	struct:__anon7	access:public
+srcHeight	/usr/include/GL/glxew.h	/^  int srcHeight; $/;"	m	struct:__anon12	access:public
+srcHeight	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+srcWidth	/usr/include/GL/glxew.h	/^  int srcWidth; $/;"	m	struct:__anon12	access:public
+srcWidth	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+srcXOrigin	/usr/include/GL/glxew.h	/^  int srcXOrigin; $/;"	m	struct:__anon12	access:public
+srcXOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+srcYOrigin	/usr/include/GL/glxew.h	/^  int srcYOrigin; $/;"	m	struct:__anon12	access:public
+srcYOrigin	/usr/include/GL/glxext.h	/^    int srcXOrigin, srcYOrigin, srcWidth, srcHeight;$/;"	m	struct:__anon4	access:public
+stereo_tree	/usr/include/GL/glxext.h	/^    Bool stereo_tree;$/;"	m	struct:__anon1	access:public
 stride	/usr/include/GL/internal/dri_interface.h	/^    int stride;             \/**< Number of bytes from one line to the next. *\/$/;"	m	struct:__DRIframebufferRec	access:public
 swapBuffers	/usr/include/GL/internal/dri_interface.h	/^    void (*swapBuffers)(__DRIdrawable *drawable);$/;"	m	struct:__DRIcoreExtensionRec	access:public
 throttle	/usr/include/GL/internal/dri_interface.h	/^   void (*throttle)(__DRIcontext *ctx,$/;"	m	struct:__DRI2throttleExtensionRec	access:public
-timeSlice	/usr/include/GL/glxew.h	/^  int timeSlice; $/;"	m	struct:__anon4	access:public
-timeSlice	/usr/include/GL/glxext.h	/^    int     timeSlice;$/;"	m	struct:__anon9	access:public
-type	/usr/include/GL/glx.h	/^    int type;$/;"	m	struct:__anon13	access:public
-type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
-type	/usr/include/GL/glxext.h	/^    int type;$/;"	m	struct:__anon7	access:public
+timeSlice	/usr/include/GL/glxew.h	/^  int timeSlice; $/;"	m	struct:__anon11	access:public
+timeSlice	/usr/include/GL/glxext.h	/^    int     timeSlice;$/;"	m	struct:__anon3	access:public
+type	/usr/include/GL/glx.h	/^    int type;$/;"	m	struct:__anon7	access:public
+type	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
+type	/usr/include/GL/glxext.h	/^    int type;$/;"	m	struct:__anon1	access:public
 uint64_t	/usr/include/GL/glcorearb.h	/^typedef unsigned __int64 uint64_t;$/;"	t
 uint64_t	/usr/include/GL/glcorearb.h	/^typedef unsigned long int uint64_t;$/;"	t
 uint64_t	/usr/include/GL/glcorearb.h	/^typedef unsigned long long int uint64_t;$/;"	t
@@ -38628,7 +39063,7 @@ uint64_t	/usr/include/GL/glxext.h	/^typedef unsigned long int uint64_t;$/;"	t
 uint64_t	/usr/include/GL/glxext.h	/^typedef unsigned long long int uint64_t;$/;"	t
 unbindContext	/usr/include/GL/internal/dri_interface.h	/^    int (*unbindContext)(__DRIcontext *ctx);$/;"	m	struct:__DRIcoreExtensionRec	access:public
 unmapImage	/usr/include/GL/internal/dri_interface.h	/^   void (*unmapImage)(__DRIcontext *context, __DRIimage *image, void *data);$/;"	m	struct:__DRIimageExtensionRec	access:public
-ust	/usr/include/GL/glx.h	/^    int64_t ust;$/;"	m	struct:__anon13	access:public
+ust	/usr/include/GL/glx.h	/^    int64_t ust;$/;"	m	struct:__anon7	access:public
 validateUsage	/usr/include/GL/internal/dri_interface.h	/^   GLboolean (*validateUsage)(__DRIimage *image, unsigned int use);$/;"	m	struct:__DRIimageExtensionRec	access:public
 version	/usr/include/GL/internal/dri_interface.h	/^    int version;$/;"	m	struct:__DRIextensionRec	access:public
 vtable	/usr/include/GL/internal/dri_interface.h	/^    const struct __DriverAPIRec *vtable;$/;"	m	struct:__DRIDriverVtableExtensionRec	typeref:struct:__DRIDriverVtableExtensionRec::__DriverAPIRec	access:public
@@ -38755,15 +39190,15 @@ wglWaitForSbcOML	/usr/include/GL/wglew.h	1210;"	d
 wglewGetExtension	/usr/include/GL/wglew.h	/^GLEWAPI GLboolean GLEWAPIENTRY wglewGetExtension (const char *name);$/;"	p	signature:(const char *name)
 wglewInit	/usr/include/GL/wglew.h	/^GLEWAPI GLenum GLEWAPIENTRY wglewInit ();$/;"	p	signature:()
 wglewIsSupported	/usr/include/GL/wglew.h	/^GLEWAPI GLboolean GLEWAPIENTRY wglewIsSupported (const char *name);$/;"	p	signature:(const char *name)
-width	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon12	access:public
-width	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon1	access:public
-width	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
+width	/usr/include/GL/glx.h	/^    int width, height;$/;"	m	struct:__anon6	access:public
+width	/usr/include/GL/glxew.h	/^  int width, height; $/;"	m	struct:__anon8	access:public
+width	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
 width	/usr/include/GL/internal/dri_interface.h	/^    int width;              \/**< Pixel width of the framebuffer. *\/$/;"	m	struct:__DRIframebufferRec	access:public
-window	/usr/include/GL/glxext.h	/^    GLXDrawable window;$/;"	m	struct:__anon7	access:public
-x	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon12	access:public
-x	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon1	access:public
-x	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
+window	/usr/include/GL/glxext.h	/^    GLXDrawable window;$/;"	m	struct:__anon1	access:public
+x	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon6	access:public
+x	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon8	access:public
+x	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public
 xml	/usr/include/GL/internal/dri_interface.h	/^   const char *xml;$/;"	m	struct:__DRIconfigOptionsExtensionRec	access:public
-y	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon12	access:public
-y	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon1	access:public
-y	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon6	access:public
+y	/usr/include/GL/glx.h	/^    int x, y;$/;"	m	struct:__anon6	access:public
+y	/usr/include/GL/glxew.h	/^  int x, y; $/;"	m	struct:__anon8	access:public
+y	/usr/include/GL/glxew.h	/^typedef struct { int type; unsigned long serial; Bool send_event; Display *display; GLXDrawable drawable; int event_type; int draw_type; unsigned int mask; int x, y; int width, height; int count; } GLXBufferClobberEventSGIX;$/;"	m	struct:__anon13	access:public

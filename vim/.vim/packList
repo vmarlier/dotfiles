@@ -16,6 +16,8 @@ All Config Plugins:
 		https://github.com/scrooloose/nerdtree.git
 	Tagbar
 		https://github.com/majutsushi/tagbar.git
+	Send.vim (GitHub):
+		git@github.com:peterhurford/send.vim.git
 	Linter
 					Syntastic
 						https://github.com/vim-syntastic/syntastic.git
@@ -57,3 +59,17 @@ Cpp Plugins:
 	
 	omnicpp
 		https://github.com/vim-scripts/OmniCppComplete.git
+
+
+C# Plugins:
+	
+	omnisharp
+		https://github.com/OmniSharp/omnisharp-vim.git
+	vim-dispatch
+		https://github.com/tpope/vim-dispatch.git
+	vim-csharp
+		https://github.com/OrangeT/vim-csharp.git
+	ctrlp
+		https://github.com/ctrlpvim/ctrlp.vim.git
+	grunt-init-csharpsolution
+		https://github.com/nosami/grunt-init-csharpsolution.git

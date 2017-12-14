@@ -199,6 +199,7 @@ autocmd BufRead,BufNewFile *.cpp let OmniCpp_DefaultNamespaces = ["std", "_GLIBC
 " automatically open and close the popup menu / preview window
 autocmd BufRead,BufNewFile *.cpp au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 autocmd BufRead,BufNewFile *.cpp set completeopt=menuone,menu,longest,preview
+autocmd BufRead,BufNewFile *.cpp set splitbelow
 " start TagBar
 autocmd BufRead,BufNewFile *.cpp :Tagbar
 "Syntastic Cpp
@@ -207,6 +208,56 @@ autocmd BufRead,BufNewFile *.cpp let g:syntastic_javascript_checkers = ['cppchec
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.cpp
 autocmd BufNewFile *.hpp 0r ~/.vim/templates/template.hpp
 autocmd BufNewFile main.cpp 0r ~/.vim/templates/template.main.cpp
+"""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""
+"C# file
+"Import C#
+autocmd BufNewFile *.cs 0r ~/.vim/templates/template.cs
+autocmd BufNewFile *.cs 0r ~/.vim/templates/template.program.cs
+autocmd BufRead,BufNewFile *.cs let g:SuperTabDefaultCompletionType = 'context'
+autocmd BufRead,BufNewFile *.cs let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+autocmd BufRead,BufNewFile *.cs let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+autocmd BufRead,BufNewFile *.cs let g:SuperTabClosePreviewOnPopupClose = 1
+"don't autoselect first item in omnicomplete, show if only one item (for preview)
+autocmd BufRead,BufNewFile *.cs set completeopt=menuone,longest,preview
+"Move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
+autocmd BufRead,BufNewFile *.cs set splitbelow
+" Get Code Issues and syntax errors
+autocmd BufRead,BufNewFile *.cs let g:syntastic_cs_checkers = ['mcs']
+augroup omnisharp_commands
+    autocmd!
+
+    "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
+    autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+	" automatic syntax check on events (TextChanged requires Vim 7.4)
+    autocmd BufEnter,BufWrite,TextChanged,InsertLeave *.cs SyntasticCheck
+	 " Automatically add new cs files to the nearest project on save
+    autocmd BufWritePost *.cs call OmniSharp#AddToProject()
+	"show type information automatically when the cursor stops moving
+    autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
+	"The following commands are contextual, based on the current cursor position.
+
+    autocmd FileType cs nnoremap gd :OmniSharpGotoDefinition<cr>
+    autocmd FileType cs nnoremap <leader>fi :OmniSharpFindImplementations<cr>
+    autocmd FileType cs nnoremap <leader>ft :OmniSharpFindType<cr>
+    autocmd FileType cs nnoremap <leader>fs :OmniSharpFindSymbol<cr>
+    autocmd FileType cs nnoremap <leader>fu :OmniSharpFindUsages<cr>
+    "finds members in the current buffer
+    autocmd FileType cs nnoremap <leader>fm :OmniSharpFindMembers<cr>
+    " cursor can be anywhere on the line containing an issue
+    autocmd FileType cs nnoremap <leader>x  :OmniSharpFixIssue<cr>
+    autocmd FileType cs nnoremap <leader>fx :OmniSharpFixUsings<cr>
+    autocmd FileType cs nnoremap <leader>tt :OmniSharpTypeLookup<cr>
+    autocmd FileType cs nnoremap <leader>dc :OmniSharpDocumentation<cr>
+    "navigate up by method/property/field
+    autocmd FileType cs nnoremap <C-K> :OmniSharpNavigateUp<cr>
+    "navigate down by method/property/field
+    autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
+
+augroup END
+" this setting controls how long to wait (in ms) before fetching type / symbol information.
+set updatetime=500
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
