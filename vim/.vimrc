@@ -20,7 +20,7 @@ set  nu
 set path+=**
 set wildmenu
 colorscheme codedark
-let g:airline_theme = 'codedark'
+let g:airline_theme = 'dark'
 set hidden
 set backspace=indent,eol,start
 "Only use hjkl stupid
@@ -34,7 +34,6 @@ noremap <Left> <Nop>
 noremap <Right> <Nop>
 "Use the buffer tabline extension of airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='badcat'
 let g:tagbar_width = 20
 "Next And Previous Buffer
 nnoremap <C-n> :bnext<CR>
@@ -143,8 +142,11 @@ autocmd BufRead,BufNewFile *.php let g:SuperTabDefaultCompletionType = "<c-x><c-
 "autocmd BufRead,BufNewFile *.php nnoremap <C-p> <Esc>:setlocal omnifunc=phpcomplete#CompletePHP \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "Syntastic PHP
 autocmd BufRead,BufNewFile *.php let g:syntastic_php_checkers = ['php']
+" start TagBar
+autocmd BufRead,BufNewFile *.php :TagbarToggle
 "Import php model
 autocmd BufNewFile *.php 0r ~/.vim/templates/template.php
+autocmd BufRead,BufNewFile *.php set splitbelow
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
@@ -201,9 +203,11 @@ autocmd BufRead,BufNewFile *.cpp au CursorMovedI,InsertLeave * if pumvisible() =
 autocmd BufRead,BufNewFile *.cpp set completeopt=menuone,menu,longest,preview
 autocmd BufRead,BufNewFile *.cpp set splitbelow
 " start TagBar
-autocmd BufRead,BufNewFile *.cpp :Tagbar
+autocmd BufRead,BufNewFile *.cpp :TagbarToggle
 "Syntastic Cpp
 autocmd BufRead,BufNewFile *.cpp let g:syntastic_javascript_checkers = ['cppcheck']
+"Move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
+autocmd BufRead,BufNewFile *.cpp set splitbelow
 "Import Cpp and Hpp model
 autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.cpp
 autocmd BufNewFile *.hpp 0r ~/.vim/templates/template.hpp
@@ -256,8 +260,42 @@ augroup omnisharp_commands
     autocmd FileType cs nnoremap <C-J> :OmniSharpNavigateDown<cr>
 
 augroup END
+
 " this setting controls how long to wait (in ms) before fetching type / symbol information.
-set updatetime=500
+autocmd FileType cs set updatetime=400
+" Remove 'Press Enter to continue' message when type information is longer than one line.
+autocmd FileType cs set cmdheight=2
+
+" Contextual code actions (requires CtrlP or unite.vim)
+autocmd FileType cs nnoremap <leader><space> :OmniSharpGetCodeActions<cr>
+" Run code actions with text selected in visual mode to extract method
+autocmd FileType cs vnoremap <leader><space> :call OmniSharp#GetCodeActions('visual')<cr>
+
+" rename with dialog
+autocmd FileType cs nnoremap <leader>nm :OmniSharpRename<cr>
+autocmd FileType cs nnoremap <F2> :OmniSharpRename<cr>
+" rename without dialog - with cursor on the symbol to rename... ':Rename newname'
+autocmd FileType cs command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+
+" Force OmniSharp to reload the solution. Useful when switching branches etc.
+autocmd FileType cs nnoremap <leader>rl :OmniSharpReloadSolution<cr>
+autocmd FileType cs nnoremap <leader>cf :OmniSharpCodeFormat<cr>
+" Load the current .cs file to the nearest project
+autocmd FileType cs nnoremap <leader>tp :OmniSharpAddToProject<cr>
+
+" Start the omnisharp server for the current solution
+autocmd FileType cs nnoremap <leader>ss :OmniSharpStartServer<cr>
+autocmd FileType cs nnoremap <leader>sp :OmniSharpStopServer<cr>
+
+" Add syntax highlighting for types and interfaces
+autocmd FileType cs nnoremap <leader>th :OmniSharpHighlightTypes<cr>
+"Don't ask to save when changing buffers (i.e. when jumping to a type definition)
+autocmd FileType cs set hidden
+
+" Enable snippet completion, requires completeopt-=preview
+autocmd FileType cs let g:OmniSharp_want_snippet=1
+" start TagBar
+autocmd BufRead,BufNewFile *.cs :TagbarToggle
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
