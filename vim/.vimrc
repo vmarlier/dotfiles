@@ -70,8 +70,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close if the only open window is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " change arrow symbol
-let g:NERDTreeDirArrowExpandable = '→'
-let g:NERDTreeDirArrowCollapsible = '↓'
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 " file highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -158,8 +158,8 @@ autocmd BufRead,BufNewFile *.sql let g:syntastic_sql_checkers = ['sqlint']
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""
-" JS file
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" NodeJS: JS file
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd BufRead,BufNewFile *.js let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " JS file can contain
 " HTML
@@ -170,6 +170,7 @@ autocmd BufRead,BufNewFile *.js let g:SuperTabDefaultCompletionType = "<c-x><c-o
 "autocmd BufRead,BufNewFile *.js nnoremap <C-j> <Esc>:set omnifunc=javascriptcomplete#CompleteJS \| let g:SuperTabDefaultCompletionType = "<c-x><c-o>"<CR>
 "Syntastic JS
 autocmd BufRead,BufNewFile *.js let g:syntastic_javascript_checkers = ['jshint']
+autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.js
 """""""""""""""""""""""""""
 
 """""""""""""""""""""""""""

@@ -73,3 +73,8 @@ C# Plugins:
 		https://github.com/ctrlpvim/ctrlp.vim.git
 	grunt-init-csharpsolution
 		https://github.com/nosami/grunt-init-csharpsolution.git
+
+NodeJS Plugins (https://github.com/nodejs/node/wiki/Vim-Plugins):
+	
+	vim-nodejs-complete
+		https://github.com/ahayman/vim-nodejs-complete.git
