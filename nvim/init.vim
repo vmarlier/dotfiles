@@ -1,5 +1,5 @@
 call plug#begin()
-"" basics
+""basics
 Plug 'lilydjwg/colorizer' 						"highlight hexacode color
 Plug 'Raimondi/delimitMate' 					"auto-closing quotes, parenthesis, brackets, etc...
 Plug 'ervandew/supertab' 						"active completion with tab
@@ -11,6 +11,21 @@ Plug 'ryanoasis/vim-devicons'					"nerdtree-syntax dependency
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'	
 Plug 'majutsushi/tagbar'
 Plug 'peterhurford/send.vim' 					"git add, git commit, git pull, git push in vim
+
+""color
+"Plug 'goatslacker/mango', {'for': 'javascript'} "javascript colorscheme
+"Plug 'modess/vim-phpcolors', {'for': 'php'}		"php colorscheme
+
+""linter engine
+Plug 'w0rp/ale'
+
+""completion engine
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+""completion source
+Plug 'wokalski/autocomplete-flow', { 'for': 'javascript'}
+Plug 'Shougo/neosnippet', { 'for': 'javascript'}
+Plug 'Shougo/neosnippet-snippets', { 'for': 'javascript'}
 call plug#end()
 
 
@@ -25,6 +40,7 @@ set complete+=t
 nmap <C-Tab> <Plug>AirlineSelectNextTab
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1 
+let g:airline#extensions#ale#enabled = 1
 
 " vim-anyfold
 set foldlevel=0
@@ -35,30 +51,40 @@ map <C-t> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1 "start if vim open empty
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "start if vim open empty
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "close if nerdtree is last buffer open
-let g:NERDTreeDirArrowExpandable = '→'
-let g:NERDTreeDirArrowCollapsible = '↓' 
 let g:NERDTreeShowHidden=1
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+highlight NERDTreeClosable ctermfg=11
+highlight NERDTreeOpenable ctermfg=11
 
 " tagbar
 let g:tagbar_width = 20
 
+" ale
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_linters = {
+\ 	'javascript': ['jshint'],
+\}
+let g:ale_fixers = {
+\	'javascript': ['prettier'],
+\}
+let g:ale_fix_on_save = 1
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
-
-
-""Languages Settings""""""""""""""""""""""
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
 
 
 
 
 
 ""Settings""""""""""""""""""""""""""""""""
-" Fundamental
+" fundamental
 set encoding=utf8
 "set fileencoding=utf-8
 "set fileencodings=utf-8,latin-1,latin-9
@@ -70,7 +96,7 @@ filetype plugin indent on
 syntax enable on
 set syntax=on
 
-" Useful settings
+" useful settings
 set smartindent
 set autoindent
 set noexpandtab			"no tab to space
@@ -88,17 +114,23 @@ set path+=**
 set nu
 set hidden
 set backspace=indent,eol,start
+"set list
+"set listchars=eol:¬,tab:
 
-" Appearance
+" appearance
 set number		"line number
 set cursorline	"highlight cursor line
 set nowrap "breakindent
-colorscheme default 
 set background=dark
-set guifont=DroidSansMono\ Nerd\ Font\ 11
+set guifont=monofur\ bold\ Nerd\ Font\ 11
+colorscheme deus
+
+
+
+
 
 ""Shortcuts"""""""""""""""""""""""""""""""
-" Only use hjkl stupid
+" only use hjkl stupid
 imap <left> <nop>              
 imap <down> <nop>
 imap <up> <nop>
@@ -108,6 +140,39 @@ nmap <down> <nop>
 nmap <up> <nop>
 nmap <right> <nop>
 
-" Change buffer
+" change buffer
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprev<CR>
+
+
+
+
+
+""Languages Settings""""""""""""""""""""""
+" html
+autocmd FileType html let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"autocmd FileType html 0r ~/.config/nvim/templates/template.html
+
+" css
+autocmd FileType css let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+
+" php
+autocmd FileType php colorscheme candystripe
+autocmd FileType php let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"autocmd FileType php 0r ~/.config/nvim/templates/template.php
+
+" javascript
+autocmd FileType javascript colorscheme mango
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"autocmd FileType javascript 0r ~/.config/nvim/templates/template.js
+
+" c++
+autocmd FileType cpp let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"autocmd BufNewFile *.cpp 0r ~/.config/nvim/templates/template.cpp
+"autocmd BufNewFile *.hpp 0r ~/.config/nvim/templates/template.hpp
+"autocmd BufNewFile main.cpp 0r ~/.config/nvim/templates/template.main.cpp
+
+" c#
+autocmd FileType cs let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+"autocmd BufNewFile Program.cs 0r ~/.config/nvim/templates/template.program.cs
+"autocmd BufNewFile *.cs 0r ~/.config/nvim/templates/template.cs
