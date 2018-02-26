@@ -22,6 +22,11 @@
 	call dein#add('peterhurford/send.vim') 					"git add, git commit, git pull, git push in vim
 	call dein#add('Yggdroot/indentLine')
 
+	""colorscheme
+	call dein#add('hauleth/blame.vim')
+	call dein#add('nightsense/forgotten')
+	call dein#add('exitface/synthwave.vim')
+
 	""linter framework
 	call dein#add('w0rp/ale')
 	
@@ -140,7 +145,14 @@
 	set nowrap "breakindent
 	set background=dark
 	set guifont=monofur\ bold\ Nerd\ Font\ 11
-	colorscheme deus
+	if has('termguicolors')
+  	set termguicolors " 24-bit terminal
+	else
+  	let g:synthwave_termcolors=256 " 256 color mode
+	endif
+	colorscheme synthwave
+	let g:airline_theme='synthwave'
+
 
 " }}}
 
@@ -174,14 +186,14 @@
 	autocmd FileType css let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 	" php
-	autocmd FileType php colorscheme candystripe
+	"autocmd FileType php colorscheme candystripe
 	autocmd FileType php let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 	"autocmd FileType php 0r ~/.config/nvim/templates/template.php
 
 	" javascript
-	autocmd FileType javascript colorscheme mango
+	"autocmd FileType javascript colorscheme mango
 	autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-	autocmd FileType javascript AirlineTheme angr
+	"autocmd FileType javascript AirlineTheme angr
 	"autocmd FileType javascript 0r ~/.config/nvim/templates/template.js
 
 	" c++

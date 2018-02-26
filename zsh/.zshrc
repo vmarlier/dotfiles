@@ -4,12 +4,13 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/robot/.oh-my-zsh
 
-  export EDITOR='vim'
+  export EDITOR='nvim'
+  alias vim="nvim"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bureau"
+ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
