@@ -1,0 +1,42 @@
+kcminputrc Mouse cursorTheme 'breeze_cursors'
+!/home/robot/.config/kcminputrc
+!/etc/xdg/kcminputrc
+!/home/robot/.local/share/config/kcminputrc
+!/usr/local/share/config/kcminputrc
+!/usr/share/config/kcminputrc
+*
+kcminputrc Mouse cursorSize ''
+!/home/robot/.config/kcminputrc
+!/etc/xdg/kcminputrc
+!/home/robot/.local/share/config/kcminputrc
+!/usr/local/share/config/kcminputrc
+!/usr/share/config/kcminputrc
+*
+ksplashrc KSplash Theme Breeze
+!/home/robot/.config/ksplashrc
+!/etc/xdg/ksplashrc
+!/home/robot/.local/share/config/ksplashrc
+!/usr/local/share/config/ksplashrc
+!/usr/share/config/ksplashrc
+*
+ksplashrc KSplash Engine KSplashQML
+!/home/robot/.config/ksplashrc
+!/etc/xdg/ksplashrc
+!/home/robot/.local/share/config/ksplashrc
+!/usr/local/share/config/ksplashrc
+!/usr/share/config/ksplashrc
+*
+kdeglobals KScreen ScreenScaleFactors ''
+/home/robot/.config/kdeglobals
+!/etc/xdg/kdeglobals
+!/home/robot/.local/share/config/kdeglobals
+!/usr/local/share/config/kdeglobals
+!/usr/share/config/kdeglobals
+*
+kcmfonts General forceFontDPI 0
+!/home/robot/.config/kcmfonts
+!/etc/xdg/kcmfonts
+!/home/robot/.local/share/config/kcmfonts
+!/usr/local/share/config/kcmfonts
+!/usr/share/config/kcmfonts
+*

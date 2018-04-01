@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title></title><link rel="stylesheet" href="/stylesheets/style.css"></head><body><nav class="custom-nav"><div class="nav-wrapper"><a class="brand-logo" href="#"> <img src="/images/logo-nav.png" alt="" width="160px"></a><ul class="right hide-on-med-and-down" id="nav-mobile"><li><a href="">Donut</a></li><li><a href="">Cookie</a></li></ul></div></nav><h1>usermodel.user is not a constructor</h1><h2></h2><pre>TypeError: usermodel.user is not a constructor
+    at app.put (/home/robot/Git/Donut-Clicker/app.js:43:3)
+    at Layer.handle [as handle_request] (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/layer.js:95:5)
+    at /home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:275:10)
+    at expressInit (/home/robot/Git/Donut-Clicker/node_modules/express/lib/middleware/init.js:40:5)
+    at Layer.handle [as handle_request] (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:317:13)
+    at /home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/index.js:275:10)
+    at query (/home/robot/Git/Donut-Clicker/node_modules/express/lib/middleware/query.js:45:5)
+    at Layer.handle [as handle_request] (/home/robot/Git/Donut-Clicker/node_modules/express/lib/router/layer.js:95:5)</pre></body><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/javascripts/materialize/bin/materialize.min.js"></script><script src="/socket.io/socket.io.js"></script><script src="/javascripts/app.js"></script></html>

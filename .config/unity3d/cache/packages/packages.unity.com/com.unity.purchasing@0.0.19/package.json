@@ -1,0 +1,14 @@
+{
+  "name": "com.unity.purchasing",
+  "version": "0.0.19",
+  "unity": "2017.2",
+  "description": "Unity Purchasing",
+  "keywords": [
+    "purchasing",
+    "iap",
+    "unity"
+  ],
+  "category": "AssetStore/Unity",
+  "dependencies": {
+  }
+}

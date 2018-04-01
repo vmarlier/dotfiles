@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Slack System Status</title>
+		<meta name="author" content="Tiny Speck">
+		<meta name="description" content="Slack System Status">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Slack" />
+<meta property="og:title" content="Slack System Status" />
+<meta property="og:image" content="https://status.slack.com/img/slack_hash_twitter.png" />
+<meta property="og:description" content="Resources for real-time and historical information about the Slack service." />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@slackhq" />
+<meta name="twitter:title" content="Slack System Status" />
+<meta name="twitter:image" content="https://status.slack.com/img/slack_hash_twitter.png" />
+<meta name="twitter:image:alt" content="the Slack logo" />
+<meta name="twitter:description" content="Resources for real-time and historical information about the Slack service." />
+		<link rel="stylesheet" href="/css/v2/tooltips.css">
+		<link rel="stylesheet" href="/css/v2/averta-font.css">
+		<link rel="stylesheet" href="/css/v2/slack-icons-v2.css">
+		<link rel="stylesheet" href="/css/v2/slack.css">
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-106458-18', 'slack.com');
+			ga('send', 'pageview');
+
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-P8BTVX');
+		</script>
+	</head>
+	<body class="bg_lighter_gray">
+<div id="nav_bar_section" class="sticky_header general_scope">
+	<div class="section">
+		<div id="nav_bar" class="flex_row align_center">
+			<div class="logo menu left">
+				<a href="/" class="flex_row align_center">
+											<img src="/img/v2/LogoColor.png" srcset="/img/v2/LogoColor.png 1x, /img/v2/LogoColor@2x.png 2x">
+						<span class="padding_left_10px">Status</span>
+									</a>
+			</div>
+			<div class="menu right">
+				<a href="/" class="margin_right_25px">Dashboard</a>
+				<a href="/calendar" class="margin_right_25px">History</a>
+				<a id="back_to_app" href="https://my.slack.com/" class="margin_right_25px">Back to the App</a>
+				<a href="https://twitter.com/slackstatus">Twitter</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section nav_bar_filler"></div>
+
+<script>
+
+(function() {
+	try {
+		var backToApp = document.getElementById('back_to_app');
+
+		window.addEventListener('load', function() {
+			var teamURL = getTeamURL();
+
+			// if we managed to find a teamURL then we're inside the Slack SSB,
+			// show the Back to App button
+			if (backToApp && teamURL) {
+				backToApp.href = teamURL;
+				backToApp.style.display = 'inline';
+			}
+		});
+	} catch(e) {
+		// d'oh!
+	}
+
+	function getTeamURL(slackSSBVersion) {
+		var team = null;
+
+		try {
+			team = window.desktop && window.desktop.getCurrentTeam ? window.desktop.getCurrentTeam() : null;
+			if (!team) {
+				
+									
+				var store = window.desktop && window.desktop.store ? window.desktop.store.getState() : null;
+				team = store && store.teams && store.teams[window.teamId] ? store.teams[window.teamId] : null;
+			}
+		} catch(e) {
+			team = null;
+		}
+
+		var teamURL = team && team.team_url ? team.team_url : null;
+
+		return teamURL;
+	}
+}());
+
+</script>
+		<div class="bg_white width_100">
+			<div id="current_status" class="section align_center justify_content_center">
+				<div class="container">
+						<img src="/img/v2/Ok.png" srcset="/img/v2/Ok.png 1x, /img/v2/Ok@2x.png 2x">
+	<h1 class="black_licorice text_center width_100">Smooth sailing!</h1>
+	<h3 class="text_center raven_gray width_100">Nothing to report here. Slack is up and running normally.</h3>
+				</div>
+			</div>
+
+			<div id="services_legend" class="section justify_content_center">
+				<div class="header">
+					<p class="title semi_bold black_licorice">Current Status by Service</p>
+					<div class="legend flex_row align_center">
+						<div class="flex_row align_center">
+							<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+							<p class="tiny">No Issues</p>
+						</div>
+						<div class="flex_row align_center">
+							<img src="/img/v2/TableMaintenance.png" srcset="/img/v2/TableMaintenance.png 1x, /img/v2/TableMaintenance@2x.png 2x">
+							<p class="tiny">Maintenance</p>
+						</div>
+						<div class="flex_row align_center">
+							<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+							<p class="tiny">Incident</p>
+						</div>
+						<div class="flex_row align_center">
+							<img src="/img/v2/TableNotice.png" srcset="/img/v2/TableNotice.png 1x, /img/v2/TableNotice@2x.png 2x">
+							<p class="tiny">Notice</p>
+						</div>
+						<div class="flex_row align_center">
+							<img src="/img/v2/TableOutage.png" srcset="/img/v2/TableOutage.png 1x, /img/v2/TableOutage@2x.png 2x">
+							<p class="tiny">Outage</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section">
+				<div id="services">
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Login/SSO</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Connections</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Messaging</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Link Previews</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Posts/Files</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Notifications</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Calls</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Search</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Apps/Integrations/APIs</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+											<div class="service header align_center">
+							<div class="flex_column">
+								<p class="black_licorice semi_bold">Workspace/Org Administration</p>
+																	<p class="small raven_gray">No issues</p>
+															</div>
+							<div class="flex_row align_center">
+																	<img src="/img/v2/TableCheck.png" srcset="/img/v2/TableCheck.png 1x, /img/v2/TableCheck@2x.png 2x">
+															</div>
+						</div>
+									</div>
+			</div>
+		</div>
+
+		<div id="recent_incidents_legend" class="section">
+			<div class="header">
+				<h2>Recent Incidents</h2>
+				<div class="flex_row align_center">
+																<div class="flex_row margin_right_25px uptime">
+							<div>
+								<p class="medium black_licorice">Uptime in the past 30 days:</p>
+							</div>
+							<div class="c-tooltip margin_left_5px">
+								<p class="medium black_licorice">
+									<span class="underline semi_bold">99.98%</span>								</p>
+								<div class="c-tooltip__content v--north v--border-white">
+									<p class="semi_bold black_licorice">How is uptime calculated?</p>
+									<p>Slack is a distributed platform and during any given incident it is rare for all Slack teams to be affected. For this reason, we report our uptime as an average derived from the number of affected users.</p>
+								</div>
+							</div>
+						</div>
+										<a href="/calendar" class="button">SEE HISTORY</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="recent_incidents" class="section">
+			<div class="grid">
+														<div class="card hover_slide_up" data-targeturl="/2018-03/b4613950778e3924">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 17, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">iOS notification issues for some workspaces</h3>
+						</div>
+						<div class="card_body">
+																								<p>Great news: the server problem causing the notification issues is now resolved. Everything is as it should be again. Thank you for your patience</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">8:55 AM PDT・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180317T0855&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/bbe68f4623f6dce1">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 14, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Connectivity issues for some users in Russia</h3>
+						</div>
+						<div class="card_body">
+																								<p>We've got good news. We're in the clear, and everyone should now be able to connect again. We're so sorry for any troubles this caused, but thanks for sticking with us.</p>
+																																																																																																																																																																																										</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">7:35 AM PDT・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180314T0735&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																																																																																																																										</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/af0ff2a750cd60ed">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 13, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Problems with message search</h3>
+						</div>
+						<div class="card_body">
+																								<p>Great news— we have now fully resolved the search problem. You should now be able to search for any message and have it retrieved successfully. Thanks so much for your patience with us today.</p>
+																																																																																																															</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">12:27 PM PDT・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180313T1227&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																																															</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/3fff5ecd4348c711">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 13, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">User search issues for some workspaces</h3>
+						</div>
+						<div class="card_body">
+																								<p>We're in the clear! User search should be working again for all workspaces. Thank you for your patience throughout this.</p>
+																																																																		</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">9:18 AM PDT・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180313T0918&p1=224" target="_blank">See in your timezone</a></p>
+																																																																		</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/c0d69e07822f2835">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableNotice.png" srcset="/img/v2/TableNotice.png 1x, /img/v2/TableNotice@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 12, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">A few workspaces are having trouble connecting</h3>
+						</div>
+						<div class="card_body">
+																								<p>Everyone should now be able to connect to Slack. If you’re still noticing issues, please write to us at feedback@slack.com — we're here to help.</p>
+																																																																		</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">11:16 AM PDT・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180312T1116&p1=224" target="_blank">See in your timezone</a></p>
+																																																																		</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/9f24718245d70c00">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableOutage.png" srcset="/img/v2/TableOutage.png 1x, /img/v2/TableOutage@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 9, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Connectivity problems</h3>
+						</div>
+						<div class="card_body">
+																								<p>Thanks for your patience while we worked to fix the connectivity issues. Everyone should be able to access their workspaces once again. Please let us know if you're still running into trouble at feedback@slack.com.</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">12:01 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180309T1201&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/1e2aba9b7a9f8836">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 8, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Spacing issues in Slack</h3>
+						</div>
+						<div class="card_body">
+																								<p>We're glad to share that this issue has been fixed! If you're still seeing any lingering issues with spacing in Slack, a refresh (Ctrl/Cmd + R) will clear this up. Sorry for the trouble.</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">7:20 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180308T0720&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/95c3da9b9f04dda3">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableOutage.png" srcset="/img/v2/TableOutage.png 1x, /img/v2/TableOutage@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 7, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Connectivity issues</h3>
+						</div>
+						<div class="card_body">
+																								<p>Everyone should be able to connect once again! The problem should now be fully resolved, but if you're still in need of help, please let us know at feedback@slack.com. Thanks so much for bearing with us today.</p>
+																																																																		</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">1:26 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180307T1326&p1=224" target="_blank">See in your timezone</a></p>
+																																																																		</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/f01d4c22cd953dd7">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 7, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Connection issues</h3>
+						</div>
+						<div class="card_body">
+																								<p>We're in the clear. It looks as though all teams should now be able to connect. Again, apologies for any troubles this has caused you, and thanks for bearing with us.</p>
+																																																			</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">6:19 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180307T0619&p1=224" target="_blank">See in your timezone</a></p>
+																																																			</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/dbdbe4715b3d8b06">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 5, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Problems adding Google Calendar app</h3>
+						</div>
+						<div class="card_body">
+																								<p>We've identified the issue and are currently working on a fix. We're resolving this incident for now, but please don't hesitate to contact us at feedback@slack.com for updates.</p>
+																																																																		</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">8:54 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180305T2054&p1=224" target="_blank">See in your timezone</a></p>
+																																																																		</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/d7d44793dc808c10">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 3, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Problems generating tokens on Slack API</h3>
+						</div>
+						<div class="card_body">
+																								<p>The issue with token generation has now been resolved, and a reload should see things back to normal. We're very sorry for any disruption this may have caused.</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">12:54 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180303T0054&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/5580fb8a50a88836">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableOutage.png" srcset="/img/v2/TableOutage.png 1x, /img/v2/TableOutage@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 2, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Reports of Slack being down</h3>
+						</div>
+						<div class="card_body">
+																								<p>We're happy to share that the connection issues are fixed. We really do appreciate your patience while we worked to resolve the problems. Thanks so much for bearing with us.</p>
+																																																																																																																																																												</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">1:57 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180302T1357&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																																																																																												</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/07e49841fd4c74f8">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableNotice.png" srcset="/img/v2/TableNotice.png 1x, /img/v2/TableNotice@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 2, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Connection problems</h3>
+						</div>
+						<div class="card_body">
+																								<p>We hit a bump earlier today after an issue with an upstream service provider made some users unable to connect to Slack. Our provider fixed the problem and we're back online. Apologies for the disruption.</p>
+																																																			</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">7:21 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180302T0721&p1=224" target="_blank">See in your timezone</a></p>
+																																																			</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-03/a7125700a3c02069">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">March 1 - March 2, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Current plan displayed incorrectly on pricing page.</h3>
+						</div>
+						<div class="card_body">
+																								<p>Plans are now displaying as intended on the pricing page. We're very sorry for any worry this issue may have caused.</p>
+																																																																																																</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">12:03 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180302T0003&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																																</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/c764c08409bc4e31">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 28, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Problems finding members in DM or search.</h3>
+						</div>
+						<div class="card_body">
+																								<p>The issue has been resolved, and searching for members via DM or the search feature should work as expected now. Thanks for bearing with us!</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">11:58 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180228T2358&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/35ab1babeea2c48e">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableOutage.png" srcset="/img/v2/TableOutage.png 1x, /img/v2/TableOutage@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 27, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">The Japanese version of Slack is having connection troubles</h3>
+						</div>
+						<div class="card_body">
+																								<p>All users on the Japanese version should now be able to access their workspaces once more. Apologies for all this disruption. We appreciate you sticking with us through this.</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">3:53 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180227T1553&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/e6f86511c0b5fe44">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableNotice.png" srcset="/img/v2/TableNotice.png 1x, /img/v2/TableNotice@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 26, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Incorrect member counts in the channel browser</h3>
+						</div>
+						<div class="card_body">
+																								<p>The team has investigated this issue and confirmed that it's not affecting any core functionality. They will continue to work on finding a resolution to this number count disparity in due course. We hope it doesn't cause too much hassle in the meantime.</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">10:42 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180226T2242&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/e1558c8eb5321368">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 23, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Notification issues</h3>
+						</div>
+						<div class="card_body">
+																								<p>Thanks for your patience while worked to fix the problem with notifications. Everything should be back to normal once again with a quick quit (Cmd+Q or Ctrl+Q) and relaunch of the app.  If you see any further issues, please let us know at feedback@slack.com. Thanks again.</p>
+																																				</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">5:06 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180223T1706&p1=224" target="_blank">See in your timezone</a></p>
+																																				</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/1c3e74014643a564">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 23, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Slack Calls failing on Enterprise Grid</h3>
+						</div>
+						<div class="card_body">
+																								<p>Slack Calls should now be working as expected for all users. Please let us know if not. Thanks so much for bearing with us; we apologize for any disruption this may have caused to your day.</p>
+																																																																																																															</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">11:56 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180223T1156&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																																															</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/0acb6babe3000756">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 23, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Do Not Disturb settings not respected</h3>
+						</div>
+						<div class="card_body">
+																								<p>Do Not Disturb is working correctly again. Sorry for the trouble and any notifications that slipped through.</p>
+																																																																																	</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">7:39 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180223T0739&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																	</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/a63ac1dfc05d5db4">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 20, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Presence indicator showing wrong status</h3>
+						</div>
+						<div class="card_body">
+																								<p>We found and fixed the problem with presence indicators. Please reload Slack (Ctrl + R or Cmd + R) to apply the fix. Sorry for the hassle.</p>
+																																																			</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">3:40 AM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180220T0340&p1=224" target="_blank">See in your timezone</a></p>
+																																																			</div>
+					</div>
+														<div class="card hover_slide_up" data-targeturl="/2018-02/43096a9e0a22d292">
+						<div class="card_date">
+							<div class="flex_row align_center">
+																<img src="/img/v2/TableIncident.png" srcset="/img/v2/TableIncident.png 1x, /img/v2/TableIncident@2x.png 2x">
+																	<p class="raven_gray semi_bold">February 19, 2018</p>
+															</div>
+						</div>
+						<div class="card_title">
+							<h3 class="title black_licorice semi_bold">Trouble with search</h3>
+						</div>
+						<div class="card_body">
+																								<p>We've been monitoring things for a while and believe that all users should now be able to use the search feature once more — please do let us know if not. We're truly sorry for disrupting your work with this issue. We're taking the necessary steps to prevent this from happening in the future.</p>
+																																																																																																																														</div>
+						<div class="card_footer">
+							<div class="flex_row align_center">
+									<i class="c-icon c-icon--check-large-bold c-icon--inherit green margin_right_5px"></i>
+								<p class="semi_bold">Resolved</p>
+							</div>
+																								<p class="raven_gray">9:38 PM PST・<a class="underline" href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180219T2138&p1=224" target="_blank">See in your timezone</a></p>
+																																																																																																																														</div>
+					</div>
+													<div class="card filler"></div>
+					<div class="card filler"></div>
+							</div>
+		</div>
+
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script>
+
+$('[data-targeturl]').on('click', function(e) {
+	var hrefLink = $(this).data('targeturl');
+	var isClickTargetAChildAndALink = $(this).has(e.target).length !== 0 && e.target.nodeName.toLowerCase() === 'a';
+
+	if (hrefLink && !isClickTargetAChildAndALink){
+		window.location.href = window.location.origin + hrefLink;
+	}
+});
+
+</script>
+
+		
+		<div class="section">
+			<div class="footer">
+				<div class="info">
+					<p class="semi_bold tiny">All clear but still having trouble connecting to Slack?</p>
+						<div class="sub_info">
+							<p class="tiny">Learn about <a href="https://get.slack.help/hc/en-us/articles/205138367-Troubleshoot-Slack-connection-issues" class="underline">common connection issues</a></p>
+							<p class="tiny">&nbsp;or email us at <a href="mailto:feedback@slack.com" class="underline">feedback@slack.com</a>.</p>
+						</div>
+				</div>
+				<div class="links">
+					<p class="semi_bold tiny"><a href="https://slack.com">Slack.com</a></p>
+					<p class="semi_bold tiny"><a href="https://slack.com/help">Help Center</a></p>
+					<p class="semi_bold tiny"><a href="https://twitter.com/slackstatus">Twitter</a></p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

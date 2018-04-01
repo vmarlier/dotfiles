@@ -1,0 +1,38 @@
+[2018-03-21 10:57:38.783] [exthost1] [info] extension host started
+[2018-03-21 10:57:38.810] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:38.811] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/out/extension
+[2018-03-21 10:57:38.881] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:38.881] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/out/main
+[2018-03-21 10:57:38.981] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:38.981] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/out/extension
+[2018-03-21 10:57:38.995] [exthost1] [info] ExtensionService#_doActivateExtension vscodevim.vim {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:38.995] [exthost1] [info] ExtensionService#loadCommonJSModule /home/robot/.vscode/extensions/vscodevim.vim-0.11.2/out/extension
+[2018-03-21 10:57:39.249] [exthost1] [info] eager extensions activated
+[2018-03-21 10:57:45.828] [exthost1] [info] extension host started
+[2018-03-21 10:57:45.843] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:45.843] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/out/extension
+[2018-03-21 10:57:45.892] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:45.892] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/out/main
+[2018-03-21 10:57:45.983] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:45.983] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/out/extension
+[2018-03-21 10:57:45.996] [exthost1] [info] ExtensionService#_doActivateExtension dbaeumer.vscode-eslint {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:45.996] [exthost1] [info] ExtensionService#loadCommonJSModule /home/robot/.vscode/extensions/dbaeumer.vscode-eslint-1.4.7/client/out/extension
+[2018-03-21 10:57:46.052] [exthost1] [info] ExtensionService#_doActivateExtension vscodevim.vim {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:57:46.052] [exthost1] [info] ExtensionService#loadCommonJSModule /home/robot/.vscode/extensions/vscodevim.vim-0.11.2/out/extension
+[2018-03-21 10:57:46.326] [exthost1] [info] eager extensions activated
+[2018-03-21 10:59:21.021] [exthost1] [info] extension host started
+[2018-03-21 10:59:21.065] [exthost1] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:59:21.066] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/emmet/out/extension
+[2018-03-21 10:59:21.134] [exthost1] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:59:21.134] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/git/out/main
+[2018-03-21 10:59:21.227] [exthost1] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:59:21.227] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/merge-conflict/out/extension
+[2018-03-21 10:59:21.239] [exthost1] [info] ExtensionService#_doActivateExtension dbaeumer.vscode-eslint {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:59:21.239] [exthost1] [info] ExtensionService#loadCommonJSModule /home/robot/.vscode/extensions/dbaeumer.vscode-eslint-1.4.7/client/out/extension
+[2018-03-21 10:59:21.283] [exthost1] [info] ExtensionService#_doActivateExtension vscodevim.vim {"startup":true,"activationEvent":"*"}
+[2018-03-21 10:59:21.283] [exthost1] [info] ExtensionService#loadCommonJSModule /home/robot/.vscode/extensions/vscodevim.vim-0.11.2/out/extension
+[2018-03-21 10:59:21.612] [exthost1] [info] eager extensions activated
+[2018-03-21 10:59:43.092] [exthost1] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:javascript"}
+[2018-03-21 10:59:43.092] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/typescript/out/extension
+[2018-03-21 11:02:22.518] [exthost1] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:typescript"}
+[2018-03-21 11:02:22.519] [exthost1] [info] ExtensionService#loadCommonJSModule /opt/visual-studio-code/resources/app/extensions/extension-editing/out/extension

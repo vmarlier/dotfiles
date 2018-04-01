@@ -1,0 +1,9 @@
+[Unit]
+Description=BATalert
+
+[Service]
+ExecStart=/usr/bin/BATalert
+Environment="DISPLAY=:0" "XAUTHORITY=/home/robot/.Xauthority"
+
+[Install]
+WantedBy=multi-user.target

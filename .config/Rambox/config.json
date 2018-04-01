@@ -18,9 +18,9 @@
 	"locale": "en",
 	"enable_hidpi_support": false,
 	"default_service": "ramboxTab",
-	"x": 399,
-	"y": 42,
-	"width": 1000,
-	"height": 800,
+	"x": 0,
+	"y": 0,
+	"width": 1600,
+	"height": 900,
 	"maximized": false
 }
