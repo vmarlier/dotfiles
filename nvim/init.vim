@@ -26,6 +26,7 @@
 	call dein#add('hauleth/blame.vim')
 	call dein#add('nightsense/forgotten')
 	call dein#add('exitface/synthwave.vim')
+	call dein#add('joshdick/onedark.vim')
 
 	""linter framework
 	call dein#add('w0rp/ale')
@@ -43,6 +44,9 @@
   call dein#add('Shougo/neosnippet-snippets', {'on_ft': ['javascript']})
 	call dein#add('jelera/vim-javascript-syntax', {'on_ft': ['javascript']})
 	call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft': ['javascript']})
+
+	""python
+	call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})
 
 	if dein#check_install()
 		call dein#install()
@@ -86,7 +90,10 @@
 	" ale
 	let g:ale_sign_error = ''
 	let g:ale_sign_warning = ''
-	let g:ale_linters = {'javascript': ['jshint']}
+	let g:ale_linters = {
+				\	'javascript': ['jshint'],
+				\	'python': ['pylint']
+				\}
 	let g:ale_fixers = {'javascript': ['prettier']}
 	let g:ale_fix_on_save = 1
 
@@ -145,13 +152,13 @@
 	set nowrap "breakindent
 	set background=dark
 	set guifont=monofur\ bold\ Nerd\ Font\ 11
-	if has('termguicolors')
-  	set termguicolors " 24-bit terminal
-	else
-  	let g:synthwave_termcolors=256 " 256 color mode
-	endif
-	colorscheme synthwave
-	let g:airline_theme='synthwave'
+	"f has('termguicolors')
+  "set termguicolors " 24-bit terminal
+	"lse
+  "let g:synthwave_termcolors=256 " 256 color mode
+	"ndif
+	colorscheme onedark
+	let g:airline_theme='onedark'
 
 
 " }}}
@@ -195,6 +202,9 @@
 	autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 	"autocmd FileType javascript AirlineTheme angr
 	"autocmd FileType javascript 0r ~/.config/nvim/templates/template.js
+	
+	" python
+	autocmd FileType python let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 	" c++
 	autocmd FileType cpp let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
