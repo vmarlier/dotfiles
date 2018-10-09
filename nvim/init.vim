@@ -19,7 +19,7 @@
 	call dein#add('ryanoasis/vim-devicons')					"nerdtree-syntax dependency
 	call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
 	call dein#add('majutsushi/tagbar')
-	call dein#add('peterhurford/send.vim') 					"git add, git commit, git pull, git push in vim
+	"call dein#add('peterhurford/send.vim') 					"git add, git commit, git pull, git push in vim
 	call dein#add('Yggdroot/indentLine')
 
 	""colorscheme
@@ -37,6 +37,9 @@
 	""nodeJS
 	call dein#add('moll/vim-node', {'on_ft': ['javascript']})
 	"call dein#add('ahayman/vim-nodejs-complete', {'on_ft': ['javascript']})
+	
+	""C
+	call dein#add('zchee/deoplete-clang', {'on_ft': ['c']})
 
 	""javascript
 	call dein#add('wokalski/autocomplete-flow', {'on_ft': ['javascript']})
@@ -47,6 +50,9 @@
 
 	""python
 	call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})
+
+	""php
+	"call dein#add('kristijanhusak/deoplete-phpactor', {'on_ft': ['php']})
 
 	if dein#check_install()
 		call dein#install()
@@ -88,14 +94,21 @@
 	let g:tagbar_width = 20
 
 	" ale
-	let g:ale_sign_error = ''
-	let g:ale_sign_warning = ''
+	let g:ale_sign_error = ''
+	let g:ale_sign_warning = ''
 	let g:ale_linters = {
+				\ 'c': ['clang','gcc'],
 				\	'javascript': ['jshint'],
-				\	'python': ['pylint']
+				\	'python': ['flake8','pylint'],
+				\ 'php': ['php']
 				\}
-	let g:ale_fixers = {'javascript': ['prettier']}
+	let g:ale_fixers = {
+				\ 'c': ['clang-format','uncrustify'],
+				\ 'javascript': ['prettier'],
+				\ 'python' : ['autopep8','yapf']}
 	let g:ale_fix_on_save = 1
+	let b:ale_warn_about_trailing_whitespace = 0
+	let g:airline#extensions#ale#enabled = 1
 
 	" deoplete
 	let g:deoplete#enable_at_startup = 1
@@ -152,11 +165,11 @@
 	set nowrap "breakindent
 	set background=dark
 	set guifont=monofur\ bold\ Nerd\ Font\ 11
-	"f has('termguicolors')
-  "set termguicolors " 24-bit terminal
-	"lse
-  "let g:synthwave_termcolors=256 " 256 color mode
-	"ndif
+	if has('termguicolors')
+   set termguicolors " 24-bit terminal
+	else
+   let g:synthwave_termcolors=256 " 256 color mode
+	endif
 	colorscheme onedark
 	let g:airline_theme='onedark'
 
@@ -205,6 +218,7 @@
 	
 	" python
 	autocmd FileType python let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+	"autocmd FileType python source ~/.config/nvim/syntax/python.vim
 
 	" c++
 	autocmd FileType cpp let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
@@ -216,5 +230,5 @@
 	autocmd FileType cs let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 	"autocmd BufNewFile Program.cs 0r ~/.config/nvim/templates/template.program.cs
 	"autocmd BufNewFile *.cs 0r ~/.config/nvim/templates/template.cs
-
+set clipboard+=unnamedplus
 " }}}
