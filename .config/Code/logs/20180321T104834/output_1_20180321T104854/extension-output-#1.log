@@ -1,8 +1,0 @@
-Recherche de git dans : git
-Utilisation de git 2.16.2 à partir de git
-> git rev-parse --show-toplevel
-fatal: Ni ceci ni aucun de ses répertoires parents (jusqu'au point de montage /) n'est un dépôt git
-Arrêt à la limite du système de fichiers (GIT_DISCOVERY_ACROSS_FILESYSTEM n'est pas activé).
-> git rev-parse --show-toplevel
-fatal: Ni ceci ni aucun de ses répertoires parents (jusqu'au point de montage /) n'est un dépôt git
-Arrêt à la limite du système de fichiers (GIT_DISCOVERY_ACROSS_FILESYSTEM n'est pas activé).

@@ -1,3 +1,0 @@
-{"type":"editor.appRunning.v1","msg":{"ts":1521740019379,"duration":11081,"focus_duration":11071,"user_duration":953,"local_time_offset":-3600000}}
-{"type":"editor.appRunning.v1","msg":{"ts":1521740329407,"duration":11391,"focus_duration":22762,"user_duration":975,"local_time_offset":-3600000}}
-(1){"type":"editor.appStop.v1","msg":{"ts":1521740329407}}

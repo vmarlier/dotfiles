@@ -1,8 +1,0 @@
-[Unit]
-Description=Enable Notification
-
-[Service]
-ExecStart=/usr/lib/notification-daemon-1.0/notification-daemon
-
-[Install]
-WantedBy=multi-user.target
