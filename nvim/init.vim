@@ -101,6 +101,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('zchee/deoplete-go', {'build': {'unix': 'make'}})
     call dein#add('jodosha/vim-godebug') "Debugger integration via delve
 
+  " Python
+    call dein#add('deoplete-plugins/deoplete-jedi') "Python completion with deoplete
+
   " Terraform
     call dein#add('hashivim/vim-terraform') "basic vim/terraform integration
     call dein#add('juliosueiras/vim-terraform-completion') "terraform completion
@@ -161,10 +164,12 @@ let g:tagbar_width = 20
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_linters = {
-            \   'go': ['go', 'golint', 'errcheck']
+            \   'go': ['go', 'golint', 'errcheck'],
+            \   'python': ['flake8', 'pylint']
             \}
 let g:ale_fixers = {
-            \   'go': ['gofmt', 'goimports']
+            \   'go': ['gofmt', 'goimports'],
+            \   'python': ['autopep8']
             \}
 let g:ale_fix_on_save = 1
 let b:ale_warn_about_trailing_whitespace = 0
@@ -231,6 +236,10 @@ set rtp+=~/.vim/godoctor.vim
 filetype plugin indent on
 syntax on
 
+" deoplete jedi
+let g:python_host_prog = "/usr/local/bin/python"
+let g:python3_host_prog = "/usr/local/bin/python3"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Settings
@@ -260,7 +269,9 @@ autocmd FileType terraform call deoplete#custom#option('omni_patterns', {
 \ 'complete_method': 'omnifunc',
 \ 'terraform': '[^ *\t"{=$]\w*',
 \})
+autocmd FileType terraform set foldlevel=0
 autocmd FileType terraform call deoplete#initialize()
+autocmd FileType terraform set syntax=terraform
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/valentin.marlier/.oh-my-zsh"
 export GO111MODULE=on
-export PATH=$PATH:$HOME/go/bin/
+export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin
 export GOPATH=$HOME/go
 alias vim="nvim"
 
@@ -109,3 +109,5 @@ source $ZSH/oh-my-zsh.sh
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 alias l="lsd -l"
 alias ll="lsd -la"
+alias venv="source ./venv/bin/activate"
+alias dvenv="deactivate"
