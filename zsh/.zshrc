@@ -106,7 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 alias l="lsd -l"
 alias ll="lsd -la"
 alias venv="source ./venv/bin/activate"
