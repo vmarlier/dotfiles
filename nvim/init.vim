@@ -259,6 +259,11 @@ let g:go_auto_type_info = 1
 "set omnifunc=syntaxcomplete#Complete
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.go 0r ~/.config/nvim/templates/template.go
+  augroup END
+endif
 
 " Terraform
 let g:terraform_align=1
