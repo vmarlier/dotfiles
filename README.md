@@ -1,4 +1,2 @@
-# dotfiles
-My current dotfiles
-
-All dotfiles are for my Archlinux Laptop.
+# zsh-nvim
+My zsh and nvim config
