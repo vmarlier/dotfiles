@@ -3,6 +3,8 @@
 "       Valentin Marlier - @vmarlier
 "
 " Sections:
+"    -> TO DO
+"    -> Cheatsheet
 "    -> Basic
 "    -> Plugins - Dein
 "    -> Plugins - Settings
@@ -22,6 +24,66 @@
 "    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => TO DO
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" 1 - Multi-cursor don't work
+"       Adding <Plug> when inserting with multicursor 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Cheatsheet
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffers
+" <leader>+o : BufExplorer
+" <Ctrl>+f : Buffer, MRU, Files finder
+" <leader>+f : MRU finder
+" <leader>+q : Quickly open a buffer for scribble
+" <leader>+x : Quickly open a markdown buffer for scribble
+
+" Spell Checking
+" <leader>+ss : Activate spell checking
+
+" Save
+" <leader>+w : Fast saving
+" :W sudo saves the file (useful for handling the permission-denied error)
+
+" Tabs and Buffers
+" <leader>+ba :bufdo bd
+" <leader>+tn :tabnew
+" <leader>+to :tabonly
+" <leader>+tc :tabclose
+" <leader>+tm :tabmove 
+" <leader>+l :tabnext
+" <leader>+n :bnext
+" <leader>+bc :Bclose
+" <leader>+bd :Bclose and TabClose
+" <leader>+te : Opens a new tab with the current buffer's path
+" <leader>+cd :Switch CWD to the directory of the open buffer
+
+" Usefull
+" gf : Open file under cursor
+" gcc : (un)comment line
+" gc : (un)comment selection
+" Visual mode pressing f or # searches for the current selection
+
+" View
+" <leader>+z : Goyo & Zenroom
+" <leader>+t : NerdTree
+
+" Windows
+" <leader>+v : Split vertically
+" <leader>+h : Split horizontally
+" <Ctrl>+j : Move to the bottom window
+" <Ctrl>+k : Move to the upper window
+" <Ctrl>+h : Move to the left window
+" <Ctrl>+l : Move to the right window
+
+" Yank
+" <Ctrl>+n : (Paste if not already) substitute with newer paster
+" <Ctrl>+p : (Paste if not already) subsitute with older paster
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Basic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,31 +125,25 @@ if dein#load_state('~/.cache/dein')
   " Basic plugins:
 	call dein#add('Raimondi/delimitMate')   "auto-closing quotes, parenthesis, brackets, etc...
     call dein#add('ervandew/supertab') "reconfigure tab to complete
-	call dein#add('vim-airline/vim-airline')
-	call dein#add('vim-airline/vim-airline-themes')
-	call dein#add('pseewald/vim-anyfold')
-	call dein#add('scrooloose/nerdtree')
+	call dein#add('vim-airline/vim-airline') "airline
+	call dein#add('vim-airline/vim-airline-themes') "airline themes
+	call dein#add('pseewald/vim-anyfold') "fold/unfold code
+	call dein#add('scrooloose/nerdtree') "navigation tree
 	call dein#add('ryanoasis/vim-devicons')	"nerdtree-syntax dependency
-	call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
-	call dein#add('majutsushi/tagbar')
-	call dein#add('Yggdroot/indentLine')
-	call dein#add('vim-scripts/bufexplorer.zip') "Quickly and easily switch between buffers. This plugin can be opened with <leader+o>
-	call dein#add('ctrlpvim/ctrlp.vim') "Fuzzy file, buffer, mru and tag finder. It's mapped to <Ctrl+F>
-	call dein#add('junegunn/goyo.vim') "Distraction free <leader>z
-	call dein#add('amix/vim-zenroom2') "Distraction free <leader>z
-	call dein#add('vim-scripts/mru.vim') "Plugin to manage Most Recently Used (MRU) files. This plugin can be opened with <leader+f>
+    call dein#add('tiagofumo/vim-nerdtree-syntax-highlight') "nerdtree-syntax dependancy
+	call dein#add('Yggdroot/indentLine') "show a sign where lines are indent
+	call dein#add('vim-scripts/bufexplorer.zip') "quickly and easily switch between buffers. This plugin can be opened with <leader+o>
+	call dein#add('ctrlpvim/ctrlp.vim') "fuzzy file, buffer, mru and tag finder. It's mapped to <Ctrl+F>
+	call dein#add('junegunn/goyo.vim') "distraction free <leader>z
+	call dein#add('amix/vim-zenroom2') "distraction free <leader>z
+	call dein#add('vim-scripts/mru.vim') "plugin to manage Most Recently Used (MRU) files. This plugin can be opened with <leader+f>
 	call dein#add('amix/open_file_under_cursor.vim') "speak for itself, <g-f>
-	call dein#add('tpope/vim-commentary') "Comment stuff out. Use gcc to comment out a line (takes a count), gc to comment out the target of a motion. gcu uncomments a set of adjacent commented lines.
-	call dein#add('terryma/vim-multiple-cursors') "Sublime Text style multiple selections for Vim, CTRL+N is remapped to CTRL+S (due to YankRing)
-	call dein#add('maxbrunsfeld/vim-yankstack') "Maintains a history of previous yanks, changes and deletes
-	call dein#add('airblade/vim-gitgutter') "A Vim plugin which shows a git diff in the gutter (sign column
+	call dein#add('tpope/vim-commentary') "comment stuff out. Use gcc to comment out a line (takes a count), gc to comment out the target of a motion. gcu uncomments a set of adjacent commented lines.
+	call dein#add('maxbrunsfeld/vim-yankstack') "maintains a history of previous yanks, changes and deletes
+	call dein#add('airblade/vim-gitgutter') "a vim plugin which shows a git diff in the gutter (sign column)
 
   " Colorscheme
-	call dein#add('hauleth/blame.vim')
-	call dein#add('nightsense/forgotten')
-	call dein#add('exitface/synthwave.vim')
 	call dein#add('joshdick/onedark.vim')
-	call dein#add('vim-scripts/peaksea')
 
   " Linter framework
 	call dein#add('w0rp/ale')
@@ -96,10 +152,10 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 
   " Golang
-    call dein#add('fatih/vim-go') "
-    call dein#add('godoctor/godoctor.vim') " refactoring tools
+    call dein#add('fatih/vim-go') "go language support for Vim
+    call dein#add('godoctor/godoctor.vim') "refactoring tools
     call dein#add('zchee/deoplete-go', {'build': {'unix': 'make'}})
-    call dein#add('jodosha/vim-godebug') "Debugger integration via delve
+    " call dein#add('jodosha/vim-godebug') "debugger integration via delve
 
   " Python
     call dein#add('deoplete-plugins/deoplete-jedi') "Python completion with deoplete
@@ -136,7 +192,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:airline_theme = 'dark'
 
 " vim-anyfold
-autocmd Filetype * AnyFoldActivate               " activate for all filetypes
+autocmd Filetype * AnyFoldActivate " activate for all filetypes
 " or
 "autocmd Filetype <your-filetype> AnyFoldActivate " activate for a specific filetype
 
@@ -146,19 +202,15 @@ set foldlevel=99 " Open all folds
 
 " nerdtree
 map <leader>t :NERDTreeToggle<CR>
-"autocmd StdinReadPre * let s:std_in=1 "start if vim open empty
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "start if vim open empty
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "start if vim open empty
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "close if nerdtree is last buffer open
 let g:NERDTreeShowHidden=1
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+" let g:NERDTreeDirArrowExpandable = ''
+" let g:NERDTreeDirArrowCollapsible = ''
 highlight NERDTreeClosable ctermfg=11
 highlight NERDTreeOpenable ctermfg=11
-
-" tagbar
-let g:tagbar_width = 20
 
 " ale
 let g:ale_sign_error = ''
@@ -167,10 +219,15 @@ let g:ale_linters = {
             \   'go': ['go', 'golint', 'errcheck'],
             \   'python': ['flake8', 'pylint']
             \}
+" go get -u golang.org/x/lint/golint
+" go get -u github.com/kisielk/errcheck
+" pip3 install flake8 pylint
 let g:ale_fixers = {
             \   'go': ['gofmt', 'goimports'],
             \   'python': ['autopep8']
             \}
+" go get -u golang.org/x/tools/cmd/goimports
+" pip3 install autopep8
 let g:ale_fix_on_save = 1
 let b:ale_warn_about_trailing_whitespace = 0
 let g:airline#extensions#ale#enabled = 1
@@ -179,6 +236,8 @@ let g:airline#extensions#ale#enabled = 1
 let g:deoplete#enable_at_startup = 1
 " deoplete.nvim recommend
 set completeopt+=noselect
+" deactivate preview buffer
+set completeopt-=preview
 
 " indentLine
 let g:indentLine_char = '▏'
@@ -202,8 +261,8 @@ nmap <c-n> <Plug>yankstack_substitute_newer_paste
 " => CTRL-P
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<c-f>'
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
+" map <leader>j :CtrlP<cr>, Now replace by <c-f>
+" map <c-b> :CtrlPBuffer<cr> Replace by <leader>+o 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 
@@ -215,18 +274,6 @@ let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 nnoremap <silent> <leader>z :Goyo<cr>
 
-" => vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-" Default mapping
-let g:multi_cursor_start_word_key      = '<C-s>'
-let g:multi_cursor_select_all_word_key = '<A-s>'
-let g:multi_cursor_start_key           = 'g<C-s>'
-let g:multi_cursor_select_all_key      = 'g<A-s>'
-let g:multi_cursor_next_key            = '<C-s>'
-let g:multi_cursor_prev_key            = '<C-p>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
 " godoctor
 if exists("g:did_load_filetypes")
   filetype off
@@ -237,7 +284,7 @@ filetype plugin indent on
 syntax on
 
 " deoplete jedi
-let g:python_host_prog = "/usr/local/bin/python"
+" let g:python_host_prog = "/usr/local/bin/python" python2 is deprecated
 let g:python3_host_prog = "/usr/local/bin/python3"
 
 
@@ -294,10 +341,6 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -467,36 +510,27 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <space> /
 "map <C-space> ?
 
-" Disable highlight when <leader><cr> is pressed
-"map <silent> <leader> :noh<cr>
+" Split screen
+map <leader>v :vsplit<cr>
+map <leader>h :split<cr>
 
 " Smart way to move between windows
-"map <C-j> <C-W>j
-"map <C-k> <C-W>k
-"map <C-h> <C-W>h
-"map <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " only use hjkl
-"map <left> <nop>              
-"map <down> <nop>
-"map <up> <nop>
-"map <right> <nop>
-"map <left> <nop>
-"map <down> <nop>
-"map <up> <nop>
-"map <right> <nop>
+map <left> <nop>              
+map <down> <nop>
+map <up> <nop>
+map <right> <nop>
 
 " Authorized mouse scrolling
 set mouse=a
 
-" Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
-
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
-
-"map <leader>l :bnext<cr>
-"map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -506,12 +540,8 @@ map <leader>tm :tabmove
 map <leader>l :tabnext<cr>
 map <leader>n :bnext<cr>
 map <leader>bc :Bclose<cr>
-
-" Let 'tl' toggle between this and the last accessed tab
-let g:lasttab = 1
-nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
-
+" Close the current buffer
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -544,22 +574,6 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-map 0 ^
-
-" Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
-endif
-
 " Delete trailing white space on save, useful for some filetypes ;)
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
@@ -580,27 +594,15 @@ endif
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
-" Shortcuts using <leader>
-map <leader>sn ]s
-map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remove the Windows ^M - when the encodings gets messed up
-noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
-
 " Quickly open a buffer for scribble
 map <leader>q :e ~/buffer<cr>
 
 " Quickly open a markdown buffer for scribble
 map <leader>x :e ~/buffer.md<cr>
-
-" Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
