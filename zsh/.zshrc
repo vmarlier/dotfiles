@@ -47,4 +47,6 @@ alias dvenv="deactivate"
 ##############
 
 # Scaleway CLI autocomplete initialization.
+# to resolve compaudit problems
+# $ compaudit | xargs chmod g-w
 eval "$(scw autocomplete script shell=zsh)"
