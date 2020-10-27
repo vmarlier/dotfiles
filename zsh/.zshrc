@@ -45,3 +45,6 @@ alias vim="nvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 ##############
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=zsh)"
