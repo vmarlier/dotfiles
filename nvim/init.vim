@@ -82,6 +82,8 @@
 " Yank
 " <Ctrl>+n : (Paste if not already) substitute with newer paster
 " <Ctrl>+p : (Paste if not already) subsitute with older paster
+" <"*yy> or <"+yy> to copy a line to your system's clipboard
+" <"*p> or <"+p> to paste a line from your system's clipboard
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
