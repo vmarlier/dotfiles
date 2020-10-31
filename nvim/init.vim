@@ -543,7 +543,7 @@ map <leader>l :tabnext<cr>
 map <leader>n :bnext<cr>
 map <leader>bc :Bclose<cr>
 " Close the current buffer
-map <leader>bd :bdelete
+map <leader>bd :bdelete<cr>
 "map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Opens a new tab with the current buffer's path
