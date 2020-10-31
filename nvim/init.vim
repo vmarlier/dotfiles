@@ -57,7 +57,7 @@
 " <leader>+l :tabnext
 " <leader>+n :bnext
 " <leader>+bc :Bclose
-" <leader>+bd :Bclose and TabClose
+" <leader>+bd :bdelete
 " <leader>+te : Opens a new tab with the current buffer's path
 " <leader>+cd :Switch CWD to the directory of the open buffer
 
@@ -543,7 +543,8 @@ map <leader>l :tabnext<cr>
 map <leader>n :bnext<cr>
 map <leader>bc :Bclose<cr>
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bd :bdelete
+"map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
