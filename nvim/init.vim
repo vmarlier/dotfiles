@@ -20,8 +20,6 @@
 "    -> Editing mappings
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
-"    -> Misc
-"    -> Helper functions
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -36,10 +34,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Buffers
 " <leader>+o : BufExplorer
-" <Ctrl>+f : Buffer, MRU, Files finder
 " <leader>+f : MRU finder
-" <leader>+q : Quickly open a buffer for scribble
-" <leader>+x : Quickly open a markdown buffer for scribble
 
 " Spell Checking
 " <leader>+ss : Activate spell checking
@@ -48,18 +43,25 @@
 " <leader>+w : Fast saving
 " :W sudo saves the file (useful for handling the permission-denied error)
 
-" Tabs and Buffers
-" <leader>+ba :bufdo bd
-" <leader>+tn :tabnew
-" <leader>+to :tabonly
+" Tabs
+" <leader>+t :tabnew
 " <leader>+tc :tabclose
-" <leader>+tm :tabmove 
-" <leader>+l :tabnext
+" <leader>+tn :tabnext
+" <leader>+tb :tabprevious
+
+" Buffers
 " <leader>+n :bnext
-" <leader>+bc :Bclose
+" <leader>+b :bprev
 " <leader>+bd :bdelete
-" <leader>+te : Opens a new tab with the current buffer's path
-" <leader>+cd :Switch CWD to the directory of the open buffer
+" <leader>+ba :bufdo bd
+
+" Windows
+" <Ctrl+W>+v : Split vertically
+" <Ctrl+W>+s : Split horizontally
+" <Ctrl>+j : Move to the bottom window
+" <Ctrl>+k : Move to the upper window
+" <Ctrl>+h : Move to the left window
+" <Ctrl>+l : Move to the right window
 
 " Usefull
 " gf : Open file under cursor
@@ -69,15 +71,7 @@
 
 " View
 " <leader>+z : Goyo & Zenroom
-" <leader>+t : NerdTree
-
-" Windows
-" <leader>+v : Split vertically
-" <leader>+h : Split horizontally
-" <Ctrl>+j : Move to the bottom window
-" <Ctrl>+k : Move to the upper window
-" <Ctrl>+h : Move to the left window
-" <Ctrl>+l : Move to the right window
+" <leader>+; : NerdTree
 
 " Yank
 " <Ctrl>+n : (Paste if not already) substitute with newer paster
@@ -135,7 +129,6 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tiagofumo/vim-nerdtree-syntax-highlight') "nerdtree-syntax dependancy
 	call dein#add('Yggdroot/indentLine') "show a sign where lines are indent
 	call dein#add('vim-scripts/bufexplorer.zip') "quickly and easily switch between buffers. This plugin can be opened with <leader+o>
-	call dein#add('ctrlpvim/ctrlp.vim') "fuzzy file, buffer, mru and tag finder. It's mapped to <Ctrl+F>
 	call dein#add('junegunn/goyo.vim') "distraction free <leader>z
 	call dein#add('amix/vim-zenroom2') "distraction free <leader>z
 	call dein#add('vim-scripts/mru.vim') "plugin to manage Most Recently Used (MRU) files. This plugin can be opened with <leader+f>
@@ -203,7 +196,7 @@ autocmd Filetype * AnyFoldActivate " activate for all filetypes
 set foldlevel=99 " Open all folds
 
 " nerdtree
-map <leader>t :NERDTreeToggle<CR>
+map <leader>; :NERDTreeToggle<CR>
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "start if vim open empty
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "close if nerdtree is last buffer open
 let g:NERDTreeShowHidden=1
@@ -512,43 +505,33 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <space> /
 "map <C-space> ?
 
-" Split screen
-map <leader>v :vsplit<cr>
-map <leader>h :split<cr>
+" only use hjkl
+map <left> <nop>              
+map <down> <nop>
+map <up> <nop>
+map <right> <nop>
+" Authorized mouse scrolling
+set mouse=a
 
+" Managing windows
+map <leader>q :quit<cr>
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" only use hjkl
-map <left> <nop>              
-map <down> <nop>
-map <up> <nop>
-map <right> <nop>
-
-" Authorized mouse scrolling
-set mouse=a
-
-" Close all the buffers
-map <leader>ba :bufdo bd<cr>
-
-" Useful mappings for managing tabs
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
+" Managing tabs
+map <leader>t :tabnew<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
-map <leader>l :tabnext<cr>
-map <leader>n :bnext<cr>
-map <leader>bc :Bclose<cr>
-" Close the current buffer
-map <leader>bd :bdelete<cr>
-"map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>tn :tabnext<cr>
+map <leader>tb :tabprevious<cr>
 
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+" Managind buffers
+map <leader>n :bnext<cr>
+map <leader>b :bprevious<cr>
+map <leader>bd :bdelete<cr>
+map <leader>ba :bufdo bd<cr> 
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -596,67 +579,3 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Quickly open a buffer for scribble
-map <leader>q :e ~/buffer<cr>
-
-" Quickly open a markdown buffer for scribble
-map <leader>x :e ~/buffer.md<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Returns true if paste mode is enabled
-"function! HasPaste()
-"    if &paste
-"        return 'PASTE MODE  '
-"   endif
-"    return ''
-"endfunction
-
-" Don't close window, when deleting a buffer
-"command! Bclose call <SID>BufcloseCloseIt()
-"function! <SID>BufcloseCloseIt()
-"    let l:currentBufNum = bufnr("%")
-"    let l:alternateBufNum = bufnr("#")
-"
-"    if buflisted(l:alternateBufNum)
-"        buffer #
-"    else
-"        bnext
-"    endif
-"
-"   if bufnr("%") == l:currentBufNum
-"        new
-"    endif
-"
-"    if buflisted(l:currentBufNum)
-"        execute("bdelete! ".l:currentBufNum)
-"    endif
-"endfunction
-
-"function! CmdLine(str)
-"    call feedkeys(":" . a:str)
-"endfunction 
-
-"function! VisualSelection(direction, extra_filter) range
-"    let l:saved_reg = @"
-"    execute "normal! vgvy"
-
-"    let l:pattern = escape(@", "\\/.*'$^~[]")
-"    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-"    if a:direction == 'gv'
-"        call CmdLine("Ack '" . l:pattern . "' " )
-"    elseif a:direction == 'replace'
-"        call CmdLine("%s" . '/'. l:pattern . '/')
-"    endif
-
-"    let @/ = l:pattern
-"    let @" = l:saved_reg
-"endfunction
