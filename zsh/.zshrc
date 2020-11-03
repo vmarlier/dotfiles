@@ -9,7 +9,7 @@ export GOPATH=$HOME/go
 ##############
 
 ### Git SSH config ###
-export GIT_SSH_CONFIG="ssh -i ~/.ssh/github/id_ed25519"
+export GIT_SSH_COMMAND="ssh -i ~/.ssh/github/id_ed25519"
 ##############
 
 export ZSH_DISABLE_COMPFIX=true
