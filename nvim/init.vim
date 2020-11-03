@@ -12,7 +12,8 @@
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
-"    -> Files and backups
+"    -> F195.154.69.122iles and backups
+"    -> File templating
 "    -> Text, tab and indent related
 "    -> Visual mode related
 "    -> Moving around, tabs and buffers
@@ -468,6 +469,13 @@ endtry
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => File templating
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Templates
+"autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.cpp
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
@@ -479,6 +487,8 @@ set smarttab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
+" 1 tab == 2 spaces for yaml files
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Linebreak on 500 characters
 set lbr
