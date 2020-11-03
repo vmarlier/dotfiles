@@ -8,6 +8,10 @@ export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin
 export GOPATH=$HOME/go
 ##############
 
+### Git SSH config ###
+export GIT_SSH_CONFIG="ssh -i ~/.ssh/github/id_ed25519"
+##############
+
 export ZSH_DISABLE_COMPFIX=true
 
 ### Themes ###
@@ -23,6 +27,7 @@ ZSH_THEME="af-magic"
 HYPHEN_INSENSITIVE="true"
 ##############
 
+### Plugins ###
 plugins=(
   aws
   git
@@ -33,6 +38,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+##############
 
 ### OH MY ZSH ###
 source $ZSH/oh-my-zsh.sh
