@@ -33,6 +33,7 @@ plugins=(
   git
   golang
   kubectl
+  docker
   terraform
   scw
   zsh-autosuggestions
