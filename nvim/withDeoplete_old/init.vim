@@ -145,16 +145,21 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('w0rp/ale')
 	
   " Completion framework
-    call dein#add('neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile'})
+    call dein#add('Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' })
 
   " Golang
-    "coc-go installed via :CocInstall coc-go stored at 
+    call dein#add('fatih/vim-go') "go language support for Vim
+    call dein#add('godoctor/godoctor.vim') "refactoring tools
+    call dein#add('zchee/deoplete-go', {'build': {'unix': 'make'}})
+    " call dein#add('jodosha/vim-godebug') "debugger integration via delve
+
+  " Python
+    call dein#add('deoplete-plugins/deoplete-jedi') "Python completion with deoplete
 
   " Terraform
+    call dein#add('neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile'})
+    call dein#add('hashivim/vim-terraform') "basic vim/terraform integration
     call dein#add('juliosueiras/vim-terraform-completion') "terraform completion
-
-  " Docker
-  " coc: npm install -g dockerfile-language-server-nodejs
 
 
   " Required:
@@ -185,6 +190,11 @@ let g:airline_theme = 'dark'
 
 " vim-anyfold
 autocmd Filetype * AnyFoldActivate " activate for all filetypes
+" or
+"autocmd Filetype <your-filetype> AnyFoldActivate " activate for a specific filetype
+
+"set foldlevel=0  " close all folds
+" or
 set foldlevel=99 " Open all folds
 
 " nerdtree
@@ -219,11 +229,12 @@ let g:ale_fix_on_save = 1
 let b:ale_warn_about_trailing_whitespace = 0
 let g:airline#extensions#ale#enabled = 1
 
-" coc.nvim
-" make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" deoplete
+let g:deoplete#enable_at_startup = 1
+" deoplete.nvim recommend
+set completeopt+=noselect
+" deactivate preview buffer
+set completeopt-=preview
 
 " indentLine
 let g:indentLine_char = '▏'
@@ -244,6 +255,14 @@ let g:yankstack_yank_keys = ['y', 'd']
 nmap <c-p> <Plug>yankstack_substitute_older_paste
 nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
+" => CTRL-P
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = '<c-f>'
+" map <leader>j :CtrlP<cr>, Now replace by <c-f>
+" map <c-b> :CtrlPBuffer<cr> Replace by <leader>+o 
+let g:ctrlp_max_height = 20
+let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+
 " => ZenCoding
 " Enable all functions in all modes
 let g:user_zen_mode='a'
@@ -252,17 +271,57 @@ let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 nnoremap <silent> <leader>z :Goyo<cr>
 
+" godoctor
+if exists("g:did_load_filetypes")
+  filetype off
+  filetype plugin indent off
+endif
+set rtp+=~/.vim/godoctor.vim
+filetype plugin indent on
+syntax on
+
+" deoplete jedi
+" let g:python_host_prog = "/usr/local/bin/python" python2 is deprecated
+let g:python3_host_prog = "/usr/local/bin/python3"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Golang
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+let g:go_auto_type_info = 1
+"set omnifunc=syntaxcomplete#Complete
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.go 0r ~/.config/nvim/templates/template.go
+  augroup END
+endif
 
 " Terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 let g:terraform_completion_keys = 1
 autocmd FileType terraform let g:SuperTabDefaultCompletionType = "<c-x><c-k>"
+autocmd FileType terraform let g:deoplete#omni_patterns = {}
+autocmd FileType terraform call deoplete#custom#option('omni_patterns', {
+\ 'complete_method': 'omnifunc',
+\ 'terraform': '[^ *\t"{=$]\w*',
+\})
 autocmd FileType terraform set foldlevel=0
+autocmd FileType terraform call deoplete#initialize()
+autocmd FileType terraform set syntax=terraform
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -311,13 +370,6 @@ set ruler
 
 " Height of the command bar
 set cmdheight=3
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -410,7 +462,6 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
-set nowritebackup
 
 " => Turn persistent undo on 
 "    means that you can undo even when you close a buffer/VIM
@@ -542,3 +593,4 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
+
