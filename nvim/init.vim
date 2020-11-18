@@ -157,6 +157,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('deoplete-plugins/deoplete-jedi') "Python completion with deoplete
 
   " Terraform
+    call dein#add('neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile'})
     call dein#add('hashivim/vim-terraform') "basic vim/terraform integration
     call dein#add('juliosueiras/vim-terraform-completion') "terraform completion
 
@@ -311,6 +312,7 @@ endif
 " Terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+let g:terraform_completion_keys = 1
 autocmd FileType terraform let g:SuperTabDefaultCompletionType = "<c-x><c-k>"
 autocmd FileType terraform let g:deoplete#omni_patterns = {}
 autocmd FileType terraform call deoplete#custom#option('omni_patterns', {
@@ -444,6 +446,8 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
+set t_Co=256
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
@@ -564,7 +568,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
