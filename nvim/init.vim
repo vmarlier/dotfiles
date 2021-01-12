@@ -215,6 +215,7 @@ let g:ale_linters = {
 " go get -u golang.org/x/lint/golint
 " go get -u github.com/kisielk/errcheck
 " pip3 install flake8 pylint
+" brew install tflint
 let g:ale_fixers = {
             \   'go': ['gofmt', 'goimports'],
             \   'python': ['autopep8'],
@@ -222,6 +223,7 @@ let g:ale_fixers = {
             \}
 " go get -u golang.org/x/tools/cmd/goimports
 " pip3 install autopep8
+" brew install tflint
 let g:ale_fix_on_save = 1
 let b:ale_warn_about_trailing_whitespace = 0
 let g:airline#extensions#ale#enabled = 1
