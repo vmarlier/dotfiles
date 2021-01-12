@@ -137,6 +137,7 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('tpope/vim-commentary') "comment stuff out. Use gcc to comment out a line (takes a count), gc to comment out the target of a motion. gcu uncomments a set of adjacent commented lines.
 	call dein#add('maxbrunsfeld/vim-yankstack') "maintains a history of previous yanks, changes and deletes
 	call dein#add('airblade/vim-gitgutter') "a vim plugin which shows a git diff in the gutter (sign column)
+    call dein#add('vim-scripts/Align') "align text easily
 
   " Colorscheme
 	call dein#add('joshdick/onedark.vim')
@@ -151,6 +152,7 @@ if dein#load_state('~/.cache/dein')
     "coc-go installed via :CocInstall coc-go stored at 
 
   " Terraform
+    call dein#add('hashivim/vim-terraform') "terraform fmt
     call dein#add('juliosueiras/vim-terraform-completion') "terraform completion
 
   " Docker
@@ -199,19 +201,24 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 highlight NERDTreeClosable ctermfg=11
 highlight NERDTreeOpenable ctermfg=11
 
+" align
+map <leader>= :Align=<CR>
+
 " ale
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_linters = {
             \   'go': ['go', 'golint', 'errcheck'],
-            \   'python': ['flake8', 'pylint']
+            \   'python': ['flake8', 'pylint'],
+            \   'terraform': ['fmt', 'tflint']
             \}
 " go get -u golang.org/x/lint/golint
 " go get -u github.com/kisielk/errcheck
 " pip3 install flake8 pylint
 let g:ale_fixers = {
             \   'go': ['gofmt', 'goimports'],
-            \   'python': ['autopep8']
+            \   'python': ['autopep8'],
+            \   'terraform': ['fmt', 'tflint']
             \}
 " go get -u golang.org/x/tools/cmd/goimports
 " pip3 install autopep8
@@ -282,7 +289,7 @@ filetype indent on
 set autoread
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>w :w!<cr>:Align= <cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
