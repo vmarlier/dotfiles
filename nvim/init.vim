@@ -210,20 +210,23 @@ let g:ale_sign_warning = ''
 let g:ale_linters = {
             \   'go': ['go', 'golint', 'errcheck'],
             \   'python': ['flake8', 'pylint'],
-            \   'terraform': ['fmt', 'tflint']
+            \   'terraform': ['fmt', 'tflint'],
+            \   'yaml': ['yamllint', 'prettier']
             \}
 " go get -u golang.org/x/lint/golint
 " go get -u github.com/kisielk/errcheck
 " pip3 install flake8 pylint
 " brew install tflint
+" brew install yamllint
+" brew install prettier
 let g:ale_fixers = {
             \   'go': ['gofmt', 'goimports'],
             \   'python': ['autopep8'],
-            \   'terraform': ['fmt', 'tflint']
+            \   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
+            \   'yaml': ['prettier']
             \}
 " go get -u golang.org/x/tools/cmd/goimports
 " pip3 install autopep8
-" brew install tflint
 let g:ale_fix_on_save = 1
 let b:ale_warn_about_trailing_whitespace = 0
 let g:airline#extensions#ale#enabled = 1
@@ -271,7 +274,7 @@ let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 let g:terraform_completion_keys = 1
 autocmd FileType terraform let g:SuperTabDefaultCompletionType = "<c-x><c-k>"
-autocmd FileType terraform set foldlevel=0
+"autocmd FileType terraform set foldlevel=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
