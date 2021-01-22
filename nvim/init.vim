@@ -33,6 +33,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Cheatsheet
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Coc
+" K : show definition
+
 " Buffers
 " <leader>+o : BufExplorer
 " <leader>+f : MRU finder
@@ -147,17 +150,24 @@ if dein#load_state('~/.cache/dein')
 	
   " Completion framework
     call dein#add('neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile'})
+    " Maj coc -> :call dein#reinstall('coc.nvim") 
 
   " Golang
-    "coc-go installed via :CocInstall coc-go stored at 
+  " coc: coc-go installed via :CocInstall coc-go
 
   " Terraform
-    call dein#add('hashivim/vim-terraform') "terraform fmt
-    call dein#add('juliosueiras/vim-terraform-completion') "terraform completion
+  " coc: brew install terraform-lscf coc-settings.json 
+  " cf ./coc-settings.json
 
   " Docker
   " coc: npm install -g dockerfile-language-server-nodejs
+  " cf ./coc-settings.json
 
+  " Vim
+  " coc: coc-vimlsp installed via :CocInstall coc-vimlsp
+
+  " Markdown
+  " coc: coc-markdownlint installed via :CocInstall coc-markdownlint
 
   " Required:
   call dein#end()
@@ -236,6 +246,16 @@ let g:airline#extensions#ale#enabled = 1
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " indentLine
 let g:indentLine_char = '▏'
@@ -276,6 +296,11 @@ let g:terraform_completion_keys = 1
 autocmd FileType terraform let g:SuperTabDefaultCompletionType = "<c-x><c-k>"
 "autocmd FileType terraform set foldlevel=0
 
+" Vim
+let g:markdown_fenced_languages = [
+      \ 'vim',
+      \ 'help'
+      \]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
