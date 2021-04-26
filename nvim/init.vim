@@ -154,9 +154,13 @@ if dein#load_state('~/.cache/dein')
 
   " Golang
   " coc: coc-go installed via :CocInstall coc-go
+  
+  " Python
+  " coc: coc-pyright installed via :CocInstall coc-pyright
 
   " Terraform
-  " coc: brew install terraform-lscf coc-settings.json 
+    call dein#add('hashivim/vim-terraform') "terraform fmt
+  " coc: brew install terraform-ls cf coc-settings.json 
   " cf ./coc-settings.json
 
   " Docker
@@ -168,6 +172,9 @@ if dein#load_state('~/.cache/dein')
 
   " Markdown
   " coc: coc-markdownlint installed via :CocInstall coc-markdownlint
+
+  " Toml
+  " coc: coc-toml installed via :CocInstall coc-toml
 
   " Required:
   call dein#end()
@@ -229,11 +236,13 @@ let g:ale_linters = {
 " brew install tflint
 " brew install yamllint
 " brew install prettier
+" npm install -g fixjson
 let g:ale_fixers = {
             \   'go': ['gofmt', 'goimports'],
             \   'python': ['autopep8'],
             \   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
-            \   'yaml': ['prettier']
+            \   'yaml': ['prettier'],
+            \   'json': ['fixjson']
             \}
 " go get -u golang.org/x/tools/cmd/goimports
 " pip3 install autopep8
