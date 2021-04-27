@@ -83,6 +83,8 @@
 " <"*yy> or <"+yy> to copy a line to your system's clipboard
 " <"*p> or <"+p> to paste a line from your system's clipboard
 
+" Python
+" <F9> : Run the python3 code
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Basic
@@ -310,6 +312,10 @@ let g:markdown_fenced_languages = [
       \ 'vim',
       \ 'help'
       \]
+
+" Python
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
