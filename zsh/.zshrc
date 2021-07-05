@@ -1,7 +1,6 @@
 ### OH MY ZSH ###
-export ZSH="/Users/valentin/.oh-my-zsh"
+export ZSH="/Users/vmarlier/.oh-my-zsh"
 ##############
-
 ### Golang paths ###
 export GO111MODULE=on
 export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin
@@ -39,6 +38,9 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+# For zsh-autosuggestions and zsh-syntax-highlighting
+# Install with this command: 
+# $ git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ##############
 
 ### OH MY ZSH ###
@@ -56,4 +58,4 @@ alias dvenv="deactivate"
 # Scaleway CLI autocomplete initialization.
 # to resolve compaudit problems
 # $ compaudit | xargs chmod g-w
-eval "$(scw autocomplete script shell=zsh)"
+#eval "$(scw autocomplete script shell=zsh)"
