@@ -53,6 +53,7 @@ alias ll="lsd -la"
 alias vim="nvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
+alias pip="pip3"
 ##############
 
 # Scaleway CLI autocomplete initialization.
