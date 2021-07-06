@@ -1,4 +1,2 @@
-# zsh-nvim
-My zsh and nvim config
-
-You can also find my BetterTouchTool config
+# dotfiles
+My zsh, nvim, iterm2 config and a makefile to automatically setup everything
