@@ -1,5 +1,5 @@
 ### OH MY ZSH ###
-export ZSH="/Users/vmarlier/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 ##############
 ### Golang paths ###
 export GO111MODULE=on
