@@ -33,6 +33,8 @@ workspace: prerequisites tree
 
 	# Instructions
 	echo "NERDFONT => To add monaco-nerd-font, launch Font Book Preferences on MacOS and add the downloaded file (check ~/Downloads)"
+	echo "ITERM2 => Set the new fonts, and the colorscheme from dotfiles repo"
+	echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE, STATION"
 
 tree:
 	mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go
