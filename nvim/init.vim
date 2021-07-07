@@ -76,6 +76,7 @@
 " View
 " <leader>+z : Goyo & Zenroom
 " <leader>+; : NerdTree
+" <leader>+m : MarkdownPreview
 
 " Yank
 " <Ctrl>+n : (Paste if not already) substitute with newer paster
@@ -174,6 +175,10 @@ if dein#load_state('~/.cache/dein')
 
   " Markdown
   " coc: coc-markdownlint installed via :CocInstall coc-markdownlint
+    call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'sh -c "cd app && yarn install"' }) "previewing markdown
+  " if preview don't appear when calling it, check :messages
+  " if the problem is 'tslib', go to the markdown-repo in ~/cache/dein/repos.. and execute $ npm install
 
   " Toml
   " coc: coc-toml installed via :CocInstall coc-toml
@@ -295,6 +300,10 @@ let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 nnoremap <silent> <leader>z :Goyo<cr>
 
+" => Markdown preview
+let g:mkdp_auto_close = 0
+let g:mkdp_echo_preview_url = 1
+nnoremap <leader>m :MarkdownPreview<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Settings
