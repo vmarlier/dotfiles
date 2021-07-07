@@ -45,5 +45,5 @@ prerequisites:
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	# Setup OMZ
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	# Setup wget, Git, Go (latest), Terraform (latest), Awscli (latest)
-	brew install wget git go terraform awscli
+	# Setup wget, Git, Go (latest), Terraform (latest), Awscli (latest), kubectl (latest), kubectx
+	brew install wget git go terraform awscli kubectl kubectx
