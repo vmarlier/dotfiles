@@ -47,6 +47,10 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 ##############
 
+### OH MY ZSH ###
+source $(pew shell_config)
+##############
+
 ### Aliases ###
 alias l="lsd -l"
 alias ll="lsd -la"
@@ -55,6 +59,7 @@ alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
 ##############
+
 
 # Scaleway CLI autocomplete initialization.
 # to resolve compaudit problems
