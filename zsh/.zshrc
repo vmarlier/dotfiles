@@ -58,6 +58,8 @@ alias vim="nvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
+alias switch_env=". switch_env"
+alias workon="pew workon"
 ##############
 
 
