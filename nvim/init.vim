@@ -28,6 +28,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 1 - Multi-cursor don't work
 "       Adding <Plug> when inserting with multicursor 
+" 2 - Add a better git support
+"       Show who and when a line was modified...
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -136,13 +138,14 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tiagofumo/vim-nerdtree-syntax-highlight') "nerdtree-syntax dependancy
 	call dein#add('Yggdroot/indentLine') "show a sign where lines are indent
 	call dein#add('vim-scripts/bufexplorer.zip') "quickly and easily switch between buffers. This plugin can be opened with <leader+o>
-	call dein#add('junegunn/goyo.vim') "distraction free <leader>z
+	call dein#add('junegunn/goyo.vim') "prerequisites for vim-zenroom2
 	call dein#add('amix/vim-zenroom2') "distraction free <leader>z
 	call dein#add('vim-scripts/mru.vim') "plugin to manage Most Recently Used (MRU) files. This plugin can be opened with <leader+f>
 	call dein#add('amix/open_file_under_cursor.vim') "speak for itself, <g-f>
 	call dein#add('tpope/vim-commentary') "comment stuff out. Use gcc to comment out a line (takes a count), gc to comment out the target of a motion. gcu uncomments a set of adjacent commented lines.
 	call dein#add('maxbrunsfeld/vim-yankstack') "maintains a history of previous yanks, changes and deletes
 	call dein#add('airblade/vim-gitgutter') "a vim plugin which shows a git diff in the gutter (sign column)
+    call dein#add('tveskag/nvim-blame-line') "git blame in status bar or virtual text
     call dein#add('vim-scripts/Align') "align text easily
 
   " Colorscheme
@@ -304,6 +307,9 @@ nnoremap <silent> <leader>z :Goyo<cr>
 let g:mkdp_auto_close = 0
 let g:mkdp_echo_preview_url = 1
 nnoremap <leader>m :MarkdownPreview<CR>
+
+" => Nvim blame line
+autocmd BufEnter * EnableBlameLine
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Settings
