@@ -178,6 +178,7 @@ if dein#load_state('~/.cache/dein')
 
   " Markdown
   " coc: coc-markdownlint installed via :CocInstall coc-markdownlint
+  " call dein#add('npxbr/glow.nvim') "preview a markdown directly inside the vim buffer
     call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
 					\ 'build': 'sh -c "cd app && yarn install"' }) "previewing markdown
   " if preview don't appear when calling it, check :messages
