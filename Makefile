@@ -1,3 +1,10 @@
+###
+#
+# Install all I need for working.
+# Some of the installed tools are only for working at my current job.
+#
+###
+
 ifeq (, $(shell which pip3))
  $(error "No pip3 in $(PATH)")
 endif
@@ -19,7 +26,7 @@ workspace: prerequisites tree
 	go get -u github.com/kisielk/errcheck
 
 	# Install Pew, Asdf
-	pip3 install pew
+	pip3 install pew credstash
 	brew install asdf
 
 	# Get dotfiles
@@ -46,4 +53,4 @@ prerequisites:
 	# Setup OMZ
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	# Setup wget, Git, Go (latest), Terraform (latest), Awscli (latest), kubectl (latest), kubectx
-	brew install wget git go terraform awscli kubectl kubectx
+	brew install wget git go terraform awscli kubectl kubectx ansible
