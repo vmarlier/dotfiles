@@ -1,6 +1,7 @@
 ### OH MY ZSH ###
 export ZSH="/Users/$USER/.oh-my-zsh"
 ##############
+
 ### Golang paths ###
 export GO111MODULE=on
 export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin
@@ -34,7 +35,7 @@ plugins=(
   kubectl
   docker
   terraform
-  scw
+#  scw
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -60,8 +61,12 @@ alias dvenv="deactivate"
 alias pip="pip3"
 alias switch_env=". switch_env"
 alias workon="pew workon"
+alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 ##############
 
+### asdf ###
+alias launch_asdf=". /usr/local/opt/asdf/asdf.sh"
+##############
 
 # Scaleway CLI autocomplete initialization.
 # to resolve compaudit problems
