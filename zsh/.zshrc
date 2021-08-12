@@ -72,3 +72,6 @@ alias launch_asdf=". /usr/local/opt/asdf/asdf.sh"
 # to resolve compaudit problems
 # $ compaudit | xargs chmod g-w
 #eval "$(scw autocomplete script shell=zsh)"
+
+# Created by `pipx` on 2021-08-11 09:28:24
+export PATH="$PATH:/Users/vmarlier/.local/bin"
