@@ -25,9 +25,11 @@ workspace: prerequisites tree
 	go get -u golang.org/x/tools/cmd/goimports
 	go get -u github.com/kisielk/errcheck
 
-	# Install Pew, Asdf
+	# Install Pew, Asdf, aws-sso-util
 	pip3 install pew credstash
 	brew install asdf
+	pipx ensurepath
+	pipx install aws-sso-util
 
 	# Get dotfiles
 	git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
@@ -53,4 +55,4 @@ prerequisites:
 	# Setup OMZ
 	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	# Setup wget, Git, Go (latest), Terraform (latest), Awscli (latest), kubectl (latest), kubectx
-	brew install wget git go terraform awscli kubectl kubectx ansible
+	brew install wget git go terraform awscli kubectl kubectx ansible pipx
