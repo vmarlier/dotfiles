@@ -29,11 +29,12 @@ HYPHEN_INSENSITIVE="true"
 
 ### Plugins ###
 plugins=(
+  asdf
   aws
+  docker
   git
   golang
   kubectl
-  docker
   terraform
 #  scw
   zsh-autosuggestions
@@ -48,7 +49,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 ##############
 
-### OH MY ZSH ###
+### Pew ###
 source $(pew shell_config)
 ##############
 
@@ -65,7 +66,7 @@ alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 ##############
 
 ### asdf ###
-alias launch_asdf=". /usr/local/opt/asdf/asdf.sh"
+. /usr/local/opt/asdf/asdf.sh
 ##############
 
 # Scaleway CLI autocomplete initialization.
