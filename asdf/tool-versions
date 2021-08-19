@@ -1,0 +1,8 @@
+awscli 2.2.29
+golang 1.17
+jq 1.6
+kubectl 1.22.0
+kubectx 0.9.4
+neovim 0.5.0
+terraform 1.0.4
+terraform-ls 0.20.1
