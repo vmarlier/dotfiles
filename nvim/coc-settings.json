@@ -2,7 +2,9 @@
 	"languageserver": {
 		"terraform": {
 			"command": "terraform-ls",
-			"args": ["serve"],
+			"args": [
+				"serve"
+			],
 			"filetypes": [
 				"terraform",
 				"tf"
@@ -10,10 +12,14 @@
 			"initializationOptions": {},
 			"settings": {}
 		},
-      "dockerfile": {
-        "command": "docker-langserver",
-        "filetypes": ["dockerfile"],
-        "args": ["--stdio"]
-        }
-    }
+		"dockerfile": {
+			"command": "docker-langserver",
+			"filetypes": [
+				"dockerfile"
+			],
+			"args": [
+				"--stdio"
+			]
+		}
+	}
 }

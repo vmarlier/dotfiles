@@ -133,7 +133,7 @@ if dein#load_state('~/.cache/dein')
 	call dein#add('vim-airline/vim-airline') "airline
 	call dein#add('vim-airline/vim-airline-themes') "airline themes
 	call dein#add('pseewald/vim-anyfold') "fold/unfold code
-	call dein#add('scrooloose/nerdtree') "navigation tree
+	"call dein#add('scrooloose/nerdtree') "navigation tree
 	call dein#add('ryanoasis/vim-devicons')	"nerdtree-syntax dependency
     call dein#add('tiagofumo/vim-nerdtree-syntax-highlight') "nerdtree-syntax dependancy
 	call dein#add('Yggdroot/indentLine') "show a sign where lines are indent
@@ -218,16 +218,24 @@ autocmd Filetype * AnyFoldActivate " activate for all filetypes
 set foldlevel=99 " Open all folds
 
 " nerdtree
-map <leader>; :NERDTreeToggle<CR>
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "start if vim open empty
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "close if nerdtree is last buffer open
-let g:NERDTreeShowHidden=1
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+"map <leader>; :NERDTreeToggle<CR>
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "start if vim open empty
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "close if nerdtree is last buffer open
+"let g:NERDTreeShowHidden=1
+"let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+"let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " let g:NERDTreeDirArrowExpandable = ''
 " let g:NERDTreeDirArrowCollapsible = ''
-highlight NERDTreeClosable ctermfg=11
-highlight NERDTreeOpenable ctermfg=11
+"highlight NERDTreeClosable ctermfg=11
+"highlight NERDTreeOpenable ctermfg=11
+
+" Netrw
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | Vexplore | endif "start if vim open empty
+map <leader>; :Lexplore<CR>
+let g:netrw_liststyle = 3 " set tree view
+let g:netrw_browse_split = 4 " open a file in the previous window
+let g:netrw_winsize = 15
+let g:netrw_altfile = 1
 
 " align
 map <leader>= :Align=<CR>
@@ -239,8 +247,9 @@ let g:ale_linters = {
             \   'go': ['go', 'golint', 'errcheck'],
             \   'python': ['flake8', 'pylint'],
             \   'terraform': ['fmt', 'tflint'],
-            \   'yaml': ['yamllint', 'prettier']
+            \   'yaml': ['yamllint']
             \}
+            "\   'yaml': ['yamllint', 'prettier']
 " go get -u golang.org/x/lint/golint
 " go get -u github.com/kisielk/errcheck
 " pip3 install flake8 pylint
@@ -252,14 +261,15 @@ let g:ale_fixers = {
             \   'go': ['gofmt', 'goimports'],
             \   'python': ['autopep8'],
             \   'terraform': ['terraform', 'remove_trailing_lines', 'trim_whitespace'],
-            \   'yaml': ['prettier'],
-            \   'json': ['fixjson']
             \}
+            "\   'json': ['fixjson']
+            "\   'yaml': ['prettier'],
 " go get -u golang.org/x/tools/cmd/goimports
 " pip3 install autopep8
 let g:ale_fix_on_save = 1
 let b:ale_warn_about_trailing_whitespace = 0
 let g:airline#extensions#ale#enabled = 1
+let g:ale_linters_explicit = 1
 
 " coc.nvim
 " make <CR> auto-select the first completion item and notify coc.nvim to
@@ -427,7 +437,6 @@ set tm=500
 if has("gui_macvim")
     autocmd GUIEnter * set vb t_vb=
 endif
-
 
 " Add a bit extra margin to the left
 set foldcolumn=1
