@@ -32,9 +32,9 @@ workspace: prerequisites tree
 	pipx install aws-sso-util
 
 	# Get dotfiles
+	mkdir -p ~/Git/$(whoami)
 	git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
-	ln -s ~/Git/$(whoami)/dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-	ln -s ~/Git/$(whoami)/dotfiles/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
+	ln -s ~/Git/$(whoami)/dotfiles/nvim ~/.config/nvim
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 
 	# Get Font
