@@ -11,7 +11,7 @@ endif
 
 workspace: prerequisites tree
 	# Setup Neovim prerequisites
-	brew install node 
+	brew install node neovim
 	npm install -g neovim
 	pip3 install neovim
 	@read -p "Enter Sudo Password" passwd; \
