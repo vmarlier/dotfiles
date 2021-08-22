@@ -56,7 +56,8 @@ source $(pew shell_config)
 ### Aliases ###
 alias l="lsd -l"
 alias ll="lsd -la"
-alias vim="nvim"
+alias vim="lvim"
+alias nvim="lvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
@@ -76,3 +77,5 @@ alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 
 # Created by `pipx` on 2021-08-11 09:28:24
 export PATH="$PATH:/Users/vmarlier/.local/bin"
+
+export PATH="$HOME/.config/nvim/bin:$PATH"
