@@ -1,4 +1,1 @@
-# Neovim Setup
-
-### Currently Using:
-..
+# Currently using [LunarVim](https://github.com/LunarVim/LunarVim)
