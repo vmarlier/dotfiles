@@ -13,6 +13,7 @@ export GIT_SSH_COMMAND="ssh -i ~/.ssh/github/id_ed25519"
 ##############
 
 export ZSH_DISABLE_COMPFIX=true
+export EDITOR="lvim"
 
 ### Themes ###
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -77,5 +78,3 @@ alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 
 # Created by `pipx` on 2021-08-11 09:28:24
 export PATH="$PATH:/Users/vmarlier/.local/bin"
-
-export PATH="$HOME/.config/nvim/bin:$PATH"
