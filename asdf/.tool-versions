@@ -5,4 +5,4 @@ kubectl 1.22.0
 kubectx 0.9.4
 neovim 0.5.0
 terraform 1.0.4
-terraform-ls 0.20.1
+yarn 1.22.11
