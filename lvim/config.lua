@@ -52,7 +52,7 @@ lvim.keys.normal_mode = {
   -- Buffers and Tabs
   ["<S-n>"] = ":bnext<CR>",
   ["<S-b>"] = ":bprevious<CR>",
-  ["<S-d>"] = ":bdelete<CR>",
+  ["<S-d>"] = ":BufferClose<CR>",
   ["<S-t>"] = ":tabnew<CR>",
   -- Terminal
   ["<C-t>"] = "<cmd>ToggleTerm<CR>",
