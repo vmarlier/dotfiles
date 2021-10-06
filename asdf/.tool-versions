@@ -7,3 +7,4 @@ neovim 0.5.0
 terraform 1.0.4
 yarn 1.22.11
 helm 3.6.3
+scaleway-cli 2.3.1
