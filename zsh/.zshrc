@@ -57,8 +57,7 @@ source $(pew shell_config)
 ### Aliases ###
 alias l="lsd -l"
 alias ll="lsd -la"
-alias vim="lvim"
-alias nvim="lvim"
+alias vim="nvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
