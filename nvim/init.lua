@@ -22,4 +22,7 @@ require('manager')
 ----------------------
 require('plugins-settings')
 
-
+-----------------
+-- Keybindings --
+-----------------
+require('keybindings')
