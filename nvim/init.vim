@@ -4,6 +4,8 @@
 "
 " Sections:
 "    -> Cheatsheet
+"    -> Plugins - Dein
+"    -> Plugins - Settings
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -16,13 +18,124 @@
 "    -> Editing mappings
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins - ...
+" => Plugins - Dein
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Prerequisite: Install Dein
+" #1 : curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+" #2 : sh ./installer.sh ~/.cache/dein
+
+let g:dein#install_process_timeout = 3600
+let g:dein#cache_directory = $HOME . '/.cache/dein'
+
+" Required:
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
+  " Let dein manage dein
+  " Required:
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+  " 
+  call dein#add('nvim-treesitter/nvim-treesitter') "provide a simple and easy way to use the interface for tree-sitter
+
+  " Dashboard, Helper, Term..
+  call dein#add('glepnir/dashboard-nvim') "display a dashboard
+  call dein#add('nvim-lua/plenary.nvim') "required for telescope
+  call dein#add('nvim-telescope/telescope.nvim') "highly extendable fuzzy finder
+  call dein#add('nvim-telescope/telescope-project.nvim') "manage project within Telescope
+  call dein#add('folke/which-key.nvim') "displays a popup with possible key bindings
+  call dein#add('akinsho/toggleterm.nvim') "terminal plugin
+  " Useful Stuff
+  call dein#add('lukas-reineke/indent-blankline.nvim') "indentation guides to all lines
+  call dein#add('terrortylor/nvim-comment') "comment easily
+  call dein#add('pseewald/vim-anyfold') "fold anything
+  call dein#add('vim-scripts/align') "align stuff
+  call dein#add('maxbrunsfeld/vim-yankstack') "maintains a history of previous yanks, changes and deletes
+  " Git
+  call dein#add('airblade/vim-gitgutter') "a vim plugin which shows a git diff in the gutter (sign column)
+  call dein#add('tveskag/nvim-blame-line') "git blame in status bar or virtual text
+  call dein#add('sindrets/diffview.nvim') "review all changed files for any git rev.
+  " Navigation and Visual
+  call dein#add('kyazdani42/nvim-tree.lua') "nvim tree
+  call dein#add('glepnir/galaxyline.nvim') "statusline
+  call dein#add('romgrk/barbar.nvim') "tabline plugin with re-orderable, auto-sizing..
+  " Themes
+  call dein#add('kyazdani42/nvim-web-devicons') "lua fork of vim-devicons
+  call dein#add('joshdick/onedark.vim') "colorscheme
+  
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins - Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" dashboard-nvim
+let g:dashboard_default_executive = 'telescope'
+
+" vim-anyfold
+set foldlevel=99 " Open all folds
+lua << EOF
+local au = require('au')
+au.BufRead = function()
+    print(vim.bo.filetype)
+end
+au.BufRead = { '*', 'AnyFoldActivate' }
+EOF
+
+" vim-yankstack
+let g:yankstack_yank_keys = ['y', 'd']
+nmap <c-p> <Plug>yankstack_substitute_older_paste
+nmap <c-n> <Plug>yankstack_substitute_newer_paste
+
+" telescope
+lua << EOF
+require'telescope'.load_extension('project')
+EOF
+
+" which-key.nvim
+lua << EOF
+require('whichkey-conf')
+EOF
+
+" galaxyline.nvim
+lua << EOF
+require('galaxyline-conf')
+EOF
+
+" indent-blankline.nvim
+set list listchars=space:⋅
+lua << EOF
+require("indent_blankline").setup {
+    char = "|",
+    space_char_blankline = " ",
+    buftype_exclude = {"terminal"}
+}
+EOF
+
+" nvim-comment
+lua << EOF
+require('nvim_comment').setup()
+EOF
+
+" nvim-tree.nvim
+lua << EOF
+require('tree-conf')
+EOF
+
+" nvim-blame-line
+autocmd BufEnter * EnableBlameLine
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language Settings
@@ -127,6 +240,14 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable 
+
+" COLORSCHEME
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if has('termguicolors') && !has('gui_running')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
 try
     colorscheme onedark
