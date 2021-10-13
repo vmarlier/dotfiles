@@ -21,12 +21,17 @@ end
 -------------
 require "paq" {
     "savq/paq-nvim"; -- let Paq manage itself
-    
+
+    -- Completion
+    "neovim/nvim-lspconfig"; -- a collection of common configurations for Neovim's built-in language server client.
+    "hrsh7th/nvim-cmp"; -- completion tool
+
     -- Dashboard, Helper, Term..
     "glepnir/dashboard-nvim"; -- display a dashboard
     "nvim-lua/plenary.nvim"; -- required for telescope
     "nvim-telescope/telescope.nvim"; -- highly extandable fuzzy finder
     "nvim-telescope/telescope-project.nvim"; -- manage project within Telescope
+    "nvim-treesitter/nvim-treesitter"; -- simple and easy way to use the interface for tree-sitter
     "folke/which-key.nvim"; -- displays a popup with possible keybindings
     "akinsho/toggleterm.nvim"; -- terminal plugin
 
@@ -34,7 +39,7 @@ require "paq" {
     "lukas-reineke/indent-blankline.nvim"; -- indentation guides to all lines
     "terrortylor/nvim-comment"; -- comment easily
     "pseewald/vim-anyfold"; -- fold anything
-    "vim-scripts/align"; -- align stuff
+    "vim-scripts/align"; -- align stuff:wq
     "maxbrunsfeld/vim-yankstack"; -- maintains a history of previous yanks, changes and deletes
 
     -- Git

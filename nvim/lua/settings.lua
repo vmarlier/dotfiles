@@ -87,13 +87,13 @@ o.ffs = 'unix,mac' -- use unix as the standard filetype
 o.backup = false -- turn backup off
 o.swapfile = false --
 o.writebackup = false --
-o.undofile = true
-o.undodir = '~/.vim_runtime/temp_dirs/undodir'
+--o.undofile = true
+--o.undodir = '$HOME/.vim_runtime/temp_dirs/undodir'
 
 ---------------------
 -- File templating --
 ---------------------
--- vim.cmd('autocmd BufNewFile *.cpp 0r ~/.vim/templates/template.cpp') -- call templates on cpp filetype
+vim.cmd('autocmd BufNewFile *.rep.md 0r ~/.config/nvim/templates/template.rep.md') -- call template my reporting template
 
 ----------------------------------
 -- Text, tab and indent related --
@@ -125,14 +125,14 @@ map('n', '<left>', '<nop>', {noremap = true}) -- only use hjkl on normal mode
 map('n', '<down>', '<nop>', {noremap = true}) --
 map('n', '<up>', '<nop>', {noremap = true}) --
 map('n', '<right>', '<nop>', {noremap = true}) --
-map('i', '<left>', '<nop>', {noremap = true}) -- only use hjkl on insert mode
-map('i', '<down>', '<nop>', {noremap = true}) --
-map('i', '<up>', '<nop>', {noremap = true}) --
-map('i', '<right>', '<nop>', {noremap = true}) --
 map('v', '<left>', '<nop>', {noremap = true}) -- only use hjkl on visual mode
 map('v', '<down>', '<nop>', {noremap = true}) --
 map('v', '<up>', '<nop>', {noremap = true}) --
 map('v', '<right>', '<nop>', {noremap = true}) --
+map('i', '<left>', '<nop>', {noremap = true}) -- only use hjkl on insert mode
+map('i', '<down>', '<nop>', {noremap = true}) --
+map('i', '<up>', '<nop>', {noremap = true}) --
+map('i', '<right>', '<nop>', {noremap = true}) --
 vim.cmd[[
 try
   set switchbuf=useopen,usetab,newtab
