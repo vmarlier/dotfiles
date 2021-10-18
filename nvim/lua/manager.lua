@@ -55,4 +55,7 @@ require "paq" {
     -- Themes
     "kyazdani42/nvim-web-devicons"; -- lua fork of vim-devicons
     "joshdick/onedark.vim"; -- colorscheme
+
+    -- Language Specific
+    "iamcco/markdown-preview.nvim"; -- preview markdown files
 }
