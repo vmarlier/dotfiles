@@ -1,1 +1,7 @@
-# Currently using [LunarVim](https://github.com/LunarVim/LunarVim)
+# NVim configuration
+
+## Plugins
+
+| Plugin | Purpose | Link |
+|--------|---------|------|
+
