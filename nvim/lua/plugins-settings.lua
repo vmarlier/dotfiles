@@ -246,6 +246,7 @@ gls.left[2] = {
     provider = function()
       return '  '
     end,
+    highlight = {colors.red,colors.bg,'bold'},
   },
 }
 gls.left[3] = {
