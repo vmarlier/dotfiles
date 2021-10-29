@@ -1,0 +1,1 @@
+/Users/vmarlier/.local/share/nvim/telescope-projects.txt
