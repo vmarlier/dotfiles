@@ -144,7 +144,10 @@ vim.cmd("let g:yankstack_yank_keys = ['y', 'd']")
 ---------------------
 -- NVIM-Blame-Line --
 ---------------------
---autocmd BufEnter * EnableBlameLine
+au.BufEnter = function()
+    print(vim.bo.filetype)
+end
+au.BufEnter = { '*', 'EnableBlameLine' }
 
 --------------
 -- Diffview --
