@@ -102,7 +102,8 @@ o.expandtab = true -- use spaces instead of tabs
 o.smarttab = true -- be smart when using tabs
 o.shiftwidth = 4 -- 1 tab == 4 spaces
 o.tabstop = 4 --
--- autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab -- 1 tab == 2 spaces for yaml files
+vim.cmd('autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
+vim.cmd('autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
 o.lbr = true -- activate line break
 o.tw = 200 -- 200 char per line
 o.ai = true -- auto indent
