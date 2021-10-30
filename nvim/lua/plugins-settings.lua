@@ -71,7 +71,17 @@ require("which-key").setup {}
 -- ToggleTerm --
 ----------------
 require("toggleterm").setup{
-  direction = 'float'
+  direction = 'float',
+  float_opts = {
+    border = 'curved',
+    width = 250,
+    height = 50,
+    winblend = 3,
+    highlights = {
+      border = "Normal",
+      background = "Normal",
+    }
+  }
 }
 
 ----------------------

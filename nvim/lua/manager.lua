@@ -21,7 +21,7 @@ end
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost manager.lua source <afile> | PackerCompile
+    autocmd BufWritePost manager.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use 'pseewald/vim-anyfold' -- fold anything
   use 'vim-scripts/align' -- align stuff:wq
   use 'maxbrunsfeld/vim-yankstack' -- maintains a history of previous yanks, changes and deletes
+  use 'raimondi/delimitmate' -- autoclosing quotes, brackets...
 
   -- Git
   use 'airblade/vim-gitgutter' -- shows a git diff in the gutter (sign column)

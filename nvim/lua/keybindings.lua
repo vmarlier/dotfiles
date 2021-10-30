@@ -4,7 +4,7 @@
 local wk = require("which-key")
 
 wk.register({
-    t = { ":ToggleTerm size=16 dir=~/ direction=horizontal<cr>", "Toggle Terminal" }, -- open a term
+    t = { ":ToggleTerm<cr>", "Toggle Terminal" }, -- open a term
     e = { ":NvimTreeToggle<cr>", "Toggle Tree" }, -- toggle tree
     d = { ":DiffviewOpen<cr>", "Open Git Diff" }, -- open a git diff view
     a = { ":Align=<cr>", "Align on equal" }, -- align elements on "="
