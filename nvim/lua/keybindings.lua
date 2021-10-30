@@ -13,12 +13,13 @@ wk.register({
     h = { "<C-W>h", "Go To Left Window" }, -- move to left window
     l = { "<C-W>l", "Go To Right Window" }, -- move to right window
     P = {
-        name = "PAQ",
-        i = { ":PaqInstall<cr>", "Install Plugins" }, -- install plugins - paq
-        l = { ":PaqList<cr>", "List Plugins" }, -- list plugins - paq
-        c = { ":PaqClean<cr>", "Clean Plugins" }, -- clean plugins - paq
-        u = { ":PaqUpdate<cr>", "Update Plugins" }, -- update plugins - paq
-        s = { ":PaqSync<cr>", "c -> i -> u" }, -- sync (execute all task above) - paq
+        name = "Packer",
+        c = { ":PackerCompile<cr>", "Regenerate compiled loader file" }, -- Regenerate compiled loader file
+        r = { ":PackerClean<cr>", "Remove any disabled or unused plugins" }, -- Remove any disabled or unused plugins
+        i = { ":PackerInstall<cr>", "Clean, then install missing plugins" }, -- Clean, then install missing plugins
+        u = { ":PackerUpdate<cr>", "Clean, then update and install plugins" }, -- Clean, then update and install plugins
+        s = { ":PackerSync<cr>", "Perform `PackerUpdate` and then `PackerCompile`" }, -- Perform `PackerUpdate` and then `PackerCompile`
+        l = { "echo 'eg. :PackerLoad completion-nvim ale'", "Loads opt plugin immediately" }, -- How to loads opt plugin immediately
     },
     T = {
         name = "TS",
