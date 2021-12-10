@@ -67,7 +67,7 @@ alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 ##############
 
 ### asdf ###
-. /usr/local/opt/asdf/asdf.sh
+export ASDF_DIR='/usr/local/opt/asdf/libexec'
 ##############
 
 # Scaleway CLI autocomplete initialization.
