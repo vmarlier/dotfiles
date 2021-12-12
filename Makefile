@@ -16,7 +16,8 @@ instructions:
 	echo "ITERM2 => Set the new fonts, and the colorscheme from dotfiles repo"
 	echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE, STATION"
 	echo "ASDF => run asdf install on your HOME folder"
-	echo "LVIM => install LSP and Treesitter support listed in ~/Git/$(whoami)/dotfiles/lvim/README.md"
+	echo "NVIM => install LSP and Treesitter support listed in ~/Git/$(whoami)/dotfiles/lvim/README.md"
+	echo "NVIM GO support => run a :checkhealth"
 
 get:
 	# Get dotfiles
@@ -36,6 +37,7 @@ vim:
 	pip3 install neovim
 	@read -p "Enter Sudo Password" passwd; \
 	sudo -S $$passwd gem install neovim
+
 
 asdf: 
 	asdf plugin add awscli    https://github.com/MetricMike/asdf-awscli.git
