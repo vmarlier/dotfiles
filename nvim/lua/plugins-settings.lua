@@ -6,6 +6,7 @@
 -- -> Plenary
 -- -> Telescope
 -- -> Telescope-Project
+-- -> Tree-Sitter
 -- -> Which-Key
 -- -> ToggleTerm
 -- -> Indent-Blankline
@@ -61,6 +62,21 @@ END
 -- Telescope-Project --
 -----------------------
 require'telescope'.load_extension('project')
+
+-----------------
+-- Tree-Sitter --
+-----------------
+require("nvim-treesitter.configs").setup({
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  indent = { enable = false },
+  highlight = { enable = true, additional_vim_regex_highlighting = false },
+  autopairs = { enable = true },
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+  }
+})
 
 ---------------
 -- Which-Key --
