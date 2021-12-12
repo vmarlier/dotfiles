@@ -32,13 +32,18 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Coc and Ale
+  -- Completion & Linting
+  use 'neovim/nvim-lspconfig' -- requirement for goldsmith
+  use 'williamboman/nvim-lsp-installer' -- requirement for goldsmith
+  use 'jose-elias-alvarez/null-ls.nvim' -- requirement for goldsmith
+
 
   -- Dashboard, Helper, Term..
   use 'glepnir/dashboard-nvim' -- display a dashboard
   use {'nvim-telescope/telescope.nvim', requires='nvim-lua/plenary.nvim'} -- highly extandable fuzzy finder
   use 'nvim-telescope/telescope-project.nvim' -- manage project within Telescope
   use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'} -- simple and easy way to use the interface for tree-sitter
+  use 'nvim-treesitter/nvim-treesitter-textobjects' -- requirement for goldsmith
   use 'folke/which-key.nvim' -- displays a popup with possible keybindings
   use 'akinsho/toggleterm.nvim' -- terminal plugin
 
@@ -64,7 +69,8 @@ return require('packer').startup(function(use)
   use 'joshdick/onedark.vim' -- colorscheme
 
   -- Language Specific
-  use {'iamcco/markdown-preview.nvim', ft = {'markdown'} ,run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- preview mardown files
+  use {'iamcco/markdown-preview.nvim', ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- preview mardown files
+  use {'WhoIsSethDaniel/goldsmith.nvim', ft = {'golang'}, requires='antoinemadec/FixCursorHold.nvim'} -- Golang support
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
