@@ -58,11 +58,6 @@ END
 -- Telescope --
 ---------------
 
------------------------
--- Telescope-Project --
------------------------
-require'telescope'.load_extension('project')
-
 -----------------
 -- Tree-Sitter --
 -----------------
@@ -98,16 +93,6 @@ require("toggleterm").setup{
       background = "Normal",
     }
   }
-}
-
-----------------------
--- Indent-Blankline --
-----------------------
-vim.cmd('set list listchars=space:⋅')
-require("indent_blankline").setup {
-    char = "|",
-    space_char_blankline = " ",
-    buftype_exclude = {"terminal"}
 }
 
 ------------------
