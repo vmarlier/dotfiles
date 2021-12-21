@@ -79,5 +79,6 @@
             ]
         },
     ],
-    "window.zoomLevel": 1
+    "redhat.telemetry.enabled": false,
+    "window.zoomLevel": -1
 }
