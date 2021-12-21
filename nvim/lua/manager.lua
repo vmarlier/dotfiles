@@ -32,12 +32,6 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Completion & Linting
-  use 'neovim/nvim-lspconfig' -- requirement for goldsmith
-  use 'williamboman/nvim-lsp-installer' -- requirement for goldsmith
-  use 'jose-elias-alvarez/null-ls.nvim' -- requirement for goldsmith
-
-
   -- Dashboard, Helper, Term..
   use 'glepnir/dashboard-nvim' -- display a dashboard
   use {'nvim-telescope/telescope.nvim', requires='nvim-lua/plenary.nvim'} -- highly extandable fuzzy finder
@@ -68,8 +62,6 @@ return require('packer').startup(function(use)
 
   -- Language Specific
   use {'iamcco/markdown-preview.nvim', ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- preview mardown files
-  use {'WhoIsSethDaniel/goldsmith.nvim', ft = {'go'}, requires='antoinemadec/FixCursorHold.nvim',
-    config = function() require('goldsmith').setup() end } -- Golang support
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

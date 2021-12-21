@@ -33,7 +33,6 @@ wk.register({
 
 wk.register({
     t = { ":Telescope<cr>", "Telescope" }, -- open telescope
-    p = { ":Telescope project<cr>", "Projects" }, -- open telescope project
     s = {
         name = "Searches",
         f = { ":Telescope fd<cr>", "Find Files" }, -- find file - telescope feature
