@@ -42,15 +42,14 @@ return require('packer').startup(function(use)
 
   -- Navigation and Visual
   use {'kyazdani42/nvim-tree.lua', requires='kyazdani42/nvim-web-devicons'} -- nvim tree
+  use 'rcarriga/nvim-notify' -- notification system
   use {'glepnir/galaxyline.nvim', branch='main'} -- statusline
   use 'romgrk/barbar.nvim' -- tabline plugin with re-orderable, auto-sizing..
 
   -- Useful Stuff
-  use 'terrortylor/nvim-comment' -- comment easily
   use 'pseewald/vim-anyfold' -- fold anything
-  use 'vim-scripts/align' -- align stuff:wq
-  use 'maxbrunsfeld/vim-yankstack' -- maintains a history of previous yanks, changes and deletes
   use 'raimondi/delimitmate' -- autoclosing quotes, brackets...
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Git
   use 'airblade/vim-gitgutter' -- shows a git diff in the gutter (sign column)

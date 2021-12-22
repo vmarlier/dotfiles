@@ -5,19 +5,15 @@
 -- -> Dashboard-NVIM
 -- -> Plenary
 -- -> Telescope
--- -> Telescope-Project
 -- -> Tree-Sitter
 -- -> Which-Key
 -- -> ToggleTerm
--- -> Indent-Blankline
--- -> NVIM-Comment
 -- -> VIM-Anyfold
--- -> Align
--- -> VIM-Yankstack
 -- -> VIM-GitGutter
 -- -> NVIM-Blame-Line
 -- -> Diffview
 -- -> NVIM-tree
+-- -> NVIM-Notify
 -- -> GalaxyLine
 -- -> Barbar
 
@@ -95,10 +91,15 @@ require("toggleterm").setup{
   }
 }
 
-------------------
--- NVIM-Comment --
-------------------
-require('nvim_comment').setup()
+----------------------
+-- Indent-Blankline --
+----------------------
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    buftype_exclude = {"terminal"},
+}
 
 -----------------
 -- VIM-Anyfold --
@@ -109,15 +110,6 @@ au.BufRead = function()
     print(vim.bo.filetype)
 end
 au.BufRead = { '*', 'AnyFoldActivate' }
-
------------
--- Align --
------------
-
--------------------
--- VIM-Yankstack --
--------------------
-vim.cmd("let g:yankstack_yank_keys = ['y', 'd']")
 
 -------------------
 -- VIM-GitGutter --
@@ -210,6 +202,44 @@ require'nvim-tree'.setup {
     }
   }
 }
+
+-----------------
+-- NVIM-Notify --
+-----------------
+require("notify").setup({
+  -- Animation style (see below for details)
+  stages = "fade_in_slide_out",
+
+  -- Function called when a new window is opened, use for changing win settings/config
+  on_open = nil,
+
+  -- Function called when a window is closed
+  on_close = nil,
+
+  -- Render function for notifications. See notify-render()
+  render = "default",
+
+  -- Default timeout for notifications
+  timeout = 5000,
+
+  -- For stages that change opacity this is treated as the highlight behind the window
+  -- Set this to either a highlight group or an RGB hex value e.g. "#000000"
+  background_colour = "Normal",
+
+  -- Minimum width for notification windows
+  minimum_width = 40,
+
+  -- Icons for the different levels
+  icons = {
+    ERROR = "",
+    WARN = "",
+    INFO = "",
+    DEBUG = "",
+    TRACE = "✎",
+  },
+})
+
+vim.notify = require("notify")
 
 ----------------
 -- GalaxyLine --
