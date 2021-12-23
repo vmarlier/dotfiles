@@ -58,6 +58,7 @@ o.visualbell = false --
 o.tm = 500 --
 o.foldcolumn = '1' -- add a bit extra margin to the left
 o.laststatus = 2
+o.completeopt = 'menuone,noselect' -- set completeopt to have a better completion experience see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 
 ----------------------
 -- Colors and Fonts --

@@ -32,6 +32,14 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- LSP, auto-completion.. see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+  use 'neovim/nvim-lspconfig' -- collection of configurations for built-in LSP client
+  use 'hrsh7th/nvim-cmp' -- autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- snippets plugin
+  --use 'ervandew/supertab' -- use tab for completion
+
   -- Dashboard, Helper, Term..
   use 'glepnir/dashboard-nvim' -- display a dashboard
   use {'nvim-telescope/telescope.nvim', requires='nvim-lua/plenary.nvim'} -- highly extandable fuzzy finder
