@@ -35,7 +35,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraformls' }
+local servers = { 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -126,6 +126,30 @@ END
 ---------------
 -- Telescope --
 ---------------
+require('telescope').setup({
+  defaults = {
+    layout_config = {
+      vertical = { width = 0.5 },
+    },
+  },
+  pickers = {
+    find_files = {
+      theme = "ivy"
+    },
+    live_grep = {
+      theme = "ivy"
+    },
+    grep_string = {
+      theme = "ivy"
+    },
+    file_browser = {
+      theme = "ivy"
+    },
+    git_files = {
+      theme = "ivy"
+    }
+  },
+})
 
 -----------------
 -- Tree-Sitter --
