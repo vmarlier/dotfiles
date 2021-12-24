@@ -73,7 +73,7 @@ then
 end
 vim.cmd[[
 try
-  colorscheme onedark
+  colorscheme tokyonight
 catch
 endtry
 ]] -- set colorscheme
