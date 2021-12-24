@@ -58,7 +58,8 @@ return require('packer').startup(function(use)
 
   -- Useful Stuff
   use 'pseewald/vim-anyfold' -- fold anything
-  use 'raimondi/delimitmate' -- autoclosing quotes, brackets...
+  --use 'raimondi/delimitmate' -- autoclosing quotes, brackets...
+  use 'windwp/nvim-autopairs' -- powerful autopair plugin
   use "lukas-reineke/indent-blankline.nvim"
 
   -- Git
