@@ -3,6 +3,7 @@
 -----------------------------------
 -- Sections:
 -- -> Autocompletion (nvim-lspconfig, luasnip, nvim-cmp)
+-- -> Trouble
 -- -> Dashboard-NVIM
 -- -> Plenary
 -- -> Telescope
@@ -89,6 +90,11 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-------------
+-- Trouble --
+-------------
+require('trouble').setup()
 
 --------------------
 -- Dashboard-NVIM --

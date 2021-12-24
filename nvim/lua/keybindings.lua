@@ -49,6 +49,10 @@ wk.register({
         s = { ":Telescope git_status<cr>", "Git Status" }, -- see actual status - telescope feature
         b = { ":Telescope git_branches<cr>", "Git Branches" }, -- see all branches - telescope feature
     },
+    d = {
+        name = "Debug",
+        t = { ":TroubleToggle<cr>", "Toggle Trouble" } -- toggle trouble console - trouble feature
+    },
 }, { prefix = "<TAB>" })
 
 wk.register({

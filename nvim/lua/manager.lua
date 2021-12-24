@@ -38,7 +38,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- snippets plugin
-  --use 'ervandew/supertab' -- use tab for completion
+
+  -- Diagnostics, Lint...
+  use 'folke/trouble.nvim' -- list for diagnostics, references, telescope results...
 
   -- Dashboard, Helper, Term..
   use 'glepnir/dashboard-nvim' -- display a dashboard
