@@ -37,7 +37,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp' }
+local servers = { 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp', 'ansiblels', 'cssls', 'html', 'pyright', 'dockerls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
