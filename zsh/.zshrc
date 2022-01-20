@@ -13,7 +13,7 @@ export GIT_SSH_COMMAND="ssh -i ~/.ssh/github/id_ed25519"
 ##############
 
 export ZSH_DISABLE_COMPFIX=true
-export EDITOR="lvim"
+export EDITOR="nvim"
 
 ### Themes ###
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -37,7 +37,7 @@ plugins=(
   golang
   kubectl
   terraform
-#  scw
+  scw
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -64,6 +64,13 @@ alias pip="pip3"
 alias swenv=". switch_env"
 alias workon="pew workon"
 alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
+alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
+        --image=quay.io/coreos/etcd:v3.3.10 \
+        --env=ETCDCTL_API=3 \
+        --env=ETCDCTL_ENDPOINTS="http://etcd-minio.etcd.svc.cluster.local:2379" \
+        -- sh"
+# kdebug on a specific nodepool
+# kubectl run tool-vmarlier-1 --image=nicolaka/netshoot -i --tty --rm -n tooling --overrides='{ "spec": { "nodeSelector": { "agentpool": "user" }} }'
 ##############
 
 ### asdf ###
@@ -73,7 +80,7 @@ export ASDF_DIR='/usr/local/opt/asdf/libexec'
 # Scaleway CLI autocomplete initialization.
 # to resolve compaudit problems
 # $ compaudit | xargs chmod g-w
-#eval "$(scw autocomplete script shell=zsh)"
+eval "$(scw autocomplete script shell=zsh)"
 
 # Created by `pipx` on 2021-08-11 09:28:24
 export PATH="$PATH:/Users/vmarlier/.local/bin"
