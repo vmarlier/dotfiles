@@ -35,7 +35,7 @@ wk.register({
     t = { ":Telescope<cr>", "Telescope" }, -- open telescope
     s = {
         name = "Searches",
-        f = { ":Telescope fd<cr>", "Find Files" }, -- find file - telescope feature
+        f = { ":Telescope find_files<cr>", "Find Files" }, -- find file - telescope feature
         g = { ":Telescope live_grep<cr>", "Grep" }, -- grep - telescope + ripgrep feature
     },
     f = { 
