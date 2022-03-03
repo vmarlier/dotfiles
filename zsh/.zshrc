@@ -83,4 +83,4 @@ export ASDF_DIR='/usr/local/opt/asdf/libexec'
 eval "$(scw autocomplete script shell=zsh)"
 
 # Created by `pipx` on 2021-08-11 09:28:24
-export PATH="$PATH:/Users/vmarlier/.local/bin"
+export PATH="$PATH:/Users/vmarlier/.local/bin:${HOME}/.krew/bin"
