@@ -30,14 +30,13 @@ get:
 	wget -L https://github.com/Karmenzind/monaco-nerd-fonts/blob/master/fonts/Monaco%20Nerd%20Font%20Complete.otf -P ~/Downloads/
 
 vim:
-	# Install LunarVim
-	bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 	# Install neovim providers
 	npm install -g neovim
 	pip3 install neovim
 	@read -p "Enter Sudo Password" passwd; \
 	sudo -S $$passwd gem install neovim
-
+	# Install LunarVim
+	bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 asdf: 
 	asdf plugin add awscli    https://github.com/MetricMike/asdf-awscli.git

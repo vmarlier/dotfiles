@@ -71,6 +71,10 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         -- sh"
 # kdebug on a specific nodepool
 # kubectl run tool-vmarlier-1 --image=nicolaka/netshoot -i --tty --rm -n tooling --overrides='{ "spec": { "nodeSelector": { "agentpool": "user" }} }'
+alias gpom="git pull origin master"
+alias gcm="git checkout master"
+alias gcb="git checkout -b"
+alias gc="git checkout"
 ##############
 
 ### asdf ###
