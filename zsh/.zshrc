@@ -35,7 +35,6 @@ plugins=(
   docker
   git
   golang
-  kubectl
   terraform
   scw
   zsh-autosuggestions
@@ -75,6 +74,13 @@ alias gpom="git pull origin master"
 alias gcm="git checkout master"
 alias gcb="git checkout -b"
 alias gc="git checkout"
+# deal with helmrelease from fluxv1 and fluxv2
+export hrv1="helmrelease.helm.fluxcd.io"
+export hrv2="helmrelease.helm.toolkit.fluxcd.io"
+##############
+
+### k8S ###
+source <(kubectl completion zsh)
 ##############
 
 ### asdf ###
