@@ -70,10 +70,13 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         -- sh"
 # kdebug on a specific nodepool
 # kubectl run tool-vmarlier-1 --image=nicolaka/netshoot -i --tty --rm -n tooling --overrides='{ "spec": { "nodeSelector": { "agentpool": "user" }} }'
+# alias to ease Git Workflow
 alias gpom="git pull origin master"
 alias gcm="git checkout master"
 alias gcb="git checkout -b"
 alias gc="git checkout"
+alias gbd="git branch -D"
+alias gr="cd \"$(git rev-parse --show-toplevel)\""
 # deal with helmrelease from fluxv1 and fluxv2
 export hrv1="helmrelease.helm.fluxcd.io"
 export hrv2="helmrelease.helm.toolkit.fluxcd.io"
