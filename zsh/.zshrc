@@ -54,14 +54,20 @@ source $(pew shell_config)
 ##############
 
 ### Aliases ###
+# zsh and nvim
 alias l="lsd -l"
 alias ll="lsd -la"
 alias vim="nvim"
+# venv related
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
 alias swenv=". switch_env"
 alias workon="pew workon"
+# ease k8s interaction
+alias klogs="kubectl logs"
+alias kpods="kubectl get pods"
+# ease k8s debug pod
 alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         --image=quay.io/coreos/etcd:v3.3.10 \
