@@ -65,8 +65,8 @@ alias pip="pip3"
 alias swenv=". switch_env"
 alias workon="pew workon"
 # ease k8s interaction
-alias klogs="kubectl logs"
-alias kpods="kubectl get pods"
+alias klo="kubectl logs"
+alias kpo="kubectl get pods"
 # ease k8s debug pod
 alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
 alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
@@ -83,6 +83,7 @@ alias gcb="git checkout -b"
 alias gc="git checkout"
 alias gbd="git branch -D"
 alias gr="cd \"$(git rev-parse --show-toplevel)\""
+alias gaa="git add ."
 # deal with helmrelease from fluxv1 and fluxv2
 export hrv1="helmrelease.helm.fluxcd.io"
 export hrv2="helmrelease.helm.toolkit.fluxcd.io"
