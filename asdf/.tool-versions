@@ -3,7 +3,7 @@ golang 1.17.5
 jq 1.6
 kubectl 1.21.7
 kubectx 0.9.4
-neovim 0.6.0
+neovim 0.7.0
 terraform 1.0.4
 yarn 1.22.11
 helm 3.6.3
@@ -14,3 +14,4 @@ kubeseal 0.16.0
 flux2 0.24.1
 krew 0.4.3
 azure-cli 2.34.1
+nodejs 18.2.0

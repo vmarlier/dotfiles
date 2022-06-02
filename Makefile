@@ -14,7 +14,7 @@ workspace: prerequisites brew pips tree asdf vim get instructions
 instructions:
 	echo "NERDFONT => To add monaco-nerd-font, launch Font Book Preferences on MacOS and add the downloaded file (check ~/Downloads)"
 	echo "ITERM2 => Set the new fonts, and the colorscheme from dotfiles repo"
-	echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE, STATION"
+	echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE"
 	echo "ASDF => run asdf install on your HOME folder"
 	echo "NVIM => install LSP and Treesitter support listed in ~/Git/$(whoami)/dotfiles/lvim/README.md"
 	echo "NVIM GO support => run a :checkhealth"
@@ -35,8 +35,18 @@ vim:
 	pip3 install neovim
 	@read -p "Enter Sudo Password" passwd; \
 	sudo -S $$passwd gem install neovim
-	# Install LunarVim
-	bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
+nvim-completion:
+	# see nvim/lua/plugins-settings.lua
+	# 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp', 'ansiblels', 'cssls', 'html', 'pyright', 'dockerls'
+	go install golang.org/x/tools/gopls@latest
+	npm i -g bash-language-server
+	npm i -g vscode-langservers-extracted #jsonls #cssls #html
+	yarn global add yaml-language-server
+	# terraform-lsp -> https://github.com/juliosueiras/terraform-lsp/releases and extract to /usr/local/bin
+	npm install -g @ansible/ansible-language-server
+	pip3 install pyright
+	npm install -g dockerfile-language-server-nodejs
 
 asdf: 
 	asdf plugin add awscli    https://github.com/MetricMike/asdf-awscli.git
