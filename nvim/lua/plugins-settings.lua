@@ -162,7 +162,8 @@ require('telescope').setup({
 -- Tree-Sitter --
 -----------------
 require("nvim-treesitter.configs").setup({
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"bash", "dockerfile", "go", "gomod", "hcl", "html", "css",
+  "javascript", "json", "http", "lua", "python", "rust", "vim", "yaml"}, -- one of "all", or a list of languages
   indent = { enable = true },
   highlight = { enable = true, additional_vim_regex_highlighting = false },
   autopairs = { enable = true },
@@ -281,8 +282,6 @@ require'nvim-tree'.setup {
   open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup  = {},
-  -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  auto_close          = false,
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
   -- hijacks new directory buffers when they are opened.
@@ -362,7 +361,7 @@ require("notify").setup({
   render = "default",
 
   -- Default timeout for notifications
-  timeout = 5000,
+  timeout = 2000,
 
   -- For stages that change opacity this is treated as the highlight behind the window
   -- Set this to either a highlight group or an RGB hex value e.g. "#000000"
