@@ -59,7 +59,7 @@ return require('packer').startup(function(use)
   -- Useful Stuff
   use 'pseewald/vim-anyfold' -- fold anything
   use 'windwp/nvim-autopairs' -- powerful autopair plugin
-  use "lukas-reineke/indent-blankline.nvim"
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Git
   use 'airblade/vim-gitgutter' -- shows a git diff in the gutter (sign column)

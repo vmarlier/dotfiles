@@ -163,7 +163,7 @@ require('telescope').setup({
 -----------------
 require("nvim-treesitter.configs").setup({
   ensure_installed = {"bash", "dockerfile", "go", "gomod", "hcl", "html", "css",
-  "javascript", "json", "http", "lua", "python", "rust", "vim", "yaml"}, -- one of "all", or a list of languages
+    "javascript", "json", "http", "lua", "python", "rust", "vim", "yaml"}, -- one of "all", or a list of languages
   indent = { enable = true },
   highlight = { enable = true, additional_vim_regex_highlighting = false },
   autopairs = { enable = true },
@@ -244,7 +244,7 @@ vim.wo.colorcolumn = "99999"
 vim.o.foldlevel = 99
 local au = require('au')
 au.BufRead = function()
-    print(vim.bo.filetype)
+  print(vim.bo.filetype)
 end
 au.BufRead = { '*', 'AnyFoldActivate' }
 
@@ -256,7 +256,7 @@ au.BufRead = { '*', 'AnyFoldActivate' }
 -- NVIM-Blame-Line --
 ---------------------
 au.BufEnter = function()
-    print(vim.bo.filetype)
+  print(vim.bo.filetype)
 end
 au.BufEnter = { '*', 'EnableBlameLine' }
 
@@ -633,7 +633,7 @@ require("bufferline").setup{
       local s = " "
       for e, n in pairs(diagnostics_dict) do
         local sym = e == "error" and " "
-          or (e == "warning" and " " or "" )
+        or (e == "warning" and " " or "" )
         s = s .. n .. sym
       end
       return s
