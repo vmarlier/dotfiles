@@ -1,9 +1,9 @@
 # NVim configuration
 
-[Basic Info](#basic-info)
-[Folder Organization](#folder-organization)
-[Keybindings](#keybindings)
-[Plugins](#plugins)
+- [Basic Info](#basic-info)
+- [Folder Organization](#folder-organization)
+- [Keybindings](#keybindings)
+- [Plugins](#plugins)
 
 ## Basic Info
 
