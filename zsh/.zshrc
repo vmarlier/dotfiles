@@ -8,7 +8,7 @@ export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin
 export GOPATH=$HOME/go
 ##############
 
-### Git SSH config ###
+### Git SSH config ##-#
 export GIT_SSH_COMMAND="ssh -i ~/.ssh/github/id_ed25519"
 ##############
 
@@ -17,8 +17,7 @@ export EDITOR="nvim"
 
 ### Themes ###
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="af-magic"
-ZSH_THEME="af-magic"
+ZSH_THEME="af-magic-reloaded"
 ##############
 
 ### COMPLETION ###
@@ -94,6 +93,9 @@ export hrv2="helmrelease.helm.toolkit.fluxcd.io"
 
 ### k8S ###
 source <(kubectl completion zsh)
+### kube-ps1 ###
+source ".config/kube-ps1.sh"
+PROMPT=$'\n''$(kube_ps1)'$PROMPT
 ##############
 
 ### asdf ###
