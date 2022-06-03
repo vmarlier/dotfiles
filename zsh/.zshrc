@@ -17,6 +17,7 @@ export EDITOR="nvim"
 
 ### Themes ###
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+#ZSH_THEME="af-magic"
 ZSH_THEME="af-magic"
 ##############
 
@@ -82,8 +83,10 @@ alias gcm="git checkout master"
 alias gcb="git checkout -b"
 alias gc="git checkout"
 alias gbd="git branch -D"
-alias gr="cd \"$(git rev-parse --show-toplevel)\""
 alias gaa="git add ."
+if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]; then
+  alias gr="cd \"$(git rev-parse --show-toplevel)\""
+fi
 # deal with helmrelease from fluxv1 and fluxv2
 export hrv1="helmrelease.helm.fluxcd.io"
 export hrv2="helmrelease.helm.toolkit.fluxcd.io"
@@ -91,11 +94,6 @@ export hrv2="helmrelease.helm.toolkit.fluxcd.io"
 
 ### k8S ###
 source <(kubectl completion zsh)
-# kube-ps1
-source /usr/local/opt/kube-ps1/share/kube-ps1.sh
-KUBE_PS1_NS_ENABLE=false
-KUBE_PS1_SYMBOL_ENABLE=false
-PROMPT='$(kube_ps1)'$PROMPT
 ##############
 
 ### asdf ###
