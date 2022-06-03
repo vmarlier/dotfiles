@@ -26,6 +26,9 @@ get:
 	ln -s ~/Git/$(whoami)/dotfiles/lvim/config.lua ~/.config/lvim
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 	ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
+    ln -s ~/Git/$(whoami)/dotfiles/zsh/kube-ps1.sh ~/.config/kube-ps1.sh
+	ln -s ~/Git/$(whoami)/dotfiles/zsh/af-magic-reloaded.zsh-theme ~/.oh-my-zsh/custom/themes/af-magic-reloaded.zsh-theme
+	echo "pew file -> vim /usr/local/lib/python3.9/site-packages/pew/shell_config/init.zsh need to be updated to make sure the init.zsh script does not break the zsh theme, comment the PS1 part." 
 	# Get Font
 	wget -L https://github.com/Karmenzind/monaco-nerd-fonts/blob/master/fonts/Monaco%20Nerd%20Font%20Complete.otf -P ~/Downloads/
 
