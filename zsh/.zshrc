@@ -94,7 +94,7 @@ export hrv2="helmrelease.helm.toolkit.fluxcd.io"
 ### k8S ###
 source <(kubectl completion zsh)
 ### kube-ps1 ###
-source ".config/kube-ps1.sh"
+source "/Users/vmarlier/.config/kube-ps1.sh"
 PROMPT=$'\n''$(kube_ps1)'$PROMPT
 ##############
 

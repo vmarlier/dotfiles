@@ -7,8 +7,8 @@
 # primary prompt: dashed separator, directory and vcs info
 PS1="
 ${FG[237]}\${(l.\$(echo $COLUMNS)..-.)}%{$reset_color%}
-${FG[032]}%~\$(git_prompt_info)\$(hg_prompt_info) 
-${FG[105]}%(!.#.»)%{$reset_color%} "
+${FG[032]}╭─ %~\$(git_prompt_info)\$(hg_prompt_info) 
+${FG[032]}╰─ %{$reset_color%}${FG[105]}%(!.#.»)%{$reset_color%} "
 
 PS2="%{$fg[red]%}\ %{$reset_color%}"
 
