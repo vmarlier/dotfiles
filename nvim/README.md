@@ -28,7 +28,8 @@ Here is a little diagram to explain this new layout:
 │   ├── plugins-settings.lua    # configuration for all the plugins installed in the file above.
 │   └── settings.lua            # basic vim configuration file (replacement for my old init.vim).
 └── templates
-    └── template.rep.md         # template file for taking quick notes during meetings
+    ├── template.rep.md         # template file for taking quick notes during meetings.
+    └── template.readme.md      # template file for new readme.md files.
 ```
 
 ## Keybindings
