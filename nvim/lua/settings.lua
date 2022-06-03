@@ -95,6 +95,7 @@ o.writebackup = false --
 -- File templating --
 ---------------------
 vim.cmd('autocmd BufNewFile *.rep.md 0r ~/.config/nvim/templates/template.rep.md') -- call template my reporting template
+vim.cmd('autocmd BufNewFile Readme.md 0r ~/.config/nvim/templates/template.readme.md') -- call template my reporting template
 
 ----------------------------------
 -- Text, tab and indent related --
