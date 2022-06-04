@@ -91,6 +91,12 @@ I don't use them all on a daily basis, that's why which-key is really helpful.
 | , + p + n   | Substitute with newer paste | 
 | , + p + p   | Substitute with older paste| 
 
+> Buffers, Windows and Tabs can be a bit messy for new vim users.
+> Here is a quick reminder to help you:
+
+> "Tabs are containers for windows, and windows are themselves also containers, but for buffers.".
+> Thus, you can edit files through buffers, and open multiple buffers (or the same one multiple times) across windows (Splits).
+> Then, you can have different tabs containing some windows that display buffers which allow us to interact with files.
 
 ## Plugins
 
