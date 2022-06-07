@@ -19,6 +19,7 @@
 -- -> NVIM-Notify
 -- -> GalaxyLine
 -- -> Bufferline
+-- -> Tokyonight
 
 --------------------
 -- Autocompletion --
@@ -651,3 +652,9 @@ require("bufferline").setup{
     sort_by = 'id'
   }
 }
+
+----------------
+-- Tokyonight --
+----------------
+vim.g.tokyonight_dark_inactive = true
+vim.cmd[[colorscheme tokyonight]]

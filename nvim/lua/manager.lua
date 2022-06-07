@@ -68,7 +68,8 @@ return require('packer').startup(function(use)
   use 'sindrets/diffview.nvim' -- review all changed files for any git rev.
 
   -- Themes
-  use 'folke/tokyonight.nvim' -- colorscheme
+  -- use 'folke/tokyonight.nvim' -- colorscheme
+  use 'vmarlier/tokyonight.nvim' -- colorscheme -- fork to add bg_dark on inactive buffers
 
   -- Language Specific
   use {'iamcco/markdown-preview.nvim', ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- preview mardown files
