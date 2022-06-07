@@ -33,6 +33,7 @@ wk.register({
 
 wk.register({
     t = { ":Telescope<cr>", "Telescope" }, -- open telescope
+    r = { ":set invrelativenumber<cr>", "Relative Numbering On/Off"}, -- relative numbering on/off 
     s = {
         name = "Searches",
         f = { ":Telescope find_files<cr>", "Find Files" }, -- find file - telescope feature

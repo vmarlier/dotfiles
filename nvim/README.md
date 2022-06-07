@@ -65,6 +65,7 @@ I don't use them all on a daily basis, that's why which-key is really helpful.
 | TAB Combination | Action |
 |-------------|--------|
 | tab + t     | Open Telescope |
+| tab + r     | Relative Numbering On/Off |
 | tab + s + f | Find Files |
 | tab + s + g | Grep in files |
 | tab + f + b | File Browser |
