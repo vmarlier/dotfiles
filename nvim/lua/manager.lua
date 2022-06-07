@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig' -- collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'hrsh7th/cmp-path' -- nvim-cmp source for filesystem paths.
   use 'saadparwaiz1/cmp_luasnip' -- snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- snippets plugin
 
