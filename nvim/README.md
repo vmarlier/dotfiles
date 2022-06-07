@@ -34,6 +34,8 @@ Here is a little diagram to explain this new layout:
 
 ## Keybindings
 
+### Normal Mode
+
 Here is a list of all my keybindings.
 I don't use them all on a daily basis, that's why which-key is really helpful.
 ![which-key demo](./../images/which-key.png)
@@ -102,6 +104,17 @@ I don't use them all on a daily basis, that's why which-key is really helpful.
 > Thus, you can edit files through buffers, and open multiple buffers (or the same one multiple times) across windows (Splits).
 > Then, you can have different tabs containing some windows that display buffers which allow us to interact with files.
 
+### Visual Mode
+
+> Selection based keybindings
+
+| TAB Combination | Action |
+|-------------|--------|
+| tab + a + a    | Aligns to 1 character, looking left |
+| tab + a + s    | Aligns to 2 characters, looking left and with previews |
+| tab + a + w    | Aligns to a string, looking left and with previews |
+| tab + a + r    | Aligns to a Lua pattern, looking left and with previews |
+
 ## Plugins
 
 | Plugin | Purpose | Link |
@@ -128,6 +141,7 @@ I don't use them all on a daily basis, that's why which-key is really helpful.
 | Vim-Anyfold       | Fold Anything                                 | [Link](https://github.com/pseewald/vim-anyfold) |
 | Nvim-Autopairs    | Autopair plugin                               | [Link](https://github.com/windwp/nvim-autopairs) |
 | Ident-Blankline   | Identation guides                             | [Link](https://github.com/lukas-reineke/indent-blankline.nvim) |
+| Align.nvim        | Minimal Align Features                        | [Link](https://github.com/Vonr/align.nvim) |
 | Vim-GitGutter     | Git Diff in sign column                       | [Link](https://github.com/airblade/vim-gitgutter) |
 | Nvim-Blame-Line   | Show Git Blame                                | [Link](https://github.com/tveskag/nvim-blame-line) |
 | DiffView          | Review changes for a given revision           | [Link](https://github.com/sindrets/diffview.nvim) |
