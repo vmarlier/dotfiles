@@ -78,18 +78,21 @@ I don't use them all on a daily basis, that's why which-key is really helpful.
 
 | Leader Combination | Action |
 |-------------|--------|
-| , + t       | Open new tab |
-| , + n       | Next Tab/Buffer |
-| , + b       | Previous Tab/Buffer |
+| , + n       | Next Buffer |
+| , + p       | Previous Buffer |
 | , + d       | Delete Current Buffer |
 | , + s       | Split Window Horizontaly |
 | , + v       | Split Window Verticaly |
 | , + q       | Quit |
 | , + M       | Preview Markdown File |
+| , + t + t   | Create New Tab | 
+| , + t + n   | Next Tab | 
+| , + t + p   | Previous Tab | 
+| , + t + c   | Close Tab | 
 | , + c + d   | Switch CWD to the directory of the active buffer | 
 | , + c + c   | (Un)Comment Line | 
-| , + p + n   | Substitute with newer paste | 
-| , + p + p   | Substitute with older paste| 
+| , + y + n   | Substitute with newer paste | 
+| , + y + p   | Substitute with older paste| 
 
 > Buffers, Windows and Tabs can be a bit messy for new vim users.
 > Here is a quick reminder to help you:
