@@ -110,6 +110,7 @@ I don't use them all on a daily basis, that's why which-key is really helpful.
 | Nvim-lspconfig    | Collection of configurations for LSP clients  | [Link](https://github.com/neovim/nvim-lspconfig) |
 | Nvim-cmp          | Autocompletion plugin                         | [Link](https://github.com/hrsh7th/nvim-cmp) |
 | Cmp-nvim-lsp      | LSP source for nvim-cmp                       | [Link](https://github.com/hrsh7th/cmp-nvim-lsp) |
+| Cmp-path          | Nvim-cmp source for filesystem paths          | [Link](https://github.com/hrsh7th/cmp-path) |
 | Cmp_luasnip       | Snippets source for nvim-cmp                  | [Link](https://github.com/saadparwaiz1/cmp_luasnip) |
 | LuaSnip           | Snippets                                      | [Link](https://github.com/L3MON4D3/LuaSnip) |
 | Trouble.nvim      | Diagnostics                                   | [Link](https://github.com/folke/trouble.nvim) |
