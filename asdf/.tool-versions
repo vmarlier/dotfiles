@@ -19,3 +19,4 @@ fluxctl 1.20.0
 glooctl v1.12.16
 cilium-cli 0.12.7
 cilium-hubble 0.10.0
+kubelogin 0.0.25
