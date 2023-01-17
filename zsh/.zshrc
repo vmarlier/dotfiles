@@ -75,7 +75,7 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         --env=ETCDCTL_ENDPOINTS="http://etcd-minio.etcd.svc.cluster.local:2379" \
         -- sh"
 # kdebug on a specific nodepool
-# kubectl run tool-vmarlier-1 --image=nicolaka/netshoot -i --tty --rm -n tooling --overrides='{ "spec": { "nodeSelector": { "agentpool": "user" }} }'
+# kubectl debug node/node-name -it --image=image-name
 # alias to ease Git Workflow
 alias gpom="git pull origin master"
 alias gcm="git checkout master"
