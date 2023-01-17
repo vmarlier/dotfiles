@@ -108,6 +108,7 @@ o.tabstop = 4 --
 vim.cmd('autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
 vim.cmd('autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
 vim.cmd('autocmd FileType terraform setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
+vim.cmd('autocmd FileType tf setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
 o.lbr = true -- activate line break
 o.tw = 200 -- 200 char per line
 o.ai = true -- auto indent
