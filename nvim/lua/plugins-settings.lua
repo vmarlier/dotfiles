@@ -34,7 +34,7 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -93,6 +93,9 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+-- format on save
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 
 -------------
 -- Trouble --
@@ -275,6 +278,7 @@ require('nvim-autopairs').setup{}
 -- NVIM-tree --
 ---------------
 -- following options are the default
+-- see doc for more info -> https://github.com/nvim-tree/nvim-tree.lua/blob/215b29bfad74518442621b9d0483a621483b066b/doc/nvim-tree-lua.txt#L163
 require'nvim-tree'.setup {
   -- disables netrw completely
   disable_netrw       = true,
@@ -287,7 +291,8 @@ require'nvim-tree'.setup {
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
   -- hijacks new directory buffers when they are opened.
-  update_to_buf_dir   = {
+  -- update_to_buf_dir # has been replaced by hijack_directories for now, if rollback, think about switching back to the original parameter !
+  hijack_directories = {
     -- enable the feature
     enable = true,
     -- allow to open the tree if it was previously closed
@@ -326,15 +331,19 @@ require'nvim-tree'.setup {
     args = {}
   },
 
+  actions = {
+    open_file = {
+      resize_window = false,
+    }
+  },
+
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
     width = 30,
-    -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
-    height = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
-    auto_resize = false,
+    -- auto_resize = false, # has been moved to actions.open_file.resize_window, see line 334.
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
@@ -342,8 +351,45 @@ require'nvim-tree'.setup {
       -- list of mappings to set on the tree manually
       list = {}
     }
-  }
+  },
 }
+
+-- auto close nvim-tree, thanks to @rwblokzijl -> https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close#rwblokzijl
+local function tab_win_closed(winnr)
+  local api = require"nvim-tree.api"
+  local tabnr = vim.api.nvim_win_get_tabpage(winnr)
+  local bufnr = vim.api.nvim_win_get_buf(winnr)
+  local buf_info = vim.fn.getbufinfo(bufnr)[1]
+  local tab_wins = vim.tbl_filter(function(w) return w~=winnr end, vim.api.nvim_tabpage_list_wins(tabnr))
+  local tab_bufs = vim.tbl_map(vim.api.nvim_win_get_buf, tab_wins)
+  if buf_info.name:match(".*NvimTree_%d*$") then            -- close buffer was nvim tree
+    -- Close all nvim tree on :q
+    if not vim.tbl_isempty(tab_bufs) then                      -- and was not the last window (not closed automatically by code below)
+      api.tree.close()
+    end
+  else                                                      -- else closed buffer was normal buffer
+    if #tab_bufs == 1 then                                    -- if there is only 1 buffer left in the tab
+      local last_buf_info = vim.fn.getbufinfo(tab_bufs[1])[1]
+      if last_buf_info.name:match(".*NvimTree_%d*$") then       -- and that buffer is nvim tree
+        vim.schedule(function ()
+          if #vim.api.nvim_list_wins() == 1 then                -- if its the last buffer in vim
+            vim.cmd "quit"                                        -- then close all of vim
+          else                                                  -- else there are more tabs open
+            vim.api.nvim_win_close(tab_wins[1], true)             -- then close only the tab
+          end
+        end)
+      end
+    end
+  end
+end
+
+vim.api.nvim_create_autocmd("WinClosed", {
+  callback = function ()
+    local winnr = tonumber(vim.fn.expand("<amatch>"))
+    vim.schedule_wrap(tab_win_closed(winnr))
+  end,
+  nested = true
+})
 
 
 -----------------
@@ -615,7 +661,7 @@ require("bufferline").setup{
   options = {
     numbers = "ordinal",
     close_command = "bdelete! %d",  
-    indicator_icon = '▎',
+    indicator = { style = "icon", icon = "▎" },
     buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',

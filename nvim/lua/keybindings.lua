@@ -12,6 +12,7 @@ wk.register({
     k = { "<C-W>k", "Go To Upper Window" }, -- move to window on top
     h = { "<C-W>h", "Go To Left Window" }, -- move to left window
     l = { "<C-W>l", "Go To Right Window" }, -- move to right window
+    m = { ":messages<cr>", "Show neovim logs output"}, -- show neovim logs output
     P = {
         name = "Packer",
         c = { ":PackerCompile<cr>", "Regenerate compiled loader file" }, -- Regenerate compiled loader file
