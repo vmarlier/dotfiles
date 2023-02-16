@@ -4,7 +4,7 @@ jq 1.6
 kubectl 1.22.9
 kubectx 0.9.4
 neovim 0.8.2
-terraform 1.2.2
+terraform 1.3.7
 yarn 1.22.11
 helm 3.6.3
 scaleway-cli 2.3.1

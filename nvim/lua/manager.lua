@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
   use 'glepnir/dashboard-nvim' -- display a dashboard
   use {'nvim-telescope/telescope.nvim', requires='nvim-lua/plenary.nvim'} -- highly extandable fuzzy finder
   use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'} -- simple and easy way to use the interface for tree-sitter
+  use {'nvim-treesitter/playground'} -- 
   use 'folke/which-key.nvim' -- displays a popup with possible keybindings
   use 'akinsho/toggleterm.nvim' -- terminal plugin
 

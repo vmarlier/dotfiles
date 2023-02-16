@@ -46,7 +46,7 @@ nvim-completion:
 	npm i -g bash-language-server
 	npm i -g vscode-langservers-extracted #jsonls #cssls #html
 	yarn global add yaml-language-server
-	# terraform-lsp -> https://github.com/juliosueiras/terraform-lsp/releases and extract to /usr/local/bin
+	brew install hashicorp/tap/terraform-ls
 	npm install -g @ansible/ansible-language-server
 	pip3 install pyright
 	npm install -g dockerfile-language-server-nodejs

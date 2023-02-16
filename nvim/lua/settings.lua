@@ -32,6 +32,8 @@ filetype plugin on
 filetype indent on
 ]] -- enable filetype plugins/indent
 g.mapleader = "," -- set leader key
+vim.cmd('let g:loaded_node_provider=0') -- deactivate node provider (avoid errors on :checkhealth)
+vim.cmd('let g:loaded_perl_provider=0') -- deactivate perl provider (avoid errors on :checkhealth)
 
 ------------------------
 -- VIM user interface --

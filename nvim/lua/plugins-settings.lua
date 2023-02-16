@@ -38,7 +38,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-local servers = { 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp', 'ansiblels', 'cssls', 'html', 'pyright', 'dockerls' }
+local servers = { 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraformls', 'ansiblels', 'cssls', 'html', 'pyright', 'dockerls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -95,7 +95,7 @@ cmp.setup {
 }
 
 -- format on save
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format{ async = true }]]
 
 -------------
 -- Trouble --
@@ -167,7 +167,7 @@ require('telescope').setup({
 -- Tree-Sitter --
 -----------------
 require("nvim-treesitter.configs").setup({
-  ensure_installed = {"bash", "dockerfile", "go", "gomod", "hcl", "html", "css",
+  ensure_installed = {"bash", "dockerfile", "go", "gomod", "terraform", "hcl", "html", "css",
     "javascript", "json", "http", "lua", "python", "rust", "vim", "yaml"}, -- one of "all", or a list of languages
   indent = { enable = true },
   highlight = { enable = true, additional_vim_regex_highlighting = false },
