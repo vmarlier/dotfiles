@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
   use 'akinsho/toggleterm.nvim' -- terminal plugin
 
   -- Navigation and Visual
-  use {'kyazdani42/nvim-tree.lua', requires='kyazdani42/nvim-web-devicons'} -- nvim tree
+  use {'nvim-tree/nvim-tree.lua', requires='nvim-tree/nvim-web-devicons'} -- nvim tree
   use 'rcarriga/nvim-notify' -- notification system
   use {'nvim-lualine/lualine.nvim'} -- statusline
   use 'akinsho/bufferline.nvim' -- tabline plugin with re-orderable, auto-sizing..
