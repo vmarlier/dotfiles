@@ -94,12 +94,12 @@ export hrv2="helmrelease.helm.toolkit.fluxcd.io"
 ### k8S ###
 source <(kubectl completion zsh)
 ### kube-ps1 ###
-source "/Users/vmarlier/.config/kube-ps1.sh"
+source "/Users/valentin.marlier/.config/kube-ps1.sh"
 PROMPT=$'\n''$(kube_ps1)'$PROMPT
 ##############
 
 ### asdf ###
-export ASDF_DIR='/usr/local/opt/asdf/libexec'
+. "$HOME/.asdf/asdf.sh"
 ##############
 
 # Scaleway CLI autocomplete initialization.
@@ -108,4 +108,4 @@ export ASDF_DIR='/usr/local/opt/asdf/libexec'
 eval "$(scw autocomplete script shell=zsh)"
 
 # Created by `pipx` on 2021-08-11 09:28:24
-export PATH="$PATH:/Users/vmarlier/.local/bin:${HOME}/.krew/bin"
+export PATH="$PATH:/Users/valentin.marlier/.local/bin:${HOME}/.krew/bin"
