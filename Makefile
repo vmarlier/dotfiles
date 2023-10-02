@@ -26,7 +26,7 @@ get:
 	ln -s ~/Git/$(whoami)/dotfiles/lvim/config.lua ~/.config/lvim
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 	ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
-    ln -s ~/Git/$(whoami)/dotfiles/zsh/kube-ps1.sh ~/.config/kube-ps1.sh
+	ln -s ~/Git/$(whoami)/dotfiles/zsh/kube-ps1.sh ~/.config/kube-ps1.sh
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/af-magic-reloaded.zsh-theme ~/.oh-my-zsh/custom/themes/af-magic-reloaded.zsh-theme
 	echo "pew file -> vim /usr/local/lib/python3.9/site-packages/pew/shell_config/init.zsh need to be updated to make sure the init.zsh script does not break the zsh theme, comment the PS1 part." 
 	# Get Font
@@ -59,6 +59,7 @@ asdf:
 	asdf plugin add kubectx   https://gitlab.com/wt0f/asdf-kubectx.git
 	asdf plugin add neovim    https://github.com/richin13/asdf-neovim.git
 	asdf plugin add terraform https://github.com/Banno/asdf-hashicorp.git
+	asdf plugin add nodejs    https://github.com/asdf-vm/asdf-nodejs.git
 	asdf plugin add yarn      https://github.com/twuni/asdf-yarn.git
 
 tree:
@@ -69,7 +70,7 @@ pips:
 	pipx ensurepath && pipx install aws-sso-util
 
 brew:
-	brew install wget git ansible pipx pew asdf pre-commit
+	brew install wget git ansible pipx pew asdf pre-commit gnu-tar gpg
 
 prerequisites:
 	# Setup brew
