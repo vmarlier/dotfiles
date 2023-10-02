@@ -16,14 +16,14 @@ instructions:
 	echo "ITERM2 => Set the new fonts, and the colorscheme from dotfiles repo"
 	echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE"
 	echo "ASDF => run asdf install on your HOME folder"
-	echo "NVIM => install LSP and Treesitter support listed in ~/Git/$(whoami)/dotfiles/lvim/README.md"
+	echo "NVIM => install LSP and Treesitter support listed in ~/Git/$(whoami)/dotfiles/nvim/README.md"
 	echo "NVIM GO support => run a :checkhealth"
 
 get:
 	# Get dotfiles
 	mkdir -p ~/Git/$(whoami)
 	git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
-	ln -s ~/Git/$(whoami)/dotfiles/lvim/config.lua ~/.config/lvim
+	ln -s ~/Git/$(whoami)/dotfiles/nvim/config.lua ~/.config/nvim
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 	ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/kube-ps1.sh ~/.config/kube-ps1.sh
