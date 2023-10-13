@@ -2,6 +2,7 @@
 -- Maintainer: Valentin Marlier  --
 -----------------------------------
 -- Sections:
+-- -> Bug Workaround
 -- -> General
 -- -> VIM user interface
 -- -> Colors and Fonts
@@ -18,6 +19,17 @@ local g = vim.g
 local wo = vim.wo
 local bo = vim.bo
 --
+--------------------
+-- Bug Workaround --
+--------------------
+-- TO REMOVE ON NEXT NEOVIM RELEASE
+-- Issue with the terraform-ls outputting a "E5248 Invalid character in group name"
+-- Issue might come from Neovim when there is a dash into the filetype name
+-- see -> https://www.reddit.com/r/neovim/comments/125gctj/e5248_invalid_character_in_group_name_with/
+-- see -> https://www.reddit.com/r/neovim/comments/125gctj/e5248_invalid_character_in_group_name_with/
+vim.api.nvim_exec([[
+  autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
+]], false)
 
 -------------
 -- General --
