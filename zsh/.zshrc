@@ -8,15 +8,10 @@ export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin
 export GOPATH=$HOME/go
 ##############
 
-### Git SSH config ##-#
-export GIT_SSH_COMMAND="ssh -i ~/.ssh/github/id_ed25519"
-##############
-
 export ZSH_DISABLE_COMPFIX=true
 export EDITOR="nvim"
 
 ### Themes ###
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="af-magic-reloaded"
 ##############
 
@@ -62,8 +57,8 @@ alias vim="nvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
-alias swenv=". switch_env"
 alias workon="pew workon"
+alias oo="source ~/Git/pleo/pleo/bin/oo.sh"
 # ease k8s interaction
 alias klo="kubectl logs"
 alias kpo="kubectl get pods"
@@ -77,8 +72,8 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
 # kdebug on a specific nodepool
 # kubectl debug node/node-name -it --image=image-name
 # alias to ease Git Workflow
-alias gpom="git pull origin master"
-alias gcm="git checkout master"
+alias gpom="git pull origin main"
+alias gcm="git checkout main"
 alias gcb="git checkout -b"
 alias gc="git checkout"
 alias gbd="git branch -D"
@@ -86,6 +81,7 @@ alias gaa="git add ."
 if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]; then
   alias gr="cd \"$(git rev-parse --show-toplevel)\""
 fi
+alias config-repo="git config user.email valentin.marlier@pleo.io && git config user.name 'vmarlier2'"
 # deal with helmrelease from fluxv1 and fluxv2
 export hrv1="helmrelease.helm.fluxcd.io"
 export hrv2="helmrelease.helm.toolkit.fluxcd.io"
@@ -95,7 +91,7 @@ export hrv2="helmrelease.helm.toolkit.fluxcd.io"
 source <(kubectl completion zsh)
 ### kube-ps1 ###
 source "/Users/valentin.marlier/.config/kube-ps1.sh"
-PROMPT=$'\n''$(kube_ps1)'$PROMPT
+PROMPT=$'\n''$(kube_ps1) '$PROMPT
 ##############
 
 ### asdf ###
@@ -105,7 +101,7 @@ PROMPT=$'\n''$(kube_ps1)'$PROMPT
 # Scaleway CLI autocomplete initialization.
 # to resolve compaudit problems
 # $ compaudit | xargs chmod g-w
-eval "$(scw autocomplete script shell=zsh)"
+# eval "$(scw autocomplete script shell=zsh)"
 
 # Created by `pipx` on 2021-08-11 09:28:24
 export PATH="$PATH:/Users/valentin.marlier/.local/bin:${HOME}/.krew/bin"
