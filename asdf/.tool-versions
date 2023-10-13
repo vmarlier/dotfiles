@@ -1,9 +1,9 @@
 awscli 2.13.22
 golang 1.21.1
 jq 1.7
-kubectl 1.28.2
+kubectl 1.24.16
 kubectx 0.9.5
-neovim 0.9.2
+neovim 0.9.4
 terraform 1.5.7
 yarn 1.22.19
 helm 3.6.3
