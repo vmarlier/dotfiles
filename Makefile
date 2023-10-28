@@ -70,7 +70,7 @@ pips:
 	pipx ensurepath && pipx install aws-sso-util
 
 brew:
-	brew install wget git ansible pipx asdf pre-commit gnu-tar gpg fzf yq
+	brew install wget git ansible pipx asdf pre-commit gnu-tar gpg fzf yq watch bat
 
 prerequisites:
 	# Setup brew
