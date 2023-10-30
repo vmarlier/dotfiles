@@ -24,6 +24,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $(pew shell_config)
 source <(kubectl completion zsh)
+source ~/Git/valentin.marlier/backups/Access/swenv_completion.zsh
 
 ### asdf ###
 . "$HOME/.asdf/asdf.sh"

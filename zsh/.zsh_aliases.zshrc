@@ -1,3 +1,6 @@
+### swenv script ###
+alias swenv=". swenv"
+
 ### zsh and nvim ###
 alias l="lsd -l"
 alias ll="lsd -la"
@@ -8,7 +11,6 @@ alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
 alias workon="pew workon"
-alias oo="source ~/Git/pleo/pleo/bin/oo.sh"
 
 ### ease k8s debug pod ###
 alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -i --tty --rm"
