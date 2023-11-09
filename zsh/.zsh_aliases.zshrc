@@ -27,9 +27,7 @@ alias gcb="git checkout -b"
 alias gc="git checkout"
 alias gbd="git branch -D"
 alias gaa="git add ."
-if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" ]; then
-  alias gr="cd $(git rev-parse --show-toplevel)"
-fi
+alias gr="cd $(git rev-parse --show-toplevel)"
 
 ### ease working with pleo-io git profile ###
 alias config-repo="git config user.email valentin.marlier@pleo.io && git config user.name 'vmarlier2'"
