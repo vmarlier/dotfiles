@@ -96,6 +96,7 @@ o.background = 'dark' -- using dark background
 vim.cmd('set t_Co=256') -- set color on 256
 o.encoding = 'utf8' -- set utf8 as standard encoding
 o.ffs = 'unix,mac' -- use unix as the standard filetype
+o.cursorline = true -- Highlight cursor line
 
 -----------------------------
 -- Files, backups and undo --
@@ -127,7 +128,7 @@ o.lbr = true -- activate line break
 o.tw = 200 -- 200 char per line
 o.ai = true -- auto indent
 o.si = true -- Smart indent
-o.wrap = true --Wrap lines
+o.wrap = true -- Wrap lines
 
 -------------------------
 -- Visual mode related --
