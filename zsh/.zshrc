@@ -12,7 +12,6 @@ plugins=(
   asdf
   aws
   docker
-  git
   golang
   terraform
   scw

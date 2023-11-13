@@ -28,6 +28,7 @@ alias gc="git checkout"
 alias gbd="git branch -D"
 alias gaa="git add ."
 alias gr="cd $(git rev-parse --show-toplevel)"
+alias gst="git status"
 
 ### ease working with pleo-io git profile ###
 alias config-repo="git config user.email valentin.marlier@pleo.io && git config user.name 'vmarlier2'"
