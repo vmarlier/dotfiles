@@ -9,15 +9,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 HYPHEN_INSENSITIVE="true"
 
 plugins=(
+  alias-tips
   asdf
   aws
-  docker
-  golang
-  terraform
+  git
+  kubectl
   scw
   zsh-autosuggestions
   zsh-syntax-highlighting
-  macos
 )
 
 source $ZSH/oh-my-zsh.sh

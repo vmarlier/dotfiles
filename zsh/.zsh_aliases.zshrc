@@ -20,15 +20,5 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         --env=ETCDCTL_ENDPOINTS="http://etcd-minio.etcd.svc.cluster.local:2379" \
         -- sh"
 
-### alias to ease Git Workflow ###
-alias gpom="git pull origin main"
-alias gcm="git checkout main"
-alias gcb="git checkout -b"
-alias gc="git checkout"
-alias gbd="git branch -D"
-alias gaa="git add ."
-alias gr="cd $(git rev-parse --show-toplevel)"
-alias gst="git status"
-
 ### ease working with pleo-io git profile ###
 alias config-repo="git config user.email valentin.marlier@pleo.io && git config user.name 'vmarlier2'"
