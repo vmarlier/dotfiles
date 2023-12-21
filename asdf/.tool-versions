@@ -1,7 +1,7 @@
-awscli 2.13.22
+awscli 2.14.5
 golang 1.21.1
 jq 1.7
-kubectl 1.24.16
+kubectl 1.25.16
 neovim 0.9.4
 terraform 1.5.7
 yarn 1.22.19
