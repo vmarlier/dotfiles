@@ -54,8 +54,8 @@ return require('packer').startup(function(use)
   -- Navigation and Visual
   use {'nvim-tree/nvim-tree.lua', requires='nvim-tree/nvim-web-devicons'} -- nvim tree
   use 'rcarriga/nvim-notify' -- notification system
-  use {'nvim-lualine/lualine.nvim'} -- statusline
   use 'akinsho/bufferline.nvim' -- tabline plugin with re-orderable, auto-sizing..
+  use {'nvim-lualine/lualine.nvim'} -- statusline
 
   -- Useful Stuff
   use 'pseewald/vim-anyfold' -- fold anything
@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
   -- Themes
   -- use 'folke/tokyonight.nvim' -- colorscheme
   use 'vmarlier/tokyonight.nvim' -- colorscheme -- fork to add bg_dark on inactive buffers
+  use 'EdenEast/nightfox.nvim'
 
   -- Language Specific
   use {'iamcco/markdown-preview.nvim', ft = {'markdown'}, run = 'cd app && yarn install', cmd = 'MarkdownPreview'} -- preview mardown files

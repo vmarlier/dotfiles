@@ -17,9 +17,9 @@
 -- -> NVIM-autopairs
 -- -> NVIM-tree
 -- -> NVIM-Notify
--- -> GalaxyLine
+-- -> Lualine
 -- -> Bufferline
--- -> Tokyonight
+-- -> Colorscheme
 
 --------------------
 -- Autocompletion --
@@ -427,18 +427,19 @@ local lualine = require 'lualine'
 
 -- Color table for highlights
 -- stylua: ignore
+-- colors based on nightfox/terafox theme
 local colors = {
-  bg = "#1f2335",
-  fg = "#c0caf5",
-  yellow = "#e0af68",
-  cyan = "#7dcfff",
-  darkblue = "#0db9d7",
-  green = "#9ece6a",
-  orange = "#ff9e64",
-  violet = "#9d7cd8",
-  magenta = "#bb9af7",
-  blue = "#7aa2f7",
-  red = "#f7768e",
+  bg = "#0f1c1e",
+  fg = "#cbd9d8",
+  yellow = "#fda47f",
+  cyan = "#a1cdd8",
+  darkblue = "#4d7d90",
+  green = "#7aa4a1",
+  orange = "#ff8349",
+  violet = "#73a3b7",
+  magenta = "#ad5c7c",
+  blue = "#5a93aa",
+  red = "#e85c51",
 }
 
 local conditions = {
@@ -647,7 +648,7 @@ lualine.setup(config)
 require("bufferline").setup{
   options = {
     numbers = "ordinal",
-    close_command = "bdelete! %d",  
+    close_command = "bdelete %d",  
     indicator = { style = "icon", icon = "▎" },
     buffer_close_icon = '',
     modified_icon = '●',
@@ -690,4 +691,4 @@ require("bufferline").setup{
 -- Tokyonight --
 ----------------
 vim.g.tokyonight_dark_inactive = true
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme terafox]]
