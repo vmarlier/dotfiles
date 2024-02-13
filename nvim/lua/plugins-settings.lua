@@ -428,18 +428,32 @@ local lualine = require 'lualine'
 -- Color table for highlights
 -- stylua: ignore
 -- colors based on nightfox/terafox theme
+--local colors = {
+--  bg = "#0f1c1e",
+--  fg = "#cbd9d8",
+--  yellow = "#fda47f",
+--  cyan = "#a1cdd8",
+--  darkblue = "#4d7d90",
+--  green = "#7aa4a1",
+--  orange = "#ff8349",
+--  violet = "#73a3b7",
+--  magenta = "#ad5c7c",
+--  blue = "#5a93aa",
+--  red = "#e85c51",
+
+-- based on nightfox/dayfox theme
 local colors = {
-  bg = "#0f1c1e",
-  fg = "#cbd9d8",
-  yellow = "#fda47f",
-  cyan = "#a1cdd8",
-  darkblue = "#4d7d90",
-  green = "#7aa4a1",
-  orange = "#ff8349",
-  violet = "#73a3b7",
-  magenta = "#ad5c7c",
-  blue = "#5a93aa",
-  red = "#e85c51",
+  bg = "#e4dcd4",
+  fg = "#643f61",
+  yellow = "#AC5402",
+  cyan = "#287980",
+  darkblue = "#142454",
+  green = "#396847",
+  orange = "#955f61",
+  violet = "#ee82ee",
+  magenta = "#6e33ce",
+  blue = "#2848a9",
+  red = "#a5222f",
 }
 
 local conditions = {
@@ -680,7 +694,7 @@ require("bufferline").setup{
     show_close_icon = false,
     show_tab_indicators = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-    separator_style = "padded_slant",
+    separator_style = "thick",
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     sort_by = 'id'
@@ -691,4 +705,4 @@ require("bufferline").setup{
 -- Tokyonight --
 ----------------
 vim.g.tokyonight_dark_inactive = true
-vim.cmd[[colorscheme terafox]]
+vim.cmd[[colorscheme dayfox]]

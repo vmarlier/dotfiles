@@ -69,8 +69,6 @@ return require('packer').startup(function(use)
   use 'sindrets/diffview.nvim' -- review all changed files for any git rev.
 
   -- Themes
-  -- use 'folke/tokyonight.nvim' -- colorscheme
-  use 'vmarlier/tokyonight.nvim' -- colorscheme -- fork to add bg_dark on inactive buffers
   use 'EdenEast/nightfox.nvim'
 
   -- Language Specific
