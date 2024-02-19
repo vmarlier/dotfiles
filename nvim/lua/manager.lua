@@ -56,6 +56,7 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-notify' -- notification system
   use 'akinsho/bufferline.nvim' -- tabline plugin with re-orderable, auto-sizing..
   use {'nvim-lualine/lualine.nvim'} -- statusline
+  use 'chaoren/vim-wordmotion' -- better support for b and e (support snake case and camel case)
 
   -- Useful Stuff
   use 'pseewald/vim-anyfold' -- fold anything

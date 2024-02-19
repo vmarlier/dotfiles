@@ -217,6 +217,11 @@ _G.packer_plugins = {
     path = "/Users/valentin.marlier/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
   },
+  ["vim-wordmotion"] = {
+    loaded = true,
+    path = "/Users/valentin.marlier/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
+    url = "https://github.com/chaoren/vim-wordmotion"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/Users/valentin.marlier/.local/share/nvim/site/pack/packer/start/which-key.nvim",
