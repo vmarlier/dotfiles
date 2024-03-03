@@ -44,8 +44,12 @@ return require('packer').startup(function(use)
   use 'folke/trouble.nvim' -- list for diagnostics, references, telescope results...
 
   -- Dashboard, Helper, Term..
-  use 'glepnir/dashboard-nvim' -- display a dashboard
-  use {'nvim-telescope/telescope.nvim', requires='nvim-lua/plenary.nvim'} -- highly extandable fuzzy finder
+  use {'nvimdev/dashboard-nvim', requires = {'nvim-tree/nvim-web-devicons'}}
+  use {'nvim-telescope/telescope.nvim', tag = '0.1.5', requires = { {
+    'nvim-lua/plenary.nvim',
+    'debugloop/telescope-undo.nvim',
+    'nvim-telescope/telescope-file-browser.nvim'
+  } }}
   use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'} -- simple and easy way to use the interface for tree-sitter
   use {'nvim-treesitter/playground'} -- 
   use 'folke/which-key.nvim' -- displays a popup with possible keybindings

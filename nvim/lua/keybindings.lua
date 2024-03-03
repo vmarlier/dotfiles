@@ -5,9 +5,11 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.register({
-    t = { ":ToggleTerm<cr>", "Toggle Terminal" }, -- open a term
-    e = { ":NvimTreeToggle<cr>", "Toggle Tree" }, -- toggle tree
-    d = { ":DiffviewOpen<cr>", "Open Git Diff" }, -- open a git diff view
+    b = { ":Telescope file_browser<cr>", "File Browser" }, -- open the file_browser
+    t = { ":ToggleTerm<cr>", "Terminal" }, -- open a term
+    e = { ":NvimTreeToggle<cr>", "File Tree" }, -- toggle tree
+    g = { ":DiffviewOpen<cr>", "Git Diff" }, -- open a git diff view
+    d = { ":Dashboard<cr>", "Dashboard" }, -- open a git diff view
     j = { "<C-W>j", "Go To Window Below" }, -- move to window below
     k = { "<C-W>k", "Go To Upper Window" }, -- move to window on top
     h = { "<C-W>h", "Go To Left Window" }, -- move to left window
@@ -44,7 +46,6 @@ wk.register({
     },
     f = { 
         name = "Files",
-        b = { ":Telescope file_browser<cr>", "File Browser" }, -- browse file - telescope feature
         g = { ":Telescope git_files<cr>", "Git Files" }, -- see all files link to the repo - telescope feature
     },
     g = {
@@ -76,14 +77,8 @@ wk.register({
         c = { ":tabclose<cr>", "Close Tab" } -- close tab
     },
     c = {
-        name = "CWD / Comments",
+        name = "CWD",
         d = { ":cd %:p:h<cr>:pwd<cr>", "Switch CWD to the directory of the open buffer" }, --
-        c = { ":CommentToggle<cr>", "(Un)Comment Line" } -- comment/uncomment line
-    },
-    y = {
-        name = "Yankstack",
-        n = { "<Plug>yankstack_substitute_newer_paste", "Substitute with newer paste" }, -- substitute with newer paste
-        p = { "<Plug>yankstack_substitute_older_paste", "Substitute with older paste" }, -- substitute with older paste
     },
 }, { prefix = "<leader>" })
 
