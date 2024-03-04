@@ -23,7 +23,7 @@ get:
 	# Get dotfiles
 	mkdir -p ~/Git/$(whoami)
 	git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
-	ln -s ~/Git/$(whoami)/dotfiles/nvim/config.lua ~/.config/nvim
+	git clone https://github.com/vmarlier/nvim.git ~/.config/nvim
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 	ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/kube-ps1.sh ~/.config/kube-ps1.sh
