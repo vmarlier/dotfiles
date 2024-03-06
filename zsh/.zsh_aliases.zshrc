@@ -11,7 +11,7 @@ alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
 function workon() {
-    pew in "$1" cd $(pew getproject "$1") && nvim $(pew getproject "$1")
+    pew in "$1" cd $(pew getproject "$1") && nvim -c ":cd $(pew getproject $1)"
 }
 
 ### ease k8s debug pod ###
