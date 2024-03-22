@@ -18,3 +18,4 @@ terraform-docs 0.17.0
 helm-docs 1.13.0
 lazygit 0.40.2
 lua 5.4.6
+github-cli 2.45.0
