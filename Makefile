@@ -39,17 +39,17 @@ vim:
 	@read -p "Enter Sudo Password" passwd; \
 	sudo -S $$passwd gem install neovim
 
-nvim-completion:
-	# see nvim/lua/plugins-settings.lua
-	# 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp', 'ansiblels', 'cssls', 'html', 'pyright', 'dockerls'
-	go install golang.org/x/tools/gopls@latest
-	npm i -g bash-language-server
-	npm i -g vscode-langservers-extracted #jsonls #cssls #html
-	yarn global add yaml-language-server
-	brew install hashicorp/tap/terraform-ls
-	npm install -g @ansible/ansible-language-server
-	pip3 install pyright
-	npm install -g dockerfile-language-server-nodejs
+##nvim-completion:
+##	# see nvim/lua/plugins-settings.lua
+##	# 'gopls', 'bashls', 'jsonls', 'yamlls', 'terraform_lsp', 'ansiblels', 'cssls', 'html', 'pyright', 'dockerls'
+##	go install golang.org/x/tools/gopls@latest
+##	npm i -g bash-language-server
+##	npm i -g vscode-langservers-extracted #jsonls #cssls #html
+##	yarn global add yaml-language-server
+##	brew install hashicorp/tap/terraform-ls
+##	npm install -g @ansible/ansible-language-server
+##	pip3 install pyright
+##	npm install -g dockerfile-language-server-nodejs
 
 asdf: 
 	asdf plugin add awscli    https://github.com/MetricMike/asdf-awscli.git
