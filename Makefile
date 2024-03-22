@@ -61,6 +61,7 @@ asdf:
 	asdf plugin add terraform https://github.com/Banno/asdf-hashicorp.git
 	asdf plugin add nodejs    https://github.com/asdf-vm/asdf-nodejs.git
 	asdf plugin add yarn      https://github.com/twuni/asdf-yarn.git
+	asdf plugin add rust      https://github.com/code-lever/asdf-rust.git
 
 tree:
 	mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go
