@@ -22,3 +22,6 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
 
 ### ease working with pleo-io git profile ###
 alias config-repo="git config user.email valentin.marlier@pleo.io && git config user.name 'vmarlier2'"
+
+### i'm even more lazy
+alias lg="lazygit"
