@@ -10,9 +10,7 @@ alias vim="nvim"
 alias venv="source ./venv/bin/activate"
 alias dvenv="deactivate"
 alias pip="pip3"
-function workon() {
-    pew in "$1" cd $(pew getproject "$1") && nvim -c ":cd $(pew getproject $1)"
-}
+alias workon="pew workon"
 
 ### ease k8s debug pod ###
 alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -l sidecar.istio.io/inject=false -i --tty --rm"
