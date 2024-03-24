@@ -28,6 +28,7 @@ get:
 	ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/kube-ps1.sh ~/.config/kube-ps1.sh
 	ln -s ~/Git/$(whoami)/dotfiles/zsh/af-magic-reloaded.zsh-theme ~/.oh-my-zsh/custom/themes/af-magic-reloaded.zsh-theme
+	ln -s ~/Git/$(whoami)/dotfiles/borders/bodersrc ~/.config/borders/
 	echo "pew file -> vim /usr/local/lib/python3.9/site-packages/pew/shell_config/init.zsh need to be updated to make sure the init.zsh script does not break the zsh theme, comment the PS1 part." 
 	# Get Font
 	wget -L https://github.com/Karmenzind/monaco-nerd-fonts/blob/master/fonts/Monaco%20Nerd%20Font%20Complete.otf -P ~/Downloads/
@@ -71,7 +72,9 @@ pips:
 	pipx ensurepath && pipx install aws-sso-util
 
 brew:
-	brew install wget git ansible pipx asdf pre-commit gnu-tar gpg fzf yq watch bat fd
+	brew tap FelixKratz/formulae
+	brew install wget git ansible pipx asdf pre-commit gnu-tar gpg fzf yq watch bat fd borders 
+	brew services start borders
 
 prerequisites:
 	# Setup brew
