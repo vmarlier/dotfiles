@@ -55,6 +55,12 @@ pipx ensurepath && pipx install aws-sso-util
 # make useful path
 mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go ~/.config/borders ~/.config/sketchybar
 
+# macOS Settings
+echo "Changing macOS defaults..."
+defaults write com.apple.Finder AppleShowAllFiles -bool true # show hidden files too
+defaults write com.apple.finder CreateDesktop false killall Finder # no icons on desktop
+
+
 # add asdf plugins
 asdf plugin add awscli         https://github.com/MetricMike/asdf-awscli.git
 asdf plugin add golang         https://github.com/kennyp/asdf-golang.git
