@@ -81,7 +81,7 @@ echo $passwd | sudo -S gem install neovim
 # propagated configurations
 mkdir -p ~/Git/$(whoami)
 git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
-git clone https://github.com/vmarlier/nvim.git ~/.config/nvim
+ln -s ~/Git/$(whoami)/dotfiles/nvim ~/.config/nvim
 ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
 ln -s ~/Git/$(whoami)/dotfiles/borders/bodersrc ~/.config/borders/
