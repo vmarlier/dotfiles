@@ -14,7 +14,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # brew installations
-brew tap FelixKratz/formulae
 brew tap koekeishiya/formulae
 brew install wget
 brew install git
