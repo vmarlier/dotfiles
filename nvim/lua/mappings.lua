@@ -54,7 +54,7 @@ wk.register({
   p = { ":Telescope neoclip<cr>", "Open NVim Clipboard" },
   r = { ":set invrelativenumber<cr>", "Relative Numbering On/Off" },
   t = { ":Telescope<cr>", "Telescope" },
-  R = { ":lua generate_readme()<cr>", "Generate Nvim Configuration Readme"},
+  R = { ":lua generate_readme()<cr>", "Generate Nvim Configuration Readme" },
 }, { prefix = "<TAB>" })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
@@ -62,7 +62,7 @@ wk.register({
   b = {
     name = "Buffer Management",
     d = { ":BufDel!<cr>", "Delete Current Buffer" },
-    c = { ":BufDelAll<cr>", "Delete All Buffers"},
+    c = { ":BufDelAll<cr>", "Delete All Buffers" },
   },
   C = {
     name = "cwd",
@@ -71,7 +71,12 @@ wk.register({
   n = { ":bnext<cr>", "Next Buffer" },
   p = { ":bprevious<cr>", "Previous Buffer" },
   q = { ":quit<cr>", "Quit" },
-  s = { ":split<cr>", "Split Window Horizontaly" },
+  s = {
+    name = "Horizontal Split Management",
+    s = { ":split<cr>", "Split Window Horizontaly" },
+    j = { ":horizontal resize -5<cr>", "Resize -5" },
+    k = { ":horizontal resize +5<cr>", "Resize +5" },
+  },
   t = {
     name = "Tab Management",
     t = { ":tabnew<cr>", "New Tab" },
@@ -79,7 +84,12 @@ wk.register({
     p = { ":tabprevious<cr>", "Previous Tab" },
     c = { ":tabclose<cr>", "Close Tab" }
   },
-  v = { ":vsplit<cr>", "Split Window Verticaly" },
+  v = {
+    name = "Vertical Split Management",
+    v = { ":vsplit<cr>", "Split Window Verticaly" },
+    h = { ":vertical resize -5<cr>", "Resize -5" },
+    l = { ":vertical resize +5<cr>", "Resize +5" },
+  },
   w = {
     name = "Trailspace",
     w = { ":lua require('mini.trailspace').trim()<cr>", "Trim trailing whitespaces" },
