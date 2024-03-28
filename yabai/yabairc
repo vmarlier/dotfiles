@@ -29,7 +29,7 @@ yabai -m config mouse_follows_focus        off            \
                 window_gap                 10
 
 # Exclude problematic apps from being managed:
-yabai -m rule --add app="^(Spark|Calendar|Finder|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|System Information|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add app="^(Preview|Spark|Calendar|Finder|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|System Information|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
 
 yabai -m config layout bsp
 
