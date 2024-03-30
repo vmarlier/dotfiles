@@ -5,6 +5,17 @@ lalt - j : yabai -m window --focus south || yabai -m display --focus south
 lalt - k : yabai -m window --focus north || yabai -m display --focus north
 lalt - l : yabai -m window --focus east  || yabai -m display --focus east
 
+# Switch space
+shift + lalt - a : yabai -m space --focus 1
+shift + lalt - z : yabai -m space --focus 2
+shift + lalt - e : yabai -m space --focus 3
+shift + lalt - r : yabai -m space --focus 4
+shift + lalt - t : yabai -m space --focus 5
+shift + lalt - y : yabai -m space --focus 6
+shift + lalt - u : yabai -m space --focus 7
+shift + lalt - i : yabai -m space --focus 8
+shift + lalt - o : yabai -m space --focus 9
+
 # Float / Unfloat window: lalt - space
 lalt - space : yabai -m window --toggle float
 
