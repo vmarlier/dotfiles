@@ -29,6 +29,7 @@ brew install watch
 brew install bat
 brew install fd
 brew install borders
+brew install kind
 # sketchybar related
 brew install lua
 brew install switchaudio-osx
