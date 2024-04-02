@@ -6,8 +6,8 @@ lalt - k : yabai -m window --focus north || yabai -m display --focus north
 lalt - l : yabai -m window --focus east  || yabai -m display --focus east
 
 # Switch to prev or next spaces
-shift + lalt - 0x21 : yabai -m space --focus prev
-shift + lalt - 0x1E : yabai -m space --focus next
+lalt - 0x21 : yabai -m space --focus prev
+lalt - 0x1E : yabai -m space --focus next
 
 # Float / Unfloat window: lalt - space
 lalt - space : yabai -m window --toggle float
@@ -19,15 +19,15 @@ shift + lalt - f : yabai -m window --toggle zoom-fullscreen
 lalt - f : yabai -m window --toggle zoom-parent
 
 ## Window Movement (shift + lalt - ...)
-# Moving windows in spaces: shift + lalt - {j, k, l, ö}
+# Move windows layout in the space: shift + lalt - {j, k, l, ö}
 shift + lalt - h : yabai -m window --warp west || $(yabai -m window --display west && yabai -m display --focus west && yabai -m window --warp last) || yabai -m window --move rel:-10:0
 shift + lalt - j : yabai -m window --warp south || $(yabai -m window --display south && yabai -m display --focus south) || yabai -m window --move rel:0:10
 shift + lalt - k : yabai -m window --warp north || $(yabai -m window --display north && yabai -m display --focus north) || yabai -m window --move rel:0:-10
 shift + lalt - l : yabai -m window --warp east || $(yabai -m window --display east && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
 
 # Move window to next or prev space
-shift + lalt - p : yabai -m window --space prev && yabai -m space --focus prev
-shift + lalt - n : yabai -m window --space next && yabai -m space --focus next
+shift + lalt - 0x21 : yabai -m window --space prev && yabai -m space --focus prev
+shift + lalt - 0x1E : yabai -m window --space next && yabai -m space --focus next
 
 # Toggle split orientation of the selected windows node: shift + lalt - s
 shift + lalt - s : yabai -m window --toggle split
