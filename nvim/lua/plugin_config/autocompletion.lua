@@ -2,12 +2,17 @@
 -- Autocompletion --
 --------------------
 -- LSP servers used by Mason to be installed and for nvim_lsp configuration
-local servers = { 'rust_analyzer', 'helm_ls', 'gopls', 'bashls', 'jsonls', 'lua_ls', 'terraformls', 'yamlls', 'pyright', 'dockerls' }
+local lsp_servers = { 'rust_analyzer', 'helm_ls', 'gopls', 'bashls', 'jsonls', 'lua_ls', 'terraformls', 'yamlls',
+  'pyright', 'dockerls' }
 
-require("mason").setup()
-require("mason-lspconfig").setup {
-    ensure_installed = servers
-}
+local mason_ensure_installed = { 'goimports', 'gofumpt', 'shfmt' }
+
+require("mason").setup({
+  ensure_installed = mason_ensure_installed
+})
+require("mason-lspconfig").setup({
+  ensure_installed = lsp_servers
+})
 
 local nvim_lsp = require('lspconfig')
 
@@ -23,7 +28,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-for _, lsp in ipairs(servers) do
+for _, lsp in ipairs(lsp_servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -77,6 +82,25 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+require('conform').setup({
+  formatters_by_ft = {
+    ['go'] = { 'gofumpt' },
+  },
+  formatters = {
+    shfmt = {
+      prepend_args = { "-i", "2", "-ci" },
+    }
+  },
+})
+
+-- format on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    require("conform").format({ bufnr = args.buf })
+  end,
+})
 
 -- format on save
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format{ async = true }]]
