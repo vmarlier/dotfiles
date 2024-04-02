@@ -5,7 +5,7 @@
 local lsp_servers = { 'rust_analyzer', 'helm_ls', 'gopls', 'bashls', 'jsonls', 'lua_ls', 'terraformls', 'yamlls',
   'pyright', 'dockerls' }
 
-local mason_ensure_installed = { 'goimports', 'gofumpt', 'shfmt' }
+local mason_ensure_installed = { 'goimports', 'shfmt' }
 
 require("mason").setup({
   ensure_installed = mason_ensure_installed
@@ -85,7 +85,7 @@ cmp.setup {
 
 require('conform').setup({
   formatters_by_ft = {
-    ['go'] = { 'gofumpt' },
+    ['go'] = { 'goimports' },
   },
   formatters = {
     shfmt = {
