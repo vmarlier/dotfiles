@@ -61,7 +61,6 @@ require("lazy").setup({
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   'neovim/nvim-lspconfig',
-  'stevearc/conform.nvim',
   -- telescope
   {
     'nvim-telescope/telescope.nvim',
