@@ -82,10 +82,7 @@ git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
 ln -s ~/Git/$(whoami)/dotfiles/nvim ~/.config/nvim
 ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
 ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
-ln -s ~/Git/$(whoami)/dotfiles/borders/bodersrc ~/.config/borders/
 ln -s ~/Git/$(whoami)/dotfiles/fonts ~/Library/Fonts
-ln -s ~/Git/$(whoami)/dotfiles/yabai ~/.config/yabai
-ln -s ~/Git/$(whoami)/dotfiles/skhd ~/.config/skhd
 
 echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE"
 echo "ASDF => run asdf install on your HOME folder"
