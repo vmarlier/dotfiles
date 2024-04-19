@@ -14,7 +14,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/inst
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # brew installations
-brew tap koekeishiya/formulae
 brew install wget
 brew install git
 brew install ansible
@@ -28,23 +27,21 @@ brew install yq
 brew install watch
 brew install bat
 brew install fd
-brew install borders
 brew install kind
-# sketchybar related
 brew install lua
-brew install switchaudio-osx
-brew install nowplaying-cli
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
 
-brew services start borders
+# brew tap koekeishiya/formulae
+# brew install borders
+# brew install koekeishiya/formulae/yabai
+# brew install koekeishiya/formulae/skhd
+# brew services start borders
 
 # pip installations
 pip3 install pew
 pipx ensurepath && pipx install aws-sso-util
 
 # make useful path
-mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go ~/.config/borders ~/.config/sketchybar
+mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go
 
 # macOS Settings
 echo "Changing macOS defaults..."

@@ -30,6 +30,7 @@ yabai -m config mouse_follows_focus        off            \
 
 # Exclude problematic apps from being managed:
 yabai -m rule --add app="^(Messages|Preview|Spark|Calendar|Finder|LuLu|Calculator|Software Update|Dictionary|VLC|System Preferences|System Settings|System Information|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+yabai -m rule --add app="^(Reminders)$" manage=on
 
 yabai -m config layout bsp
 
