@@ -29,6 +29,7 @@ brew install bat
 brew install fd
 brew install kind
 brew install lua
+brew install pgcli
 
 # brew tap koekeishiya/formulae
 # brew install borders
