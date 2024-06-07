@@ -20,3 +20,4 @@ lazygit 0.40.2
 lua 5.4.6
 github-cli 2.45.0
 rust 1.77.0
+istioctl 1.22.1
