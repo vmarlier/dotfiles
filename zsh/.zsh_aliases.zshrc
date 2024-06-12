@@ -19,6 +19,7 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         --env=ETCDCTL_API=3 \
         --env=ETCDCTL_ENDPOINTS="http://etcd-minio.etcd.svc.cluster.local:2379" \
         -- sh"
+alias kgetpdb="kubectl get pdb -A -o json | jq -r '.items[] | select(.status.disruptionsAllowed == 0) | .metadata.name'"
 
 ### ease working with pleo-io git profile ###
 alias config-repo="git config user.email valentin.marlier@pleo.io && git config user.name 'vmarlier2'"
