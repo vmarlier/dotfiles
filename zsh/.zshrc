@@ -16,7 +16,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 HYPHEN_INSENSITIVE="true"
 
 plugins=(
-  alias-tips
+#  alias-tips
   asdf
   aws
   git
