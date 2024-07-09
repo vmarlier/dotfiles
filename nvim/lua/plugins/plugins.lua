@@ -6,13 +6,6 @@ require("lazy").setup({
   'folke/which-key.nvim',
   'zbirenbaum/copilot.lua',
   'CopilotC-Nvim/CopilotChat.nvim',
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    }
-  },
   'akinsho/toggleterm.nvim',
   {
     'nvim-tree/nvim-tree.lua',
@@ -61,6 +54,7 @@ require("lazy").setup({
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   'neovim/nvim-lspconfig',
+  'stevearc/conform.nvim',
   -- telescope
   {
     'nvim-telescope/telescope.nvim',

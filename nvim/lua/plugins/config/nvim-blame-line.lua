@@ -1,7 +1,7 @@
 ---------------------
 -- NVIM-Blame-Line --
 ---------------------
-local au = require('util.au')
+local au = require('utils.au')
 au.BufEnter = function()
 	print(vim.bo.filetype)
 end
