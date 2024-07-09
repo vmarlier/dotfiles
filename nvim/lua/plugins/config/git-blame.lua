@@ -6,4 +6,3 @@ require('gitblame').setup {
 }
 
 vim.g.gitblame_date_format = '%r'
-
