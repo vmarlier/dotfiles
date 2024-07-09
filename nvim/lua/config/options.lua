@@ -42,39 +42,40 @@ o.autoread = true           -- autoread when a file is updated from outside
 vim.cmd [[
 filetype plugin on
 filetype indent on
-]]                                      -- enable filetype plugins/indent
-g.mapleader = ","                       -- set leader key
-vim.cmd('let g:loaded_node_provider=0') -- deactivate node provider (avoid errors on :checkhealth)
-vim.cmd('let g:loaded_perl_provider=0') -- deactivate perl provider (avoid errors on :checkhealth)
+]]                                         -- enable filetype plugins/indent
+g.mapleader = ","                          -- set leader key
+vim.cmd('let g:loaded_node_provider=0')    -- deactivate node provider (avoid errors on :checkhealth)
+vim.cmd('let g:loaded_perl_provider=0')    -- deactivate perl provider (avoid errors on :checkhealth)
+vim.cmd('let g:loaded_python3_provider=0') -- deactivate perl provider (avoid errors on :checkhealth)
 
 ------------------------
 -- VIM user interface --
 ------------------------
-o.scrolloff = 7                                     -- x lines to the cursor - when moving vertically using j/k
-o.wildmenu = true                                   -- activate wild menu
+o.scrolloff = 7                                      -- x lines to the cursor - when moving vertically using j/k
+o.wildmenu = true                                    -- activate wild menu
 o.wildignore = '*.o,*~,*.pyc,*.DS_Store,*.git,*.svn' -- ignore compiled files
-o.ruler = true                                      -- always show current position
-o.cmdheight = 2                                     -- height of the command bar
-o.updatetime = 300                                  -- having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
-vim.cmd('set shortmess+=c')                         -- don't pass messages to |ins-completion-menu|.
-o.hid = true                                        -- a buffer becomes hidden when it is abandoned
-o.backspace = 'eol,start,indent'                    -- configure backspace so it acts as it should act
-vim.cmd('set whichwrap+=<,>,h,l')                   --
-o.ignorecase = true                                 -- ignore case when searching
-o.smartcase = true                                  -- when searching try to be smart about cases
-o.hlsearch = true                                   -- highlight search results
-o.incsearch = true                                  -- makes search act like search in modern browsers
-o.lazyredraw = true                                 -- don't redraw while executing macros (good performance config)
-o.magic = true                                      -- for regular expressions turn magic on
-o.showmatch = true                                  -- show matching brackets when text indicator is over them
-o.mat = 2                                           -- how many tenths of a second to blink when matching brackets
-o.errorbells = false                                -- no annoying sound on errors
-o.visualbell = false                                --
-o.tm = 500                                          --
-o.foldcolumn = '1'                                  -- add a bit extra margin to the left
+o.ruler = true                                       -- always show current position
+o.cmdheight = 2                                      -- height of the command bar
+o.updatetime = 300                                   -- having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+vim.cmd('set shortmess+=c')                          -- don't pass messages to |ins-completion-menu|.
+o.hid = true                                         -- a buffer becomes hidden when it is abandoned
+o.backspace = 'eol,start,indent'                     -- configure backspace so it acts as it should act
+vim.cmd('set whichwrap+=<,>,h,l')                    --
+o.ignorecase = true                                  -- ignore case when searching
+o.smartcase = true                                   -- when searching try to be smart about cases
+o.hlsearch = true                                    -- highlight search results
+o.incsearch = true                                   -- makes search act like search in modern browsers
+o.lazyredraw = true                                  -- don't redraw while executing macros (good performance config)
+o.magic = true                                       -- for regular expressions turn magic on
+o.showmatch = true                                   -- show matching brackets when text indicator is over them
+o.mat = 2                                            -- how many tenths of a second to blink when matching brackets
+o.errorbells = false                                 -- no annoying sound on errors
+o.visualbell = false                                 --
+o.tm = 500                                           --
+o.foldcolumn = '1'                                   -- add a bit extra margin to the left
 o.laststatus = 2
 o.completeopt =
-'menuone,noselect'                                  -- set completeopt to have a better completion experience see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+'menuone,noselect' -- set completeopt to have a better completion experience see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 
 ----------------------
 -- Colors and Fonts --
@@ -134,19 +135,19 @@ o.wrap = true                                                            -- Wrap
 -------------------
 -- Moving around --
 -------------------
-o.mouse = 'a'                                  -- authorized mouse scrolling
+o.mouse = 'a'                                    -- authorized mouse scrolling
 local map = vim.api.nvim_set_keymap
-map('n', '<left>', '<nop>', { noremap = true }) -- only use hjkl on normal mode
-map('n', '<down>', '<nop>', { noremap = true }) --
-map('n', '<up>', '<nop>', { noremap = true })  --
+map('n', '<left>', '<nop>', { noremap = true })  -- only use hjkl on normal mode
+map('n', '<down>', '<nop>', { noremap = true })  --
+map('n', '<up>', '<nop>', { noremap = true })    --
 map('n', '<right>', '<nop>', { noremap = true }) --
-map('v', '<left>', '<nop>', { noremap = true }) -- only use hjkl on visual mode
-map('v', '<down>', '<nop>', { noremap = true }) --
-map('v', '<up>', '<nop>', { noremap = true })  --
+map('v', '<left>', '<nop>', { noremap = true })  -- only use hjkl on visual mode
+map('v', '<down>', '<nop>', { noremap = true })  --
+map('v', '<up>', '<nop>', { noremap = true })    --
 map('v', '<right>', '<nop>', { noremap = true }) --
-map('i', '<left>', '<nop>', { noremap = true }) -- only use hjkl on insert mode
-map('i', '<down>', '<nop>', { noremap = true }) --
-map('i', '<up>', '<nop>', { noremap = true })  --
+map('i', '<left>', '<nop>', { noremap = true })  -- only use hjkl on insert mode
+map('i', '<down>', '<nop>', { noremap = true })  --
+map('i', '<up>', '<nop>', { noremap = true })    --
 map('i', '<right>', '<nop>', { noremap = true }) --
 vim.cmd [[
 try
