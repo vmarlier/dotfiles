@@ -41,7 +41,7 @@ require("lazy").setup({
       'nvim-lua/plenary.nvim',
     },
   },
-  'tveskag/nvim-blame-line',
+  'f-person/git-blame.nvim',
   'sindrets/diffview.nvim',
   -- colorscheme
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
