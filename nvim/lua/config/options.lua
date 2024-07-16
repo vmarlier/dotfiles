@@ -9,7 +9,6 @@
 -- -> Files, backups and undo
 -- -> File templating
 -- -> Text, tab and indent related
--- -> Folding
 -- -> Visual mode related
 -- -> Moving around
 -- -> Cool scripts
@@ -125,17 +124,6 @@ o.tw = 200                                                               -- 200 
 o.ai = true                                                              -- auto indent
 o.si = true                                                              -- Smart indent
 o.wrap = true                                                            -- Wrap lines
-
--------------
--- Folding --
--------------
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldcolumn = "0"
-vim.opt.foldtext = ""
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 1
-vim.opt.foldnestmax = 4
 
 -------------------------
 -- Visual mode related --
