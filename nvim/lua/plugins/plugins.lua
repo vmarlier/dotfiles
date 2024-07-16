@@ -15,7 +15,6 @@ require("lazy").setup({
   'rcarriga/nvim-notify',
   'akinsho/bufferline.nvim',
   'nvim-lualine/lualine.nvim',
-  'pseewald/vim-anyfold',
   'windwp/nvim-autopairs',
   'lukas-reineke/indent-blankline.nvim',
   {
