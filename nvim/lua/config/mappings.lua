@@ -54,9 +54,10 @@ wk.register({
   },
   l = {
     name = "LSP",
-    d = { ":Telescope lsp_definitions<cr>", "Go to definition" },
-    t = { ":Telescope lsp_type_definitions<cr>", "Go to type definition" },
-    r = { ":Telescope lsp_references<cr>", "Go to references" },
+    d = { ":Glance definitions<cr>", "Show definitions of the word" },
+    t = { ":Glance type_definitions<cr>", "Show type definitions of the word" },
+    r = { ":Glance references<cr>", "Show references of the word" },
+    i = { ":Glance implementations<cr>", "Show implementations of the word" },
   },
   n = { ":noh<cr>", "Disable search highlights" },
   p = { ":Telescope neoclip<cr>", "Open NVim Clipboard" },

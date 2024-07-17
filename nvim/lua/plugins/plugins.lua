@@ -55,6 +55,7 @@ require("lazy").setup({
   'williamboman/mason-lspconfig.nvim',
   'neovim/nvim-lspconfig',
   'stevearc/conform.nvim',
+  'dnlhc/glance.nvim',
   -- telescope
   {
     'nvim-telescope/telescope.nvim',
