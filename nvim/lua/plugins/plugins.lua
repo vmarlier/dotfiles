@@ -27,20 +27,6 @@ require("lazy").setup({
   'chaoren/vim-wordmotion',
   'ojroques/nvim-bufdel',
   'lewis6991/gitsigns.nvim',
-  {
-    'kdheepak/lazygit.nvim',
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    -- optional for floating window border decoration
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-  },
   'f-person/git-blame.nvim',
   'sindrets/diffview.nvim',
   -- colorscheme
