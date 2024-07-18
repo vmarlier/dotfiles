@@ -36,7 +36,7 @@ require("lazy").setup({
   'williamboman/mason-lspconfig.nvim',                                 -- extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
   'neovim/nvim-lspconfig',                                             -- quickstart configs for nvim LSP
   'stevearc/conform.nvim',                                             -- formatter for neovim
-  'dnlhc/glance.nvim',                                                 -- a pretty window for previewing, navigating and editing your LSP locations
+  'folke/trouble.nvim',                                                -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
   -- telescope
   {
     'nvim-telescope/telescope.nvim', -- Telescope
