@@ -8,7 +8,6 @@ wk.register({
   b = { ":Telescope file_browser<cr>", "File Browser" },
   d = { ":Dashboard<cr>", "Dashboard" },
   e = { ":NvimTreeToggle<cr>", "File Tree" },
-  g = { ":DiffviewOpen<cr>", "Git Diff" },
   h = { "<C-W>h", "Go To Left Window" },
   j = { "<C-W>j", "Go To Window Below" },
   k = { "<C-W>k", "Go To Upper Window" },
@@ -51,6 +50,7 @@ wk.register({
     b = { ":Telescope git_branches<cr>", "Git Branches" },
     u = { ":GitBlameOpenCommitUrl<cr>", "Open Commit Url" },
     f = { ":GitBlameOpenFileUrl<cr>", "Open File Url" },
+    d = { ":DiffviewOpen<cr>", "Git Diff" },
   },
   l = {
     name = "LSP",
