@@ -54,10 +54,9 @@ wk.register({
   },
   l = {
     name = "LSP",
-    d = { ":Glance definitions<cr>", "Show definitions of the word" },
-    t = { ":Glance type_definitions<cr>", "Show type definitions of the word" },
-    r = { ":Glance references<cr>", "Show references of the word" },
-    i = { ":Glance implementations<cr>", "Show implementations of the word" },
+    l = { ":Trouble lsp toggle focus=false win.position=right<cr>", "Definitions, References..." },
+    p = { ":Trouble diagnostic toggle focus=false", "Diagnostic" },
+    d = { ":Trouble diagnostics toggle filter.buf=0 focus=false<cr>", "Buffer diagnostic" },
   },
   n = { ":noh<cr>", "Disable search highlights" },
   p = { ":Telescope neoclip<cr>", "Open NVim Clipboard" },
