@@ -2,7 +2,7 @@
 -- Telescope --
 ---------------
 local function toggle_nvim_tree()
-    vim.cmd("NvimTreeToggle")
+  vim.cmd("NvimTreeToggle")
 end
 
 require('telescope').setup({
@@ -29,6 +29,4 @@ require('telescope').setup({
     }
   },
 })
-require("telescope").load_extension("undo")
-require("telescope").load_extension("file_browser")
 require("telescope").load_extension("live_grep_args")

@@ -45,9 +45,6 @@ require("lazy").setup({
     tag = '0.1.5',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'debugloop/telescope-undo.nvim',
-      'nvim-telescope/telescope-file-browser.nvim',
-      'JoseConseco/telescope_sessions_picker.nvim', -- TODO to replace with https://github.com/stevearc/resession.nvim
       'nvim-telescope/telescope-live-grep-args.nvim'
     }
   },
