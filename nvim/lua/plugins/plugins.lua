@@ -6,12 +6,12 @@ require("lazy").setup({
   'folke/which-key.nvim',                           -- key mappings configuration
   'zbirenbaum/copilot.lua',                         -- enable github copilot
   'CopilotC-Nvim/CopilotChat.nvim',                 -- enhance chatting with copilot
-  { 'nvim-tree/nvim-tree.lua', version = '*' },     -- file tree
+  { 'nvim-tree/nvim-tree.lua', version = '*' },     -- file tree -- TODO to replace with https://github.com/ms-jpq/chadtree or https://github.com/nvim-neo-tree/neo-tree.nvim
   'nvim-tree/nvim-web-devicons',                    -- devicons
   'rcarriga/nvim-notify',                           -- better notifications
   'akinsho/bufferline.nvim',                        -- configurable bufferline
   'nvim-lualine/lualine.nvim',                      -- configurable statusline
-  'pseewald/vim-anyfold',                           -- enhance folding capabilities
+  'pseewald/vim-anyfold',                           -- enhance folding capabilities -- TODO to replace with https://github.com/kevinhwang91/nvim-ufo ?
   'windwp/nvim-autopairs',                          -- autopair/close symbols
   {
     'AckslD/nvim-neoclip.lua',                      -- clipboard manager
@@ -30,6 +30,7 @@ require("lazy").setup({
   'hrsh7th/nvim-cmp',                                                  -- completion engine for neovim
   'hrsh7th/cmp-nvim-lsp',                                              -- nvim-cmp source for neovim's built-in language server client.
   'hrsh7th/cmp-path',                                                  -- nvim-cmp source for filesystem paths.
+  'lukas-reineke/cmp-under-comparator',                                -- better sort completion items
   'L3MON4D3/LuaSnip',                                                  -- snippet engine for Neovim
   'saadparwaiz1/cmp_luasnip',                                          -- luasnip completion source for nvim-cmp
   'williamboman/mason.nvim',                                           -- package manager for LSP, DAP, linters & formatters
@@ -37,6 +38,7 @@ require("lazy").setup({
   'neovim/nvim-lspconfig',                                             -- quickstart configs for nvim LSP
   'stevearc/conform.nvim',                                             -- formatter for neovim
   'folke/trouble.nvim',                                                -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
+  'stevearc/aerial.nvim',                                              -- code outline window for skimming and quick navigation
   -- telescope
   {
     'nvim-telescope/telescope.nvim', -- Telescope
@@ -45,7 +47,7 @@ require("lazy").setup({
       'nvim-lua/plenary.nvim',
       'debugloop/telescope-undo.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
-      'JoseConseco/telescope_sessions_picker.nvim',
+      'JoseConseco/telescope_sessions_picker.nvim', -- TODO to replace with https://github.com/stevearc/resession.nvim
       'nvim-telescope/telescope-live-grep-args.nvim'
     }
   },

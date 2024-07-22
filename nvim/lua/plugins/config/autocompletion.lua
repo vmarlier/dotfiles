@@ -50,6 +50,18 @@ cmp.setup {
       require('luasnip').lsp_expand(args.body)
     end,
   },
+  sorting = {
+    comparators = {
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      require "cmp-under-comparator".under,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
   mapping = {
     ['<UP>'] = cmp.mapping.select_prev_item(),
     ['<DOWN>'] = cmp.mapping.select_next_item(),
