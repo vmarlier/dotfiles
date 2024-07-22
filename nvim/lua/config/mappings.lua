@@ -7,7 +7,7 @@ local wk = require("which-key")
 wk.register({
   b = { ":Telescope file_browser<cr>", "File Browser" },
   d = { ":Dashboard<cr>", "Dashboard" },
-  e = { ":NvimTreeToggle<cr>", "File Tree" },
+  e = { ":Neotree toggle<cr>", "File Tree" },
   h = { "<C-W>h", "Go To Left Window" },
   j = { "<C-W>j", "Go To Window Below" },
   k = { "<C-W>k", "Go To Upper Window" },
