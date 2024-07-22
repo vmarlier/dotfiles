@@ -54,9 +54,9 @@ wk.register({
   },
   l = {
     name = "LSP",
-    l = { ":Trouble lsp toggle focus=false win.position=right<cr>", "Definitions, References..." },
-    p = { ":Trouble diagnostic toggle focus=false", "Diagnostic" },
-    d = { ":Trouble diagnostics toggle filter.buf=0 focus=false<cr>", "Buffer diagnostic" },
+    l = { ":Trouble lsp toggle focus=true<cr>", "Definitions, References..." },
+    p = { ":Trouble diagnostics toggle focus=true<cr>", "Diagnostic" },
+    d = { ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>", "Buffer diagnostic" },
   },
   n = { ":noh<cr>", "Disable search highlights" },
   p = { ":Telescope neoclip<cr>", "Open NVim Clipboard" },
