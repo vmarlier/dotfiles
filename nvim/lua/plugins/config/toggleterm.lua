@@ -2,8 +2,8 @@
 -- ToggleTerm --
 ----------------
 require("toggleterm").setup{
-  size = 60,
-  direction = 'vertical'
+  size = 15,
+  direction = 'horizontal'
 }
 
 function _G.set_terminal_keymaps()
