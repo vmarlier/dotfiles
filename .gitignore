@@ -35,6 +35,6 @@ Session.vim
 tags
 
 # lazy ignore
-lazy-lock.json
+*lazy-lock.json
 
 # End of https://www.gitignore.io/api/git,vim,linux
