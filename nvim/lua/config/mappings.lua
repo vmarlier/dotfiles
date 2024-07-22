@@ -106,6 +106,14 @@ wk.register({
   M = { ":MarkdownPreviewToggle<cr>", "Preview Markdown File" },
 }, { prefix = "<leader>" })
 
+
+-- Keybindings for Normal Mode with "z" for prefix -- Mostly folding aptitude
+wk.register({
+  R = { require('ufo').openAllFolds, "Open all folds" },
+  M = { require('ufo').closeAllFolds, "Close all folds" },
+}, { prefix = "z" })
+
+
 -- Keybindings for Visual modes with "<TAB>" for prefix
 wk.register({
   c = {
