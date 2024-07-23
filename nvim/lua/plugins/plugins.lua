@@ -6,15 +6,7 @@ require("lazy").setup({
   'folke/which-key.nvim',                           -- key mappings configuration
   'zbirenbaum/copilot.lua',                         -- enable github copilot
   'CopilotC-Nvim/CopilotChat.nvim',                 -- enhance chatting with copilot
-  {
-    "nvim-neo-tree/neo-tree.nvim", -- file tree
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-  },
+  { 'nvim-tree/nvim-tree.lua', version = '*' },     -- file tree -- TODO to replace with https://github.com/ms-jpq/chadtree or https://github.com/nvim-neo-tree/neo-tree.nvim
   'nvim-tree/nvim-web-devicons',                    -- devicons
   'rcarriga/nvim-notify',                           -- better notifications
   'akinsho/bufferline.nvim',                        -- configurable bufferline
