@@ -12,9 +12,9 @@ require("lazy").setup({
   'akinsho/bufferline.nvim',                        -- configurable bufferline
   'nvim-lualine/lualine.nvim',                      -- configurable statusline
   {
-    'kevinhwang91/nvim-ufo', -- enhance folding capabilities
+    'kevinhwang91/nvim-ufo',                        -- enhance folding capabilities
     dependencies = {
-      'kevinhwang91/promise-async', -- clipboard manager     -- db used by neoclip
+      'kevinhwang91/promise-async',                 -- clipboard manager     -- db used by neoclip
     },
   },
   'windwp/nvim-autopairs',     -- autopair/close symbols
@@ -44,7 +44,6 @@ require("lazy").setup({
   'neovim/nvim-lspconfig',                                             -- quickstart configs for nvim LSP
   'stevearc/conform.nvim',                                             -- formatter for neovim
   'folke/trouble.nvim',                                                -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
-  'stevearc/aerial.nvim',                                              -- code outline window for skimming and quick navigation
   -- telescope
   {
     'nvim-telescope/telescope.nvim', -- Telescope
