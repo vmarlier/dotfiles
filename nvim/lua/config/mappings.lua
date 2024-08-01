@@ -13,8 +13,11 @@ wk.register({
   k = { "<C-W>k", "Go To Upper Window" },
   l = { "<C-W>l", "Go To Right Window" },
   m = { ":messages<cr>", "Show neovim logs output" },
-  t = { ":ToggleTerm<cr>", "Terminal" },
-
+  t = { 
+    name = "Terminal",
+    h = { ":ToggleTerm direction=horizontal<cr>", "Toggle horizontally" },
+    t = { ":ToggleTerm direction=tab<cr>", "Toggle tab" },
+  },
   G = { "<cmd>lua _lazygit_toggle()<CR>", "Open LazyGit" },
   L = { ":LspInfo<cr>", "Info on active LSP" },
   M = { ":Mason<cr>", "Open Mason package manager" },
@@ -88,7 +91,7 @@ wk.register({
   q = { ":quit<cr>", "Quit" },
   s = {
     name = "Horizontal Split Management",
-    s = { ":split<cr>", "Split Window Horizontaly" },
+    s = { ":split<cr>", "Split Window Horizontally" },
     j = { ":horizontal resize -5<cr>", "Resize -5" },
     k = { ":horizontal resize +5<cr>", "Resize +5" },
   },
