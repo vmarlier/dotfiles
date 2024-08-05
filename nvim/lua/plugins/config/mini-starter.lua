@@ -29,9 +29,9 @@ local pleo_repo = generate_repositories_items("~/Git/pleo")
 starter.setup({
   evaluate_single = true,
   items = {
+    starter.sections.recent_files(10, true),
     { name = "Dotfiles", action = ":lua vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); MiniStarter.refresh();", section = 'Perso' },
     pleo_repo,
-    starter.sections.recent_files(10, true),
     starter.sections.builtin_actions(),
   },
   content_hooks = {
