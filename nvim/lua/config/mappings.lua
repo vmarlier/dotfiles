@@ -15,8 +15,8 @@ wk.register({
   m = { ":messages<cr>", "Show neovim logs output" },
   t = { 
     name = "Terminal",
-    h = { ":ToggleTerm direction=horizontal<cr>", "Toggle horizontally" },
-    t = { ":ToggleTerm direction=tab<cr>", "Toggle tab" },
+    t = { ":ToggleTerm direction=horizontal<cr>", "Toggle horizontally" },
+    f = { ":ToggleTerm direction=tab<cr>", "Toggle tab" },
   },
   G = { "<cmd>lua _lazygit_toggle()<CR>", "Open LazyGit" },
   L = { ":LspInfo<cr>", "Info on active LSP" },
