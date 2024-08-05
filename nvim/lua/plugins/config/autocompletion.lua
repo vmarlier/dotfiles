@@ -118,5 +118,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
+-- show line diagnostics automatically in hover window
+vim.o.updatetime = 250
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+  callback = function ()
+    vim.diagnostic.open_float(nil, {focus=false})
+  end
+})
+
 -- format on save
 vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format{ async = true }]]
