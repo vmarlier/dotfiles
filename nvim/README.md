@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | NPM | 5.1.0 |
-| Neovim | Ruby | Not Installed |
 | Neovim | Pip3 | Not Installed |
 | Neovim | ASDF | 0.10.0 |
+| Neovim | NPM | 5.1.0 |
+| Neovim | Ruby | Not Installed |
 
 ## Plugins
 
@@ -22,15 +22,16 @@
 | nvim |
 | cmp-nvim-lsp |
 | cmp-path |
+| cmp-under-comparator |
 | cmp_luasnip |
 | conform.nvim |
 | copilot.lua |
 | CopilotChat.nvim |
 | diffview.nvim |
+| git-blame.nvim |
+| github-nvim-theme |
 | gitsigns.nvim |
-| indent-blankline.nvim |
 | lazy.nvim |
-| lazygit.nvim |
 | lualine.nvim |
 | LuaSnip |
 | markdown-preview.nvim |
@@ -40,7 +41,6 @@
 | mini.starter |
 | mini.trailspace |
 | nvim-autopairs |
-| nvim-blame-line |
 | nvim-bufdel |
 | nvim-cmp |
 | nvim-lspconfig |
@@ -48,16 +48,15 @@
 | nvim-notify |
 | nvim-tree.lua |
 | nvim-treesitter |
+| nvim-ufo |
 | nvim-web-devicons |
 | plenary.nvim |
+| promise-async |
 | sqlite.lua |
-| telescope-file-browser.nvim |
 | telescope-live-grep-args.nvim |
-| telescope-undo.nvim |
 | telescope.nvim |
-| telescope_sessions_picker.nvim |
 | toggleterm.nvim |
-| vim-anyfold |
+| trouble.nvim |
 | vim-wordmotion |
 | which-key.nvim |
 
@@ -98,8 +97,8 @@
 │   │   │   ├── colorscheme.lua
 │   │   │   ├── copilot.lua
 │   │   │   ├── copilotchat.lua
+│   │   │   ├── git-blame.lua
 │   │   │   ├── gitsigns.lua
-│   │   │   ├── indent-blankline.lua
 │   │   │   ├── index.lua
 │   │   │   ├── lualine.lua
 │   │   │   ├── mini-cursorword.lua
@@ -107,15 +106,15 @@
 │   │   │   ├── mini-trailspace.lua
 │   │   │   ├── noice.lua
 │   │   │   ├── nvim-autopairs.lua
-│   │   │   ├── nvim-blame-line.lua
 │   │   │   ├── nvim-bufdel.lua
 │   │   │   ├── nvim-neoclip.lua
 │   │   │   ├── nvim-notify.lua
 │   │   │   ├── nvim-tree.lua
+│   │   │   ├── nvim-ufo.lua
 │   │   │   ├── telescope.lua
 │   │   │   ├── toggleterm.lua
 │   │   │   ├── tree-sitter.lua
-│   │   │   ├── vim-anyfold.lua
+│   │   │   ├── trouble.lua
 │   │   │   └── which-key.lua
 │   │   ├── index.lua
 │   │   └── plugins.lua

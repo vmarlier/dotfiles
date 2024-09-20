@@ -22,4 +22,4 @@ require('plugins.index')
 require('config.index')
 
 -- import only when you need to update the readme
---require('custom.readme')
+-- require('custom.readme')

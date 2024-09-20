@@ -5,8 +5,6 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.register({
-  b = { ":Telescope file_browser<cr>", "File Browser" },
-  d = { ":Dashboard<cr>", "Dashboard" },
   e = { ":NvimTreeToggle<cr>", "File Tree" },
   h = { "<C-W>h", "Go To Left Window" },
   j = { "<C-W>j", "Go To Window Below" },
@@ -72,7 +70,6 @@ wk.register({
   p = { ":Telescope neoclip<cr>", "Open NVim Clipboard" },
   r = { ":set invrelativenumber<cr>", "Relative Numbering On/Off" },
   t = { ":Telescope<cr>", "Telescope" },
-  R = { ":lua generate_readme()<cr>", "Generate Nvim Configuration Readme" },
 }, { prefix = "<TAB>" })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix

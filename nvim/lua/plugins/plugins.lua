@@ -31,7 +31,10 @@ require("lazy").setup({
   'f-person/git-blame.nvim',                                           -- show git blame inline
   'sindrets/diffview.nvim',                                            -- easily cycling through git diffs
   -- colorscheme
-  { 'catppuccin/nvim',         name = 'catppuccin', priority = 1000 }, -- colorscheme
+  { 'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+  }, -- colorscheme
   -- completion
   'hrsh7th/nvim-cmp',                                                  -- completion engine for neovim
   'hrsh7th/cmp-nvim-lsp',                                              -- nvim-cmp source for neovim's built-in language server client.
