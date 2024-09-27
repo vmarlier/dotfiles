@@ -14,7 +14,7 @@ wk.register({
   t = { 
     name = "Terminal",
     t = { ":ToggleTerm direction=horizontal<cr>", "Toggle horizontally" },
-    f = { ":ToggleTerm direction=tab<cr>", "Toggle tab" },
+    b = { ":term<cr>", "Toggle buffer" },
   },
   G = { "<cmd>lua _lazygit_toggle()<CR>", "Open LazyGit" },
   L = { ":LspInfo<cr>", "Info on active LSP" },
