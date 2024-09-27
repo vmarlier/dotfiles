@@ -37,6 +37,8 @@ vim.api.nvim_exec([[
 vim.cmd('set nocompatible') -- required settings
 wo.number = true            -- set line indication -- Keep Both Activated if you want to keep the "Tab + r" keybind
 wo.relativenumber = true    -- set relative line indication -- Keep Both Activated if you want to keep the "Tab + r" keybind
+wo.numberwidth = 1
+vim.cmd('autocmd TermOpen * setlocal nonumber norelativenumber') -- call template my reporting template
 o.history = 50              -- sets how many lines of history VIM has to remember
 o.autoread = true           -- autoread when a file is updated from outside
 vim.cmd [[
