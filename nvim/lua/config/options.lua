@@ -2,14 +2,12 @@
 -- Maintainer: Valentin Marlier  --
 -----------------------------------
 -- Sections:
--- -> Bug Workaround
+-- -> Autocmd's
 -- -> General
 -- -> VIM user interface
 -- -> Colors and Fonts
 -- -> Files, backups and undo
--- -> File templating
 -- -> Text, tab and indent related
--- -> Visual mode related
 -- -> Moving around
 -- -> Cool scripts
 
@@ -18,18 +16,41 @@ local o = vim.o
 local g = vim.g
 local wo = vim.wo
 local bo = vim.bo
+local utils = require('utils.index')
 --
---------------------
--- Bug Workaround --
---------------------
--- TO REMOVE ON NEXT NEOVIM RELEASE
--- Issue with the terraform-ls outputting a "E5248 Invalid character in group name"
--- Issue might come from Neovim when there is a dash into the filetype name
--- see -> https://www.reddit.com/r/neovim/comments/125gctj/e5248_invalid_character_in_group_name_with/
--- see -> https://www.reddit.com/r/neovim/comments/125gctj/e5248_invalid_character_in_group_name_with/
-vim.api.nvim_exec([[
-  autocmd BufRead,BufNewFile *.tfvars set filetype=terraform
-]], false)
+
+---------------
+-- Autocmd's --
+---------------
+utils.au.nvim_create_augroups({ -- Create autocommand groups
+  -- General autocommands
+  General = {
+    { "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] }; -- allow esc
+    { "TermOpen", "*", "startinsert" }; -- startinsert
+    { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" }; -- no numbers
+    { "TermOpen", "*", "setlocal signcolumn=no" }, -- no signcolumn
+  },
+  -- File templating autocommands
+  FileTemplating = {
+    { "BufNewFile", "*.rep.md", "0r ~/.config/nvim/templates/template.rep.md" },
+    { "BufNewFile", "Readme.md", "0r ~/.config/nvim/templates/template.readme.md" },
+  },
+  -- Text, tab and indent related autocommands
+  TextTabIndent = {
+    { "FileType", "yaml", "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "lua", "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "terraform", "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "tf", "setlocal ts=2 sts=2 sw=2 expandtab" },
+  },
+  -- Return to the last edit position when opening files
+  LastEditPosition = {
+    { "BufReadPost", "*", [[if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]] },
+  },
+  -- Clean extra spaces on save
+  CleanExtraSpaces = {
+    { "BufWritePre", "*.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.yml,*.yaml", "call CleanExtraSpaces()" },
+  },
+})
 
 -------------
 -- General --
@@ -38,7 +59,6 @@ vim.cmd('set nocompatible') -- required settings
 wo.number = true            -- set line indication -- Keep Both Activated if you want to keep the "Tab + r" keybind
 wo.relativenumber = true    -- set relative line indication -- Keep Both Activated if you want to keep the "Tab + r" keybind
 wo.numberwidth = 1
-vim.cmd('autocmd TermOpen * setlocal nonumber norelativenumber') -- call template my reporting template
 o.history = 50              -- sets how many lines of history VIM has to remember
 o.autoread = true           -- autoread when a file is updated from outside
 vim.cmd [[
@@ -104,12 +124,6 @@ o.writebackup = false --
 --o.undofile = true
 --o.undodir = '$HOME/.vim_runtime/temp_dirs/undodir'
 
----------------------
--- File templating --
----------------------
-vim.cmd('autocmd BufNewFile *.rep.md 0r ~/.config/nvim/templates/template.rep.md')     -- call template my reporting template
-vim.cmd('autocmd BufNewFile Readme.md 0r ~/.config/nvim/templates/template.readme.md') -- call template my reporting template
-
 ----------------------------------
 -- Text, tab and indent related --
 ----------------------------------
@@ -117,22 +131,11 @@ o.expandtab = true                                                       -- use 
 o.smarttab = true                                                        -- be smart when using tabs
 o.shiftwidth = 4                                                         -- 1 tab == 4 spaces
 o.tabstop = 4                                                            --
-vim.cmd('autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab')      -- 1 tab == 2 spaces for yaml files
-vim.cmd('autocmd FileType lua setlocal ts=2 sts=2 sw=2 expandtab')       -- 1 tab == 2 spaces for yaml files
-vim.cmd('autocmd FileType terraform setlocal ts=2 sts=2 sw=2 expandtab') -- 1 tab == 2 spaces for yaml files
-vim.cmd('autocmd FileType tf setlocal ts=2 sts=2 sw=2 expandtab')        -- 1 tab == 2 spaces for yaml files
 o.lbr = true                                                             -- activate line break
 o.tw = 200                                                               -- 200 char per line
 o.ai = true                                                              -- auto indent
 o.si = true                                                              -- Smart indent
 o.wrap = true                                                            -- Wrap lines
-
--------------------------
--- Visual mode related --
--------------------------
--- Visual mode pressing f or # searches for the current selection
--- Super useful! From an idea by Michael Naumann
---vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 -------------------
 -- Moving around --
@@ -158,9 +161,6 @@ try
 catch
 endtry
 ]] -- specify the behavior when switching between buffers
-vim.cmd [[
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-]] -- return to the last edit position when opening files
 
 -----------------
 -- Cool script --
@@ -173,7 +173,4 @@ fun! CleanExtraSpaces()
     call setpos('.', save_cursor)
     call setreg('/', old_query)
 endfun
-if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.yml,*.yaml :call CleanExtraSpaces()
-endif
 ]] -- delete trailing white space on save

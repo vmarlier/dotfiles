@@ -1,47 +1,21 @@
-local cmd = vim.api.nvim_command
+local M = {}
 
-local function autocmd(this, event, spec)
-  local is_table = type(spec) == 'table'
-  local pattern = is_table and spec[1] or '*'
-  local action = is_table and spec[2] or spec
-  if type(action) == 'function' then
-    action = this.set(action)
-  end
-  local e = type(event) == 'table' and table.concat(event, ',') or event
-  cmd('autocmd ' .. e .. ' ' .. pattern .. ' ' .. action)
-end
-
-local S = {
-  __au = {},
-}
-
-local X = setmetatable({}, {
-  __index = S,
-  __newindex = autocmd,
-  __call = autocmd,
-})
-
-function S.exec(id)
-  S.__au[id]()
-end
-
-function S.set(fn)
-  local id = string.format('%p', fn)
-  S.__au[id] = fn
-  return string.format('lua require("utils.au").exec("%s")', id)
-end
-
-function S.group(grp, cmds)
-  cmd('augroup ' .. grp)
-  cmd('autocmd!')
-  if type(cmds) == 'function' then
-    cmds(X)
-  else
-    for _, au in ipairs(cmds) do
-      autocmd(S, au[1], { au[2], au[3] })
+function M.nvim_create_augroups(definitions)
+  for group_name, definition in pairs(definitions) do
+    local group_id = vim.api.nvim_create_augroup(group_name, { clear = true })
+    for _, def in ipairs(definition) do
+      local opts = {
+        group = group_id,
+        pattern = def[2],
+      }
+      if type(def[3]) == "string" then
+        opts.command = def[3]
+      elseif type(def[4]) == "function" then
+        opts.callback = def[4]
+      end
+      vim.api.nvim_create_autocmd(def[1], opts)
     end
   end
-  cmd('augroup END')
 end
 
-return X
+return M

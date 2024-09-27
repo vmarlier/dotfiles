@@ -110,14 +110,6 @@ require('conform').setup({
   },
 })
 
--- format on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
-})
-
 vim.diagnostic.config({
   virtual_text = false,
   signs = true,
@@ -126,14 +118,29 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
--- show line diagnostics automatically in hover window
 vim.o.updatetime = 250
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-  callback = function ()
-    vim.diagnostic.open_float(nil, {focus=false})
-  end
-})
+local utils = require('utils.index')
 
--- format on save
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format{ async = true }]]
+utils.au.nvim_create_augroups({
+  -- Show line diagnostics automatically in hover window
+  FloatDiagnostic = {
+    { "CursorHold", "*", nil, function()
+        vim.diagnostic.open_float(nil, { focus = false })
+      end
+    },
+    { "CursorHoldI", "*", nil, function()
+        vim.diagnostic.open_float(nil, { focus = false })
+      end
+    },
+  },
+  -- Format on save
+  FormatOnSave = {
+    { "BufWritePre", "<buffer>", nil, function(args)
+        -- First, use the LSP to format the buffer
+        vim.lsp.buf.format({ async = true })
+        -- Then, use the conform module to format the buffer
+        require("conform").format({ bufnr = args.buf })
+      end
+    },
+  },
+})
