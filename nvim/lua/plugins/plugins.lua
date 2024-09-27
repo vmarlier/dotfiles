@@ -18,6 +18,7 @@ require("lazy").setup({
     },
   },
   'windwp/nvim-autopairs',     -- autopair/close symbols
+  'numToStr/Comment.nvim',     -- commenting tool
   'akinsho/toggleterm.nvim',   -- toggle terminals
   {
     'AckslD/nvim-neoclip.lua', -- clipboard manager

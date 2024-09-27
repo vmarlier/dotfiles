@@ -1,0 +1,4 @@
+-------------
+-- Comment --
+-------------
+require('Comment').setup()
