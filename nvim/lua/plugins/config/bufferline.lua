@@ -5,7 +5,7 @@ require("bufferline").setup{
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
     numbers = "ordinal",
-    close_command = "bdelete %d",
+    close_command = "BufDel!",
     indicator = { style = "icon", icon = "▎" },
     buffer_close_icon = '',
     modified_icon = '●',
