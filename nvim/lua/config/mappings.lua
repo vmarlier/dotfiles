@@ -66,6 +66,7 @@ wk.register({
   ["<leader>b"] = { name = "Buffer Management" },
   ["<leader>bd"] = { ":BufDel!<cr>", "Delete Current Buffer" },
   ["<leader>bc"] = { ":BufDelAll<cr>", "Delete All Buffers" },
+  ["<leader>bo"] = { ":BufDelOthers<cr>", "Delete Other Buffers" },
   ["<leader>C"] = { name = "cwd" },
   ["<leader>Cd"] = { ":cd %:p:h<cr>:pwd<cr>", "switch cwd to the directory of the open buffer" },
   ["<leader>n"] = { ":bnext<cr>", "Next Buffer" },
