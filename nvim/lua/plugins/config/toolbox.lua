@@ -15,21 +15,21 @@ require('toolbox').setup({
       require_input = false,
     },
     {
-      name = "Trim trailing empty lines",
+      name = "Trim trailing lines",
       execute = function()
         require('mini.trailspace').trim_last_lines()
       end,
       require_input = false,
     },
     {
-      name = "Disable search highlights",
+      name = "No Search Highlight",
       execute = function()
         vim.cmd('noh');
       end,
       require_input = false,
     },
     {
-      name = "Go back to Dashboard",
+      name = "Dashboard",
       execute = function()
         vim.cmd('BufDelAll');
         require('mini.starter').open();
