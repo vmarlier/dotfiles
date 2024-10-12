@@ -58,17 +58,19 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
 vim.cmd('set nocompatible') -- required settings
 wo.number = true            -- set line indication -- Keep Both Activated if you want to keep the "Tab + r" keybind
 wo.relativenumber = true    -- set relative line indication -- Keep Both Activated if you want to keep the "Tab + r" keybind
-wo.numberwidth = 1
+o.cursorline = true         -- Highlight cursor line
 o.history = 50              -- sets how many lines of history VIM has to remember
 o.autoread = true           -- autoread when a file is updated from outside
 vim.cmd [[
 filetype plugin on
 filetype indent on
-]]                                         -- enable filetype plugins/indent
+]]                                         -- enable filetype plugins/indent + signcolumn config
 g.mapleader = ","                          -- set leader key
 vim.cmd('let g:loaded_node_provider=0')    -- deactivate node provider (avoid errors on :checkhealth)
 vim.cmd('let g:loaded_perl_provider=0')    -- deactivate perl provider (avoid errors on :checkhealth)
 vim.cmd('let g:loaded_python3_provider=0') -- deactivate perl provider (avoid errors on :checkhealth)
+
+-- For foldcolumn config check plugins/config/nvim-ufo.lua
 
 ------------------------
 -- VIM user interface --
@@ -94,7 +96,6 @@ o.mat = 2                                            -- how many tenths of a sec
 o.errorbells = false                                 -- no annoying sound on errors
 o.visualbell = false                                 --
 o.tm = 500                                           --
-o.foldcolumn = '1'                                   -- add a bit extra margin to the left
 o.laststatus = 2
 o.completeopt =
 'menuone,noselect' -- set completeopt to have a better completion experience see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
@@ -113,7 +114,6 @@ end
 vim.cmd('set t_Co=256') -- set color on 256
 o.encoding = 'utf8'     -- set utf8 as standard encoding
 o.ffs = 'unix,mac'      -- use unix as the standard filetype
-o.cursorline = true     -- Highlight cursor line
 
 -----------------------------
 -- Files, backups and undo --
