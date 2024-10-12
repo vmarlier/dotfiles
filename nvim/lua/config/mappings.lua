@@ -20,6 +20,7 @@ wk.register({
   ["<space>ts"] = { ":belowright split | term<cr>", "Open terminal horizontally" },
   ["<space>tv"] = { ":rightbelow vsplit | term<cr>", "Open terminal vertically" },
   ["<space>tb"] = { ":term<cr>", "Toggle buffer" },
+  ["<space>p"] = {require('toolbox').show_picker, "Show toolbox picker"}
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
@@ -55,7 +56,6 @@ wk.register({
   ["<TAB>lD"] = { name = "Diagnostics" },
   ["<TAB>lDp"] = { ":Trouble diagnostics toggle focus=true<cr>", "Project Diagnostic" },
   ["<TAB>lDd"] = { ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>", "Buffer diagnostic" },
-  ["<TAB>n"] = { ":noh<cr>", "Disable search highlights" },
   ["<TAB>p"] = { ":Telescope neoclip<cr>", "Open NVim Clipboard" },
   ["<TAB>r"] = { ":set invrelativenumber<cr>", "Relative Numbering On/Off" },
   ["<TAB>t"] = { ":Telescope<cr>", "Telescope" },
@@ -85,9 +85,6 @@ wk.register({
   ["<leader>vv"] = { ":vsplit<cr>", "Split Window Verticaly" },
   ["<leader>vh"] = { ":vertical resize -5<cr>", "Resize -5" },
   ["<leader>vl"] = { ":vertical resize +5<cr>", "Resize +5" },
-  ["<leader>w"] = { name = "Trailspace" },
-  ["<leader>ww"] = { ":lua require('mini.trailspace').trim()<cr>", "Trim trailing whitespaces" },
-  ["<leader>wl"] = { ":lua require('mini.trailspace').trim_last_lines()<cr>", "Trim trailing empty lines" },
   ["<leader>M"] = { ":MarkdownPreviewToggle<cr>", "Preview Markdown File" },
 })
 

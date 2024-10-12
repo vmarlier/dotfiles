@@ -4,8 +4,10 @@ require("lazy").setup({
   { 'echasnovski/mini.cursorword', version = '*' }, -- highlight words matching under cursor
   { 'echasnovski/mini.trailspace', version = '*' }, -- trim space or whiteline easily
   'nvim-treesitter/nvim-treesitter',                -- nvim adaptation of the famous parsing library
+  'DanWlker/toolbox.nvim',                          -- custom neovim function invokable from ui
 
   -- UI Enhancements
+  'stevearc/dressing.nvim',                         -- improve default vim.ui interface
   'folke/which-key.nvim',                           -- key mappings configuration
   'nvim-tree/nvim-web-devicons',                    -- devicons
   'rcarriga/nvim-notify',                           -- better notifications

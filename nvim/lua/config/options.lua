@@ -118,7 +118,7 @@ o.ffs = 'unix,mac'      -- use unix as the standard filetype
 -----------------------------
 -- Files, backups and undo --
 -----------------------------
-o.backup = false      -- turn backup off
+o.backup = false      -- turn backup off 
 o.swapfile = false    --
 o.writebackup = false --
 --o.undofile = true
