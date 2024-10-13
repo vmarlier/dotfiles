@@ -1,6 +1,8 @@
 ----------------
 -- Bufferline --
 ----------------
+--vim.cmd.colorscheme("catppuccin")
+
 require("bufferline").setup{
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {

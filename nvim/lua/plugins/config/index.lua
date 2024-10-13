@@ -1,6 +1,6 @@
 require("plugins.config.autocompletion")
+require("plugins.config.colorscheme") -- load colorscheme before bufferline !!!!
 require("plugins.config.bufferline")
-require("plugins.config.colorscheme")
 require("plugins.config.mini-starter")
 require("plugins.config.lualine")
 require("plugins.config.nvim-autopairs")
