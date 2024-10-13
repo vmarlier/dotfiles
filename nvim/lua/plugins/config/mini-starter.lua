@@ -14,7 +14,7 @@ local function generate_repositories_items(base_path)
       local repo_name = trimmed_dir:match("([^/]+)$")
       if repo_name then
         local item_name = string.format("%s", repo_name)
-        local item_action = string.format(":lua vim.cmd('cd %s'); vim.cmd('NvimTreeToggle'); vim.cmd('terminal');",
+        local item_action = string.format(":lua vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
           trimmed_dir)
         table.insert(items, { name = item_name, action = item_action, section = 'Pleo' })
       end
@@ -30,7 +30,7 @@ starter.setup({
   evaluate_single = true,
   items = {
     starter.sections.recent_files(10, true),
-    { name = "Dotfiles", action = ":lua vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle'); vim.cmd('terminal');", section = 'Perso' },
+    { name = "Dotfiles", action = ":lua vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
     pleo_repo,
     starter.sections.builtin_actions(),
   },
