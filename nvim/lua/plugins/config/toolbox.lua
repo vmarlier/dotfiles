@@ -8,6 +8,14 @@ require('toolbox').setup({
       require_input = true,
     },
     {
+      name = "CWD update",
+      execute = function()
+        vim.cmd("cd %:p:h");
+        vim.cmd("pwd");
+      end,
+      require_input = false,
+    },
+    {
       name = "Trim trailing whitespaces",
       execute = function()
         require('mini.trailspace').trim()
