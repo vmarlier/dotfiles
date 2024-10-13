@@ -5,6 +5,7 @@ require("lazy").setup({
   { 'echasnovski/mini.trailspace', version = '*' }, -- trim space or whiteline easily
   'nvim-treesitter/nvim-treesitter',                -- nvim adaptation of the famous parsing library
   'DanWlker/toolbox.nvim',                          -- custom neovim function invokable from ui
+  'akinsho/toggleterm.nvim',                        -- terminal support
 
   -- UI Enhancements
   'stevearc/dressing.nvim',                         -- improve default vim.ui interface
@@ -13,6 +14,7 @@ require("lazy").setup({
   'rcarriga/nvim-notify',                           -- better notifications
   'akinsho/bufferline.nvim',                        -- configurable bufferline
   'nvim-lualine/lualine.nvim',                      -- configurable statusline
+  'fgheng/winbar.nvim',
   {
     'kevinhwang91/nvim-ufo',                        -- enhance folding capabilities
     dependencies = {
@@ -33,7 +35,7 @@ require("lazy").setup({
   { 'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
-  }, -- colorscheme
+  },
 
   -- Completion and Snippets
   'hrsh7th/nvim-cmp',                               -- completion engine for neovim
@@ -75,5 +77,5 @@ require("lazy").setup({
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
-  },
+  }
 })
