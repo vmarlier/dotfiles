@@ -40,8 +40,7 @@ for _, lsp in ipairs(lsp_servers) do
 end
 
 -- Levels by name: "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "OFF"
--- Let's keep it WARN to see if it allow a relief on the log file
-vim.lsp.set_log_level("WARN")
+vim.lsp.set_log_level("OFF")
 
 -- luasnip setup
 local luasnip = require('luasnip') -- luasnip
