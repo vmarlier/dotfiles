@@ -194,9 +194,9 @@ local readme_content = [[
 ]] .. get_plugins_for_readme() .. [[
 
 
-## LSPs
+## LSPs, Linters & Formatters
 
-| LSP |
+| LSP, Linter & Formatter |
 |--------|
 ]] .. get_lsps_for_readme() .. [[
 
