@@ -32,8 +32,7 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
   },
   -- File templating autocommands
   FileTemplating = {
-    { "BufNewFile", "*.rep.md", "0r ~/.config/nvim/templates/template.rep.md" },
-    { "BufNewFile", "Readme.md", "0r ~/.config/nvim/templates/template.readme.md" },
+    { "BufNewFile", "Readme.md", "0r ~/.config/nvim/lua/utils/templates/template.readme.md" },
   },
   -- Text, tab and indent related autocommands
   TextTabIndent = {
