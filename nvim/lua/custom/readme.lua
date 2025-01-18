@@ -20,10 +20,15 @@ local function get_plugins_repository_names()
     return repo_name
   end
 
+  -- Function to get the latest commit hash
+  local function get_commit_hash(plugin_dir)
+    local commit_hash = vim.fn.system('git -C ' .. plugin_dir .. ' log -1 --format=%h')
+    return commit_hash:match("^%s*(.-)%s*$") -- Trim leading/trailing spaces
+  end
+
   -- Iterate through subdirectories in ~/.local/share/nvim/lazy/
   local subdirectories = vim.fn.glob(lazy_path .. "/*", 1, 1)
   for _, entry in ipairs(subdirectories) do
-    local plugin_dir = vim.fn.fnamemodify(entry, ":t")
     local config_path = entry .. '/.git/config'
     -- Check if .git/config exists
     if vim.fn.filereadable(config_path) == 1 then
@@ -31,7 +36,8 @@ local function get_plugins_repository_names()
       if config_content then
         local repo_name = extract_repo_name(config_content)
         if repo_name then
-          table.insert(plugins, repo_name)
+          local commit_hash = get_commit_hash(entry)
+          table.insert(plugins, {repo_name, commit_hash})
         end
       end
     end
@@ -125,7 +131,7 @@ local function get_plugins_for_readme()
   local plugins = get_plugins_repository_names()
   local plugin_table = {}
   for _, plugin in ipairs(plugins) do
-    table.insert(plugin_table, "| " .. plugin .. " |")
+    table.insert(plugin_table, string.format("| %s | %s |", plugin[1], plugin[2]))
   end
   return table.concat(plugin_table, "\n")
 end
@@ -165,7 +171,6 @@ local directory_tree = generate_directory_tree(root_dir)
 -- Format directory tree for README
 local formatted_tree = format_directory_tree(directory_tree)
 
-
 -- Generate README content
 local readme_content = [[
 # NVim configuration
@@ -184,8 +189,8 @@ local readme_content = [[
 
 ## Plugins
 
-| Plugin |
-|--------|
+| Plugin | Commit Hash |
+|--------|-------------|
 ]] .. get_plugins_for_readme() .. [[
 
 
