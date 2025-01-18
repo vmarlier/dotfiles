@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | Pip3 | Not Installed |
-| Neovim | ASDF | 0.10.0 |
 | Neovim | NPM | 5.1.0 |
 | Neovim | Ruby | Not Installed |
+| Neovim | Pip3 | Not Installed |
+| Neovim | ASDF | 0.10.3 |
 
 ## Plugins
 
@@ -24,12 +24,13 @@
 | cmp-path |
 | cmp-under-comparator |
 | cmp_luasnip |
+| Comment.nvim |
 | conform.nvim |
 | copilot.lua |
 | CopilotChat.nvim |
 | diffview.nvim |
+| dressing.nvim |
 | git-blame.nvim |
-| github-nvim-theme |
 | gitsigns.nvim |
 | lazy.nvim |
 | lualine.nvim |
@@ -56,9 +57,11 @@
 | telescope-live-grep-args.nvim |
 | telescope.nvim |
 | toggleterm.nvim |
+| toolbox.nvim |
 | trouble.nvim |
 | vim-wordmotion |
 | which-key.nvim |
+| winbar.nvim |
 
 ## LSPs
 
@@ -66,10 +69,12 @@
 |--------|
 | bash-language-server |
 | dockerfile-language-server |
+| gofumpt |
 | goimports |
 | gopls |
 | helm-ls |
 | json-lsp |
+| jsonnet-language-server |
 | lua-language-server |
 | pyright |
 | rust-analyzer |
@@ -95,8 +100,10 @@
 │   │   │   ├── autocompletion.lua
 │   │   │   ├── bufferline.lua
 │   │   │   ├── colorscheme.lua
+│   │   │   ├── comment.lua
 │   │   │   ├── copilot.lua
 │   │   │   ├── copilotchat.lua
+│   │   │   ├── dressing.lua
 │   │   │   ├── git-blame.lua
 │   │   │   ├── gitsigns.lua
 │   │   │   ├── index.lua
@@ -113,9 +120,11 @@
 │   │   │   ├── nvim-ufo.lua
 │   │   │   ├── telescope.lua
 │   │   │   ├── toggleterm.lua
+│   │   │   ├── toolbox.lua
 │   │   │   ├── tree-sitter.lua
 │   │   │   ├── trouble.lua
-│   │   │   └── which-key.lua
+│   │   │   ├── which-key.lua
+│   │   │   └── winbar.lua
 │   │   ├── index.lua
 │   │   └── plugins.lua
 │   └── utils
