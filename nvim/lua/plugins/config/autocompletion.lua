@@ -143,7 +143,7 @@ utils.au.nvim_create_augroups({
   FormatOnSave = {
     { "BufWritePre", "<buffer>", nil, function(args)
         -- First, use the LSP to format the buffer
-        vim.lsp.buf.format({ async = true })
+        -- vim.lsp.buf.format({ async = true })
         -- Then, use the conform module to format the buffer
         require("conform").format({ bufnr = args.buf })
       end
