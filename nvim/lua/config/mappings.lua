@@ -42,8 +42,8 @@ wk.register({
   ["<TAB>gc"] = { ":Telescope git_commits<cr>", "Git Commits" },
   ["<TAB>gs"] = { ":Telescope git_status<cr>", "Git Status" },
   ["<TAB>gb"] = { ":Telescope git_branches<cr>", "Git Branches" },
-  ["<TAB>gu"] = { ":GitBlameOpenCommitUrl<cr>", "Open Commit Url" },
-  ["<TAB>gf"] = { ":GitBlameOpenFileURL<cr>", "Open File Url" },
+  ["<TAB>gu"] = { ":GitBlameOpenCommitUrl<cr>", "Open Commit in browser" },
+  ["<TAB>gf"] = { ":GitBlameOpenFileURL<cr>", "Open file in browser" },
   ["<TAB>gd"] = { ":DiffviewOpen<cr>", "Git Diff" },
 
   ["<TAB>l"] = { name = "LSP" },
@@ -102,4 +102,5 @@ wk.register({
   ["<TAB>cO"] = { ":CopilotChatOptimize<cr>", "Optimize the selected code to improve performance and readablilty" },
   ["<TAB>cD"] = { ":CopilotChatDocs<cr>", "Write documentation for the selected code" },
   ["<TAB>cC"] = { ":CopilotChatCommit<cr>", "Write commit message for the change with commitizen convention" },
+  ["<TAB>g"] = { ":GitBlameOpenFileURL<cr>", "Open Selection in browser" },
 }, { mode = "v" })
