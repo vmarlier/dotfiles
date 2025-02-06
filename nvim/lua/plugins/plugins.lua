@@ -23,8 +23,11 @@ require("lazy").setup({
   },
   'windwp/nvim-autopairs',                          -- autopair/close symbols
   'numToStr/Comment.nvim',                          -- commenting tool
-  'chaoren/vim-wordmotion',                         -- better word motion (acknowledge camelCase, snake_case..)
   'ojroques/nvim-bufdel',                           -- easily close/delete buffers
+
+  -- Motion
+  'chaoren/vim-wordmotion',                         -- better word motion (acknowledge camelCase, snake_case..)
+  'justinmk/vim-sneak',                             -- jump to any location specified by two characters.
 
   -- Git Integration
   'lewis6991/gitsigns.nvim',                        -- enhance git support
