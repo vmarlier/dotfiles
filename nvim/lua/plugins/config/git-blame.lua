@@ -2,7 +2,7 @@
 -- Git Blame --
 ---------------
 require('gitblame').setup {
-  enabled = true,
+  enabled = false,
 }
 
 vim.g.gitblame_date_format = '%r'
