@@ -100,12 +100,18 @@ cmp.setup {
 
 require('conform').setup({
   formatters_by_ft = {
-    ['go'] = { 'gofmt', 'goimports' },
+    ['go'] = { 'goimports' },
   },
   formatters = {
     shfmt = {
       prepend_args = { "-i", "2", "-ci" },
     }
+  },
+  format_on_save = {
+    lsp_format = "first",
+  },
+  default_format_opts = {
+    lsp_format = "first",
   },
 })
 
@@ -136,16 +142,6 @@ utils.au.nvim_create_augroups({
     },
     { "CursorHoldI", "*", nil, function()
         vim.diagnostic.open_float(nil, { focus = false })
-      end
-    },
-  },
-  -- Format on save
-  FormatOnSave = {
-    { "BufWritePre", "<buffer>", nil, function(args)
-        -- First, use the LSP to format the buffer
-        --vim.lsp.buf.format({ async = true })
-        -- Then, use the conform module to format the buffer
-        require("conform").format({ bufnr = args.buf })
       end
     },
   },
