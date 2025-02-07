@@ -27,8 +27,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+  dynamicRegistration = false,
+  lineFoldingOnly = true
 }
 
 -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -100,7 +100,9 @@ cmp.setup {
 
 require('conform').setup({
   formatters_by_ft = {
-    ['go'] = { 'goimports' },
+    go        = { "goimports", lsp_format = "first" },
+    terraform = { "terraform_fmt" },
+    lua       = { lsp_format = "first" },
   },
   formatters = {
     shfmt = {
@@ -108,10 +110,7 @@ require('conform').setup({
     }
   },
   format_on_save = {
-    lsp_format = "first",
-  },
-  default_format_opts = {
-    lsp_format = "first",
+    timeout = 2000 -- ms
   },
 })
 
@@ -137,12 +136,12 @@ utils.au.nvim_create_augroups({
   -- Show line diagnostics automatically in hover window
   FloatDiagnostic = {
     { "CursorHold", "*", nil, function()
-        vim.diagnostic.open_float(nil, { focus = false })
-      end
+      vim.diagnostic.open_float(nil, { focus = false })
+    end
     },
     { "CursorHoldI", "*", nil, function()
-        vim.diagnostic.open_float(nil, { focus = false })
-      end
+      vim.diagnostic.open_float(nil, { focus = false })
+    end
     },
   },
 })
