@@ -8,57 +8,66 @@ require("lazy").setup({
   'akinsho/toggleterm.nvim',                        -- terminal support
 
   -- UI Enhancements
-  'stevearc/dressing.nvim',                         -- improve default vim.ui interface
-  'folke/which-key.nvim',                           -- key mappings configuration
-  'nvim-tree/nvim-web-devicons',                    -- devicons
-  'rcarriga/nvim-notify',                           -- better notifications
-  'akinsho/bufferline.nvim',                        -- configurable bufferline
-  'nvim-lualine/lualine.nvim',                      -- configurable statusline
+  'stevearc/dressing.nvim',      -- improve default vim.ui interface
+  'folke/which-key.nvim',        -- key mappings configuration
+  'nvim-tree/nvim-web-devicons', -- devicons
+  'rcarriga/nvim-notify',        -- better notifications
+  'akinsho/bufferline.nvim',     -- configurable bufferline
+  'nvim-lualine/lualine.nvim',   -- configurable statusline
   'fgheng/winbar.nvim',
   {
-    'kevinhwang91/nvim-ufo',                        -- enhance folding capabilities
+    'kevinhwang91/nvim-ufo',        -- enhance folding capabilities
     dependencies = {
-      'kevinhwang91/promise-async',                 -- async promise library
+      'kevinhwang91/promise-async', -- async promise library
     },
   },
-  'windwp/nvim-autopairs',                          -- autopair/close symbols
-  'numToStr/Comment.nvim',                          -- commenting tool
-  'ojroques/nvim-bufdel',                           -- easily close/delete buffers
+  'windwp/nvim-autopairs', -- autopair/close symbols
+  'numToStr/Comment.nvim', -- commenting tool
+  'ojroques/nvim-bufdel',  -- easily close/delete buffers
 
   -- Motion
-  'chaoren/vim-wordmotion',                         -- better word motion (acknowledge camelCase, snake_case..)
-  'justinmk/vim-sneak',                             -- jump to any location specified by two characters.
+  'chaoren/vim-wordmotion', -- better word motion (acknowledge camelCase, snake_case..)
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    },
+  },
 
   -- Git Integration
-  'lewis6991/gitsigns.nvim',                        -- enhance git support
-  'f-person/git-blame.nvim',                        -- show git blame inline
-  'sindrets/diffview.nvim',                         -- easily cycling through git diffs
+  'lewis6991/gitsigns.nvim', -- enhance git support
+  'f-person/git-blame.nvim', -- show git blame inline
+  'sindrets/diffview.nvim',  -- easily cycling through git diffs
 
   -- Colorscheme
-  { 'catppuccin/nvim',
+  {
+    'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
   },
 
   -- Completion and Snippets
-  'hrsh7th/nvim-cmp',                               -- completion engine for neovim
-  'hrsh7th/cmp-nvim-lsp',                           -- nvim-cmp source for neovim's built-in language server client.
-  'hrsh7th/cmp-path',                               -- nvim-cmp source for filesystem paths.
-  'lukas-reineke/cmp-under-comparator',             -- better sort completion items
-  'L3MON4D3/LuaSnip',                               -- snippet engine for Neovim
-  'saadparwaiz1/cmp_luasnip',                       -- luasnip completion source for nvim-cmp
+  'hrsh7th/nvim-cmp',                   -- completion engine for neovim
+  'hrsh7th/cmp-nvim-lsp',               -- nvim-cmp source for neovim's built-in language server client.
+  'hrsh7th/cmp-path',                   -- nvim-cmp source for filesystem paths.
+  'lukas-reineke/cmp-under-comparator', -- better sort completion items
+  'L3MON4D3/LuaSnip',                   -- snippet engine for Neovim
+  'saadparwaiz1/cmp_luasnip',           -- luasnip completion source for nvim-cmp
 
   -- LSP and Formatting
-  'williamboman/mason.nvim',                        -- package manager for LSP, DAP, linters & formatters
-  'williamboman/mason-lspconfig.nvim',              -- extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
-  'neovim/nvim-lspconfig',                          -- quickstart configs for nvim LSP
-  'stevearc/conform.nvim',                          -- formatter for neovim
-  'folke/trouble.nvim',                             -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
+  'williamboman/mason.nvim',           -- package manager for LSP, DAP, linters & formatters
+  'williamboman/mason-lspconfig.nvim', -- extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
+  'neovim/nvim-lspconfig',             -- quickstart configs for nvim LSP
+  'stevearc/conform.nvim',             -- formatter for neovim
+  'folke/trouble.nvim',                -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
 
   -- File Navigation
-  { 'nvim-tree/nvim-tree.lua', version = '*' },     -- file tree
+  { 'nvim-tree/nvim-tree.lua', version = '*' }, -- file tree
   {
-    'nvim-telescope/telescope.nvim',                -- Telescope
+    'nvim-telescope/telescope.nvim',            -- Telescope
     tag = '0.1.5',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -67,16 +76,16 @@ require("lazy").setup({
   },
 
   -- Miscellaneous
-  'zbirenbaum/copilot.lua',                         -- enable github copilot
-  'CopilotC-Nvim/CopilotChat.nvim',                 -- enhance chatting with copilot
+  'zbirenbaum/copilot.lua',         -- enable github copilot
+  'CopilotC-Nvim/CopilotChat.nvim', -- enhance chatting with copilot
   {
-    'AckslD/nvim-neoclip.lua',                      -- clipboard manager
+    'AckslD/nvim-neoclip.lua',      -- clipboard manager
     dependencies = {
-      'kkharji/sqlite.lua',                         -- db used by neoclip
+      'kkharji/sqlite.lua',         -- db used by neoclip
     },
   },
   {
-    "iamcco/markdown-preview.nvim",                 -- generate a markdown preview page in browser
+    "iamcco/markdown-preview.nvim", -- generate a markdown preview page in browser
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
