@@ -18,11 +18,4 @@ vim.opt.rtp:prepend(lazypath)
 
 -- require sub-modules - require order is important !
 require('utils.index')
-require('plugins.index')
 require('config.index')
-
--- custom stuff
--- require('custom.column')
-
--- import only when you need to update the readme
--- require('custom.readme')

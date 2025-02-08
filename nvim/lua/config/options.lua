@@ -25,10 +25,10 @@ local utils = require('utils.index')
 utils.au.nvim_create_augroups({ -- Create autocommand groups
   -- General autocommands
   General = {
-    { "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] }; -- allow esc
-    { "TermOpen", "*", "startinsert" }; -- startinsert
-    { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" }; -- no numbers
-    { "TermOpen", "*", "setlocal signcolumn=no" }, -- no signcolumn
+    { "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] },          -- allow esc
+    { "TermOpen", "*", "startinsert" },                                   -- startinsert
+    { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" }, -- no numbers
+    { "TermOpen", "*", "setlocal signcolumn=no" },                        -- no signcolumn
   },
   -- File templating autocommands
   FileTemplating = {
@@ -36,10 +36,10 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
   },
   -- Text, tab and indent related autocommands
   TextTabIndent = {
-    { "FileType", "yaml", "setlocal ts=2 sts=2 sw=2 expandtab" },
-    { "FileType", "lua", "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "yaml",      "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "lua",       "setlocal ts=2 sts=2 sw=2 expandtab" },
     { "FileType", "terraform", "setlocal ts=2 sts=2 sw=2 expandtab" },
-    { "FileType", "tf", "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "tf",        "setlocal ts=2 sts=2 sw=2 expandtab" },
   },
   -- Return to the last edit position when opening files
   LastEditPosition = {
@@ -48,6 +48,16 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
   -- Clean extra spaces on save
   CleanExtraSpaces = {
     { "BufWritePre", "*.txt,*.js,*.py,*.wiki,*.sh,*.coffee,*.yml,*.yaml", "call CleanExtraSpaces()" },
+  },
+  FloatDiagnostic = {
+    { "CursorHold", "*", nil, function()
+      vim.diagnostic.open_float(nil, { focus = false })
+    end
+    },
+    { "CursorHoldI", "*", nil, function()
+      vim.diagnostic.open_float(nil, { focus = false })
+    end
+    },
   },
 })
 
@@ -117,7 +127,7 @@ o.ffs = 'unix,mac'      -- use unix as the standard filetype
 -----------------------------
 -- Files, backups and undo --
 -----------------------------
-o.backup = false      -- turn backup off 
+o.backup = false      -- turn backup off
 o.swapfile = false    --
 o.writebackup = false --
 --o.undofile = true
@@ -126,15 +136,15 @@ o.writebackup = false --
 ----------------------------------
 -- Text, tab and indent related --
 ----------------------------------
-o.expandtab = true                                                       -- use spaces instead of tabs
-o.smarttab = true                                                        -- be smart when using tabs
-o.shiftwidth = 4                                                         -- 1 tab == 4 spaces
-o.tabstop = 4                                                            --
-o.lbr = true                                                             -- activate line break
-o.tw = 200                                                               -- 200 char per line
-o.ai = true                                                              -- auto indent
-o.si = true                                                              -- Smart indent
-o.wrap = true                                                            -- Wrap lines
+o.expandtab = true -- use spaces instead of tabs
+o.smarttab = true  -- be smart when using tabs
+o.shiftwidth = 4   -- 1 tab == 4 spaces
+o.tabstop = 4      --
+o.lbr = true       -- activate line break
+o.tw = 200         -- 200 char per line
+o.ai = true        -- auto indent
+o.si = true        -- Smart indent
+o.wrap = true      -- Wrap lines
 
 -------------------
 -- Moving around --
@@ -173,3 +183,23 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 ]] -- delete trailing white space on save
+
+----------------
+-- Diagnostic --
+----------------
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰌵',
+    },
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
+vim.o.updatetime = 250
