@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | Pip3 | Not Installed |
-| Neovim | ASDF | 0.10.3 |
 | Neovim | NPM | 5.1.0 |
+| Neovim | Pip3 | Not Installed |
 | Neovim | Ruby | Not Installed |
+| Neovim | ASDF | 0.10.4 |
 
 ## Plugins
 
@@ -28,15 +28,13 @@
 | conform.nvim | 363243c |
 | copilot.lua | 886ee73 |
 | CopilotChat.nvim | 451d365 |
-| diffview.nvim | 4516612 |
 | dressing.nvim | 56ef6a9 |
 | flash.nvim | f899265 |
 | git-blame.nvim | 2883a74 |
-| gitsigns.nvim | 9b36d49 |
-| lazy.nvim | 7527af4 |
+| gitsigns.nvim | c23bbd3 |
+| lazy.nvim | f15a939 |
 | lualine.nvim | 2a5bae9 |
 | LuaSnip | c9b9a22 |
-| markdown-preview.nvim | a923f5f |
 | mason-lspconfig.nvim | f75e877 |
 | mason.nvim | e2f7f90 |
 | mini.cursorword | 7d1b38a |
@@ -45,18 +43,14 @@
 | nvim-autopairs | 3d02855 |
 | nvim-bufdel | 523d58e |
 | nvim-cmp | 1250990 |
-| nvim-lspconfig | ead2fbc |
-| nvim-neoclip.lua | 90e4dd6 |
+| nvim-lspconfig | 75edb91 |
 | nvim-notify | 22f2909 |
 | nvim-tree.lua | d529a99 |
-| nvim-treesitter | bcd0b266 |
+| nvim-treesitter | 62911c78 |
 | nvim-ufo | 81f5ffa |
 | nvim-web-devicons | 4023772 |
 | plenary.nvim | 3707cdb |
 | promise-async | 119e896 |
-| sqlite.lua | b487fcc |
-| telescope-live-grep-args.nvim | 649b662 |
-| telescope.nvim | d909568 |
 | toggleterm.nvim | e76134e |
 | toolbox.nvim | 160fa04 |
 | trouble.nvim | 6f380b8 |
@@ -93,46 +87,21 @@
 └── lua
 │   ├── config
 │   │   ├── index.lua
+│   │   ├── lazy.lua
 │   │   ├── mappings.lua
 │   │   └── options.lua
-│   ├── custom
-│   │   ├── column.lua
-│   │   └── readme.lua
 │   ├── plugins
-│   │   ├── config
-│   │   │   ├── autocompletion.lua
-│   │   │   ├── bufferline.lua
-│   │   │   ├── colorscheme.lua
-│   │   │   ├── comment.lua
-│   │   │   ├── copilot.lua
-│   │   │   ├── copilotchat.lua
-│   │   │   ├── dressing.lua
-│   │   │   ├── git-blame.lua
-│   │   │   ├── gitsigns.lua
-│   │   │   ├── index.lua
-│   │   │   ├── lualine.lua
-│   │   │   ├── mini-cursorword.lua
-│   │   │   ├── mini-starter.lua
-│   │   │   ├── mini-trailspace.lua
-│   │   │   ├── noice.lua
-│   │   │   ├── nvim-autopairs.lua
-│   │   │   ├── nvim-bufdel.lua
-│   │   │   ├── nvim-neoclip.lua
-│   │   │   ├── nvim-notify.lua
-│   │   │   ├── nvim-tree.lua
-│   │   │   ├── nvim-ufo.lua
-│   │   │   ├── telescope.lua
-│   │   │   ├── toggleterm.lua
-│   │   │   ├── toolbox.lua
-│   │   │   ├── tree-sitter.lua
-│   │   │   ├── trouble.lua
-│   │   │   ├── which-key.lua
-│   │   │   └── winbar.lua
-│   │   ├── index.lua
-│   │   └── plugins.lua
+│   │   ├── ai.lua
+│   │   ├── coding.lua
+│   │   ├── colorscheme.lua
+│   │   ├── core.lua
+│   │   ├── git.lua
+│   │   ├── lualine.lua
+│   │   ├── motion.lua
+│   │   ├── navigation.lua
+│   │   └── ui.lua
 │   └── utils
 │   │   ├── au.lua
 │   │   ├── index.lua
-│   │   └── templates
-│   │   │   └── template.readme.md
+│   │   └── readme.lua
 ```
