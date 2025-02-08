@@ -13,7 +13,7 @@ wk.register({
   ["<space>m"] = { ":messages<cr>", "Show neovim logs output" },
   ["<space>M"] = { ":Mason<cr>", "Open Mason package manager" },
   ["<space>P"] = { ":Lazy<cr>", "Open Lazy plugin manager" },
-  ["<space>p"] = {require('toolbox').show_picker, "Show toolbox picker"},
+  ["<space>p"] = { require('toolbox').show_picker, "Show toolbox picker" },
 
   ["<space>t"] = { name = "Terminal" },
   ["<space>tb"] = { ":ToggleTerm direction=tab<cr>", "Toggle in tab" },
