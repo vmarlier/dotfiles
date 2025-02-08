@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 -- File Navigation
 return {
   { -- File tree

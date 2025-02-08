@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 -- UI Enhancements
 return {
   { -- Improve default vim.ui interface

@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 -- Git Integration
 return {
   { -- Enhance git support

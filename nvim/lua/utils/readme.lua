@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 -- get_plugins_repository_names return a list of plugins installed by Lazy
 local function get_plugins_repository_names()
   local lazy_path = vim.fn.expand("~/.local/share/nvim/lazy/")
@@ -37,7 +40,7 @@ local function get_plugins_repository_names()
         local repo_name = extract_repo_name(config_content)
         if repo_name then
           local commit_hash = get_commit_hash(entry)
-          table.insert(plugins, {repo_name, commit_hash})
+          table.insert(plugins, { repo_name, commit_hash })
         end
       end
     end

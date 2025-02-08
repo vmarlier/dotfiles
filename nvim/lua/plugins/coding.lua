@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 -- Coding related (LSPs, Formatters, Diagnostics)
 return {
   { -- package manager for LSP, DAP, linters & formatters

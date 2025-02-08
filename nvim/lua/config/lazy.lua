@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 require("lazy").setup({
   spec = {
     { import = "plugins" },

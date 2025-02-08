@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 -- Motion
 return {
   { -- Better word motion (acknowledge camelCase, snake_case..)

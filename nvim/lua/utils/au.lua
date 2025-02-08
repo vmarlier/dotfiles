@@ -1,3 +1,6 @@
+-----------------------------------
+-- Maintainer: Valentin Marlier  --
+-----------------------------------
 local M = {}
 
 function M.nvim_create_augroups(definitions)

@@ -5,38 +5,24 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.add({
-  { "<space>M",  ":Mason<cr>",                           desc = "Open Mason package manager" },
-  { "<space>P",  ":Lazy<cr>",                            desc = "Open Lazy plugin manager" },
-  { "<space>e",  ":NvimTreeToggle<cr>",                  desc = "File Tree" },
-  { "<space>h",  "<C-W>h",                               desc = "Go To Left Window" },
-  { "<space>j",  "<C-W>j",                               desc = "Go To Window Below" },
-  { "<space>k",  "<C-W>k",                               desc = "Go To Upper Window" },
-  { "<space>l",  "<C-W>l",                               desc = "Go To Right Window" },
-  { "<space>m",  ":messages<cr>",                        desc = "Show neovim logs output" },
-  { "<space>p",  require('toolbox').show_picker,         desc = "Show toolbox picker" },
-  { "<space>t",  group = "Terminal" },
-  { "<space>tb", ":ToggleTerm direction=tab<cr>",        desc = "Toggle in tab" },
-  { "<space>th", ":ToggleTerm direction=horizontal<cr>", desc = "Toggle horizontally" }
+  { "<space>M", ":Mason<cr>",                    desc = "Open Mason package manager" },
+  { "<space>P", ":Lazy<cr>",                     desc = "Open Lazy plugin manager" },
+  { "<space>e", ":NvimTreeToggle<cr>",           desc = "File Tree" },
+  { "<space>h", "<C-W>h",                        desc = "Go To Left Window" },
+  { "<space>j", "<C-W>j",                        desc = "Go To Window Below" },
+  { "<space>k", "<C-W>k",                        desc = "Go To Upper Window" },
+  { "<space>l", "<C-W>l",                        desc = "Go To Right Window" },
+  { "<space>p", require('toolbox').show_picker,  desc = "Show toolbox picker" },
+  { "<space>t", ":ToggleTerm direction=tab<cr>", desc = "Toggle in tab" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
 wk.add({
-  { "<TAB>b",   ":Telescope buffers<cr>",                                           desc = "Open Buffer Navigator" },
   { "<TAB>c",   group = "Copilot" },
   { "<TAB>cC",  ":CopilotChatCommit<cr>",                                           desc = "Write commit message for the change with commitizen convention" },
-  { "<TAB>cd",  ":Copilot disable<cr>",                                             desc = "Copilot Disable" },
-  { "<TAB>ce",  ":Copilot enable<cr>",                                              desc = "Copilot Enable" },
   { "<TAB>ct",  ":CopilotChatToggle<cr>",                                           desc = "Toggle Copilot Chat" },
-  { "<TAB>f",   group = "Searches" },
-  { "<TAB>ff",  ":Telescope find_files<cr>",                                        desc = "Find Files" },
-  { "<TAB>fg",  ":Telescope git_files<cr>",                                         desc = "Git Files" },
-  { "<TAB>fl",  ":Telescope live_grep_args<cr>",                                    desc = "Live Grep" },
   { "<TAB>g",   group = "Git" },
-  { "<TAB>gb",  ":Telescope git_branches<cr>",                                      desc = "Git Branches" },
-  { "<TAB>gc",  ":Telescope git_commits<cr>",                                       desc = "Git Commits" },
-  { "<TAB>gd",  ":DiffviewOpen<cr>",                                                desc = "Git Diff" },
   { "<TAB>gf",  ":GitBlameOpenFileURL<cr>",                                         desc = "Open file in browser" },
-  { "<TAB>gs",  ":Telescope git_status<cr>",                                        desc = "Git Status" },
   { "<TAB>gu",  ":GitBlameOpenCommitUrl<cr>",                                       desc = "Open Commit in browser" },
   { "<TAB>l",   group = "LSP" },
   { "<TAB>lD",  group = "Diagnostics" },
@@ -47,9 +33,6 @@ wk.add({
   { "<TAB>lo",  ":Trouble lsp_outgoing_calls toggle focus=true<cr>",                desc = "Outgoing calls" },
   { "<TAB>ls",  ":Trouble lsp_document_symbols win.position=right focus=false<cr>", desc = "Symbols" },
   { "<TAB>lt",  ":Trouble lsp_type_definitions toggle focus=true<cr>",              desc = "Type definitions" },
-  { "<TAB>p",   ":Telescope neoclip<cr>",                                           desc = "Open NVim Clipboard" },
-  { "<TAB>r",   ":set invrelativenumber<cr>",                                       desc = "Relative Numbering On/Off" },
-  { "<TAB>t",   ":Telescope<cr>",                                                   desc = "Telescope" },
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
@@ -60,7 +43,6 @@ wk.add({
   { "<leader><space>o", ":BufDelOthers<cr>",                  desc = "Delete Other Buffers" },
   { "<leader><space>q", ":tabclose<cr>",                      desc = "Close Tab" },
   { "<leader><space>t", ":tabnew<cr>",                        desc = "New Tab" },
-  { "<leader>M",        ":MarkdownPreviewToggle<cr>",         desc = "Preview Markdown File" },
   { "<leader>b",        ":bprevious<cr>",                     desc = "Previous Buffer" },
   { "<leader>k",        ":tabprevious<cr>",                   desc = "Previous Tab" },
   { "<leader>l",        ":tabnext<cr>",                       desc = "Next Tab" },
@@ -86,10 +68,8 @@ wk.add({
   {
     mode = { "v" },
     { "<TAB>c",  group = "Copilot" },
-    { "<TAB>cC", ":CopilotChatCommit<cr>",   desc = "Write commit message for the change with commitizen convention" },
     { "<TAB>cD", ":CopilotChatDocs<cr>",     desc = "Write documentation for the selected code" },
     { "<TAB>cE", ":CopilotChatExplain<cr>",  desc = "Explain how it works" },
-    { "<TAB>cF", ":CopilotChatFix<cr>",      desc = "There is a problem in this code. Rewrite the code to show it with the bug fixed" },
     { "<TAB>cO", ":CopilotChatOptimize<cr>", desc = "Optimize the selected code to improve performance and readablilty" },
     { "<TAB>cT", ":CopilotChatTests<cr>",    desc = "Briefly explain how selected code works then generate unit tests" },
     { "<TAB>g",  ":GitBlameOpenFileURL<cr>", desc = "Open Selection in browser" },
