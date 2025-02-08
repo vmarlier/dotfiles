@@ -48,6 +48,7 @@ return {
   },
   { -- Enhance chatting with copilot
     "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "main",
     dependencies = {
       { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
     },

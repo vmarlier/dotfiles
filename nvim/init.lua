@@ -16,6 +16,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = "," -- set leader key
+
 -- require sub-modules - require order is important !
 require('utils.index')
 require('config.index')
