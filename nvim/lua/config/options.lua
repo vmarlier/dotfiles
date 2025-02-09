@@ -23,12 +23,12 @@ local utils = require('utils.index')
 -- Autocmd's --
 ---------------
 utils.au.nvim_create_augroups({ -- Create autocommand groups
-  -- General autocommands
-  General = {
-    { "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] },          -- allow esc
+  -- Terminal autocommands
+  Terminal = {
     { "TermOpen", "*", "startinsert" },                                   -- startinsert
     { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" }, -- no numbers
     { "TermOpen", "*", "setlocal signcolumn=no" },                        -- no signcolumn
+    --{ "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] },        -- allow esc -- replaced by key in term_custom snack style
   },
   -- File templating autocommands
   FileTemplating = {

@@ -5,15 +5,17 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.add({
-  { "<space>M", ":Mason<cr>",                   desc = "Open Mason package manager" },
-  { "<space>P", ":Lazy<cr>",                    desc = "Open Lazy plugin manager" },
-  { "<space>e", ":lua Snacks.explorer()<cr>",   desc = "File Tree" },
-  { "<space>h", "<C-W>h",                       desc = "Go To Left Window" },
-  { "<space>j", "<C-W>j",                       desc = "Go To Window Below" },
-  { "<space>k", "<C-W>k",                       desc = "Go To Upper Window" },
-  { "<space>l", "<C-W>l",                       desc = "Go To Right Window" },
-  { "<space>p", require('toolbox').show_picker, desc = "Show toolbox picker" },
-  { "<space>t", ":lua Snacks.terminal()<cr>",   desc = "Toggle terminal" },
+  { "<space>M",  ":Mason<cr>",                        desc = "Open Mason package manager" },
+  { "<space>P",  ":Lazy<cr>",                         desc = "Open Lazy plugin manager" },
+  { "<space>e",  ":lua Snacks.explorer()<cr>",        desc = "File Tree" },
+  { "<space>h",  "<C-W>h",                            desc = "Go To Left Window" },
+  { "<space>j",  "<C-W>j",                            desc = "Go To Window Below" },
+  { "<space>k",  "<C-W>k",                            desc = "Go To Upper Window" },
+  { "<space>l",  "<C-W>l",                            desc = "Go To Right Window" },
+  { "<space>p",  require('toolbox').show_picker,      desc = "Show toolbox picker" },
+  { "<space>t",  group = "Terminal" },
+  { "<space>tt", ":lua Snacks.terminal.toggle()<cr>", desc = "Toggle terminal" },
+  { "<space>tn", ":lua Snacks.terminal.open()<cr>",   desc = "Open new terminal" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix

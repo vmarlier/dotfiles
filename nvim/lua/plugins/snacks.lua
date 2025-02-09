@@ -33,7 +33,7 @@ return {
         git_untracked = true,
         follow_file = true,
         focus = "list",
-        auto_close = false,
+        auto_close = true,
         jump = { close = false },
         formatters = {
           file = { filename_only = true },
@@ -80,6 +80,7 @@ return {
         },
         style = "minimal",
       },
+      -- Picker
       picker = {
         enabled = true,
         sources = {
@@ -88,7 +89,33 @@ return {
           },
           notifier = {
             layout = { layout = { width = { min = 30, max = 0.40 } } }
-          }
+          },
+        }
+      },
+      -- Terminal
+      terminal = {
+        win = { style = "custom_terminal" }
+      },
+      -- Custom styles
+      styles = {
+        custom_terminal = {
+          height = 0.3,
+          bo = {
+            filetype = "snacks_terminal",
+          },
+          wo = {},
+          keys = {
+            q = "hide",
+            term_normal = {
+              "<esc>",
+              function()
+                vim.cmd("stopinsert")
+              end,
+              mode = "t",
+              expr = true,
+              desc = "exit term insert"
+            },
+          },
         }
       },
     },
