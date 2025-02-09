@@ -28,7 +28,7 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
     { "TermOpen", "*", "startinsert" },                                   -- startinsert
     { "TermOpen", "*", "setlocal listchars= nonumber norelativenumber" }, -- no numbers
     { "TermOpen", "*", "setlocal signcolumn=no" },                        -- no signcolumn
-    --{ "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] },        -- allow esc -- replaced by key in term_custom snack style
+    { "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] },          -- allow esc for ToggleTerm
   },
   -- File templating autocommands
   FileTemplating = {

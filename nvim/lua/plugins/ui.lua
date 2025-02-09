@@ -91,6 +91,7 @@ return {
         'ministarter',
         'snacks_picker_list',
         'snacks_terminal',
+        'toggleterm'
       }
     },
   },

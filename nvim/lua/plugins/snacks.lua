@@ -99,7 +99,7 @@ return {
       -- Custom styles
       styles = {
         custom_terminal = {
-          height = 0.3,
+          height = 0.20,
           bo = {
             filetype = "snacks_terminal",
           },

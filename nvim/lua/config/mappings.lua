@@ -14,8 +14,9 @@ wk.add({
   { "<space>l",  "<C-W>l",                            desc = "Go To Right Window" },
   { "<space>p",  require('toolbox').show_picker,      desc = "Show toolbox picker" },
   { "<space>t",  group = "Terminal" },
-  { "<space>tt", ":lua Snacks.terminal.toggle()<cr>", desc = "Toggle terminal" },
-  { "<space>tn", ":lua Snacks.terminal.open()<cr>",   desc = "Open new terminal" },
+  { "<space>tb", ":ToggleTerm direction=tab<cr>",     desc = "Open terminal tab" },
+  { "<space>tt", ":lua Snacks.terminal.toggle()<cr>", desc = "Toggle terminal in window" },
+  { "<space>tn", ":lua Snacks.terminal.open()<cr>",   desc = "Open new terminal in window" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
