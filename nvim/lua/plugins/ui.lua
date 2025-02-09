@@ -53,7 +53,7 @@ return {
         end,
         offsets = {
           {
-            filetype = "snacks_picker_list",
+            filetype = "NvimTree",
             text = "File Explorer"
           }
         },
@@ -90,8 +90,8 @@ return {
         'help',
         'ministarter',
         'snacks_picker_list',
-        'snacks_terminal',
-        'toggleterm'
+        'toggleterm',
+        'NvimTree'
       }
     },
   },
