@@ -90,7 +90,7 @@ return {
         'help',
         'ministarter',
         'snacks_picker_list',
-        'toggleterm',
+        'snacks_terminal',
       }
     },
   },

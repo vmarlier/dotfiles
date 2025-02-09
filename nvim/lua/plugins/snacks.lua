@@ -16,7 +16,6 @@ return {
       scope = { enabled = false },
       scroll = { enabled = false },
       statuscolumn = { enabled = false },
-      terminal = { enabled = false },
       toggle = { enabled = false },
       words = { enabled = false },
       -- File Explorer
