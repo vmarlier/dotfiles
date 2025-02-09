@@ -51,7 +51,12 @@ return {
           end
           return s
         end,
-        offsets = { { filetype = "NvimTree", text = "File Exporer" } },
+        offsets = {
+          {
+            filetype = "snacks_picker_list",
+            text = "File Explorer"
+          }
+        },
         show_buffer_icons = true, -- disable filetype icons for buffers
         show_buffer_close_icons = true,
         show_close_icon = false,
@@ -84,7 +89,7 @@ return {
       exclude_filetype = {
         'help',
         'ministarter',
-        'NvimTree',
+        'snacks_picker_list',
         'toggleterm',
       }
     },
