@@ -36,4 +36,19 @@ return {
       }
     }
   },
+  {
+    'simrat39/symbols-outline.nvim',
+    opts = {
+      keymaps = { -- These keymaps can be a string or a table for multiple keys
+        goto_location = "<Cr>",
+        focus_location = "o",
+        toggle_preview = "P",
+        rename_symbol = "r",
+        fold = "C",
+        unfold = "O",
+        fold_all = "M",
+        unfold_all = "R",
+      },
+    },
+  }
 }

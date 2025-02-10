@@ -184,9 +184,54 @@ return {
     "folke/edgy.nvim",
     event = "VeryLazy",
     init = function()
-      vim.opt.laststatus = 3
       vim.opt.splitkeep = "screen"
     end,
-    opts = {},
+    opts = {
+      animate = {
+        enabled = false,
+      },
+      exit_when_last = true,
+      bottom = {
+        "Trouble",
+        {
+          ft = "help",
+          size = { height = 20 },
+          -- only show help buffers
+          filter = function(buf)
+            return vim.bo[buf].buftype == "help"
+          end,
+        },
+      },
+      left = {
+        -- Neo-tree filesystem always takes half the screen height
+        {
+          title = "File Explorer",
+          ft = "neo-tree",
+          filter = function(buf)
+            return vim.b[buf].neo_tree_source == "filesystem"
+          end,
+          size = { height = 0.4 },
+        },
+        {
+          title = "Git Status",
+          ft = "neo-tree",
+          filter = function(buf)
+            return vim.b[buf].neo_tree_source == "git_status"
+          end,
+          pinned = true,
+          open = "Neotree position=right git_status",
+          size = { height = 0.3 },
+        },
+        {
+          title = "Symbols",
+          ft = "Outline",
+          pinned = true,
+          open = "SymbolsOutlineOpen",
+          size = { height = 0.3 },
+        },
+        -- any other neo-tree windows
+        "neo-tree",
+      },
+    },
   }
 }

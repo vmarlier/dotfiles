@@ -9,7 +9,23 @@ return {
   { -- Navigate code
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      highlight = {
+        backdrop = true,
+      },
+      modes = {
+        -- Activate flash during search
+        search = {
+          enabled = false,
+          highlight = { backdrop = false },
+        },
+        -- Activate flash with T,t,F,f
+        char = {
+          enabled = false,
+          highlight = { backdrop = false },
+        }
+      },
+    },
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,       desc = "Flash" },
       { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },

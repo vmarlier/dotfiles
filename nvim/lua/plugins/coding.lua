@@ -165,6 +165,7 @@ return {
   { -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
     "folke/trouble.nvim",
     opts = {
+      auto_preview = false,
       modes = {
         lsp = {
           sections = {
