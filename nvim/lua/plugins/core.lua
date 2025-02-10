@@ -37,7 +37,6 @@ return {
       local config = {
         evaluate_single = true,
         items = {
-          starter.sections.recent_files(5, true),
           { name = "Dotfiles", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('Neotree');", section = 'Perso' },
           pleo_repo,
           starter.sections.builtin_actions(),
