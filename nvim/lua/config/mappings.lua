@@ -7,7 +7,7 @@ local wk = require("which-key")
 wk.add({
   { "<space>M",  ":Mason<cr>",                    desc = "Open Mason package manager" },
   { "<space>P",  ":Lazy<cr>",                     desc = "Open Lazy plugin manager" },
-  { "<space>e",  ":NvimTreeToggle<cr>",           desc = "File Tree" },
+  { "<space>e",  ":Neotree toggle<cr>",           desc = "File Tree" },
   { "<space>h",  "<C-W>h",                        desc = "Go To Left Window" },
   { "<space>j",  "<C-W>j",                        desc = "Go To Window Below" },
   { "<space>k",  "<C-W>k",                        desc = "Go To Upper Window" },
@@ -20,21 +20,21 @@ wk.add({
 -- Keybindings for Normal Mode with "<TAB>" for prefix
 wk.add({
   { "<TAB>c",   group = "Copilot" },
-  { "<TAB>cC",  ":CopilotChatCommit<cr>",                                                               desc = "Write commit message for the change with commitizen convention" },
-  { "<TAB>ct",  ":CopilotChatToggle<cr>",                                                               desc = "Toggle Copilot Chat" },
+  { "<TAB>cC",  ":CopilotChatCommit<cr>",                                           desc = "Write commit message for the change with commitizen convention" },
+  { "<TAB>ct",  ":CopilotChatToggle<cr>",                                           desc = "Toggle Copilot Chat" },
   { "<TAB>g",   group = "Git" },
-  { "<TAB>gf",  ":GitBlameOpenFileURL<cr>",                                                             desc = "Open file in browser" },
-  { "<TAB>gu",  ":GitBlameOpenCommitUrl<cr>",                                                           desc = "Open Commit in browser" },
+  { "<TAB>gf",  ":GitBlameOpenFileURL<cr>",                                         desc = "Open file in browser" },
+  { "<TAB>gu",  ":GitBlameOpenCommitUrl<cr>",                                       desc = "Open Commit in browser" },
   { "<TAB>l",   group = "LSP" },
-  { "<TAB>li",  ":Trouble lsp_incoming_calls toggle focus=true<cr>",                                    desc = "Incoming calls" },
-  { "<TAB>ll",  ":Trouble lsp toggle focus=true<cr>",                                                   desc = "Definitions & References" },
-  { "<TAB>lo",  ":Trouble lsp_outgoing_calls toggle focus=true<cr>",                                    desc = "Outgoing calls" },
-  { "<TAB>ls",  ":Trouble lsp_document_symbols win.position=right focus=false<cr>",                     desc = "Symbols" },
-  { "<TAB>lt",  ":Trouble lsp_type_definitions toggle focus=true<cr>",                                  desc = "Type definitions" },
+  { "<TAB>li",  ":Trouble lsp_incoming_calls toggle focus=true<cr>",                desc = "Incoming calls" },
+  { "<TAB>ll",  ":Trouble lsp toggle focus=true<cr>",                               desc = "Definitions & References" },
+  { "<TAB>lo",  ":Trouble lsp_outgoing_calls toggle focus=true<cr>",                desc = "Outgoing calls" },
+  { "<TAB>ls",  ":Trouble lsp_document_symbols win.position=right focus=false<cr>", desc = "Symbols" },
+  { "<TAB>lt",  ":Trouble lsp_type_definitions toggle focus=true<cr>",              desc = "Type definitions" },
   { "<TAB>lD",  group = "Diagnostics" },
-  { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>",                              desc = "Buffer diagnostic" },
-  { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",                                           desc = "Project Diagnostic" },
-  { "<TAB>p",   ":lua Snacks.picker.lsp_symbols({layout = {preset = 'vscode', preview = 'main'}})<cr>", desc = "Symbols picker" },
+  { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>",          desc = "Buffer diagnostic" },
+  { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",                       desc = "Project Diagnostic" },
+  { "<TAB>s",   ":Trouble symbols<cr>",                                             desc = "Symbols picker" },
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix

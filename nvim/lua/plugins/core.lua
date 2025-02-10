@@ -20,7 +20,7 @@ return {
             local repo_name = trimmed_dir:match("([^/]+)$")
             if repo_name then
               local item_name = string.format("%s", repo_name)
-              local item_action = string.format(":lua vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
+              local item_action = string.format(":lua vim.cmd('cd %s'); vim.cmd('Neotree toggle');",
                 trimmed_dir)
               table.insert(items, { name = item_name, action = item_action, section = 'Pleo' })
             end
@@ -35,8 +35,8 @@ return {
       local config = {
         evaluate_single = true,
         items = {
-          starter.sections.recent_files(10, true),
-          { name = "Dotfiles", action = ":lua vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
+          starter.sections.recent_files(5, true),
+          { name = "Dotfiles", action = ":lua vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('Neotree toggle');", section = 'Perso' },
           pleo_repo,
           starter.sections.builtin_actions(),
         },
@@ -131,6 +131,7 @@ return {
           name = "Dashboard",
           execute = function()
             vim.cmd('BufDelAll');
+            vim.cmd('Neotree close');
             require('mini.starter').open();
           end,
           require_input = false,

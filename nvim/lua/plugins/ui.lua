@@ -3,7 +3,7 @@
 -----------------------------------
 -- UI Enhancements
 return {
-  { -- Improve default vim.ui interface
+  { -- Improve default vim.ui interface - e.g. used by toolbox
     "stevearc/dressing.nvim",
     opts = {
       input = {
@@ -53,7 +53,7 @@ return {
         end,
         offsets = {
           {
-            filetype = "NvimTree",
+            filetype = "neo-tree",
             text = "File Explorer"
           }
         },
@@ -91,7 +91,7 @@ return {
         'ministarter',
         'snacks_picker_list',
         'toggleterm',
-        'NvimTree'
+        'neo-tree'
       }
     },
   },
@@ -180,4 +180,13 @@ return {
       quit = false, -- don't quit Neovim when last buffer is closed
     },
   },
+  {
+    "folke/edgy.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.opt.laststatus = 3
+      vim.opt.splitkeep = "screen"
+    end,
+    opts = {},
+  }
 }
