@@ -1,6 +1,6 @@
 -- File Navigation
 return {
-  {
+  { -- File explorer
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     dependencies = {
@@ -12,8 +12,7 @@ return {
       close_if_last_window = false,
       enable_git_status = true,
       enable_diagnostics = true,
-      open_files_do_not_replace_types = { "toggleTerm", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-      default_component_configs = {
+      mdefault_component_configs = {
         file_size = {
           enabled = false,
         },
@@ -36,7 +35,7 @@ return {
       }
     }
   },
-  {
+  { -- Symbols explorer, used in edgy sidebar
     'simrat39/symbols-outline.nvim',
     opts = {
       keymaps = { -- These keymaps can be a string or a table for multiple keys
@@ -50,5 +49,14 @@ return {
         unfold_all = "R",
       },
     },
+  },
+  { -- Multicursors
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      'nvimtools/hydra.nvim',
+    },
+    opts = {},
+    cmd = { 'MCstart', 'MCvisual', 'MCclear', 'MCpattern', 'MCvisualPattern', 'MCunderCursor' },
   }
 }
