@@ -192,7 +192,11 @@ return {
       },
       exit_when_last = true,
       bottom = {
-        "Trouble",
+        {
+          title = "Trouble",
+          ft = "trouble",
+          size = { height = 0.3 },
+        },
         {
           ft = "help",
           size = { height = 20 },
