@@ -11,14 +11,13 @@ return {
       bigfile = { enabled = false },
       dashboard = { enabled = false },
       indent = { enabled = false },
+      explorer = { enabled = false },
       input = { enabled = false },
       quickfile = { enabled = false },
       scope = { enabled = false },
       scroll = { enabled = false },
       statuscolumn = { enabled = false },
-      toggle = { enabled = false },
       words = { enabled = false },
-      explorer = { enabled = false },
       -- Notification
       notifier = {
         enabled = true,
