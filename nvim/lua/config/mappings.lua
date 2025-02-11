@@ -35,6 +35,7 @@ wk.add({
   { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>",          desc = "Buffer diagnostic" },
   { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",                       desc = "Project Diagnostic" },
   { "<TAB>s",   ":Trouble symbols<cr>",                                             desc = "Symbols picker" },
+  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                         desc = "Toggle picker" }
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
@@ -57,6 +58,7 @@ wk.add({
   { "<leader>vh",       ":vertical resize -5<cr>",            desc = "Resize -5" },
   { "<leader>vl",       ":vertical resize +5<cr>",            desc = "Resize +5" },
   { "<leader>vv",       ":vsplit<cr>",                        desc = "Split Window Verticaly" },
+  { "<leader>m",        ":MCstart<cr>",                       desc = 'Create a selection for selected text or word under the cursor' }
 })
 
 -- Keybindings for Normal Mode with "z" for prefix -- Mostly folding aptitude
@@ -76,4 +78,11 @@ wk.add({
     { "<TAB>cT", ":CopilotChatTests<cr>",    desc = "Briefly explain how selected code works then generate unit tests" },
     { "<TAB>g",  ":GitBlameOpenFileURL<cr>", desc = "Open Selection in browser" },
   },
+})
+
+wk.add({
+  {
+    mode = { "v" },
+    { "<leader>m", ":MCstart<cr>", desc = 'Create a selection for selected text or word under the cursor' },
+  }
 })
