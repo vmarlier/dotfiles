@@ -34,6 +34,10 @@ return {
       -- Picker
       picker = {
         enabled = true,
+        layout = {
+          preset = "ivy_split"
+          --preset = "default"
+        },
         sources = {
           notifier = {
             layout = { layout = { width = { min = 30, max = 0.40 } } }
