@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | ASDF | 0.10.4 |
-| Neovim | NPM | 5.1.0 |
 | Neovim | Pip3 | Not Installed |
 | Neovim | Ruby | Not Installed |
+| Neovim | ASDF | 0.10.4 |
+| Neovim | NPM | 5.1.0 |
 
 ## Plugins
 
@@ -23,12 +23,11 @@
 | cmp-nvim-lsp | 99290b3 |
 | cmp-path | 91ff86c |
 | cmp-under-comparator | 6857f10 |
-| cmp_luasnip | 98d9cb5 |
 | Comment.nvim | e30b7f2 |
-| conform.nvim | 659bea2 |
+| conform.nvim | 398f515 |
 | copilot.lua | 30321e3 |
 | CopilotChat.nvim | 804d906 |
-| dressing.nvim | 5bba15b |
+| dressing.nvim | 7e9f10b |
 | edgy.nvim | 7e8dedc |
 | flash.nvim | f899265 |
 | git-blame.nvim | 2883a74 |
@@ -36,7 +35,6 @@
 | hydra.nvim | 9838529 |
 | lazy.nvim | f15a939 |
 | lualine.nvim | f4f791f |
-| LuaSnip | c9b9a22 |
 | mason-lspconfig.nvim | 805c31e |
 | mason.nvim | e2f7f90 |
 | mini.cursorword | 7d1b38a |
@@ -54,7 +52,7 @@
 | nvim-web-devicons | 1020869 |
 | plenary.nvim | 857c5ac |
 | promise-async | 119e896 |
-| snacks.nvim | a7e442b |
+| snacks.nvim | ec91859 |
 | symbols-outline.nvim | 564ee65 |
 | toggleterm.nvim | e76134e |
 | toolbox.nvim | 160fa04 |
