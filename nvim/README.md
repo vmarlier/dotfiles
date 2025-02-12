@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | Pip3 | Not Installed |
-| Neovim | Ruby | Not Installed |
 | Neovim | ASDF | 0.10.4 |
 | Neovim | NPM | 5.1.0 |
+| Neovim | Pip3 | Not Installed |
+| Neovim | Ruby | Not Installed |
 
 ## Plugins
 
@@ -25,19 +25,19 @@
 | cmp-under-comparator | 6857f10 |
 | cmp_luasnip | 98d9cb5 |
 | Comment.nvim | e30b7f2 |
-| conform.nvim | 363243c |
-| copilot.lua | 886ee73 |
-| CopilotChat.nvim | dbce8a2 |
-| dressing.nvim | 56ef6a9 |
+| conform.nvim | 659bea2 |
+| copilot.lua | 30321e3 |
+| CopilotChat.nvim | 804d906 |
+| dressing.nvim | 5bba15b |
 | edgy.nvim | 7e8dedc |
 | flash.nvim | f899265 |
 | git-blame.nvim | 2883a74 |
-| gitsigns.nvim | 4baa135 |
+| gitsigns.nvim | 2bc3b47 |
 | hydra.nvim | 9838529 |
 | lazy.nvim | f15a939 |
 | lualine.nvim | f4f791f |
 | LuaSnip | c9b9a22 |
-| mason-lspconfig.nvim | f75e877 |
+| mason-lspconfig.nvim | 805c31e |
 | mason.nvim | e2f7f90 |
 | mini.cursorword | 7d1b38a |
 | mini.starter | a816f50 |
@@ -49,13 +49,12 @@
 | nvim-bufdel | 523d58e |
 | nvim-cmp | 1250990 |
 | nvim-lspconfig | 6c17f86 |
-| nvim-notify | 22f2909 |
-| nvim-treesitter | a8401373 |
+| nvim-treesitter | 6108ba7a |
 | nvim-ufo | 81f5ffa |
-| nvim-web-devicons | 4023772 |
-| plenary.nvim | 3707cdb |
+| nvim-web-devicons | 1020869 |
+| plenary.nvim | 857c5ac |
 | promise-async | 119e896 |
-| snacks.nvim | 8edd7b4 |
+| snacks.nvim | a7e442b |
 | symbols-outline.nvim | 564ee65 |
 | toggleterm.nvim | e76134e |
 | toolbox.nvim | 160fa04 |
