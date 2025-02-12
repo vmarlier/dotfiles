@@ -54,10 +54,6 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
       vim.diagnostic.open_float(nil, { focus = false })
     end
     },
-    { "CursorHoldI", "*", nil, function()
-      vim.diagnostic.open_float(nil, { focus = false })
-    end
-    },
   },
 })
 
@@ -88,7 +84,7 @@ o.wildmenu = true                                    -- activate wild menu
 o.wildignore = '*.o,*~,*.pyc,*.DS_Store,*.git,*.svn' -- ignore compiled files
 o.ruler = true                                       -- always show current position
 o.cmdheight = 2                                      -- height of the command bar
-o.updatetime = 300                                   -- having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+o.updatetime = 400                                   -- having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
 vim.cmd('set shortmess+=c')                          -- don't pass messages to |ins-completion-menu|.
 o.hid = true                                         -- a buffer becomes hidden when it is abandoned
 o.backspace = 'eol,start,indent'                     -- configure backspace so it acts as it should act
@@ -200,5 +196,3 @@ vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = false,
 })
-
-vim.o.updatetime = 250
