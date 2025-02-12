@@ -5,7 +5,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "catppuccin-frappe" } },
+  install = { colorscheme = { "shadow" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

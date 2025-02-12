@@ -8,7 +8,6 @@ return {
     opts = {
       ensure_installed = {
         "goimports-reviser",
-        "golines",
         "shfmt"
       },
     }
@@ -140,7 +139,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        go        = { "goimports-reviser", "golines", lsp_format = "first" },
+        go        = { "goimports-reviser", lsp_format = "first" },
         terraform = { "terraform_fmt" },
         lua       = { lsp_format = "first" },
       },

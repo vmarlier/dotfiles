@@ -21,7 +21,8 @@ return {
   { -- Configurable bufferline
     "akinsho/bufferline.nvim",
     opts = {
-      highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      highlights = require("shadow").colors,
+      --highlights = require("catppuccin.groups.integrations.bufferline").get(),
       options = {
         numbers = "ordinal",
         close_command = "BufDel!",
@@ -67,32 +68,6 @@ return {
         always_show_bufferline = true,
         sort_by = 'id'
       },
-    },
-  },
-  {
-    "fgheng/winbar.nvim",
-    opts = {
-      enabled = true,
-      show_file_path = true,
-      show_symbols = true,
-      colors = {
-        path = '', -- You can customize colors like #c946fd
-        file_name = '',
-        symbols = '',
-      },
-      icons = {
-        file_icon_default = '',
-        seperator = '>',
-        editor_state = '●',
-        lock_icon = '',
-      },
-      exclude_filetype = {
-        'help',
-        'ministarter',
-        'snacks_picker_list',
-        'toggleterm',
-        'neo-tree'
-      }
     },
   },
   { -- Enhance folding capabilities
