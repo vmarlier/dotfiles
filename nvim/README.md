@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | Pip3 | Not Installed |
-| Neovim | Ruby | Not Installed |
 | Neovim | ASDF | 0.10.4 |
 | Neovim | NPM | 5.1.0 |
+| Neovim | Pip3 | Not Installed |
+| Neovim | Ruby | Not Installed |
 
 ## Plugins
 
@@ -67,8 +67,9 @@
 |--------|
 | bash-language-server |
 | dockerfile-language-server |
-| gofumpt |
 | goimports |
+| goimports-reviser |
+| golines |
 | gopls |
 | helm-ls |
 | json-lsp |
