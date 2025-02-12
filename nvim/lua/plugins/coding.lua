@@ -7,7 +7,8 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "goimports",
+        "goimports-reviser",
+        "golines",
         "shfmt"
       },
     }
@@ -24,21 +25,24 @@ return {
         "terraformls",
         "yamlls",
         "dockerls",
-      }
-    }
+      },
+    },
   },
   { -- completion engine for neovim
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      -- better sort completion items
+      "lukas-reineke/cmp-under-comparator",
+      -- nvim-cmp source for filesystem paths.
+      "hrsh7th/cmp-path",
+    },
     config = function()
-      -- luasnip setup
-      local luasnip = require('luasnip') -- luasnip
-
       -- nvim-cmp setup
       local cmp = require('cmp')
       cmp.setup {
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
         sorting = {
@@ -63,8 +67,6 @@ return {
           ['<Tab>'] = function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
             else
               fallback()
             end
@@ -72,8 +74,6 @@ return {
           ['<S-Tab>'] = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
             else
               fallback()
             end
@@ -81,66 +81,58 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'luasnip' },
           { name = 'path' },
         },
       }
     end,
   },
-  { -- nvim-cmp source for neovim's built-in language server client.
-    "hrsh7th/cmp-nvim-lsp"
-  },
-  { -- nvim-cmp source for filesystem paths.
-    "hrsh7th/cmp-path"
-  },
-  { -- better sort completion items
-    "lukas-reineke/cmp-under-comparator"
-  },
-  { -- snippet engine for Neovim
-    "L3MON4D3/LuaSnip"
-  },
-  { -- luasnip completion source for nvim-cmp
-    "saadparwaiz1/cmp_luasnip"
-  },
   { -- quickstart configs for nvim LSP
     "neovim/nvim-lspconfig",
+    dependencies = {
+      -- nvim-cmp source for neovim's built-in language server client.
+      "hrsh7th/cmp-nvim-lsp",
+    },
     config = function()
       -- Add additional options
       local on_attach = function(client, bufnr)
         local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
       end
 
       -- Add additional capabilities supported by nvim-cmp
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
       capabilities.textDocument.completion.completionItem.snippetSupport = true
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true
       }
 
-      local nvim_lsp = require('lspconfig')
-      local lsp_servers = {
-        "helm_ls",
-        "gopls",
-        "bashls",
-        "jsonls",
-        "lua_ls",
-        "terraformls",
-        "yamlls",
-        "dockerls",
+      local nvim_lsp = require("lspconfig")
+      local util = require "lspconfig/util"
+
+      nvim_lsp.gopls.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        cmd = { "gopls" },
+        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+        root_dir = util.root_pattern { "go.work", "go.mod", ".git" },
+        settings = {
+          -- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
+          gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+          },
+        },
       }
+      nvim_lsp.helm_ls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.bashls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.jsonls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.terraformls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.yamlls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.dockerls.setup { on_attach = on_attach, capabilities = capabilities }
 
-      -- see list of lsp https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-      for _, lsp in ipairs(lsp_servers) do
-        nvim_lsp[lsp].setup {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-      end
-
-      -- Levels by name: "TRACE", "DEBUG", "INFO", "WARN", "ERROR", "OFF"
       vim.lsp.set_log_level("OFF")
     end,
   },
@@ -148,7 +140,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        go        = { "goimports", lsp_format = "first" },
+        go        = { "goimports-reviser", "golines", lsp_format = "first" },
         terraform = { "terraform_fmt" },
         lua       = { lsp_format = "first" },
       },
