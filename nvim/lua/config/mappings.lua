@@ -7,7 +7,7 @@ local wk = require("which-key")
 wk.add({
   { "<space>M",  ":Mason<cr>",                                                 desc = "Open Mason package manager" },
   { "<space>P",  ":Lazy<cr>",                                                  desc = "Open Lazy plugin manager" },
-  { "<space>e",  ":Neotree toggle<cr> <bar> :lua require('edgy').close()<cr>", desc = "File Tree" },
+  { "<space>e",  ":NvimTreeToggle<cr> <bar> :lua require('edgy').close()<cr>", desc = "File Tree" },
   { "<space>h",  "<C-W>h",                                                     desc = "Go To Left Window" },
   { "<space>j",  "<C-W>j",                                                     desc = "Go To Window Below" },
   { "<space>k",  "<C-W>k",                                                     desc = "Go To Upper Window" },

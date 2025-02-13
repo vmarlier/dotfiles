@@ -162,14 +162,14 @@ return {
       local config = {
         options = {
           icons_enabled = true,
-          theme = 'catppuccin',
+          --theme = 'shadow',
           component_separators = '',
           section_separators = '',
           disabled_filetypes = {
             statusline = {},
             winbar = {},
           },
-          ignore_focus = { "neo-tree", "ministarter" },
+          ignore_focus = { "NvimTree", "neo-tree", "ministarter" },
           always_divide_middle = true,
           globalstatus = false,
           refresh = {

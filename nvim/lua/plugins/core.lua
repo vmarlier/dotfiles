@@ -22,7 +22,7 @@ return {
             if repo_name then
               local item_name = string.format("%s", repo_name)
               local item_action = string.format(
-                ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('Neotree');",
+                ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
                 trimmed_dir)
               table.insert(items, { name = item_name, action = item_action, section = 'Pleo' })
             end
@@ -37,7 +37,7 @@ return {
       local config = {
         evaluate_single = true,
         items = {
-          { name = "Dotfiles", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('Neotree');", section = 'Perso' },
+          { name = "Dotfiles", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
           pleo_repo,
           starter.sections.builtin_actions(),
         },
@@ -143,7 +143,7 @@ return {
   { -- Nvim adaptation of the famous parsing library
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "bash", "dockerfile", "go", "gomod", "terraform", "hcl",
+      ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
         "lua", "json", "yaml", "diff" }, -- one of "all", or a list of languages
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,

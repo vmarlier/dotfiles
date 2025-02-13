@@ -119,8 +119,36 @@ return {
         settings = {
           -- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
           gopls = {
+            codelenses = {
+              gc_details = false,
+              generate = true,
+              regenerate_cgo = true,
+              run_govulncheck = true,
+              test = true,
+              tidy = true,
+              upgrade_dependency = true,
+              vendor = true,
+            },
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+            analyses = {
+              nilness = true,
+              unusedparams = true,
+              unusedwrite = true,
+              useany = true,
+            },
             completeUnimported = true,
             usePlaceholders = true,
+            staticcheck = true,
+            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+            semanticTokens = true,
           },
         },
       }
@@ -139,9 +167,11 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        go        = { "goimports-reviser", lsp_format = "first" },
-        terraform = { "terraform_fmt" },
-        lua       = { lsp_format = "first" },
+        go                 = { "goimports-reviser", lsp_format = "first" },
+        terraform          = { "terraform_fmt" },
+        tf                 = { "terraform_fmt" },
+        ["terraform_vars"] = { "terraform_fmt" },
+        lua                = { lsp_format = "first" },
       },
       formatters = {
         shfmt = {
