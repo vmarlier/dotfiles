@@ -55,6 +55,12 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
     end
     },
   },
+  AutoCloseEdgy = {
+    { "BufWinLeave", "NvimTree_*", nil, function()
+      require('edgy').close()
+    end,
+    },
+  }
 })
 
 -------------
