@@ -31,6 +31,9 @@ source $(pew shell_config)
 source <(kubectl completion zsh)
 source ~/Git/valentin.marlier/backups/Access/swenv_completion.zsh
 
+### git ###
+git config --global push.default current
+
 ### asdf ###
 . "$HOME/.asdf/asdf.sh"
 
