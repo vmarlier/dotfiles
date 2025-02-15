@@ -24,19 +24,18 @@ wk.add({
 -- Keybindings for Normal Mode with "<TAB>" for prefix
 wk.add({
   { "<TAB>c",   group = "Copilot" },
-  { "<TAB>cC",  ":CopilotChatCommit<cr>",                                           desc = "Write commit message for the change with commitizen convention" },
-  { "<TAB>ct",  ":CopilotChatToggle<cr>",                                           desc = "Toggle Copilot Chat" },
+  { "<TAB>cC",  ":CopilotChatCommit<cr>",                                  desc = "Write commit message for the change with commitizen convention" },
+  { "<TAB>ct",  ":CopilotChatToggle<cr>",                                  desc = "Toggle Copilot Chat" },
   { "<TAB>l",   group = "LSP" },
-  { "<TAB>li",  ":Trouble lsp_incoming_calls toggle focus=true<cr>",                desc = "Incoming calls" },
-  { "<TAB>ll",  ":Trouble lsp toggle focus=true<cr>",                               desc = "Definitions & References" },
-  { "<TAB>lo",  ":Trouble lsp_outgoing_calls toggle focus=true<cr>",                desc = "Outgoing calls" },
-  { "<TAB>ls",  ":Trouble lsp_document_symbols win.position=right focus=false<cr>", desc = "Symbols" },
-  { "<TAB>lt",  ":Trouble lsp_type_definitions toggle focus=true<cr>",              desc = "Type definitions" },
+  { "<TAB>li",  ":Trouble lsp_incoming_calls toggle focus=true<cr>",       desc = "Incoming calls" },
+  { "<TAB>ll",  ":Trouble lsp toggle focus=true<cr>",                      desc = "Definitions & References" },
+  { "<TAB>lo",  ":Trouble lsp_outgoing_calls toggle focus=true<cr>",       desc = "Outgoing calls" },
+  { "<TAB>lt",  ":Trouble lsp_type_definitions toggle focus=true<cr>",     desc = "Type definitions" },
   { "<TAB>lD",  group = "Diagnostics" },
-  { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>",          desc = "Buffer diagnostic" },
-  { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",                       desc = "Project Diagnostic" },
-  { "<TAB>s",   ":Trouble symbols<cr>",                                             desc = "Symbols picker" },
-  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                         desc = "Toggle picker" }
+  { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>", desc = "Buffer diagnostic" },
+  { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",              desc = "Project Diagnostic" },
+  { "<TAB>s",   require("namu.namu_symbols").show,                         desc = "Symbols picker" },
+  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" }
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix

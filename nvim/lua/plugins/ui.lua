@@ -153,47 +153,4 @@ return {
       quit = false, -- don't quit Neovim when last buffer is closed
     },
   },
-  {
-    "folke/edgy.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.opt.splitkeep = "screen"
-    end,
-    opts = {
-      animate = {
-        enabled = false,
-      },
-      exit_when_last = true,
-      bottom = {
-        {
-          title = "Trouble",
-          ft = "trouble",
-          size = { height = 0.3 },
-        },
-        {
-          ft = "help",
-          size = { height = 40 },
-          -- only show help buffers
-          filter = function(buf)
-            return vim.bo[buf].buftype == "help"
-          end,
-        },
-      },
-      left = {
-        -- Neo-tree filesystem always takes half the screen height
-        {
-          title = "File Explorer",
-          ft = "NvimTree",
-          size = { height = 0.4 },
-        },
-        {
-          title = "Symbols",
-          ft = "Outline",
-          pinned = true,
-          open = "SymbolsOutlineOpen",
-          size = { height = 0.3 },
-        },
-      },
-    },
-  }
 }
