@@ -172,7 +172,7 @@ return {
         },
         {
           ft = "help",
-          size = { height = 20 },
+          size = { height = 40 },
           -- only show help buffers
           filter = function(buf)
             return vim.bo[buf].buftype == "help"
@@ -185,16 +185,6 @@ return {
           title = "File Explorer",
           ft = "NvimTree",
           size = { height = 0.4 },
-        },
-        {
-          title = "Git Status",
-          ft = "neo-tree",
-          filter = function(buf)
-            return vim.b[buf].neo_tree_source == "git_status"
-          end,
-          pinned = true,
-          open = "Neotree position=right git_status",
-          size = { height = 0.3 },
         },
         {
           title = "Symbols",
