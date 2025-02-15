@@ -15,6 +15,10 @@ wk.add({
   { "<space>p",  require('toolbox').show_picker,  desc = "Show toolbox picker" },
   { "<space>t",  group = "Terminal" },
   { "<space>tb", ":ToggleTerm direction=tab<cr>", desc = "Open terminal tab" },
+  { "<space>G",  ":Git<cr>",                      desc = "Vim Fugitive" },
+  { "<space>g",  group = "Other Git Actions" },
+  { "<space>gf", ":GitBlameOpenFileURL<cr>",      desc = "Open file in browser" },
+  { "<space>gu", ":GitBlameOpenCommitUrl<cr>",    desc = "Open Commit in browser" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
@@ -22,10 +26,6 @@ wk.add({
   { "<TAB>c",   group = "Copilot" },
   { "<TAB>cC",  ":CopilotChatCommit<cr>",                                           desc = "Write commit message for the change with commitizen convention" },
   { "<TAB>ct",  ":CopilotChatToggle<cr>",                                           desc = "Toggle Copilot Chat" },
-  { "<TAB>G",   ":Git<cr>",                                                         desc = "Vim Fugitive" },
-  { "<TAB>g",   group = "Other Git Actions" },
-  { "<TAB>gf",  ":GitBlameOpenFileURL<cr>",                                         desc = "Open file in browser" },
-  { "<TAB>gu",  ":GitBlameOpenCommitUrl<cr>",                                       desc = "Open Commit in browser" },
   { "<TAB>l",   group = "LSP" },
   { "<TAB>li",  ":Trouble lsp_incoming_calls toggle focus=true<cr>",                desc = "Incoming calls" },
   { "<TAB>ll",  ":Trouble lsp toggle focus=true<cr>",                               desc = "Definitions & References" },
