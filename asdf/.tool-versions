@@ -23,3 +23,4 @@ rust 1.77.0
 istioctl 1.22.1
 minikube 1.33.1
 kustomize 5.5.0
+starship 1.22.1
