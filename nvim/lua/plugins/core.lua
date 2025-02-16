@@ -132,7 +132,6 @@ return {
           name = "Dashboard",
           execute = function()
             vim.cmd('BufDelAll');
-            vim.cmd('Neotree close');
             require('mini.starter').open();
           end,
           require_input = false,
