@@ -1,0 +1,9 @@
+[user]
+	email = valentin.marlier@pm.me
+	name = vmarlier
+[push]
+	default = current
+[pull]
+	default = current
+[url "git@github.com:"] 
+    insteadOf = https://github.com/
