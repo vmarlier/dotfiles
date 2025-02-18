@@ -7,7 +7,7 @@
 command = "echo $STARSHIP_SHELL"  # shows output of command
 when = """ test "$STARSHIP_SHELL" != "fish" """
 style = "dimmed blue"
-format = "[$output]($style)"
+format = "[$output]($style) "
 shell =["bash"]
 
 # [custom.neovim]

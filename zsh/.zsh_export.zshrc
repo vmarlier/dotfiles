@@ -6,6 +6,7 @@ export ZSH_DISABLE_COMPFIX=true
 export GO111MODULE=on
 export PATH=$PATH:$HOME/go/bin/:/usr/local/lib/ruby/gems/2.6.0/bin:/Users/valentin.marlier/.yarn/bin
 export GOPATH=$HOME/go
+export GOPRIVATE=github.com/pleo-io
 
 ### Common
 export EDITOR="nvim"
