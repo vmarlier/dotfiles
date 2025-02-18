@@ -7,7 +7,7 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "goimports-reviser",
+        "goimports",
         "shfmt"
       },
     }
@@ -83,6 +83,7 @@ return {
           { name = 'path' },
         },
       }
+      cmp.visible_docs()
     end,
   },
   { -- quickstart configs for nvim LSP
@@ -167,7 +168,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        go                 = { "goimports-reviser", lsp_format = "first" },
+        go                 = { "goimports", lsp_format = "first" },
         terraform          = { "terraform_fmt" },
         tf                 = { "terraform_fmt" },
         ["terraform_vars"] = { "terraform_fmt" },
