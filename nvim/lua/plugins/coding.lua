@@ -173,6 +173,7 @@ return {
         tf                 = { "terraform_fmt" },
         ["terraform_vars"] = { "terraform_fmt" },
         lua                = { lsp_format = "first" },
+        json               = { lsp_format = "first" },
       },
       formatters = {
         shfmt = {
