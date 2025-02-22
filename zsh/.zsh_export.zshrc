@@ -19,3 +19,6 @@ export DOCKER_HOST="unix://${HOME}/.local/share/containers/podman/machine/podman
 
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# brew is annoying
+export HOMEBREW_NO_AUTO_UPDATE=1
