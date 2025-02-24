@@ -185,6 +185,7 @@ endfun
 vim.diagnostic.config({
   virtual_text = false,
   signs = {
+    severity = vim.diagnostic.severity.ERROR,
     text = {
       [vim.diagnostic.severity.ERROR] = '',
       [vim.diagnostic.severity.WARN] = '',
@@ -192,7 +193,9 @@ vim.diagnostic.config({
       [vim.diagnostic.severity.HINT] = '󰌵',
     },
   },
-  underline = true,
+  underline = {
+    severity = vim.diagnostic.severity.ERROR,
+  },
   update_in_insert = false,
   severity_sort = false,
 })
