@@ -15,6 +15,7 @@ wk.add({
   { "<space>p",  require('toolbox').show_picker,  desc = "Show toolbox picker" },
   { "<space>t",  group = "Terminal" },
   { "<space>tb", ":ToggleTerm direction=tab<cr>", desc = "Open terminal tab" },
+  { "<space>tt", ":ToggleTerm<cr>",               desc = "Open terminal buffer" },
   { "<space>G",  ":Git<cr>",                      desc = "Vim Fugitive" },
   { "<space>g",  group = "Other Git Actions" },
   { "<space>gf", ":GitBlameOpenFileURL<cr>",      desc = "Open file in browser" },
