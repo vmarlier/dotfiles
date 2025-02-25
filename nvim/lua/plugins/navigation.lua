@@ -25,6 +25,9 @@ return {
         filters            = {
           dotfiles = false,
         },
+        git                = {
+          enable = false,
+        },
         -- disables netrw completely
         disable_netrw      = true,
         -- hijack netrw window on startup
