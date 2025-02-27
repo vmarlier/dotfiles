@@ -70,7 +70,11 @@ return {
         actions            = {
           open_file = {
             resize_window = false,
-          }
+          },
+          change_dir = {
+            enable = true,
+            global = true,
+          },
         },
 
         view               = {
