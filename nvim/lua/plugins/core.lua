@@ -140,24 +140,74 @@ return {
       },
     },
   },
-  { -- Nvim adaptation of the famous parsing library
+  {
     "nvim-treesitter/nvim-treesitter",
+    version = false, -- last release is way too old and doesn't work on Windows
+    build = ":TSUpdate",
+    event = { "VeryLazy" },
+    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+    init = function(plugin)
+      require("lazy.core.loader").add_to_rtp(plugin)
+      require("nvim-treesitter.query_predicates")
+    end,
+    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    keys = {
+      { "<c-space>", desc = "Increment Selection" },
+      { "<bs>",      desc = "Decrement Selection", mode = "x" },
+    },
+    opts_extend = { "ensure_installed" },
     opts = {
-      ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
-        "lua", "json", "yaml", "diff" }, -- one of "all", or a list of languages
-      -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
-      auto_install = true,
+      highlight = { enable = true },
       indent = { enable = true },
-      highlight = { enable = true, additional_vim_regex_highlighting = false },
+      ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
+        "lua", "json", "yaml", "diff", "markdown" }, -- one of "all", or a list of languages
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      },
       autopairs = { enable = true },
       rainbow = {
         enable = true,
         extended_mode = true,  -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
         max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-      }
+      },
+      textobjects = {
+        move = {
+          enable = true,
+          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
+          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
+          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
+          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
+        },
+      },
     },
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
+  --{ -- Nvim adaptation of the famous parsing library
+  --  "nvim-treesitter/nvim-treesitter",
+  --  opts = {
+  --    ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
+  --      "lua", "json", "yaml", "diff" }, -- one of "all", or a list of languages
+  --    -- Install parsers synchronously (only applied to `ensure_installed`)
+  --    sync_install = false,
+  --    auto_install = true,
+  --    indent = { enable = true },
+  --    highlight = { enable = true, additional_vim_regex_highlighting = false },
+  --    autopairs = { enable = true },
+  --    rainbow = {
+  --      enable = true,
+  --      extended_mode = true,  -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+  --      max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+  --    }
+  --  },
+  --},
   { -- Terminal
     "akinsho/toggleterm.nvim",
     opts = {
