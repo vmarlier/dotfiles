@@ -188,17 +188,20 @@ return {
   { -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
     "folke/trouble.nvim",
     opts = {
-      auto_preview = false,
+      auto_preview = true,
+      preview = {
+        scratch = true,
+      },
       modes = {
         lsp = {
           sections = {
             "lsp_definitions",
             "lsp_references",
-            "lsp_incoming_calls",
-            "lsp_outgoing_calls",
+            "lsp_declarations",
+            --"lsp_incoming_calls",
+            --"lsp_outgoing_calls",
             --"lsp_implementations",
             --"lsp_type_definitions",
-            --"lsp_declarations",
           },
         },
       },
