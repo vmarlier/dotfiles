@@ -49,17 +49,6 @@ return {
       return config
     end,
     config = function(_, config)
-      -- close Lazy and re-open when starter is ready
-      if vim.o.filetype == "lazy" then
-        vim.cmd.close()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "MiniStarterOpened",
-          callback = function()
-            require("lazy").show()
-          end,
-        })
-      end
-
       local starter = require("mini.starter")
       starter.setup(config)
 
@@ -160,7 +149,7 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
       ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
-        "lua", "json", "yaml", "diff", "markdown" }, -- one of "all", or a list of languages
+        "lua", "json", "yaml", "diff", "markdown", "regex" }, -- one of "all", or a list of languages
       incremental_selection = {
         enable = true,
         keymaps = {
