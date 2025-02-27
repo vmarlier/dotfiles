@@ -5,21 +5,21 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.add({
-  { "<space>M",  ":Mason<cr>",                    desc = "Open Mason package manager" },
-  { "<space>P",  ":Lazy<cr>",                     desc = "Open Lazy plugin manager" },
-  { "<space>e",  ":NvimTreeToggle<cr>",           desc = "File Tree" },
-  { "<space>h",  "<C-W>h",                        desc = "Go To Left Window" },
-  { "<space>j",  "<C-W>j",                        desc = "Go To Window Below" },
-  { "<space>k",  "<C-W>k",                        desc = "Go To Upper Window" },
-  { "<space>l",  "<C-W>l",                        desc = "Go To Right Window" },
-  { "<space>p",  require('toolbox').show_picker,  desc = "Show toolbox picker" },
+  { "<space>M",  ":Mason<cr>",                           desc = "Open Mason package manager" },
+  { "<space>P",  ":Lazy<cr>",                            desc = "Open Lazy plugin manager" },
+  { "<space>e",  ":NvimTreeToggle<cr>",                  desc = "File Tree" },
+  { "<space>h",  "<C-W>h",                               desc = "Go To Left Window" },
+  { "<space>j",  "<C-W>j",                               desc = "Go To Window Below" },
+  { "<space>k",  "<C-W>k",                               desc = "Go To Upper Window" },
+  { "<space>l",  "<C-W>l",                               desc = "Go To Right Window" },
+  { "<space>p",  require('toolbox').show_picker,         desc = "Show toolbox picker" },
   { "<space>t",  group = "Terminal" },
-  { "<space>tb", ":ToggleTerm direction=tab<cr>", desc = "Open terminal tab" },
-  { "<space>tt", ":ToggleTerm<cr>",               desc = "Open terminal buffer" },
-  { "<space>G",  ":Git<cr>",                      desc = "Vim Fugitive" },
+  { "<space>tb", ":ToggleTerm direction=tab<cr>",        desc = "Open terminal tab" },
+  { "<space>tt", ":ToggleTerm direction=horizontal<cr>", desc = "Open terminal buffer" },
+  { "<space>G",  ":Git<cr>",                             desc = "Vim Fugitive" },
   { "<space>g",  group = "Other Git Actions" },
-  { "<space>gf", ":GitBlameOpenFileURL<cr>",      desc = "Open file in browser" },
-  { "<space>gu", ":GitBlameOpenCommitUrl<cr>",    desc = "Open Commit in browser" },
+  { "<space>gf", ":GitBlameOpenFileURL<cr>",             desc = "Open file in browser" },
+  { "<space>gu", ":GitBlameOpenCommitUrl<cr>",           desc = "Open Commit in browser" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
