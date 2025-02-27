@@ -132,6 +132,7 @@ return {
           name = "Dashboard",
           execute = function()
             vim.cmd('BufDelAll');
+            vim.cmd('NvimTreeClose');
             require('mini.starter').open();
           end,
           require_input = false,
