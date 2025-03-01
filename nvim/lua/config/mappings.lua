@@ -17,7 +17,7 @@ wk.add({
   { "<space>tb", ":ToggleTerm direction=tab<cr>",        desc = "Open terminal tab" },
   { "<space>tt", ":ToggleTerm direction=horizontal<cr>", desc = "Open terminal buffer" },
   { "<space>G",  ":Git<cr>",                             desc = "Vim Fugitive" },
-  { "<space>g",  require("snacks").gitbrowse(),          desc = "Open Selection in browser" },
+  { "<space>g",  ":lua Snacks.gitbrowse()<cr>",          desc = "Open Selection in browser" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
@@ -34,15 +34,15 @@ wk.add({
   { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>", desc = "Buffer diagnostic" },
   { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",              desc = "Project Diagnostic" },
   { "<TAB>s",   require("namu.namu_symbols").show,                         desc = "Symbols picker" },
-  { "<TAB>p",   require("snacks").picker(),                                desc = "Toggle picker" }
+  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" }
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
 wk.add({
   { "<leader><space>",  group = "Buffer/Tab Management" },
-  { "<leader><space>c", require("snacks").bufdelete.all(),    desc = "Delete All Buffers" },
-  { "<leader><space>d", require("snacks").bufdelete(),        desc = "Delete Current Buffer" },
-  { "<leader><space>o", require("snacks").bufdelete.other(),  desc = "Delete Other Buffers" },
+  { "<leader><space>c", ":lua Snacks.bufdelete.all()<cr>",    desc = "Delete All Buffers" },
+  { "<leader><space>d", ":lua Snacks.bufdelete()<cr>",        desc = "Delete Current Buffer" },
+  { "<leader><space>o", ":lua Snacks.bufdelete.other()<cr>",  desc = "Delete Other Buffers" },
   { "<leader><space>q", ":tabclose<cr>",                      desc = "Close Tab" },
   { "<leader><space>t", ":tabnew<cr>",                        desc = "New Tab" },
   { "<leader>b",        ":bprevious<cr>",                     desc = "Previous Buffer" },
@@ -82,7 +82,7 @@ wk.add({
     { "<TAB>cE", ":CopilotChatExplain<cr>",     desc = "Explain how it works" },
     { "<TAB>cO", ":CopilotChatOptimize<cr>",    desc = "Optimize the selected code to improve performance and readablilty" },
     { "<TAB>cT", ":CopilotChatTests<cr>",       desc = "Briefly explain how selected code works then generate unit tests" },
-    { "<TAB>g",  require("snacks").gitbrowse(), desc = "Open Selection in browser" },
+    { "<TAB>g",  ":lua Snacks.gitbrowse()<cr>", desc = "Open Selection in browser" },
   },
 })
 
