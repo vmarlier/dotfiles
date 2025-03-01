@@ -3,17 +3,6 @@
 -----------------------------------
 -- UI Enhancements
 return {
-  { -- Improve default vim.ui interface - e.g. used by toolbox
-    "stevearc/dressing.nvim",
-    opts = {
-      input = {
-        enabled = false,
-      },
-      select = {
-        enabled = true,
-      },
-    }
-  },
   { -- Devicons
     "nvim-tree/nvim-web-devicons",
     opts = {},
