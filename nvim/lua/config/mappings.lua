@@ -17,9 +17,7 @@ wk.add({
   { "<space>tb", ":ToggleTerm direction=tab<cr>",        desc = "Open terminal tab" },
   { "<space>tt", ":ToggleTerm direction=horizontal<cr>", desc = "Open terminal buffer" },
   { "<space>G",  ":Git<cr>",                             desc = "Vim Fugitive" },
-  { "<space>g",  group = "Other Git Actions" },
-  { "<space>gf", ":GitBlameOpenFileURL<cr>",             desc = "Open file in browser" },
-  { "<space>gu", ":GitBlameOpenCommitUrl<cr>",           desc = "Open Commit in browser" },
+  { "<space>g",  require("snacks").gitbrowse(),          desc = "Open Selection in browser" },
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
@@ -80,11 +78,11 @@ wk.add({
   {
     mode = { "v" },
     { "<TAB>c",  group = "Copilot" },
-    { "<TAB>cD", ":CopilotChatDocs<cr>",     desc = "Write documentation for the selected code" },
-    { "<TAB>cE", ":CopilotChatExplain<cr>",  desc = "Explain how it works" },
-    { "<TAB>cO", ":CopilotChatOptimize<cr>", desc = "Optimize the selected code to improve performance and readablilty" },
-    { "<TAB>cT", ":CopilotChatTests<cr>",    desc = "Briefly explain how selected code works then generate unit tests" },
-    { "<TAB>g",  ":GitBlameOpenFileURL<cr>", desc = "Open Selection in browser" },
+    { "<TAB>cD", ":CopilotChatDocs<cr>",        desc = "Write documentation for the selected code" },
+    { "<TAB>cE", ":CopilotChatExplain<cr>",     desc = "Explain how it works" },
+    { "<TAB>cO", ":CopilotChatOptimize<cr>",    desc = "Optimize the selected code to improve performance and readablilty" },
+    { "<TAB>cT", ":CopilotChatTests<cr>",       desc = "Briefly explain how selected code works then generate unit tests" },
+    { "<TAB>g",  require("snacks").gitbrowse(), desc = "Open Selection in browser" },
   },
 })
 
