@@ -67,6 +67,11 @@ return {
       })
     end
   },
+  { -- Highlight words matching under cursor
+    "echasnovski/mini.cursorword",
+    version = "*",
+    opts = {},
+  },
   { -- Trim space or whiteline easily
     "echasnovski/mini.trailspace",
     version = "*",
