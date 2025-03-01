@@ -62,6 +62,13 @@ wk.add({
   { "<leader>m",        ":MCstart<cr>",                       desc = 'Create a selection for selected text or word under the cursor' }
 })
 
+
+-- Keybindings for Normal Mode with "<leader>" for prefix
+wk.add({
+  { "<C-j>", "<C-d>", desc = "Smooth scroll down" },
+  { "<C-k>", "<C-u>", desc = "Smooth scroll up" },
+})
+
 -- Keybindings for Normal Mode with "z" for prefix -- Mostly folding aptitude
 wk.add({
   { "zM", require('ufo').closeAllFolds, desc = "Close all folds" },
