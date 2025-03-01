@@ -173,11 +173,4 @@ return {
   --    }
   --  },
   --},
-  { -- Terminal
-    "akinsho/toggleterm.nvim",
-    opts = {
-      size = 15,
-      direction = 'horizontal'
-    },
-  },
 }
