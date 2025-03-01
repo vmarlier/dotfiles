@@ -34,7 +34,8 @@ wk.add({
   { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>", desc = "Buffer diagnostic" },
   { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",              desc = "Project Diagnostic" },
   { "<TAB>s",   require("namu.namu_symbols").show,                         desc = "Symbols picker" },
-  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" }
+  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" },
+  { "<TAB>z",   ":lua Snacks.zen()<cr>",                                   desc = "Toggle zen mode" }
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
