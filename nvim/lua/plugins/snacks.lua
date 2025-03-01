@@ -10,13 +10,44 @@ return {
     opts = {
       bigfile = { enabled = false },
       dashboard = { enabled = false },
-      indent = { enabled = false },
       explorer = { enabled = false },
       input = { enabled = false },
       quickfile = { enabled = false },
       scope = { enabled = false },
       statuscolumn = { enabled = false },
       words = { enabled = false },
+      -- Indent guide
+      indent = {
+        indent = { enabled = false },
+        animate = { enabled = false },
+        scope = {
+          enabled = true,
+          priority = 200,
+          char = "│",
+          underline = false,
+          only_current = true,
+          hl = "SnacksIndent",
+        },
+        chunk = {
+          enabled = true,
+          only_current = true,
+          priority = 200,
+          hl = "SnacksIndent",
+          char = {
+            -- corner_top = "┌",
+            -- corner_bottom = "└",
+            corner_top = "╭",
+            corner_bottom = "╰",
+            horizontal = "─",
+            vertical = "│",
+            arrow = "─",
+          },
+        },
+        -- filter for buffers to enable indent guides
+        filter = function(buf)
+          return vim.g.snacks_indent ~= false and vim.b[buf].snacks_indent ~= false and vim.bo[buf].buftype == ""
+        end,
+      },
       -- Smooth scrolling
       scroll = {
         animate = {
