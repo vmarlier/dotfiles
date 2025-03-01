@@ -61,7 +61,7 @@
     "Red Component" : 0.77647058823529413,
     "Color Space" : "sRGB",
     "Blue Component" : 0.96078431372549022,
-    "Alpha Component" : 0.070000000000000007,
+    "Alpha Component" : 0.070000000000000034,
     "Green Component" : 0.81568627450980391
   },
   "BM Growl" : true,
@@ -110,19 +110,6 @@
       "Text" : "0x17",
       "Label" : ""
     },
-    "0xf702-0x280000-0x7b" : {
-      "Version" : 1,
-      "Action" : 10,
-      "Text" : "b",
-      "Label" : ""
-    },
-    "0x76-0x140000-0x9" : {
-      "Version" : 2,
-      "Apply Mode" : 0,
-      "Action" : 66,
-      "Text" : "[{\"Version\":2,\"Apply Mode\":0,\"Action\":27,\"Text\":\"9228AAB5-FBB5-4CCE-A198-7D527C946B5E\",\"Escaping\":2},{\"Version\":2,\"Apply Mode\":0,\"Action\":12,\"Text\":\"nvim\",\"Escaping\":2},{\"Version\":2,\"Apply Mode\":0,\"Action\":11,\"Text\":\"000D\",\"Escaping\":2}]",
-      "Escaping" : 2
-    },
     "0x6b-0x140000-0x28" : {
       "Version" : 2,
       "Apply Mode" : 0,
@@ -136,17 +123,16 @@
       "Text" : "f",
       "Label" : ""
     },
-    "0x67-0x140000-0x5" : {
-      "Version" : 2,
-      "Apply Mode" : 0,
-      "Action" : 66,
-      "Text" : "[{\"Version\":2,\"Apply Mode\":0,\"Action\":27,\"Text\":\"9228AAB5-FBB5-4CCE-A198-7D527C946B5E\",\"Escaping\":2},{\"Version\":2,\"Apply Mode\":0,\"Action\":12,\"Text\":\"lazygit\",\"Escaping\":2},{\"Version\":2,\"Apply Mode\":0,\"Action\":11,\"Text\":\"000D\",\"Escaping\":2}]",
-      "Escaping" : 2
-    },
     "0x7f-0x100000-0x33" : {
       "Version" : 1,
       "Action" : 11,
       "Text" : "0x15",
+      "Label" : ""
+    },
+    "0xf702-0x280000-0x7b" : {
+      "Version" : 1,
+      "Action" : 10,
+      "Text" : "b",
       "Label" : ""
     }
   },
@@ -293,6 +279,9 @@
   "Screen" : -1,
   "AWDS Window Option" : "No",
   "Initial Use Transparency" : true,
+  "Bound Hosts" : [
+
+  ],
   "Non Ascii Font" : "Monaco 12",
   "Ansi 13 Color" : {
     "Red Component" : 0.73725490196078436,
