@@ -67,11 +67,6 @@ return {
       })
     end
   },
-  { -- Trim space or whiteline easily
-    "echasnovski/mini.trailspace",
-    version = "*",
-    opts = {},
-  },
   { -- Custom neovim function invokable from ui
     "DanWlker/toolbox.nvim",
     opts = {
@@ -88,20 +83,6 @@ return {
           execute = function()
             vim.cmd("cd %:p:h");
             vim.cmd("pwd");
-          end,
-          require_input = false,
-        },
-        {
-          name = "Trim trailing whitespaces",
-          execute = function()
-            require('mini.trailspace').trim()
-          end,
-          require_input = false,
-        },
-        {
-          name = "Trim trailing lines",
-          execute = function()
-            require('mini.trailspace').trim_last_lines()
           end,
           require_input = false,
         },
