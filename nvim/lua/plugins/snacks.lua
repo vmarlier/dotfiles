@@ -98,7 +98,6 @@ return {
       },
       styles = {
         terminal = {
-          height = 15,
           bo = {
             filetype = "snacks_terminal",
           },
