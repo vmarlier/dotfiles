@@ -36,15 +36,15 @@ wk.add({
   { "<TAB>lDd", ":Trouble diagnostics toggle filter.buf=0 focus=true<cr>", desc = "Buffer diagnostic" },
   { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",              desc = "Project Diagnostic" },
   { "<TAB>s",   require("namu.namu_symbols").show,                         desc = "Symbols picker" },
-  { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" }
+  { "<TAB>p",   require("snacks").picker(),                                desc = "Toggle picker" }
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
 wk.add({
   { "<leader><space>",  group = "Buffer/Tab Management" },
-  { "<leader><space>c", ":BufDelAll<cr>",                     desc = "Delete All Buffers" },
-  { "<leader><space>d", ":BufDel!<cr>",                       desc = "Delete Current Buffer" },
-  { "<leader><space>o", ":BufDelOthers<cr>",                  desc = "Delete Other Buffers" },
+  { "<leader><space>c", require("snacks").bufdelete.all(),    desc = "Delete All Buffers" },
+  { "<leader><space>d", require("snacks").bufdelete(),        desc = "Delete Current Buffer" },
+  { "<leader><space>o", require("snacks").bufdelete.other(),  desc = "Delete Other Buffers" },
   { "<leader><space>q", ":tabclose<cr>",                      desc = "Close Tab" },
   { "<leader><space>t", ":tabnew<cr>",                        desc = "New Tab" },
   { "<leader>b",        ":bprevious<cr>",                     desc = "Previous Buffer" },

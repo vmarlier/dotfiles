@@ -23,11 +23,8 @@ return {
     opts = {
       options = {
         numbers = "ordinal",
-        close_command = "BufDel!",
         indicator = { style = "icon", icon = "▎" },
-        buffer_close_icon = '',
         modified_icon = '●',
-        close_icon = '',
         left_trunc_marker = '',
         right_trunc_marker = '',
         name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
@@ -57,7 +54,7 @@ return {
           }
         },
         show_buffer_icons = true, -- disable filetype icons for buffers
-        show_buffer_close_icons = true,
+        show_buffer_close_icons = false,
         show_close_icon = false,
         show_tab_indicators = true,
         persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
@@ -145,12 +142,5 @@ return {
   { -- Commenting tool
     "numToStr/Comment.nvim",
     opts = {},
-  },
-  { -- Easily close/delete buffers
-    "ojroques/nvim-bufdel",
-    opts = {
-      next = 'tabs',
-      quit = false, -- don't quit Neovim when last buffer is closed
-    },
   },
 }
