@@ -96,7 +96,7 @@ return {
         {
           name = "Dashboard",
           execute = function()
-            vim.cmd('BufDelAll');
+            require('snacks').bufdelete.all();
             vim.cmd('NvimTreeClose');
             require('mini.starter').open();
           end,
