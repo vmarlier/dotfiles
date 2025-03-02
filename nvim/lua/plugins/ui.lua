@@ -132,4 +132,10 @@ return {
     "numToStr/Comment.nvim",
     opts = {},
   },
+  { -- Highlight cursorword
+    "echasnovski/mini.cursorword",
+    opts = {
+      delay = 100,
+    }
+  },
 }
