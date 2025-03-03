@@ -128,10 +128,6 @@ return {
       }
     },
   },
-  { -- Commenting tool
-    "numToStr/Comment.nvim",
-    opts = {},
-  },
   { -- Highlight cursorword
     "echasnovski/mini.cursorword",
     opts = {
