@@ -124,7 +124,7 @@ return {
     opts = {
       disable_filetype = {
         "copilot-chat",
-        "toggleterm"
+        "snacks_terminal"
       }
     },
   },

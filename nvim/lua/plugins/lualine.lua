@@ -171,6 +171,7 @@ return {
           },
           ignore_focus = { "gitcommit", "Outline", "fugitive", "NvimTree", "neo-tree", "ministarter" },
           always_divide_middle = true,
+          always_show_tabline = false,
           globalstatus = false,
           refresh = {
             statusline = 1000,
@@ -195,9 +196,6 @@ return {
           lualine_y = {},
           lualine_z = {}
         },
-        tabline = {},
-        winbar = {},
-        inactive_winbar = {},
         extensions = {}
       }
       return config
