@@ -35,7 +35,8 @@ wk.add({
   { "<TAB>lDp", ":Trouble diagnostics toggle focus=true<cr>",              desc = "Project Diagnostic" },
   { "<TAB>s",   require("namu.namu_symbols").show,                         desc = "Symbols picker" },
   { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" },
-  { "<TAB>z",   ":lua Snacks.zen()<cr>",                                   desc = "Toggle zen mode" }
+  { "<TAB>z",   ":lua Snacks.zen()<cr>",                                   desc = "Toggle zen mode" },
+  { "<TAB>b",   ":lua Snacks.picker.buffers()<cr>",                        desc = "Buffer Picker" },
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
@@ -48,7 +49,6 @@ wk.add({
   { "<leader><space>t", ":tabnew<cr>",                        desc = "New Tab" },
   { "<leader>k",        ":tabprevious<cr>",                   desc = "Previous Tab" },
   { "<leader>l",        ":tabnext<cr>",                       desc = "Next Tab" },
-  { "<leader>p",        ":lua Snacks.picker.buffers()<cr>",   desc = "Buffer Picker" },
   { "<leader>n",        ":bnext<cr>",                         desc = "Next Buffer" },
   { "<leader>b",        ":bprevious<cr>",                     desc = "Previous Buffer" },
   { "<leader>s",        group = "Horizontal Split Management" },
