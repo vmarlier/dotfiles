@@ -5,19 +5,12 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.add({
-  { "<space>M",  ":Mason<cr>",                                   desc = "Open Mason package manager" },
-  { "<space>P",  ":Lazy<cr>",                                    desc = "Open Lazy plugin manager" },
-  { "<space>e",  ":NvimTreeToggle<cr>",                          desc = "File Tree" },
-  { "<space>h",  "<C-W>h",                                       desc = "Go To Left Window" },
-  { "<space>j",  "<C-W>j",                                       desc = "Go To Window Below" },
-  { "<space>k",  "<C-W>k",                                       desc = "Go To Upper Window" },
-  { "<space>l",  "<C-W>l",                                       desc = "Go To Right Window" },
-  { "<space>p",  require('toolbox').show_picker,                 desc = "Show toolbox picker" },
-  { "<space>t",  ":lua require('snacks').terminal.toggle()<cr>", desc = "Toggle terminal" },
-  { "<space>g",  group = "Git" },
-  { "<space>gf", ":Git<cr>",                                     desc = "Vim Fugitive" },
-  { "<space>gb", ":lua Snacks.gitbrowse()<cr>",                  desc = "Open Selection in browser" },
-  { "<space>gl", ":lua Snacks.lazygit()<cr>",                    desc = "Open Selection in browser" },
+  { "<space>e", ":NvimTreeToggle<cr>",          desc = "File Tree" },
+  { "<space>h", "<C-W>h",                       desc = "Go To Left Window" },
+  { "<space>j", "<C-W>j",                       desc = "Go To Window Below" },
+  { "<space>k", "<C-W>k",                       desc = "Go To Upper Window" },
+  { "<space>l", "<C-W>l",                       desc = "Go To Right Window" },
+  { "<space>p", require('toolbox').show_picker, desc = "Show toolbox picker" }, -- replace by custom snacks picker source
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
@@ -37,6 +30,13 @@ wk.add({
   { "<TAB>p",   ":lua Snacks.picker()<cr>",                                desc = "Toggle picker" },
   { "<TAB>z",   ":lua Snacks.zen()<cr>",                                   desc = "Toggle zen mode" },
   { "<TAB>b",   ":lua Snacks.picker.buffers()<cr>",                        desc = "Buffer Picker" },
+  { "<TAB>g",   group = "Git" },
+  { "<TAB>gf",  ":Git<cr>",                                                desc = "Vim Fugitive" },
+  { "<TAB>gb",  ":lua Snacks.gitbrowse()<cr>",                             desc = "Open Selection in browser" },
+  { "<TAB>gl",  ":lua Snacks.lazygit()<cr>",                               desc = "Open Selection in browser" },
+  { "<TAB>t",   ":lua require('snacks').terminal.toggle()<cr>",            desc = "Toggle terminal" },
+  { "<TAB>M",   ":Mason<cr>",                                              desc = "Open Mason package manager" },
+  { "<TAB>P",   ":Lazy<cr>",                                               desc = "Open Lazy plugin manager" },
 })
 
 -- Keybindings for Normal Mode with "<leader>" for prefix
@@ -59,7 +59,6 @@ wk.add({
   { "<leader>vh",       ":vertical resize -5<cr>",            desc = "Resize -5" },
   { "<leader>vl",       ":vertical resize +5<cr>",            desc = "Resize +5" },
   { "<leader>vv",       ":vsplit<cr>",                        desc = "Split Window Verticaly" },
-  { "<leader>m",        ":MCstart<cr>",                       desc = 'Create a selection for selected text or word under the cursor' }
 })
 
 
