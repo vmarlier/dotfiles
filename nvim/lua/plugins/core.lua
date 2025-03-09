@@ -22,7 +22,7 @@ return {
             if repo_name then
               local item_name = string.format("%s", repo_name)
               local item_action = string.format(
-                ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
+                ":lua require('mini.starter').close(); vim.cmd('cd %s'); Snacks.explorer.open();",
                 trimmed_dir)
               table.insert(items, { name = item_name, action = item_action, section = 'Pleo' })
             end
@@ -37,8 +37,8 @@ return {
       local config = {
         evaluate_single = true,
         items = {
-          { name = "Dotfiles",     action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');",     section = 'Perso' },
-          { name = "Dummy-tester", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dummy-tester'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
+          { name = "Dotfiles",     action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); Snacks.explorer.open();",     section = 'Perso' },
+          { name = "Dummy-tester", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dummy-tester'); Snacks.explorer.open();", section = 'Perso' },
           pleo_repo,
           starter.sections.builtin_actions(),
         },
@@ -98,7 +98,7 @@ return {
           name = "Dashboard",
           execute = function()
             require('snacks').bufdelete.all();
-            vim.cmd('NvimTreeClose');
+            require('snacks').explorer.open();
             require('mini.starter').open();
           end,
           require_input = false,

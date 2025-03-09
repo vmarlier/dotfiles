@@ -5,12 +5,12 @@ local wk = require("which-key")
 
 -- Keybindings for Normal Mode with "<space>" for prefix
 wk.add({
-  { "<space>e", ":NvimTreeToggle<cr>",          desc = "File Tree" },
-  { "<space>h", "<C-W>h",                       desc = "Go To Left Window" },
-  { "<space>j", "<C-W>j",                       desc = "Go To Window Below" },
-  { "<space>k", "<C-W>k",                       desc = "Go To Upper Window" },
-  { "<space>l", "<C-W>l",                       desc = "Go To Right Window" },
-  { "<space>p", require('toolbox').show_picker, desc = "Show toolbox picker" }, -- replace by custom snacks picker source
+  { "<space>e", ":lua Snacks.explorer.open()<cr>", desc = "File Tree" },
+  { "<space>h", "<C-W>h",                          desc = "Go To Left Window" },
+  { "<space>j", "<C-W>j",                          desc = "Go To Window Below" },
+  { "<space>k", "<C-W>k",                          desc = "Go To Upper Window" },
+  { "<space>l", "<C-W>l",                          desc = "Go To Right Window" },
+  { "<space>p", require('toolbox').show_picker,    desc = "Show toolbox picker" }, -- replace by custom snacks picker source
 })
 
 -- Keybindings for Normal Mode with "<TAB>" for prefix
