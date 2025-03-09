@@ -37,7 +37,8 @@ return {
       local config = {
         evaluate_single = true,
         items = {
-          { name = "Dotfiles", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
+          { name = "Dotfiles",     action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');",     section = 'Perso' },
+          { name = "Dummy-tester", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dummy-tester'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
           pleo_repo,
           starter.sections.builtin_actions(),
         },
