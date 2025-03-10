@@ -10,9 +10,7 @@ return {
     opts = {
       bigfile = { enabled = false },
       dashboard = { enabled = false },
-      explorer = {
-        enabled = true,
-      },
+      explorer = { enabled = false },
       input = { enabled = false },
       quickfile = { enabled = false },
       scope = { enabled = false },
@@ -96,9 +94,6 @@ return {
           notifier = {
             layout = { layout = { width = { min = 30, max = 0.40 } } }
           },
-          explorer = {
-            replace_netrw = true, -- Replace netrw with the snacks explorer
-          }
         }
       },
       styles = {

@@ -169,7 +169,7 @@ return {
             statusline = {},
             winbar = {},
           },
-          ignore_focus = { "gitcommit", "fugitive", "snacks_picker_list", "ministarter" },
+          ignore_focus = { "gitcommit", "Outline", "fugitive", "NvimTree", "neo-tree", "ministarter" },
           always_divide_middle = true,
           always_show_tabline = false,
           globalstatus = false,
