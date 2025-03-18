@@ -24,6 +24,7 @@ return {
         "terraformls",
         "yamlls",
         "dockerls",
+        "marksman"
       },
     },
   },
@@ -160,6 +161,7 @@ return {
       nvim_lsp.terraformls.setup { on_attach = on_attach, capabilities = capabilities }
       nvim_lsp.yamlls.setup { on_attach = on_attach, capabilities = capabilities }
       nvim_lsp.dockerls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.marksman.setup { on_attach = on_attach, capabilities = capabilities }
 
       vim.highlight.priorities.semantic_tokens = 95 -- avoid overriding treesitter highlight which is priority 100
       vim.lsp.set_log_level("OFF")

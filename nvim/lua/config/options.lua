@@ -74,7 +74,11 @@ vim.cmd('let g:loaded_node_provider=0')    -- deactivate node provider (avoid er
 vim.cmd('let g:loaded_perl_provider=0')    -- deactivate perl provider (avoid errors on :checkhealth)
 vim.cmd('let g:loaded_python3_provider=0') -- deactivate perl provider (avoid errors on :checkhealth)
 
--- For foldcolumn config check plugins/config/nvim-ufo.lua
+vim.filetype.add({
+  extension = {
+    mdx = "markdown",
+  }
+})
 
 ------------------------
 -- VIM user interface --
