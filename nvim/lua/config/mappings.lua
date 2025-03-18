@@ -68,10 +68,11 @@ wk.add({
   { "<C-k>", "<C-u>", desc = "Smooth scroll up" },
 })
 
--- Keybindings for Normal Mode with "z" for prefix -- Mostly folding aptitude
+-- Keybindings for Normal Mode
 wk.add({
   { "zM", require('ufo').closeAllFolds, desc = "Close all folds" },
   { "zR", require('ufo').openAllFolds,  desc = "Open all folds" },
+  { "U",  "<C-r>",                      desc = "redo" },
 })
 
 -- Keybindings for Visual modes with "<TAB>" for prefix

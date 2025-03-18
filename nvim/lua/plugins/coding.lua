@@ -149,7 +149,7 @@ return {
             usePlaceholders = true,
             staticcheck = true,
             directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-            semanticTokens = true,
+            semanticTokens = false,
           },
         },
       }
@@ -161,6 +161,7 @@ return {
       nvim_lsp.yamlls.setup { on_attach = on_attach, capabilities = capabilities }
       nvim_lsp.dockerls.setup { on_attach = on_attach, capabilities = capabilities }
 
+      vim.highlight.priorities.semantic_tokens = 95 -- avoid overriding treesitter highlight which is priority 100
       vim.lsp.set_log_level("OFF")
     end,
   },
