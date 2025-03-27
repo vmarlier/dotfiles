@@ -30,10 +30,6 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
     { "TermOpen", "*", "setlocal signcolumn=no" },                        -- no signcolumn
     --{ "TermOpen", "*", [[tnoremap <buffer> <Esc> <c-\><c-n>]] },          -- allow esc for ToggleTerm
   },
-  -- File templating autocommands
-  FileTemplating = {
-    { "BufNewFile", "Readme.md", "0r ~/.config/nvim/lua/utils/templates/template.readme.md" },
-  },
   -- Text, tab and indent related autocommands
   TextTabIndent = {
     { "FileType", "yaml",      "setlocal ts=2 sts=2 sw=2 expandtab" },
