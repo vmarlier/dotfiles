@@ -33,7 +33,7 @@ wk.add({
   { "<TAB>g",   group = "Git" },
   { "<TAB>gf",  ":Git<cr>",                                                desc = "Vim Fugitive" },
   { "<TAB>gb",  ":lua Snacks.gitbrowse()<cr>",                             desc = "Open Selection in browser" },
-  { "<TAB>gl",  ":lua Snacks.lazygit()<cr>",                               desc = "Open Selection in browser" },
+  { "<TAB>gl",  ":lua Snacks.lazygit()<cr>",                               desc = "Open Lazygit" },
   { "<TAB>t",   ":lua require('snacks').terminal.toggle()<cr>",            desc = "Toggle terminal" },
   { "<TAB>M",   ":Mason<cr>",                                              desc = "Open Mason package manager" },
   { "<TAB>P",   ":Lazy<cr>",                                               desc = "Open Lazy plugin manager" },
