@@ -103,6 +103,7 @@ o.tm = 500                                           --
 o.laststatus = 2
 o.completeopt =
 'menuone,noselect' -- set completeopt to have a better completion experience see https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
+vim.opt.fillchars = { eob = " " }
 
 ----------------------
 -- Colors and Fonts --
