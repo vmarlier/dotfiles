@@ -154,7 +154,17 @@ return {
           },
         },
       }
-      nvim_lsp.helm_ls.setup { on_attach = on_attach, capabilities = capabilities }
+      nvim_lsp.helm_ls.setup {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          ['helm-ls'] = {
+            yamlls = {
+              path = "yaml-language-server",
+            }
+          }
+        }
+      }
       nvim_lsp.bashls.setup { on_attach = on_attach, capabilities = capabilities }
       nvim_lsp.jsonls.setup { on_attach = on_attach, capabilities = capabilities }
       nvim_lsp.lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
@@ -210,4 +220,20 @@ return {
       },
     }
   },
+  {
+    "qvalentin/helm-ls.nvim",
+    ft = "helm",
+    opts = {
+      conceal_templates = {
+        -- enable the replacement of templates with virtual text of their current values
+        enabled = true, -- this might change to false in the future
+      },
+      indent_hints = {
+        -- enable hints for indent and nindent functions
+        enabled = true,
+        -- show the hints only for the line the cursor is on
+        only_for_current_line = true,
+      },
+    },
+  }
 }
