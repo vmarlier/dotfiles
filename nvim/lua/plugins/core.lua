@@ -37,8 +37,8 @@ return {
       local config = {
         evaluate_single = true,
         items = {
-          { name = "Dotfiles",     action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');",     section = 'Perso' },
-          { name = "Dummy-tester", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dummy-tester'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
+          { name = "Dotfiles", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
+          { name = "Spot",     action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/spot'); vim.cmd('NvimTreeToggle');",     section = 'Perso' },
           pleo_repo,
           starter.sections.builtin_actions(),
         },
@@ -127,7 +127,7 @@ return {
       highlight = { enable = true },
       indent = { enable = true },
       ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
-        "lua", "json", "yaml", "diff", "markdown", "regex" }, -- one of "all", or a list of languages
+        "lua", "json", "yaml", "diff", "markdown", "regex", "helm" }, -- one of "all", or a list of languages
       incremental_selection = {
         enable = true,
         keymaps = {
