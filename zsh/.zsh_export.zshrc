@@ -28,3 +28,6 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # brew is annoying
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# default editor for man
+export MANPAGER="nvim +Man!"
