@@ -14,6 +14,8 @@ alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         --env=ETCDCTL_ENDPOINTS="http://etcd-minio.etcd.svc.cluster.local:2379" \
         -- sh"
 alias kgetpdb="kubectl get pdb -A -o json | jq -r '.items[] | select(.status.disruptionsAllowed == 0) | .metadata.name'"
+alias kaf="kubectl apply -f"
+alias kdf="kubectl delete -f"
 
 ### i'm even more lazy
 alias lg="lazygit"
