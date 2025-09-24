@@ -32,10 +32,11 @@ utils.au.nvim_create_augroups({ -- Create autocommand groups
   },
   -- Text, tab and indent related autocommands
   TextTabIndent = {
-    { "FileType", "yaml",      "setlocal ts=2 sts=2 sw=2 expandtab" },
-    { "FileType", "lua",       "setlocal ts=2 sts=2 sw=2 expandtab" },
-    { "FileType", "terraform", "setlocal ts=2 sts=2 sw=2 expandtab" },
-    { "FileType", "tf",        "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "yaml",           "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "lua",            "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "terraform",      "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "terraform-vars", "setlocal ts=2 sts=2 sw=2 expandtab" },
+    { "FileType", "tf",             "setlocal ts=2 sts=2 sw=2 expandtab" },
   },
   -- Return to the last edit position when opening files
   LastEditPosition = {
