@@ -192,7 +192,7 @@ return {
     },
   },
 
-  { -- Diagnostics UI
+  { -- LSP navigator and Diagnostics
     "folke/trouble.nvim",
     opts = {
       auto_preview = true,
