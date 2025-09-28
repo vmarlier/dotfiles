@@ -9,7 +9,7 @@ helm 3.6.3
 kubeseal 0.22.0
 flux2 0.24.1
 krew 0.4.3
-nodejs 20.8.0
+nodejs 24.9.0
 ripgrep 13.0.0
 kubent 0.7.1
 kubectx 0.9.5
