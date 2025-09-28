@@ -2,42 +2,95 @@
 -- Maintainer: Valentin Marlier  --
 -----------------------------------
 -- Coding related (LSPs, Formatters, Diagnostics)
+
+-- Centralized server configuration
+local servers = {
+  gopls = {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    settings = {
+      gopls = {
+        codelenses = {
+          gc_details = false,
+          generate = true,
+          regenerate_cgo = true,
+          run_govulncheck = true,
+          test = true,
+          tidy = true,
+          upgrade_dependency = true,
+          vendor = true,
+        },
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+        analyses = {
+          nilness = true,
+          unusedparams = true,
+          unusedwrite = true,
+          useany = true,
+        },
+        completeUnimported = true,
+        usePlaceholders = true,
+        staticcheck = true,
+        directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+        semanticTokens = false,
+      },
+    },
+  },
+  helm_ls = {
+    settings = {
+      ['helm-ls'] = {
+        yamlls = {
+          path = "yaml-language-server",
+        }
+      }
+    }
+  },
+  bashls = {},
+  jsonls = {},
+  lua_ls = {},
+  terraformls = {},
+  yamlls = {},
+  dockerls = {},
+  marksman = {},
+}
+
 return {
-  { -- package manager for LSP, DAP, linters & formatters
+  { -- Mason ecosystem: package manager + lspconfig integration
     "williamboman/mason.nvim",
+    dependencies = {
+      "williamboman/mason-lspconfig.nvim",
+    },
     opts = {
       ensure_installed = {
         "goimports",
         "shfmt"
       },
-    }
-  },
-  { -- extension to mason.nvim that makes it easier to use lspconfig with mason.nvim
-    "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {
-        "helm_ls",
-        "gopls",
-        "bashls",
-        "jsonls",
-        "lua_ls",
-        "terraformls",
-        "yamlls",
-        "dockerls",
-        "marksman"
-      },
     },
+    config = function(_, opts)
+      require("mason").setup(opts)
+      require("mason-lspconfig").setup({
+        ensure_installed = vim.tbl_keys(servers),
+      })
+    end,
   },
-  { -- completion engine for neovim
-    "hrsh7th/nvim-cmp",
+
+  { -- LSP + Completion setup
+    "neovim/nvim-lspconfig",
     dependencies = {
-      -- better sort completion items
-      "lukas-reineke/cmp-under-comparator",
-      -- nvim-cmp source for filesystem paths.
+      "hrsh7th/nvim-cmp",
+      "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
+      "lukas-reineke/cmp-under-comparator",
     },
     config = function()
-      -- nvim-cmp setup
+      -- Setup completion first
       local cmp = require('cmp')
       cmp.setup {
         snippet = {
@@ -50,7 +103,7 @@ return {
             cmp.config.compare.offset,
             cmp.config.compare.exact,
             cmp.config.compare.score,
-            require "cmp-under-comparator".under,
+            require("cmp-under-comparator").under,
             cmp.config.compare.kind,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
@@ -85,99 +138,39 @@ return {
         },
       }
       cmp.visible_docs()
-    end,
-  },
-  { -- quickstart configs for nvim LSP
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      -- nvim-cmp source for neovim's built-in language server client.
-      "hrsh7th/cmp-nvim-lsp",
-    },
-    config = function()
-      -- Add additional options
+
+      -- LSP setup
       local on_attach = function(client, bufnr)
-        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+        vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
       end
 
-      -- Add additional capabilities supported by nvim-cmp
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       capabilities.textDocument.foldingRange = {
         dynamicRegistration = false,
         lineFoldingOnly = true
       }
 
-      local nvim_lsp = require("lspconfig")
-      local util = require "lspconfig/util"
+      -- Configure servers
+      for server_name, config in pairs(servers) do
+        local server_config = vim.tbl_deep_extend("force", {
+          on_attach = on_attach,
+          capabilities = capabilities,
+        }, config)
 
-      nvim_lsp.gopls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        cmd = { "gopls" },
-        filetypes = { "go", "gomod", "gowork", "gotmpl" },
-        --root_dir = util.root_pattern { "go.work", "go.mod", ".git" },
-        settings = {
-          -- https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md
-          gopls = {
-            codelenses = {
-              gc_details = false,
-              generate = true,
-              regenerate_cgo = true,
-              run_govulncheck = true,
-              test = true,
-              tidy = true,
-              upgrade_dependency = true,
-              vendor = true,
-            },
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-            analyses = {
-              nilness = true,
-              unusedparams = true,
-              unusedwrite = true,
-              useany = true,
-            },
-            completeUnimported = true,
-            usePlaceholders = true,
-            staticcheck = true,
-            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-            semanticTokens = false,
-          },
-        },
-      }
-      nvim_lsp.helm_ls.setup {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        settings = {
-          ['helm-ls'] = {
-            yamlls = {
-              path = "yaml-language-server",
-            }
-          }
-        }
-      }
-      nvim_lsp.bashls.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.jsonls.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.lua_ls.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.terraformls.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.yamlls.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.dockerls.setup { on_attach = on_attach, capabilities = capabilities }
-      nvim_lsp.marksman.setup { on_attach = on_attach, capabilities = capabilities }
+        if vim.lsp.config and vim.lsp.enable then
+          vim.lsp.config[server_name] = server_config
+          vim.lsp.enable(server_name)
+        else
+          require("lspconfig")[server_name].setup(server_config)
+        end
+      end
 
-      vim.highlight.priorities.semantic_tokens = 95 -- avoid overriding treesitter highlight which is priority 100
+      vim.highlight.priorities.semantic_tokens = 95
       vim.lsp.set_log_level("OFF")
     end,
   },
-  { -- formatter for neovim
+
+  { -- Formatting
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
@@ -194,11 +187,12 @@ return {
         }
       },
       format_on_save = {
-        timeout = 2000 -- ms
+        timeout = 2000
       },
     },
   },
-  { -- a pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
+
+  { -- Diagnostics UI
     "folke/trouble.nvim",
     opts = {
       auto_preview = true,
@@ -212,26 +206,21 @@ return {
             "lsp_references",
             "lsp_declarations",
             "lsp_type_definitions",
-            --"lsp_incoming_calls",
-            --"lsp_outgoing_calls",
-            --"lsp_implementations",
           },
         },
       },
     }
   },
-  {
+
+  { -- Helm-specific enhancements
     "qvalentin/helm-ls.nvim",
     ft = "helm",
     opts = {
       conceal_templates = {
-        -- enable the replacement of templates with virtual text of their current values
-        enabled = true, -- this might change to false in the future
+        enabled = true,
       },
       indent_hints = {
-        -- enable hints for indent and nindent functions
         enabled = true,
-        -- show the hints only for the line the cursor is on
         only_for_current_line = true,
       },
     },
