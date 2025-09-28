@@ -18,6 +18,7 @@ wk.add({
   { "<TAB>c",   group = "Copilot" },
   { "<TAB>cC",  ":CopilotChatCommit<cr>",                                  desc = "Write commit message for the change with commitizen convention" },
   { "<TAB>ct",  ":CopilotChatToggle<cr>",                                  desc = "Toggle Copilot Chat" },
+  { "<TAB>cM",  ":CopilotChatModels<cr>",                                  desc = "LLM Model to use with Copilot" },
   { "<TAB>l",   group = "LSP" },
   { "<TAB>lh",  vim.lsp.buf.hover,                                         desc = "Hover documentation" },
   { "<TAB>lk",  vim.lsp.buf.signature_help,                                desc = "Signature help" },
@@ -93,9 +94,8 @@ wk.add({
   },
 })
 
-wk.add({
-  {
-    mode = { "v" },
-    { "<leader>m", ":MCstart<cr>", desc = 'Create a selection for selected text or word under the cursor' },
-  }
-})
+-- wk.add({
+--   {
+--     mode = { "v" },
+--   }
+-- })
