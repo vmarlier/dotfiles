@@ -9,50 +9,50 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
+| Neovim | ASDF | 0.11.0 |
+| Neovim | NPM | Not Installed |
 | Neovim | Pip3 | Not Installed |
 | Neovim | Ruby | Not Installed |
-| Neovim | ASDF | 0.10.4 |
-| Neovim | NPM | 5.1.0 |
 
 ## Plugins
 
 | Plugin | Commit Hash |
 |--------|-------------|
-| bufferline.nvim | 655133c |
-| cmp-nvim-lsp | 99290b3 |
-| cmp-path | 91ff86c |
+| cmp-nvim-lsp | bd5a7d6 |
+| cmp-path | c642487 |
 | cmp-under-comparator | 6857f10 |
-| Comment.nvim | e30b7f2 |
-| conform.nvim | a6f5bdb |
-| copilot.lua | 30321e3 |
-| CopilotChat.nvim | 791098a |
-| dropbar.nvim | 807ddc7 |
-| flash.nvim | 3c94266 |
-| gitsigns.nvim | 4c40357 |
+| conform.nvim | 3bad872 |
+| copilot.lua | 36c220b |
+| CopilotChat.nvim | 2f3e073 |
+| dropbar.nvim | 3460930 |
+| flash.nvim | b68bda0 |
+| gitsigns.nvim | 23ae90a |
+| helm-ls.nvim | f36ecbd |
 | lazy.nvim | 6c3bda4 |
-| lualine.nvim | f4f791f |
-| mason-lspconfig.nvim | 1a31f82 |
-| mason.nvim | fc98833 |
-| mini.cursorword | 939ffcc |
-| mini.starter | a816f50 |
-| namu.nvim | 3dec925 |
-| nvim-autopairs | 68f0e5c |
-| nvim-cmp | c273707 |
-| nvim-lspconfig | a3f8422 |
-| nvim-tree.lua | 6709463 |
-| nvim-treesitter | c1efc9a9 |
-| nvim-ufo | a52c92c |
-| nvim-web-devicons | 1020869 |
-| plenary.nvim | 857c5ac |
+| lualine.nvim | b8c2315 |
+| mason-lspconfig.nvim | f760507 |
+| mason.nvim | b3689a4 |
+| mini.cursorword | 2a7d9ce |
+| mini.starter | d803869 |
+| namu.nvim | 6759df3 |
+| nvim-autopairs | 23320e7 |
+| nvim-cmp | b5311ab |
+| nvim-lspconfig | 336b388 |
+| nvim-tabline | deb569d |
+| nvim-tree.lua | 321bc61 |
+| nvim-treesitter | 42fc28ba |
+| nvim-ufo | d31e2a9 |
+| nvim-web-devicons | f6b0920 |
+| plenary.nvim | b9fd522 |
 | promise-async | 119e896 |
-| snacks.nvim | f970cbb |
-| sonokai | 9679341 |
-| telescope-fzf-native.nvim | 2a5ceff |
-| toolbox.nvim | 5deeaaf |
-| trouble.nvim | 85bedb7 |
-| vim-fugitive | 4a745ea |
+| snacks.nvim | 5e0e869 |
+| sonokai | cf50520 |
+| telescope-fzf-native.nvim | 1f08ed6 |
+| toolbox.nvim | f2890d9 |
+| trouble.nvim | f176232 |
+| vim-fugitive | 61b51c0 |
 | vim-wordmotion | 81d9bd2 |
-| which-key.nvim | 370ec46 |
+| which-key.nvim | 904308e |
 
 ## LSPs, Linters & Formatters
 
@@ -65,6 +65,7 @@
 | helm-ls |
 | json-lsp |
 | lua-language-server |
+| marksman |
 | shfmt |
 | terraform-ls |
 | yaml-language-server |
