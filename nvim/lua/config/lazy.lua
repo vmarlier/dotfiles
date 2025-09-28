@@ -5,7 +5,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { "shadow" } },
+  install = { colorscheme = { "sonokai" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
