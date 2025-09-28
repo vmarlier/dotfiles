@@ -3,43 +3,75 @@
 -----------------------------------
 -- Core plugins
 return {
-  { -- Starter screen
+  { -- Starter screen with dynamic repository detection
     "echasnovski/mini.starter",
     version = "*",
     opts = function()
       local starter = require('mini.starter')
 
-      local function generate_repositories_items(base_path)
-        local items = {}
-        local handle = io.popen('ls -d ' .. base_path .. '/*/')
-        if handle then
-          for dir in handle:lines() do
-            -- Remove the trailing slash if it exists
-            local trimmed_dir = dir:gsub("/$", "")
-            -- Extract the repository name from the full path
-            local repo_name = trimmed_dir:match("([^/]+)$")
+      -- Extract configuration constants
+      local REPO_PATHS = {
+        pleo = "~/Git/pleo",
+        personal = "~/Git/valentin.marlier"
+      }
 
-            if repo_name then
-              local item_name = string.format("%s", repo_name)
-              local item_action = string.format(
-                ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
-                trimmed_dir)
-              table.insert(items, { name = item_name, action = item_action, section = 'Pleo' })
+      local function expand_path(path)
+        return vim.fn.expand(path)
+      end
+
+      local function create_repo_action(path)
+        return string.format(
+          ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
+          path
+        )
+      end
+
+      local function generate_repositories_items(base_path, section_name)
+        local items = {}
+        local expanded_path = expand_path(base_path)
+
+        -- Use vim.fn.glob for better cross-platform compatibility
+        local dirs = vim.fn.glob(expanded_path .. "/*", false, true)
+
+        for _, dir in ipairs(dirs) do
+          -- Check if it's actually a directory
+          if vim.fn.isdirectory(dir) == 1 then
+            local repo_name = vim.fn.fnamemodify(dir, ":t")
+
+            if repo_name and repo_name ~= "" then
+              table.insert(items, {
+                name = repo_name,
+                action = create_repo_action(dir),
+                section = section_name
+              })
             end
           end
-          handle:close()
         end
         return items
       end
 
-      local pleo_repo = generate_repositories_items("~/Git/pleo")
+      -- Generate items for different repository sections
+      local pleo_repos = generate_repositories_items(REPO_PATHS.pleo, 'Pleo')
+
+      -- Static personal project items
+      local personal_items = {
+        {
+          name = "Dotfiles",
+          action = create_repo_action(expand_path("~/Git/valentin.marlier/dotfiles")),
+          section = 'Personal'
+        },
+        {
+          name = "Spot",
+          action = create_repo_action(expand_path("~/Git/valentin.marlier/spot")),
+          section = 'Personal'
+        }
+      }
 
       local config = {
         evaluate_single = true,
         items = {
-          { name = "Dotfiles", action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/dotfiles'); vim.cmd('NvimTreeToggle');", section = 'Perso' },
-          { name = "Spot",     action = ":lua require('mini.starter').close(); vim.cmd('cd ~/Git/valentin.marlier/spot'); vim.cmd('NvimTreeToggle');",     section = 'Perso' },
-          pleo_repo,
+          personal_items,
+          pleo_repos,
           starter.sections.builtin_actions(),
         },
         content_hooks = {
@@ -49,19 +81,23 @@ return {
       }
       return config
     end,
+
     config = function(_, config)
       local starter = require("mini.starter")
       starter.setup(config)
 
+      -- Add startup time display
       vim.api.nvim_create_autocmd("User", {
         pattern = "LazyVimStarted",
+        desc = "Display startup time in mini.starter footer",
         callback = function(ev)
           local stats = require("lazy").stats()
-          local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+          local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
           local pad_footer = string.rep(" ", 8)
+
           starter.config.footer = pad_footer ..
               "⚡ Neovim loaded " .. stats.count .. " plugins in " .. ms .. "ms"
-          -- INFO: based on @echasnovski's recommendation (thanks a lot!!!)
+
           if vim.bo[ev.buf].filetype == "ministarter" then
             pcall(starter.refresh)
           end
@@ -69,65 +105,117 @@ return {
       })
     end
   },
-  { -- Custom neovim function invokable from ui
+
+  {                  -- Custom utility commands via UI
     "DanWlker/toolbox.nvim",
+    cmd = "Toolbox", -- Lazy load on command
+    keys = {
+      { "<leader>ut", "<cmd>Toolbox<cr>", desc = "Open Toolbox" }
+    },
     opts = {
       commands = {
         {
-          name = "Format Json",
+          name = "Format JSON",
           execute = function()
-            vim.cmd("%!jq '.'");
-          end,
-          require_input = true,
-        },
-        {
-          name = "CWD update",
-          execute = function()
-            vim.cmd("cd %:p:h");
-            vim.cmd("pwd");
+            -- Add error handling for jq
+            local has_jq = vim.fn.executable("jq") == 1
+            if not has_jq then
+              vim.notify("jq is not installed or not in PATH", vim.log.levels.ERROR)
+              return
+            end
+            vim.cmd("%!jq '.'")
           end,
           require_input = false,
         },
         {
-          name = "No Search Highlight",
+          name = "Change to Buffer Directory",
           execute = function()
-            vim.cmd('noh');
+            local buffer_dir = vim.fn.expand("%:p:h")
+            if buffer_dir and buffer_dir ~= "" then
+              vim.cmd("cd " .. buffer_dir)
+              vim.notify("Changed directory to: " .. buffer_dir)
+            else
+              vim.notify("No buffer directory available", vim.log.levels.WARN)
+            end
           end,
           require_input = false,
         },
         {
-          name = "Dashboard",
+          name = "Clear Search Highlight",
           execute = function()
-            require('snacks').bufdelete.all();
-            vim.cmd('NvimTreeClose');
-            require('mini.starter').open();
+            vim.cmd('nohlsearch')
+          end,
+          require_input = false,
+        },
+        {
+          name = "Open Dashboard",
+          execute = function()
+            -- Better error handling
+            local ok_snacks, snacks = pcall(require, 'snacks')
+            if ok_snacks and snacks.bufdelete then
+              snacks.bufdelete.all()
+            end
+
+            vim.cmd('NvimTreeClose')
+
+            local ok_starter, starter = pcall(require, 'mini.starter')
+            if ok_starter then
+              starter.open()
+            end
           end,
           require_input = false,
         },
       },
     },
   },
-  {
+
+  {                  -- Syntax highlighting and code parsing
     "nvim-treesitter/nvim-treesitter",
-    version = false, -- last release is way too old and doesn't work on Windows
+    version = false, -- Use latest for best language support
     build = ":TSUpdate",
-    event = { "VeryLazy" },
-    lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+    event = { "BufReadPost", "BufNewFile" },
+    lazy = vim.fn.argc(-1) == 0,
+
     init = function(plugin)
       require("lazy.core.loader").add_to_rtp(plugin)
       require("nvim-treesitter.query_predicates")
     end,
+
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+
     keys = {
-      { "<c-space>", desc = "Increment Selection" },
+      { "<C-space>", desc = "Increment Selection" },
       { "<bs>",      desc = "Decrement Selection", mode = "x" },
     },
+
     opts_extend = { "ensure_installed" },
+
     opts = {
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false -- Better performance
+      },
       indent = { enable = true },
-      ensure_installed = { "bash", "dockerfile", "go", "gomod", "gosum", "gowork", "terraform", "hcl",
-        "lua", "json", "yaml", "diff", "markdown", "regex", "helm" }, -- one of "all", or a list of languages
+
+      -- Organize language list alphabetically
+      ensure_installed = {
+        "bash",
+        "diff",
+        "dockerfile",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "hcl",
+        "helm",
+        "json",
+        "lua",
+        "markdown",
+        "regex",
+        "terraform",
+        "yaml"
+      },
+
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -137,22 +225,8 @@ return {
           node_decremental = "<bs>",
         },
       },
-      autopairs = { enable = true },
-      rainbow = {
-        enable = true,
-        extended_mode = true,  -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-        max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-      },
-      textobjects = {
-        move = {
-          enable = true,
-          goto_next_start = { ["]f"] = "@function.outer", ["]c"] = "@class.outer", ["]a"] = "@parameter.inner" },
-          goto_next_end = { ["]F"] = "@function.outer", ["]C"] = "@class.outer", ["]A"] = "@parameter.inner" },
-          goto_previous_start = { ["[f"] = "@function.outer", ["[c"] = "@class.outer", ["[a"] = "@parameter.inner" },
-          goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer", ["[A"] = "@parameter.inner" },
-        },
-      },
     },
+
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
