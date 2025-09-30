@@ -1,6 +1,4 @@
 {
-"Profiles": [
-{
   "Working Directory" : "\/Users\/valentin.marlier",
   "Prompt Before Closing 2" : false,
   "Selected Text Color" : {
@@ -110,6 +108,33 @@
       "Text" : "0x17",
       "Label" : ""
     },
+    "0x68-0x40000-0x4" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 18,
+      "Text" : "",
+      "Escaping" : 2
+    },
+    "0x6c-0x40000-0x25" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 19,
+      "Text" : "",
+      "Escaping" : 2
+    },
+    "0xf702-0x280000-0x7b" : {
+      "Version" : 1,
+      "Action" : 10,
+      "Text" : "b",
+      "Label" : ""
+    },
+    "0x6b-0x40000-0x28" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 20,
+      "Text" : "",
+      "Escaping" : 2
+    },
     "0x6b-0x140000-0x28" : {
       "Version" : 2,
       "Apply Mode" : 0,
@@ -123,16 +148,17 @@
       "Text" : "f",
       "Label" : ""
     },
+    "0x6a-0x40000-0x26" : {
+      "Version" : 2,
+      "Apply Mode" : 0,
+      "Action" : 21,
+      "Text" : "",
+      "Escaping" : 2
+    },
     "0x7f-0x100000-0x33" : {
       "Version" : 1,
       "Action" : 11,
       "Text" : "0x15",
-      "Label" : ""
-    },
-    "0xf702-0x280000-0x7b" : {
-      "Version" : 1,
-      "Action" : 10,
-      "Text" : "b",
       "Label" : ""
     }
   },
@@ -300,7 +326,6 @@
     "Blue Component" : 0.66666666666666663,
     "Alpha Component" : 1,
     "Green Component" : 0.5490196078431373
-  }
-}
-]
+  },
+  "ASCII Ligatures" : false
 }
