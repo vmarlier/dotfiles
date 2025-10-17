@@ -71,6 +71,9 @@ asdf plugin add github-cli     https://github.com/bartlomiejdanek/asdf-github-cl
 asdf plugin add rust           https://github.com/code-lever/asdf-rust.git
 asdf plugin add tmux           https://github.com/aphecetche/asdf-tmux.git
 
+# add other tools
+curl -fsSL https://ampcode.com/install.sh | bash
+
 # neovim installers
 npm install -g neovim
 pip3 install neovim

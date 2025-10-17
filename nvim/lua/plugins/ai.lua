@@ -59,5 +59,11 @@ return {
     opts = {
       model = 'claude-sonnet-4',
     },
+  },
+  {
+    "sourcegraph/amp.nvim",
+    branch = "main",
+    lazy = false,
+    opts = { auto_start = true, log_level = "info" },
   }
 }
