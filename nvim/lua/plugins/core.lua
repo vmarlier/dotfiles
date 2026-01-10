@@ -115,6 +115,29 @@ return {
     opts = {
       commands = {
         {
+          name = "Git Stash with Branch Name",
+          execute = function()
+            if vim.fn.executable("git") ~= 1 then
+              vim.notify("Git is not installed or not in PATH", vim.log.levels.ERROR)
+              return
+            end
+
+            local branch_name = vim.fn.trim(vim.fn.system("git rev-parse --abbrev-ref HEAD"))
+            if vim.v.shell_error ~= 0 then
+              vim.notify("Not a git repository or no branch checked out.", vim.log.levels.ERROR)
+              return
+            end
+
+            local output = vim.fn.system("git stash push -m '" .. branch_name .. "'")
+            if vim.v.shell_error ~= 0 then
+              vim.notify(output, vim.log.levels.WARN)
+            else
+              vim.notify("Stashed changes with message: " .. branch_name)
+            end
+          end,
+          require_input = false,
+        },
+        {
           name = "Format JSON",
           execute = function()
             -- Add error handling for jq
