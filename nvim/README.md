@@ -9,50 +9,51 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | ASDF | 0.11.0 |
-| Neovim | NPM | Not Installed |
 | Neovim | Pip3 | Not Installed |
 | Neovim | Ruby | Not Installed |
+| Neovim | ASDF | 0.11.0 |
+| Neovim | NPM | Not Installed |
 
 ## Plugins
 
 | Plugin | Commit Hash |
 |--------|-------------|
-| cmp-nvim-lsp | bd5a7d6 |
+| amp.nvim | 3b9ad5e |
+| cmp-nvim-lsp | cbc7b02 |
 | cmp-path | c642487 |
 | cmp-under-comparator | 6857f10 |
-| conform.nvim | 3bad872 |
-| copilot.lua | 36c220b |
-| CopilotChat.nvim | 2f3e073 |
-| dropbar.nvim | 3460930 |
-| flash.nvim | b68bda0 |
-| gitsigns.nvim | 23ae90a |
-| helm-ls.nvim | f36ecbd |
-| lazy.nvim | 6c3bda4 |
-| lualine.nvim | b8c2315 |
-| mason-lspconfig.nvim | f760507 |
-| mason.nvim | b3689a4 |
-| mini.cursorword | 2a7d9ce |
-| mini.starter | d803869 |
-| namu.nvim | 6759df3 |
-| nvim-autopairs | 23320e7 |
-| nvim-cmp | b5311ab |
-| nvim-lspconfig | 336b388 |
+| conform.nvim | 8314f4c |
+| copilot.lua | e78d1ff |
+| CopilotChat.nvim | 9db5d3e |
+| dropbar.nvim | ce20224 |
+| flash.nvim | fcea7ff |
+| gitsigns.nvim | 72acb69 |
+| helm-ls.nvim | d6f3a8d |
+| lazy.nvim | 306a055 |
+| lualine.nvim | 47f91c4 |
+| mason-lspconfig.nvim | e5f73a9 |
+| mason.nvim | 44d1e90 |
+| mini.cursorword | dda0f57 |
+| mini.starter | 8ee6ce6 |
+| namu.nvim | fb13c05 |
+| nvim-autopairs | c2a0dd0 |
+| nvim-cmp | 85bbfad |
+| nvim-lspconfig | 92ee7d42 |
 | nvim-tabline | deb569d |
 | nvim-tree.lua | 321bc61 |
 | nvim-treesitter | 42fc28ba |
-| nvim-ufo | d31e2a9 |
-| nvim-web-devicons | f6b0920 |
+| nvim-ufo | 72d54c3 |
+| nvim-web-devicons | 6788013 |
 | plenary.nvim | b9fd522 |
 | promise-async | 119e896 |
-| snacks.nvim | 5e0e869 |
-| sonokai | cf50520 |
-| telescope-fzf-native.nvim | 1f08ed6 |
+| snacks.nvim | fe7cfe9 |
+| sonokai | 5c7f88c |
+| telescope-fzf-native.nvim | 6fea601 |
 | toolbox.nvim | f2890d9 |
-| trouble.nvim | f176232 |
+| trouble.nvim | bd67efe |
 | vim-fugitive | 61b51c0 |
 | vim-wordmotion | 81d9bd2 |
-| which-key.nvim | 904308e |
+| which-key.nvim | 3aab214 |
 
 ## LSPs, Linters & Formatters
 
@@ -96,5 +97,6 @@
 │   └── utils
 │   │   ├── au.lua
 │   │   ├── index.lua
-│   │   └── readme.lua
+│   │   ├── readme.lua
+│   │   └── worktree.lua
 ```
