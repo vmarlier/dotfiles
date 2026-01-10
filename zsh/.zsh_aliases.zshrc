@@ -7,7 +7,7 @@ alias ll="lsd -la"
 alias vim="nvim"
 
 ### ease k8s debug pod ###
-alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -l sidecar.istio.io/inject=false -i --tty --rm"
+alias kdebug="kubectl run tool-vmarlier --image=nicolaka/netshoot -l sidecar.istio.io/inject=false -l pleo.io/security-level=public -i --tty --rm"
 alias etcd-debug="kubectl -n admin run -it --rm "etcdctl-vmarlier" \
         --image=quay.io/coreos/etcd:v3.3.10 \
         --env=ETCDCTL_API=3 \
