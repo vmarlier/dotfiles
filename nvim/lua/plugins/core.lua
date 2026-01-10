@@ -30,19 +30,17 @@ return {
         local items = {}
         local expanded_path = expand_path(base_path)
 
-        -- Use vim.fn.glob for better cross-platform compatibility
         local dirs = vim.fn.glob(expanded_path .. "/*", false, true)
 
         for _, dir in ipairs(dirs) do
-          -- Check if it's actually a directory
           if vim.fn.isdirectory(dir) == 1 then
             local repo_name = vim.fn.fnamemodify(dir, ":t")
 
-            if repo_name and repo_name ~= "" then
+            if repo_name and repo_name ~= "" and not repo_name:match("^worktree__") then
               table.insert(items, {
                 name = repo_name,
                 action = create_repo_action(dir),
-                section = section_name
+                section = section_name,
               })
             end
           end
@@ -50,8 +48,30 @@ return {
         return items
       end
 
+      local function generate_worktrees_items(base_path, section_name)
+        local items = {}
+        local expanded_path = expand_path(base_path)
+        local dirs = vim.fn.glob(expanded_path .. "/worktree__*", false, true)
+
+        for _, dir in ipairs(dirs) do
+          if vim.fn.isdirectory(dir) == 1 then
+            local repo_name = vim.fn.fnamemodify(dir, ":t")
+            local display_name = repo_name:gsub("^worktree__", ""):gsub("__", "/")
+
+            table.insert(items, {
+              name = display_name,
+              action = create_repo_action(dir),
+              section = section_name,
+            })
+          end
+        end
+        return items
+      end
+
       -- Generate items for different repository sections
       local pleo_repos = generate_repositories_items(REPO_PATHS.pleo, 'Pleo')
+
+      local worktrees_repos = generate_worktrees_items(REPO_PATHS.pleo, 'Worktree\'s')
 
       -- Static personal project items
       local personal_items = {
@@ -72,6 +92,7 @@ return {
         items = {
           personal_items,
           pleo_repos,
+          worktrees_repos,
           starter.sections.builtin_actions(),
         },
         content_hooks = {
@@ -114,6 +135,18 @@ return {
     },
     opts = {
       commands = {
+        {
+          name = 'Worktree create',
+          execute = function()
+            require("utils.worktree").create_worktree_context()
+          end,
+        },
+        {
+          name = 'Worktrees purge',
+          execute = function()
+            require("utils.worktree").cleanup_all_worktrees()
+          end,
+        },
         {
           name = "Git Stash with Branch Name",
           execute = function()
