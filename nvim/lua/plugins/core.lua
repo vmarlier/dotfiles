@@ -91,11 +91,6 @@ return {
           name = "Dotfiles",
           action = create_repo_action(expand_path("~/Git/valentin.marlier/dotfiles")),
           section = 'Personal'
-        },
-        {
-          name = "Spot",
-          action = create_repo_action(expand_path("~/Git/valentin.marlier/spot")),
-          section = 'Personal'
         }
       }
 
