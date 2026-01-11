@@ -9,10 +9,10 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | Pip3 | Not Installed |
-| Neovim | Ruby | Not Installed |
 | Neovim | ASDF | 0.11.0 |
 | Neovim | NPM | Not Installed |
+| Neovim | Pip3 | Not Installed |
+| Neovim | Ruby | Not Installed |
 
 ## Plugins
 
@@ -29,6 +29,7 @@
 | flash.nvim | fcea7ff |
 | gitsigns.nvim | 72acb69 |
 | helm-ls.nvim | d6f3a8d |
+| kubernetes.nvim | 44daf99 |
 | lazy.nvim | 306a055 |
 | lualine.nvim | 47f91c4 |
 | mason-lspconfig.nvim | e5f73a9 |
@@ -96,6 +97,7 @@
 │   │   └── ui.lua
 │   └── utils
 │   │   ├── au.lua
+│   │   ├── expand.lua
 │   │   ├── index.lua
 │   │   ├── readme.lua
 │   │   └── worktree.lua
