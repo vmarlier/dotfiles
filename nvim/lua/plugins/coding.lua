@@ -224,5 +224,25 @@ return {
         only_for_current_line = true,
       },
     },
-  }
+  },
+
+  { -- Kubernetes
+    "diogo464/kubernetes.nvim",
+    ft = "yaml",
+    dependencies = { "nvim-lspconfig" },
+    config = function()
+      local kubernetes = require("kubernetes")
+      kubernetes.generate_schema(function(schema_url)
+        if schema_url then
+          local lspconfig = require("lspconfig")
+          local current_config = lspconfig.util.get_config("yamlls")
+          current_config.settings.yaml.schemas[schema_url] = "*.yaml"
+          vim.cmd("LspRestart yamlls")
+          vim.notify("Kubernetes schema loaded for yamlls.", vim.log.levels.INFO)
+        else
+          vim.notify("Could not get K8s schema. Authenticate and try again.", vim.log.levels.WARN)
+        end
+      end)
+    end,
+  },
 }
