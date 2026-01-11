@@ -7,17 +7,14 @@ return {
     "echasnovski/mini.starter",
     version = "*",
     opts = function()
-      local starter = require('mini.starter')
+      local starter    = require('mini.starter')
+      local expand     = require("utils.expand")
 
       -- Extract configuration constants
       local REPO_PATHS = {
         pleo = "~/Git/pleo",
         personal = "~/Git/valentin.marlier"
       }
-
-      local function expand_path(path)
-        return vim.fn.expand(path)
-      end
 
       local function create_repo_action(path)
         return string.format(
@@ -26,9 +23,21 @@ return {
         )
       end
 
+      local function get_fortune_cowsay()
+        if vim.fn.executable("fortune") == 1 and vim.fn.executable("cowsay") == 1 then
+          local handle = io.popen("fortune -s | cowsay")
+          if handle then
+            local result = handle:read("*a")
+            handle:close()
+            return result
+          end
+        end
+        return ""
+      end
+
       local function generate_repositories_items(base_path, section_name)
         local items = {}
-        local expanded_path = expand_path(base_path)
+        local expanded_path = expand.path(base_path)
 
         local dirs = vim.fn.glob(expanded_path .. "/*", false, true)
 
@@ -50,7 +59,7 @@ return {
 
       local function generate_worktrees_items(base_path, section_name)
         local items = {}
-        local expanded_path = expand_path(base_path)
+        local expanded_path = expand.path(base_path)
         local dirs = vim.fn.glob(expanded_path .. "/worktree__*", false, true)
 
         for _, dir in ipairs(dirs) do
@@ -77,17 +86,13 @@ return {
       local personal_items = {
         {
           name = "Dotfiles",
-          action = create_repo_action(expand_path("~/Git/valentin.marlier/dotfiles")),
-          section = 'Personal'
-        },
-        {
-          name = "Spot",
-          action = create_repo_action(expand_path("~/Git/valentin.marlier/spot")),
+          action = create_repo_action(expand.path("~/Git/valentin.marlier/dotfiles")),
           section = 'Personal'
         }
       }
 
       local config = {
+        header = get_fortune_cowsay(),
         evaluate_single = true,
         items = {
           personal_items,
