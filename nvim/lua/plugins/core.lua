@@ -26,6 +26,18 @@ return {
         )
       end
 
+      local function get_fortune_cowsay()
+        if vim.fn.executable("fortune") == 1 and vim.fn.executable("cowsay") == 1 then
+          local handle = io.popen("fortune -s | cowsay")
+          if handle then
+            local result = handle:read("*a")
+            handle:close()
+            return result
+          end
+        end
+        return ""
+      end
+
       local function generate_repositories_items(base_path, section_name)
         local items = {}
         local expanded_path = expand_path(base_path)
@@ -88,6 +100,7 @@ return {
       }
 
       local config = {
+        header = get_fortune_cowsay(),
         evaluate_single = true,
         items = {
           personal_items,
