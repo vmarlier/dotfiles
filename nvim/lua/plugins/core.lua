@@ -16,11 +16,15 @@ return {
         personal = "~/Git/valentin.marlier"
       }
 
-      local function create_repo_action(path)
-        return string.format(
-          ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('NvimTreeToggle');",
+      local function create_repo_action(path, extra_cmd)
+        local base_cmd = string.format(
+          ":lua require('mini.starter').close(); vim.cmd('cd %s'); vim.cmd('NvimTreeToggle')",
           path
         )
+        if extra_cmd then
+          return base_cmd .. "; " .. extra_cmd
+        end
+        return base_cmd .. ";"
       end
 
       local function get_fortune_cowsay()
@@ -88,7 +92,15 @@ return {
         {
           name = "0. Dotfiles",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/dotfiles")),
-          section = 'Repositories'
+          section = "Repositories"
+        }
+      }
+
+      local tools = {
+        {
+          name = "HTTP Client",
+          action = create_repo_action(expand.path("~/Git/valentin.marlier/http-client")),
+          section = "Tools"
         }
       }
 
@@ -107,6 +119,7 @@ return {
         items = {
           all_repos,
           worktrees_repos,
+          tools,
           action_items,
         },
         content_hooks = {
