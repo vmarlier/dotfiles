@@ -78,27 +78,36 @@ return {
       end
 
       -- Generate items for different repository sections
-      local pleo_repos = generate_repositories_items(REPO_PATHS.pleo, 'Pleo')
+      local pleo_repos = generate_repositories_items(REPO_PATHS.pleo, 'Repositories')
 
       local worktrees_repos = generate_worktrees_items(REPO_PATHS.pleo, 'Worktree\'s')
 
       -- Static personal project items
+      -- Prefix them with a number to mark a difference
       local personal_items = {
         {
-          name = "Dotfiles",
+          name = "0. Dotfiles",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/dotfiles")),
-          section = 'Personal'
+          section = 'Repositories'
         }
       }
+
+      local action_items = {
+        { name = "Lazy",          action = "Lazy",  section = "Actions" },
+        { name = "Mason",         action = "Mason", section = "Actions" },
+        { name = "Edit New file", action = "enew",  section = "Actions" },
+        { name = "Quit",          action = "q",     section = "Actions" },
+      }
+
+      local all_repos = vim.list_extend(vim.deepcopy(personal_items), pleo_repos)
 
       local config = {
         header = get_fortune_cowsay(),
         evaluate_single = true,
         items = {
-          personal_items,
-          pleo_repos,
+          all_repos,
           worktrees_repos,
-          starter.sections.builtin_actions(),
+          action_items,
         },
         content_hooks = {
           starter.gen_hook.adding_bullet(),
