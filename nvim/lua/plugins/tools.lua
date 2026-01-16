@@ -10,6 +10,9 @@ return {
       global_keymaps = true,
       global_keymaps_prefix = "<TAB>r",
       kulala_keymaps_prefix = "<TAB>r",
+      urlencode = "skipencoded",
+      urlencode_skip = "",
+      urlencode_force = "[%[%]%(%)]",
     },
   },
 }
