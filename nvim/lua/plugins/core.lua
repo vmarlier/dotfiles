@@ -101,6 +101,13 @@ return {
           name = "HTTP Client",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/http-client")),
           section = "Tools"
+        },
+        -- Do not use create_repo_action as it calls NvimTreeToggle and this break Dbee layout
+        {
+          name = "DBee Client",
+          action = string.format(":lua require('mini.starter').close(); vim.cmd('cd %s'); require('dbee').open()",
+            expand.path("~/Git/valentin.marlier/dbee-client")),
+          section = "Tools"
         }
       }
 
@@ -224,7 +231,7 @@ return {
           require_input = false,
         },
         {
-          name = "Clear Search Highlight",
+          name = "NoHighlight",
           execute = function()
             vim.cmd('nohlsearch')
           end,
