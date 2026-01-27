@@ -9,13 +9,23 @@ local M = {}
 
 -- Get AWS credentials from environment
 local function get_aws_credentials()
-  -- Try environment variables first
+  -- Check if AWS_PROFILE is set - if so, we'll let curl handle credential resolution
+  local aws_profile = os.getenv("AWS_PROFILE")
+  if aws_profile and aws_profile ~= "" then
+    return {
+      use_profile = true,
+      profile = aws_profile,
+    }
+  end
+  
+  -- Otherwise, try explicit environment variables
   local access_key = os.getenv("AWS_ACCESS_KEY_ID")
   local secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
   local session_token = os.getenv("AWS_SESSION_TOKEN")
   
   if access_key and secret_key then
     return {
+      use_profile = false,
       access_key = access_key,
       secret_key = secret_key,
       session_token = session_token,
@@ -44,7 +54,7 @@ end
 local function create_signed_sts_request(config)
   local credentials = get_aws_credentials()
   if not credentials then
-    return nil, "AWS credentials not found in environment"
+    return nil, "AWS credentials not found. Set AWS_PROFILE or AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY"
   end
   
   local region = config.aws_region or "us-east-1"
@@ -59,12 +69,6 @@ local function create_signed_sts_request(config)
   local errors = {}
   
   -- Build curl command with AWS SigV4 signing
-  -- Use environment variables to pass credentials securely
-  local env = {
-    AWS_ACCESS_KEY_ID = credentials.access_key,
-    AWS_SECRET_ACCESS_KEY = credentials.secret_key,
-  }
-  
   local args = {
     "-s",
     "-X", "POST",
@@ -73,11 +77,34 @@ local function create_signed_sts_request(config)
     "--aws-sigv4", "aws:amz:" .. region .. ":sts",
   }
   
-  -- Session token is set as environment variable for curl to use in signing
-  if credentials.session_token then
-    env.AWS_SESSION_TOKEN = credentials.session_token
-    table.insert(args, "-H")
-    table.insert(args, "X-Amz-Security-Token: " .. credentials.session_token)
+  local env = {}
+  
+  if credentials.use_profile then
+    -- When using AWS_PROFILE, let curl inherit AWS environment
+    -- AWS CLI credential resolution will handle the profile
+    env.AWS_PROFILE = credentials.profile
+    
+    -- Also inherit AWS_CONFIG_FILE and AWS_SHARED_CREDENTIALS_FILE if set
+    local config_file = os.getenv("AWS_CONFIG_FILE")
+    local creds_file = os.getenv("AWS_SHARED_CREDENTIALS_FILE")
+    
+    if config_file then
+      env.AWS_CONFIG_FILE = config_file
+    end
+    if creds_file then
+      env.AWS_SHARED_CREDENTIALS_FILE = creds_file
+    end
+  else
+    -- Use explicit credentials passed via environment variables
+    env.AWS_ACCESS_KEY_ID = credentials.access_key
+    env.AWS_SECRET_ACCESS_KEY = credentials.secret_key
+    
+    -- Session token is set as environment variable for curl to use in signing
+    if credentials.session_token then
+      env.AWS_SESSION_TOKEN = credentials.session_token
+      table.insert(args, "-H")
+      table.insert(args, "X-Amz-Security-Token: " .. credentials.session_token)
+    end
   end
   
   -- Add the URL
@@ -129,7 +156,9 @@ function M.get_vault_login_headers(config)
   
   -- Build the headers string
   local headers_str = "Content-Type: " .. sts_data.content_type .. "\nHost: sts." .. sts_data.region .. ".amazonaws.com"
-  if sts_data.credentials.session_token then
+  
+  -- Only add session token header if using explicit credentials (not profile)
+  if not sts_data.credentials.use_profile and sts_data.credentials.session_token then
     headers_str = headers_str .. "\nX-Amz-Security-Token: " .. sts_data.credentials.session_token
   end
   

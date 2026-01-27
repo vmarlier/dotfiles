@@ -19,7 +19,9 @@ A Neovim plugin that integrates [nvim-dbee](https://github.com/kndndrj/nvim-dbee
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
 - `curl` with AWS SigV4 support (curl >= 7.75.0)
-- AWS credentials configured (via environment variables or AWS credentials file)
+- AWS credentials configured via:
+  - **Recommended**: AWS profile in `~/.aws/credentials` and `~/.aws/config`
+  - **Alternative**: Environment variables (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
 - HashiCorp Vault with AWS auth method enabled
 
 ## Installation
@@ -58,9 +60,14 @@ The plugin can be configured using environment variables or the setup function:
 - `VAULT_AWS_ROLE`: AWS auth role name (leave empty for automatic detection)
 - `VAULT_IAM_SERVER_ID`: IAM Server ID header value (if required by Vault config)
 - `AWS_REGION`: AWS region for authentication (default: `us-east-1`)
-- `AWS_ACCESS_KEY_ID`: AWS access key
-- `AWS_SECRET_ACCESS_KEY`: AWS secret key
+- `AWS_PROFILE`: AWS profile name (uses ~/.aws/credentials and ~/.aws/config)
+- `AWS_ACCESS_KEY_ID`: AWS access key (used if AWS_PROFILE is not set)
+- `AWS_SECRET_ACCESS_KEY`: AWS secret key (used if AWS_PROFILE is not set)
 - `AWS_SESSION_TOKEN`: AWS session token (for temporary credentials)
+
+**Credential Resolution Order**:
+1. If `AWS_PROFILE` is set, the plugin uses the AWS CLI's credential chain (recommended)
+2. Otherwise, it uses explicit `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 
 ### Setup Options
 
@@ -68,6 +75,7 @@ The plugin can be configured using environment variables or the setup function:
 require("dbee-vault").setup({
   vault_addr = "https://vault.example.com",  -- REQUIRED: Vault server URL
   aws_region = "us-east-1",                   -- AWS region
+  aws_profile = nil,                          -- AWS profile (e.g., "default", "production")
   mount_path = "database/creds",              -- Vault mount path for DB creds
   vault_namespace = nil,                      -- Optional Vault namespace
   vault_aws_role = "",                        -- Optional AWS auth role name
@@ -220,14 +228,54 @@ vault write database/roles/deimos-admin \
 
 ## Troubleshooting
 
+### Using AWS Profiles
+
+The recommended way to provide AWS credentials is using AWS profiles:
+
+1. Configure your AWS profile in `~/.aws/credentials`:
+   ```ini
+   [default]
+   aws_access_key_id = YOUR_ACCESS_KEY
+   aws_secret_access_key = YOUR_SECRET_KEY
+   
+   [production]
+   aws_access_key_id = PROD_ACCESS_KEY
+   aws_secret_access_key = PROD_SECRET_KEY
+   ```
+
+2. Set the profile in your environment or Neovim config:
+   ```bash
+   export AWS_PROFILE=production
+   ```
+   
+   Or in your Neovim config:
+   ```lua
+   require("dbee-vault").setup({
+     vault_addr = "https://vault.example.com",
+     aws_profile = "production",  -- Use specific profile
+   })
+   ```
+
+3. The plugin will automatically use the AWS CLI's credential chain, including:
+   - Profile credentials from `~/.aws/credentials`
+   - Assumed roles from `~/.aws/config`
+   - SSO credentials
+   - EC2 instance profiles (when running on EC2)
+
 ### AWS credentials not found
 
-Ensure your AWS credentials are available via:
-- Environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
-- AWS credentials file (`~/.aws/credentials`)
-- EC2 instance profile (when running on EC2)
+Ensure your AWS credentials are available via one of these methods:
 
-**Security Note**: AWS credentials are passed to curl via environment variables to avoid exposing them in process listings.
+**Option 1: AWS Profile (Recommended)**
+- Set `AWS_PROFILE` environment variable
+- Or configure `aws_profile` in setup
+- Credentials should be in `~/.aws/credentials`
+
+**Option 2: Explicit Environment Variables**
+- Set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+- Optionally set `AWS_SESSION_TOKEN` for temporary credentials
+
+**Security Note**: When using profiles, credentials are resolved by curl's AWS integration, keeping them secure and not exposing them in process listings.
 
 ### Vault authentication failed
 

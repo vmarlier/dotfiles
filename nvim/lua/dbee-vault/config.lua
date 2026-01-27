@@ -13,6 +13,10 @@ M.defaults = {
   -- AWS region for authentication
   aws_region = os.getenv("AWS_REGION") or "us-east-1",
   
+  -- AWS profile to use (alternative to explicit credentials)
+  -- If set, this takes precedence over AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY
+  aws_profile = os.getenv("AWS_PROFILE") or nil,
+  
   -- Vault mount path for database credentials
   mount_path = "database/creds",
   
