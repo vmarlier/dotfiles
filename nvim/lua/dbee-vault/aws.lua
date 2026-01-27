@@ -154,15 +154,23 @@ function M.get_vault_login_headers(config)
   local encoded_url = base64_encode(sts_data.sts_endpoint)
   local encoded_body = base64_encode(sts_data.request_body)
   
-  -- Build the headers string
-  local headers_str = "Content-Type: " .. sts_data.content_type .. "\nHost: sts." .. sts_data.region .. ".amazonaws.com"
+  -- Build the headers as a table (JSON object)
+  -- Vault expects each header value to be an array
+  local headers_table = {
+    ["Content-Type"] = {sts_data.content_type},
+    ["Host"] = {"sts." .. sts_data.region .. ".amazonaws.com"},
+  }
   
   -- Only add session token header if using explicit credentials (not profile)
   if not sts_data.credentials.use_profile and sts_data.credentials.session_token then
-    headers_str = headers_str .. "\nX-Amz-Security-Token: " .. sts_data.credentials.session_token
+    headers_table["X-Amz-Security-Token"] = {sts_data.credentials.session_token}
   end
   
-  local encoded_headers = base64_encode(headers_str)
+  -- Convert headers table to JSON string
+  local headers_json = vim.fn.json_encode(headers_table)
+  
+  -- Base64 encode the JSON string
+  local encoded_headers = base64_encode(headers_json)
   
   -- Build request headers
   local headers = {}
