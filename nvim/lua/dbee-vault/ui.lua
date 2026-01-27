@@ -21,52 +21,53 @@ local function update_dbee_connection(role, credentials)
     permission = "default"
   end
   
+  -- Extract connection details from credentials
+  -- Vault returns: username, password, and optionally hostname, port
+  local connection_url = string.format(
+    "postgresql://%s:%s@%s:%s/%s",
+    credentials.username,
+    credentials.password,
+    credentials.hostname or "localhost",
+    credentials.port or "5432",
+    database
+  )
+  
   -- Create connection configuration for dbee
   local connection = {
-    name = string.format("%s (%s)", database, permission),
+    name = string.format("%s (%s) [Vault]", database, permission),
     type = "postgres", -- Default to postgres, can be made configurable
-    url = string.format(
-      "postgresql://%s:%s@%s:%s/%s",
-      credentials.username,
-      credentials.password,
-      credentials.hostname or "localhost",
-      credentials.port or "5432",
-      database
-    ),
+    url = connection_url,
   }
   
-  -- Get existing sources or create new list
-  local sources = dbee.store.sources or {}
+  -- Try to add connection using dbee sources API
+  -- The best approach is to use a MemorySource to inject the connection
+  local sources = require("dbee.sources")
+  local memory_source = sources.MemorySource:new({ connection })
   
-  -- Check if connection already exists and update it
-  local found = false
-  for i, source in ipairs(sources) do
-    if source.name == connection.name then
-      sources[i] = connection
-      found = true
-      break
-    end
-  end
-  
-  -- Add new connection if not found
-  if not found then
-    table.insert(sources, connection)
-  end
-  
-  -- Update dbee with new sources
-  dbee.store.sources = sources
-  
-  -- Try to refresh dbee UI if it's open
-  local ok, _ = pcall(function()
-    dbee.store.refresh()
+  -- Add the source to dbee
+  -- Note: This is a runtime addition, it won't persist across restarts
+  local ok, result = pcall(function()
+    dbee.api.core.add_source(memory_source)
   end)
   
   if not ok then
-    -- If refresh failed, try to open dbee
-    pcall(function()
-      dbee.open()
-    end)
+    -- Fallback: try to manipulate the internal state
+    -- This is less ideal but might work if add_source is not available
+    vim.notify(
+      "Could not add source dynamically. Connection may need to be added manually.",
+      vim.log.levels.WARN
+    )
   end
+  
+  -- Notify user
+  vim.notify(
+    string.format("Retrieved credentials for: %s\nUsername: %s\nTTL: %s", 
+      connection.name,
+      credentials.username,
+      credentials.lease_duration and (credentials.lease_duration .. "s") or "N/A"
+    ),
+    vim.log.levels.INFO
+  )
   
   return connection
 end
@@ -115,10 +116,14 @@ function M.use_role(role)
   -- Update dbee with the new connection
   local connection = update_dbee_connection(role, credentials)
   
-  vim.notify(
-    string.format("Added connection: %s", connection.name),
-    vim.log.levels.INFO
-  )
+  -- Try to open or refresh dbee UI
+  local ok, _ = pcall(function()
+    require("dbee").open()
+  end)
+  
+  if not ok then
+    vim.notify("DbeeVault: Connection details retrieved but could not refresh dbee UI", vim.log.levels.WARN)
+  end
 end
 
 -- Use a role with direct database-permission format
