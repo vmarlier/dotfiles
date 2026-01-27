@@ -14,16 +14,45 @@ local function get_aws_credentials()
   if aws_profile and aws_profile ~= "" then
     -- Use AWS CLI to export credentials from the profile
     -- This is similar to: eval "$(aws configure export-credentials --format env)"
-    local handle = io.popen(string.format("aws configure export-credentials --profile %s --format env 2>&1", aws_profile))
+    vim.notify("Using AWS_PROFILE: " .. aws_profile, vim.log.levels.INFO)
+    
+    local cmd = string.format("aws configure export-credentials --profile %s --format env 2>&1", aws_profile)
+    local handle = io.popen(cmd)
     if not handle then
+      vim.notify("Failed to execute AWS CLI command", vim.log.levels.ERROR)
       return nil
     end
     
     local output = handle:read("*a")
-    local exit_code = handle:close()
+    local success, exit_type, exit_code = handle:close()
     
-    if not exit_code then
-      -- Failed to get credentials from AWS CLI
+    -- Check if command failed
+    if not success or exit_code ~= 0 then
+      -- AWS CLI failed - show the error
+      local error_msg = "AWS CLI failed to export credentials for profile '" .. aws_profile .. "'"
+      
+      -- Check for common issues in the output
+      if output:match("could not be found") or output:match("Profile.*not found") then
+        error_msg = error_msg .. "\n\nProfile '" .. aws_profile .. "' not found."
+        error_msg = error_msg .. "\n\nSuggestions:"
+        error_msg = error_msg .. "\n1. Check available profiles: aws configure list-profiles"
+        error_msg = error_msg .. "\n2. Configure profile: aws configure --profile " .. aws_profile
+      elseif output:match("SSO") or output:match("sso") then
+        error_msg = error_msg .. "\n\nSSO session may have expired."
+        error_msg = error_msg .. "\n\nSuggestions:"
+        error_msg = error_msg .. "\n1. Login again: aws sso login --profile " .. aws_profile
+      elseif output:match("credentials") or output:match("Credentials") then
+        error_msg = error_msg .. "\n\nCredentials may be invalid or expired."
+      end
+      
+      -- Include actual error output
+      if output and output ~= "" then
+        error_msg = error_msg .. "\n\nAWS CLI output:\n" .. output
+      end
+      
+      vim.notify(error_msg, vim.log.levels.ERROR)
+      
+      -- Don't fall through - if user set AWS_PROFILE, they want to use it
       return nil
     end
     
@@ -33,15 +62,22 @@ local function get_aws_credentials()
     local session_token = output:match("AWS_SESSION_TOKEN=([^\n]+)")
     
     if access_key and secret_key then
+      vim.notify("Successfully exported credentials from AWS profile", vim.log.levels.INFO)
       return {
         use_profile = false,  -- We have explicit credentials now
         access_key = access_key,
         secret_key = secret_key,
         session_token = session_token,
       }
+    else
+      -- Failed to parse credentials from output
+      local error_msg = "Failed to parse credentials from AWS CLI output"
+      if output and output ~= "" then
+        error_msg = error_msg .. "\n\nOutput:\n" .. output
+      end
+      vim.notify(error_msg, vim.log.levels.ERROR)
+      return nil
     end
-    
-    -- If we couldn't parse credentials, fall through to explicit env vars
   end
   
   -- Try explicit environment variables
@@ -50,6 +86,7 @@ local function get_aws_credentials()
   local session_token = os.getenv("AWS_SESSION_TOKEN")
   
   if access_key and secret_key then
+    vim.notify("Using explicit AWS credentials from environment variables", vim.log.levels.INFO)
     return {
       use_profile = false,
       access_key = access_key,
@@ -58,6 +95,14 @@ local function get_aws_credentials()
     }
   end
   
+  -- No credentials found
+  vim.notify(
+    "No AWS credentials found.\n\n" ..
+    "Please either:\n" ..
+    "1. Set AWS_PROFILE environment variable with a valid AWS profile\n" ..
+    "2. Set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables",
+    vim.log.levels.ERROR
+  )
   return nil
 end
 

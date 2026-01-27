@@ -302,23 +302,59 @@ Code: MissingAuthenticationToken
 Message: Request is missing Authentication Token
 ```
 
-This means AWS credentials weren't properly resolved. Check:
+This means AWS credentials weren't properly resolved. **The plugin now provides detailed error messages** to help diagnose the issue.
 
-1. **If using AWS_PROFILE**:
-   - AWS CLI is installed: `which aws`
-   - Profile exists: `aws configure list-profiles`
-   - Profile has valid credentials: `aws configure export-credentials --profile <your-profile>`
-   - You may need to login: `aws sso login --profile <your-profile>` (for SSO)
+**Common causes and solutions**:
 
-2. **If using explicit credentials**:
-   - Variables are set: `echo $AWS_ACCESS_KEY_ID`
-   - Credentials are valid: `aws sts get-caller-identity`
+1. **SSO session expired** (most common):
+   ```bash
+   # Login to AWS SSO
+   aws sso login --profile <your-profile>
+   
+   # Verify it works
+   aws configure export-credentials --profile <your-profile>
+   ```
 
-3. **Check the AWS region**:
-   - Set `aws_region` to match your Vault configuration
-   - Default is `us-east-1` but your Vault might use a different region
+2. **Profile not found**:
+   ```bash
+   # List available profiles
+   aws configure list-profiles
+   
+   # Configure the profile if missing
+   aws configure --profile <your-profile>
+   ```
 
-### curl AWS SigV4 not supported
+3. **Invalid or expired credentials**:
+   ```bash
+   # Test if credentials work
+   aws sts get-caller-identity --profile <your-profile>
+   
+   # For static credentials, update ~/.aws/credentials
+   # For SSO, run: aws sso login --profile <your-profile>
+   ```
+
+4. **AWS CLI not installed**:
+   ```bash
+   # Install AWS CLI
+   brew install awscli  # macOS
+   # or follow AWS documentation for other platforms
+   ```
+
+**Debugging steps**:
+
+1. Check AWS_PROFILE is set:
+   ```vim
+   :lua print(vim.env.AWS_PROFILE)
+   ```
+
+2. Try the plugin - it will now show detailed error messages:
+   ```vim
+   :DbeeVaultPick
+   ```
+
+3. The error notification will tell you exactly what went wrong and how to fix it.
+
+### Vault authentication failed
 
 Update curl to version 7.75.0 or later:
 ```bash
