@@ -9,16 +9,42 @@ local M = {}
 
 -- Get AWS credentials from environment
 local function get_aws_credentials()
-  -- Check if AWS_PROFILE is set - if so, we'll let curl handle credential resolution
+  -- Check if AWS_PROFILE is set - if so, we need to export credentials from the profile
   local aws_profile = os.getenv("AWS_PROFILE")
   if aws_profile and aws_profile ~= "" then
-    return {
-      use_profile = true,
-      profile = aws_profile,
-    }
+    -- Use AWS CLI to export credentials from the profile
+    -- This is similar to: eval "$(aws configure export-credentials --format env)"
+    local handle = io.popen(string.format("aws configure export-credentials --profile %s --format env 2>&1", aws_profile))
+    if not handle then
+      return nil
+    end
+    
+    local output = handle:read("*a")
+    local exit_code = handle:close()
+    
+    if not exit_code then
+      -- Failed to get credentials from AWS CLI
+      return nil
+    end
+    
+    -- Parse the environment variable exports
+    local access_key = output:match("AWS_ACCESS_KEY_ID=([^\n]+)")
+    local secret_key = output:match("AWS_SECRET_ACCESS_KEY=([^\n]+)")
+    local session_token = output:match("AWS_SESSION_TOKEN=([^\n]+)")
+    
+    if access_key and secret_key then
+      return {
+        use_profile = false,  -- We have explicit credentials now
+        access_key = access_key,
+        secret_key = secret_key,
+        session_token = session_token,
+      }
+    end
+    
+    -- If we couldn't parse credentials, fall through to explicit env vars
   end
   
-  -- Otherwise, try explicit environment variables
+  -- Try explicit environment variables
   local access_key = os.getenv("AWS_ACCESS_KEY_ID")
   local secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
   local session_token = os.getenv("AWS_SESSION_TOKEN")
@@ -77,34 +103,17 @@ local function create_signed_sts_request(config)
     "--aws-sigv4", "aws:amz:" .. region .. ":sts",
   }
   
-  local env = {}
+  -- Always use explicit credentials (either from profile export or direct env vars)
+  local env = {
+    AWS_ACCESS_KEY_ID = credentials.access_key,
+    AWS_SECRET_ACCESS_KEY = credentials.secret_key,
+  }
   
-  if credentials.use_profile then
-    -- When using AWS_PROFILE, let curl inherit AWS environment
-    -- AWS CLI credential resolution will handle the profile
-    env.AWS_PROFILE = credentials.profile
-    
-    -- Also inherit AWS_CONFIG_FILE and AWS_SHARED_CREDENTIALS_FILE if set
-    local config_file = os.getenv("AWS_CONFIG_FILE")
-    local creds_file = os.getenv("AWS_SHARED_CREDENTIALS_FILE")
-    
-    if config_file then
-      env.AWS_CONFIG_FILE = config_file
-    end
-    if creds_file then
-      env.AWS_SHARED_CREDENTIALS_FILE = creds_file
-    end
-  else
-    -- Use explicit credentials passed via environment variables
-    env.AWS_ACCESS_KEY_ID = credentials.access_key
-    env.AWS_SECRET_ACCESS_KEY = credentials.secret_key
-    
-    -- Session token is set as environment variable for curl to use in signing
-    if credentials.session_token then
-      env.AWS_SESSION_TOKEN = credentials.session_token
-      table.insert(args, "-H")
-      table.insert(args, "X-Amz-Security-Token: " .. credentials.session_token)
-    end
+  -- Session token is set as environment variable for curl to use in signing
+  if credentials.session_token then
+    env.AWS_SESSION_TOKEN = credentials.session_token
+    table.insert(args, "-H")
+    table.insert(args, "X-Amz-Security-Token: " .. credentials.session_token)
   end
   
   -- Add the URL
@@ -161,8 +170,8 @@ function M.get_vault_login_headers(config)
     ["Host"] = {"sts." .. sts_data.region .. ".amazonaws.com"},
   }
   
-  -- Only add session token header if using explicit credentials (not profile)
-  if not sts_data.credentials.use_profile and sts_data.credentials.session_token then
+  -- Add session token header if present
+  if sts_data.credentials.session_token then
     headers_table["X-Amz-Security-Token"] = {sts_data.credentials.session_token}
   end
   

@@ -66,8 +66,10 @@ The plugin can be configured using environment variables or the setup function:
 - `AWS_SESSION_TOKEN`: AWS session token (for temporary credentials)
 
 **Credential Resolution Order**:
-1. If `AWS_PROFILE` is set, the plugin uses the AWS CLI's credential chain (recommended)
+1. If `AWS_PROFILE` is set, the plugin uses AWS CLI to export credentials from the profile
 2. Otherwise, it uses explicit `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+
+**Note**: When using `AWS_PROFILE`, the AWS CLI must be installed and configured. The plugin runs `aws configure export-credentials` to get the actual credentials needed for signing.
 
 ### Setup Options
 
@@ -256,11 +258,14 @@ The recommended way to provide AWS credentials is using AWS profiles:
    })
    ```
 
-3. The plugin will automatically use the AWS CLI's credential chain, including:
-   - Profile credentials from `~/.aws/credentials`
-   - Assumed roles from `~/.aws/config`
-   - SSO credentials
-   - EC2 instance profiles (when running on EC2)
+3. The plugin will automatically export credentials using AWS CLI:
+   - Runs `aws configure export-credentials --profile <profile>`
+   - Works with profile credentials from `~/.aws/credentials`
+   - Works with assumed roles from `~/.aws/config`
+   - Works with SSO credentials (after `aws sso login`)
+   - Works with any credential source the AWS CLI supports
+
+**Important**: AWS CLI must be installed and the profile must be properly configured.
 
 ### AWS credentials not found
 
@@ -269,13 +274,15 @@ Ensure your AWS credentials are available via one of these methods:
 **Option 1: AWS Profile (Recommended)**
 - Set `AWS_PROFILE` environment variable
 - Or configure `aws_profile` in setup
-- Credentials should be in `~/.aws/credentials`
+- AWS CLI must be installed (`brew install awscli` or similar)
+- Profile should be configured in `~/.aws/credentials` or via SSO
+- Test with: `aws configure export-credentials --profile <your-profile>`
 
 **Option 2: Explicit Environment Variables**
 - Set `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 - Optionally set `AWS_SESSION_TOKEN` for temporary credentials
 
-**Security Note**: When using profiles, credentials are resolved by curl's AWS integration, keeping them secure and not exposing them in process listings.
+**Security Note**: Credentials are exported from AWS CLI and passed to curl via environment variables, keeping them secure.
 
 ### Vault authentication failed
 
@@ -285,6 +292,31 @@ Check:
 - Your AWS IAM identity has permission to authenticate
 - If using `vault_iam_server_id`, verify it matches your Vault configuration
 - If using `vault_aws_role`, verify the role exists and your IAM identity is bound to it
+
+### MissingAuthenticationToken error from AWS STS
+
+If you see an error like:
+```
+error making upstream request: received error code 403 from STS
+Code: MissingAuthenticationToken
+Message: Request is missing Authentication Token
+```
+
+This means AWS credentials weren't properly resolved. Check:
+
+1. **If using AWS_PROFILE**:
+   - AWS CLI is installed: `which aws`
+   - Profile exists: `aws configure list-profiles`
+   - Profile has valid credentials: `aws configure export-credentials --profile <your-profile>`
+   - You may need to login: `aws sso login --profile <your-profile>` (for SSO)
+
+2. **If using explicit credentials**:
+   - Variables are set: `echo $AWS_ACCESS_KEY_ID`
+   - Credentials are valid: `aws sts get-caller-identity`
+
+3. **Check the AWS region**:
+   - Set `aws_region` to match your Vault configuration
+   - Default is `us-east-1` but your Vault might use a different region
 
 ### curl AWS SigV4 not supported
 
