@@ -25,9 +25,17 @@ local function get_aws_credentials()
   return nil
 end
 
--- Base64 encode a string
+-- Base64 encode a string safely using plenary or vim.fn
 local function base64_encode(str)
-  local result = vim.fn.system("echo -n '" .. str:gsub("'", "'\\''") .. "' | base64 | tr -d '\\n'")
+  -- Use plenary's base64 encoder if available, otherwise fall back to system command
+  local ok, base64 = pcall(require, "plenary.strings")
+  if ok and base64.base64_encode then
+    return base64.base64_encode(str)
+  end
+  
+  -- Fallback to shell command with proper escaping
+  local escaped = vim.fn.shellescape(str)
+  local result = vim.fn.system("printf %s " .. escaped .. " | base64 | tr -d '\\n'")
   return result:gsub("\n", "")
 end
 
@@ -51,17 +59,23 @@ local function create_signed_sts_request(config)
   local errors = {}
   
   -- Build curl command with AWS SigV4 signing
+  -- Use environment variables to pass credentials securely
+  local env = {
+    AWS_ACCESS_KEY_ID = credentials.access_key,
+    AWS_SECRET_ACCESS_KEY = credentials.secret_key,
+  }
+  
   local args = {
     "-s",
     "-X", "POST",
     "-H", "Content-Type: " .. content_type,
     "--data", request_body,
     "--aws-sigv4", "aws:amz:" .. region .. ":sts",
-    "--user", credentials.access_key .. ":" .. credentials.secret_key,
   }
   
-  -- Add session token if present
+  -- Session token is set as environment variable for curl to use in signing
   if credentials.session_token then
+    env.AWS_SESSION_TOKEN = credentials.session_token
     table.insert(args, "-H")
     table.insert(args, "X-Amz-Security-Token: " .. credentials.session_token)
   end
@@ -70,10 +84,10 @@ local function create_signed_sts_request(config)
   table.insert(args, sts_endpoint)
   
   -- Execute curl to create the signed request
-  -- We'll use the --trace-ascii option to capture the signed headers
   Job:new({
     command = "curl",
     args = args,
+    env = env,
     on_exit = function(j, return_val)
       if return_val == 0 then
         result.data = table.concat(j:result(), "\n")
@@ -93,8 +107,6 @@ local function create_signed_sts_request(config)
   end
   
   -- For Vault, we need to provide the base64-encoded components
-  -- Note: This is a simplified version. In production, you'd want to
-  -- use a helper tool or AWS SDK that can generate the proper signed request
   return {
     sts_endpoint = sts_endpoint,
     request_body = request_body,
@@ -123,16 +135,28 @@ function M.get_vault_login_headers(config)
   
   local encoded_headers = base64_encode(headers_str)
   
-  return {
-    -- Optional: Add server ID header if needed
-    -- ["X-Vault-AWS-IAM-Server-ID"] = config.vault_addr,
-  }, {
+  -- Build request headers
+  local headers = {}
+  
+  -- Add IAM server ID header if configured
+  -- This is required if your Vault AWS auth backend has iam_server_id_header_value configured
+  if config.vault_iam_server_id then
+    headers["X-Vault-AWS-IAM-Server-ID"] = config.vault_iam_server_id
+  end
+  
+  local body_data = {
     iam_http_request_method = "POST",
     iam_request_url = encoded_url,
     iam_request_body = encoded_body,
     iam_request_headers = encoded_headers,
-    role = "", -- Role can be empty for automatic detection
   }
+  
+  -- Add role if configured
+  if config.vault_aws_role and config.vault_aws_role ~= "" then
+    body_data.role = config.vault_aws_role
+  end
+  
+  return headers, body_data
 end
 
 return M

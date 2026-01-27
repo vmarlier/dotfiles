@@ -53,8 +53,10 @@ The plugin can be configured using environment variables or the setup function:
 
 ### Environment Variables
 
-- `VAULT_ADDR`: Vault server address (e.g., `https://vault.example.com`)
+- `VAULT_ADDR`: Vault server address (e.g., `https://vault.example.com`) - **REQUIRED**
 - `VAULT_NAMESPACE`: Vault namespace (for Vault Enterprise)
+- `VAULT_AWS_ROLE`: AWS auth role name (leave empty for automatic detection)
+- `VAULT_IAM_SERVER_ID`: IAM Server ID header value (if required by Vault config)
 - `AWS_REGION`: AWS region for authentication (default: `us-east-1`)
 - `AWS_ACCESS_KEY_ID`: AWS access key
 - `AWS_SECRET_ACCESS_KEY`: AWS secret key
@@ -64,13 +66,18 @@ The plugin can be configured using environment variables or the setup function:
 
 ```lua
 require("dbee-vault").setup({
-  vault_addr = "https://vault.example.com",  -- Vault server URL
+  vault_addr = "https://vault.example.com",  -- REQUIRED: Vault server URL
   aws_region = "us-east-1",                   -- AWS region
   mount_path = "database/creds",              -- Vault mount path for DB creds
   vault_namespace = nil,                      -- Optional Vault namespace
+  vault_aws_role = "",                        -- Optional AWS auth role name
+  vault_iam_server_id = nil,                  -- Optional IAM Server ID header
   timeout = 30,                                -- Request timeout in seconds
+  default_db_type = "postgres",               -- Default database type
 })
 ```
+
+**Important**: The `vault_addr` must be configured either via environment variable or in the setup function. The plugin will error on startup if this is not set.
 
 ## Usage
 
@@ -220,13 +227,16 @@ Ensure your AWS credentials are available via:
 - AWS credentials file (`~/.aws/credentials`)
 - EC2 instance profile (when running on EC2)
 
+**Security Note**: AWS credentials are passed to curl via environment variables to avoid exposing them in process listings.
+
 ### Vault authentication failed
 
 Check:
 - Vault address is correct and accessible
 - AWS auth method is enabled in Vault
 - Your AWS IAM identity has permission to authenticate
-- The IAM server ID header matches your configuration
+- If using `vault_iam_server_id`, verify it matches your Vault configuration
+- If using `vault_aws_role`, verify the role exists and your IAM identity is bound to it
 
 ### curl AWS SigV4 not supported
 
@@ -234,6 +244,14 @@ Update curl to version 7.75.0 or later:
 ```bash
 curl --version
 ```
+
+### Credentials exposed in logs
+
+nvim-dbee may log connection URLs which include credentials. This is a known limitation. The credentials are temporary and will expire based on the Vault lease duration. Always use short lease durations for database credentials and monitor access logs.
+
+### Token expiration
+
+Vault tokens cached by the plugin do not automatically refresh. If your token expires, you'll see authentication errors. Use `:DbeeVaultClearToken` to clear the cached token and force re-authentication.
 
 ## License
 

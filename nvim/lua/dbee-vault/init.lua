@@ -22,13 +22,18 @@ function M.setup(opts)
   
   vim.api.nvim_create_user_command("DbeeVaultUse", function(args)
     if args.args == "" then
-      vim.notify("Usage: DbeeVaultUse <role>", vim.log.levels.ERROR)
+      vim.notify(
+        "Usage: DbeeVaultUse <role>\n" ..
+        "Example: DbeeVaultUse deimos-admin\n" ..
+        "Role format: <database>-<permission>",
+        vim.log.levels.ERROR
+      )
       return
     end
     ui.use_role(args.args)
   end, {
     nargs = 1,
-    desc = "Use a specific database role from Vault",
+    desc = "Use a specific database role from Vault (format: database-permission)",
     complete = function()
       local roles, err = vault.list_roles()
       if err then
@@ -39,9 +44,13 @@ function M.setup(opts)
   })
   
   vim.api.nvim_create_user_command("DbeeVaultDirect", function(args)
-    local parts = vim.split(args.args, " ")
+    local parts = vim.split(args.args, "%s+")
     if #parts ~= 2 then
-      vim.notify("Usage: DbeeVaultDirect <database> <permission>", vim.log.levels.ERROR)
+      vim.notify(
+        "Usage: DbeeVaultDirect <database> <permission>\n" ..
+        "Example: DbeeVaultDirect deimos admin",
+        vim.log.levels.ERROR
+      )
       return
     end
     ui.use_direct_role(parts[1], parts[2])
@@ -57,10 +66,5 @@ function M.setup(opts)
     desc = "Clear cached Vault token (force re-authentication)",
   })
 end
-
--- Export submodules for direct access
-M.config = config
-M.ui = ui
-M.vault = vault
 
 return M

@@ -4,6 +4,7 @@
 -- UI integration module for dbee-vault
 
 local vault = require("dbee-vault.vault")
+local config = require("dbee-vault.config")
 
 local M = {}
 
@@ -13,7 +14,8 @@ local function update_dbee_connection(role, credentials)
   
   -- Parse the role name to extract database and permission
   -- Format: database-permission (e.g., deimos-admin, calypso-read)
-  local database, permission = role:match("^(.+)%-([^-]+)$")
+  -- Use non-greedy match for database to handle names with hyphens
+  local database, permission = role:match("^(.-)%-([^-]+)$")
   
   if not database then
     -- If pattern doesn't match, use the role name as database name
@@ -21,55 +23,77 @@ local function update_dbee_connection(role, credentials)
     permission = "default"
   end
   
-  -- Extract connection details from credentials
-  -- Vault returns: username, password, and optionally hostname, port
-  local connection_url = string.format(
-    "postgresql://%s:%s@%s:%s/%s",
-    credentials.username,
-    credentials.password,
-    credentials.hostname or "localhost",
-    credentials.port or "5432",
-    database
-  )
+  -- Get configured database type
+  local db_type = config.get_value("default_db_type") or "postgres"
+  
+  -- Build connection URL based on database type
+  local connection_url
+  if db_type == "postgres" then
+    connection_url = string.format(
+      "postgresql://%s:%s@%s:%s/%s",
+      credentials.username,
+      credentials.password,
+      credentials.hostname or "localhost",
+      credentials.port or "5432",
+      database
+    )
+  elseif db_type == "mysql" then
+    connection_url = string.format(
+      "mysql://%s:%s@%s:%s/%s",
+      credentials.username,
+      credentials.password,
+      credentials.hostname or "localhost",
+      credentials.port or "3306",
+      database
+    )
+  else
+    -- Generic format
+    connection_url = string.format(
+      "%s://%s:%s@%s:%s/%s",
+      db_type,
+      credentials.username,
+      credentials.password,
+      credentials.hostname or "localhost",
+      credentials.port or "5432",
+      database
+    )
+  end
   
   -- Create connection configuration for dbee
+  -- Note: nvim-dbee will handle credential masking in its UI
   local connection = {
     name = string.format("%s (%s) [Vault]", database, permission),
-    type = "postgres", -- Default to postgres, can be made configurable
+    type = db_type,
     url = connection_url,
   }
   
   -- Try to add connection using dbee sources API
-  -- The best approach is to use a MemorySource to inject the connection
   local sources = require("dbee.sources")
   local memory_source = sources.MemorySource:new({ connection })
   
   -- Add the source to dbee
-  -- Note: This is a runtime addition, it won't persist across restarts
-  local ok, result = pcall(function()
+  local ok, err = pcall(function()
     dbee.api.core.add_source(memory_source)
   end)
   
   if not ok then
-    -- Fallback: try to manipulate the internal state
-    -- This is less ideal but might work if add_source is not available
-    vim.notify(
-      "Could not add source dynamically. Connection may need to be added manually.",
-      vim.log.levels.WARN
+    return nil, string.format(
+      "Failed to add connection to dbee: %s\n" ..
+      "The credentials were retrieved successfully but could not be added to dbee.\n" ..
+      "You may need to add the connection manually.",
+      tostring(err)
     )
   end
   
-  -- Notify user
-  vim.notify(
-    string.format("Retrieved credentials for: %s\nUsername: %s\nTTL: %s", 
-      connection.name,
-      credentials.username,
-      credentials.lease_duration and (credentials.lease_duration .. "s") or "N/A"
-    ),
-    vim.log.levels.INFO
-  )
+  -- Build notification message
+  local lease_info = ""
+  if credentials.lease_duration then
+    local hours = math.floor(credentials.lease_duration / 3600)
+    local minutes = math.floor((credentials.lease_duration % 3600) / 60)
+    lease_info = string.format("Credentials expire in: %dh %dm", hours, minutes)
+  end
   
-  return connection
+  return connection, lease_info
 end
 
 -- Show role picker using snacks.nvim
@@ -114,15 +138,35 @@ function M.use_role(role)
   end
   
   -- Update dbee with the new connection
-  local connection = update_dbee_connection(role, credentials)
+  local connection, lease_info = update_dbee_connection(role, credentials)
+  
+  if not connection then
+    -- lease_info contains the error message in this case
+    vim.notify(lease_info, vim.log.levels.ERROR)
+    return
+  end
+  
+  -- Notify success
+  local message = string.format("Added connection: %s\nUsername: %s", 
+    connection.name,
+    credentials.username
+  )
+  if lease_info and lease_info ~= "" then
+    message = message .. "\n" .. lease_info
+  end
+  vim.notify(message, vim.log.levels.INFO)
   
   -- Try to open or refresh dbee UI
-  local ok, _ = pcall(function()
+  local ok, open_err = pcall(function()
     require("dbee").open()
   end)
   
   if not ok then
-    vim.notify("DbeeVault: Connection details retrieved but could not refresh dbee UI", vim.log.levels.WARN)
+    vim.notify(
+      "Connection added but could not open dbee UI: " .. tostring(open_err) .. "\n" ..
+      "Use :Dbee open to access the connection.",
+      vim.log.levels.WARN
+    )
   end
 end
 
