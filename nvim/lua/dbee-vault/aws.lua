@@ -27,7 +27,9 @@ local function get_aws_credentials()
     local success, exit_type, exit_code = handle:close()
     
     -- Check if command failed
-    if not success or exit_code ~= 0 then
+    -- When successful, success is true and exit_code is 0 (or nil)
+    -- When failed, success is nil
+    if not success then
       -- AWS CLI failed - show the error
       local error_msg = "AWS CLI failed to export credentials for profile '" .. aws_profile .. "'"
       
@@ -57,9 +59,10 @@ local function get_aws_credentials()
     end
     
     -- Parse the environment variable exports
-    local access_key = output:match("AWS_ACCESS_KEY_ID=([^\n]+)")
-    local secret_key = output:match("AWS_SECRET_ACCESS_KEY=([^\n]+)")
-    local session_token = output:match("AWS_SESSION_TOKEN=([^\n]+)")
+    -- Handle both "export VAR=value" and "VAR=value" formats
+    local access_key = output:match("AWS_ACCESS_KEY_ID=([^\n\r]+)")
+    local secret_key = output:match("AWS_SECRET_ACCESS_KEY=([^\n\r]+)")
+    local session_token = output:match("AWS_SESSION_TOKEN=([^\n\r]+)")
     
     if access_key and secret_key then
       vim.notify("Successfully exported credentials from AWS profile", vim.log.levels.INFO)
