@@ -31,6 +31,11 @@ brew install kind
 brew install lua
 brew install pgcli
 
+# agents
+brew install copilot-cli
+brew install gemini-cli
+brew install codex
+
 # brew tap koekeishiya/formulae
 # brew install borders
 # brew install koekeishiya/formulae/yabai
