@@ -5,7 +5,6 @@
 ### COMPLETION ###
 HYPHEN_INSENSITIVE="true"
 
-
 ### git ###
 git config --global push.default current
 

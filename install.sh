@@ -30,20 +30,14 @@ brew install fd
 brew install kind
 brew install lua
 brew install pgcli
+brew install starship
 
 # agents
 brew install copilot-cli
 brew install gemini-cli
 brew install codex
 
-# brew tap koekeishiya/formulae
-# brew install borders
-# brew install koekeishiya/formulae/yabai
-# brew install koekeishiya/formulae/skhd
-# brew services start borders
-
 # pip installations
-pip3 install pew
 pipx ensurepath && pipx install aws-sso-util
 
 # make useful path
@@ -52,7 +46,7 @@ mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go
 # macOS Settings
 echo "Changing macOS defaults..."
 defaults write com.apple.Finder AppleShowAllFiles -bool true # show hidden files too
-defaults write com.apple.finder CreateDesktop false killall Finder # no icons on desktop
+#defaults write com.apple.finder CreateDesktop false killall Finder # no icons on desktop
 
 
 # add asdf plugins
@@ -76,9 +70,6 @@ asdf plugin add github-cli     https://github.com/bartlomiejdanek/asdf-github-cl
 asdf plugin add rust           https://github.com/code-lever/asdf-rust.git
 asdf plugin add tmux           https://github.com/aphecetche/asdf-tmux.git
 
-# add other tools
-curl -fsSL https://ampcode.com/install.sh | bash
-
 # neovim installers
 npm install -g neovim
 pip3 install neovim
@@ -90,13 +81,14 @@ mkdir -p ~/Git/$(whoami)
 git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
 ln -s ~/Git/$(whoami)/dotfiles/nvim ~/.config/nvim
 ln -s ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/Git/$(whoami)/dotfiles/zsh/.zsh_aliases.zshrc ~/.zsh_aliases.zshrc
+ln -s ~/Git/$(whoami)/dotfiles/zsh/.zsh_export.zshrc ~/.zsh_export.zshrc
 ln -s ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
 ln -s ~/Git/$(whoami)/dotfiles/fonts ~/Library/Fonts
+ln -s ~/Git/$(whoami)/dotfiles/zsh/starship.toml ~/.config/starship.toml
+ln -s ~/Git/$(whoami)/.kube ~/kube_contexts
 
 echo "OTHER SOFT TO DL => ITERM2, SPARK, AUTHY, BITWARDEN, ALFRED4, CLEAN MY MAC X, RECTANGLE"
 echo "ASDF => run asdf install on your HOME folder"
 
-csrutil status
-echo "(optional) Disable SIP for advanced yabai features."
-echo "(optional) Add sudoer manually:\n '$(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | awk "{print \$1;}") $(which yabai) --load-sa' to '/private/etc/sudoers.d/yabai'"
 echo "Installation complete...\n"

@@ -57,7 +57,7 @@ return {
     },
     build = "make tiktoken",                          -- Only on MacOS or Linux
     opts = {
-      model = 'gemini-3-pro',
+      model = 'gemini-3.1-pro',
     },
   },
   {
