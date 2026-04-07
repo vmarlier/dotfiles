@@ -93,6 +93,11 @@ return {
           name = "0. Dotfiles",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/dotfiles")),
           section = "Repositories"
+        },
+        {
+          name = "Prop Tech",
+          action = create_repo_action(expand.path("~/Git/side/prop-tech")),
+          section = "Repositories"
         }
       }
 
@@ -100,13 +105,6 @@ return {
         {
           name = "HTTP Client",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/http-client")),
-          section = "Tools"
-        },
-        -- Do not use create_repo_action as it calls NvimTreeToggle and this break Dbee layout
-        {
-          name = "DBee Client",
-          action = string.format(":lua require('mini.starter').close(); vim.cmd('cd %s'); require('dbee').open()",
-            expand.path("~/Git/valentin.marlier/dbee-client")),
           section = "Tools"
         }
       }
@@ -303,7 +301,17 @@ return {
         "markdown",
         "regex",
         "terraform",
-        "yaml"
+        "yaml",
+
+        -- prop tech project
+        -- Core Logic: Highlighting for TypeScript, TSX, and JavaScript
+        "typescript", "tsx", "javascript",
+        -- Mobile Support: Syntax parsing for the project's Dart files
+        "dart",
+        -- Database: Highlighting for Ledger migrations and Kysely SQL snippets
+        "sql",
+        -- Config: Support for Firebase, TSConfig, and Package JSON files
+        "json", "json5",
       },
 
       incremental_selection = {

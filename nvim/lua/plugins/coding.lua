@@ -59,6 +59,55 @@ local servers = {
   yamlls = {},
   dockerls = {},
   marksman = {},
+  -- prop tech project
+  html = {},  -- Helpful for frontend work
+  cssls = {}, -- For the frontend directory
+  -- Core: Handles the 82% TypeScript backend and React frontend
+  vtsls = {
+    settings = {
+      typescript = {
+        updateImportsOnFileMove = { enabled = "always" },
+        suggest = { completeFunctionCalls = true },
+        inlayHints = {
+          parameterNames = { enabled = "all" }, -- Essential for audit: clarifies what arguments do
+          variableTypes = { enabled = true },
+        },
+      },
+      vtsls = {
+        autoUseWorkspaceTsdk = true, -- Ensures it uses the project's version of TS
+        experimental = { completion = { enableServerSidefuzzyMatch = true } },
+      },
+    },
+  },
+  -- Quality: Essential for the project's strict linting rules
+  eslint = {
+    settings = {
+      workingDirectory = { mode = "auto" }, -- Handles the backend/frontend subfolders correctly
+      format = true,
+    },
+    on_attach = function(client, bufnr)
+      -- This specific command ensures ESLint fixes are applied on save via conform
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+    end,
+  },
+  -- Mobile: Provides IDE features for the Dart/Flutter components
+  dartls = {
+    settings = {
+      dart = {
+        completeFunctionCalls = true,
+        showTodos = true, -- Helps you find technical debt in the Dart code
+      },
+    },
+  },
+  -- Data: Schema-aware completion for the banking ledger and SQL migrations
+  sqls = {
+    on_attach = function(client, bufnr)
+      require('sqls').on_attach(client, bufnr) -- Requires 'nanotee/sqls.nvim' plugin
+    end,
+  },
 }
 
 return {
@@ -70,13 +119,25 @@ return {
     opts = {
       ensure_installed = {
         "goimports",
-        "shfmt"
+        "shfmt",
+        -- prop tech project
+        "prettierd",     -- New: Formatter for TS/JS
+        "sql-formatter", -- New: Formatter for Ledger SQL
       },
     },
     config = function(_, opts)
       require("mason").setup(opts)
+
+      -- Filter out servers that Mason doesn't manage (like dartls)
+      local mason_managed_servers = {}
+      for server_name, _ in pairs(servers) do
+        if server_name ~= "dartls" then
+          table.insert(mason_managed_servers, server_name)
+        end
+      end
+
       require("mason-lspconfig").setup({
-        ensure_installed = vim.tbl_keys(servers),
+        ensure_installed = mason_managed_servers,
       })
     end,
   },
@@ -88,6 +149,8 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "lukas-reineke/cmp-under-comparator",
+      -- prop tech project
+      "nanotee/sqls.nvim",
     },
     config = function()
       -- Setup completion first
@@ -180,6 +243,14 @@ return {
         ["terraform_vars"] = { "terraform_fmt" },
         lua                = { lsp_format = "first" },
         json               = { lsp_format = "first" },
+        -- prop tech project
+        -- Fast, reliable formatting for the main TypeScript codebase
+        typescript         = { "prettierd", "prettier", stop_after_first = true },
+        javascript         = { "prettierd", "prettier", stop_after_first = true },
+        -- Standard formatting for the Dart components
+        dart               = { "dart_format" },
+        -- Ensures consistent formatting for ledger SQL files
+        sql                = { "sql_formatter" },
       },
       formatters = {
         shfmt = {
@@ -245,4 +316,8 @@ return {
       end)
     end,
   },
+
+  {
+
+  }
 }
