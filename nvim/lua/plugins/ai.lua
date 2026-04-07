@@ -60,10 +60,4 @@ return {
       model = 'gemini-3.1-pro',
     },
   },
-  {
-    "sourcegraph/amp.nvim",
-    branch = "main",
-    lazy = false,
-    opts = { auto_start = true, log_level = "info" },
-  }
 }
