@@ -30,12 +30,16 @@ brew install fd
 brew install kind
 brew install lua
 brew install pgcli
+brew install postgresql
 brew install starship
 
 # agents
 brew install copilot-cli
 brew install gemini-cli
 brew install codex
+
+# prop tech project specific
+brew install --cask flutter
 
 # pip installations
 pipx ensurepath && pipx install aws-sso-util
@@ -47,7 +51,6 @@ mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/Git ~/go
 echo "Changing macOS defaults..."
 defaults write com.apple.Finder AppleShowAllFiles -bool true # show hidden files too
 #defaults write com.apple.finder CreateDesktop false killall Finder # no icons on desktop
-
 
 # add asdf plugins
 asdf plugin add awscli         https://github.com/MetricMike/asdf-awscli.git
