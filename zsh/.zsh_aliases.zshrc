@@ -17,5 +17,5 @@ alias kgetpdb="kubectl get pdb -A -o json | jq -r '.items[] | select(.status.dis
 alias kaf="kubectl apply -f"
 alias kdf="kubectl delete -f"
 
-### i'm even more lazy
-alias lg="lazygit"
+### others ###
+alias claud="claude"

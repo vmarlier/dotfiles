@@ -32,11 +32,13 @@ brew install lua
 brew install pgcli
 brew install postgresql
 brew install starship
+brew install crane
 
 # agents
 brew install copilot-cli
 brew install gemini-cli
 brew install codex
+curl -fsSL https://claude.ai/install.sh | bash
 
 # prop tech project specific
 brew install --cask flutter
@@ -67,7 +69,6 @@ asdf plugin add kubent         https://github.com/virtualstaticvoid/asdf-kubent.
 asdf plugin add k9s            https://github.com/looztra/asdf-k9s.git
 asdf plugin add terraform-docs https://github.com/looztra/asdf-terraform-docs.git
 asdf plugin add helm-docs      https://github.com/sudermanjr/asdf-helm-docs.git
-asdf plugin add lazygit        https://github.com/nklmilojevic/asdf-lazygit.git
 asdf plugin add lua            https://github.com/Stratus3D/asdf-lua.git
 asdf plugin add github-cli     https://github.com/bartlomiejdanek/asdf-github-cli.git
 asdf plugin add rust           https://github.com/code-lever/asdf-rust.git
