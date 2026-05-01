@@ -15,4 +15,5 @@ return {
       urlencode_force = "[%[%]%(%)]",
     },
   },
+  -- HTTP CLIENT bruno support
 }
