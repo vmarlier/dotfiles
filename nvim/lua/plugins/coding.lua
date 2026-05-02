@@ -237,7 +237,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        go                 = { "goimports", lsp_format = "first" },
+        go                 = { "goimports", lsp_format = "first", "gofmt" },
         terraform          = { "terraform_fmt" },
         tf                 = { "terraform_fmt" },
         ["terraform_vars"] = { "terraform_fmt" },
