@@ -8,21 +8,26 @@ echo "Starting installation..."
 
 # 2. Setup Directory Structure & Clone Dotfiles
 # We do this first so we have access to the Brewfile and .tool-versions
-mkdir -p ~/Git/$(whoami)
-if [ ! -d "$HOME/Git/$(whoami)/dotfiles" ]; then
+mkdir -p ~/Git/$USER
+if [ ! -d "$HOME/Git/$USER/dotfiles" ]; then
     echo "Cloning dotfiles..."
-    git clone https://github.com/vmarlier/dotfiles.git ~/Git/$(whoami)/dotfiles
+    git clone https://github.com/vmarlier/dotfiles.git ~/Git/$USER/dotfiles
 else
     echo "Dotfiles already exist, pulling latest changes..."
-    cd ~/Git/$(whoami)/dotfiles && git pull && cd -
+    cd ~/Git/$USER/dotfiles && git pull && cd -
 fi
 
 # 3. Setup Homebrew
 if ! command -v brew &> /dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # Add brew to path for the current session
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    # Add brew to path for the current session depending on architecture
+    if [[ $(uname -m) == 'arm64' ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 fi
 
 # 4. Setup Oh My Zsh (Unattended)
@@ -32,28 +37,30 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # 5. Brew installations
-# Points directly to the Brewfile in your repo
 echo "Installing Brew bundle..."
-brew bundle --file ~/Git/$(whoami)/dotfiles/brew/Brewfile
+brew bundle --file ~/Git/$USER/dotfiles/brew/Brewfile
 
-# 6. Make useful paths
+# 6. Make useful paths & Public Safety Secret File
 mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/go ~/kube_contexts
+touch ~/.zsh_local # For secrets-free config (API keys, etc.)
 
 # 7. Propagated configurations (Symlinks)
 echo "Creating symlinks..."
-ln -sfn ~/Git/$(whoami)/dotfiles/nvim ~/.config/nvim
-ln -sfn ~/Git/$(whoami)/dotfiles/zsh/.zshrc ~/.zshrc
-ln -sfn ~/Git/$(whoami)/dotfiles/zsh/.zsh_aliases.zshrc ~/.zsh_aliases.zshrc
-ln -sfn ~/Git/$(whoami)/dotfiles/zsh/.zsh_export.zshrc ~/.zsh_export.zshrc
-ln -sfn ~/Git/$(whoami)/dotfiles/asdf/.tool-versions ~/.tool-versions
-ln -sfn ~/Git/$(whoami)/dotfiles/zsh/starship.toml ~/.config/starship.toml
+ln -sfn ~/Git/$USER/dotfiles/nvim ~/.config/nvim
+ln -sfn ~/Git/$USER/dotfiles/zsh/.zshrc ~/.zshrc
+ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_aliases.zshrc ~/.zsh_aliases.zshrc
+ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_export.zshrc ~/.zsh_export.zshrc
+ln -sfn ~/Git/$USER/dotfiles/asdf/.tool-versions ~/.tool-versions
+ln -sfn ~/Git/$USER/dotfiles/zsh/starship.toml ~/.config/starship.toml
 
-# Copy fonts (Symlinking fonts folder can sometimes be finicky on macOS)
-cp -r ~/Git/$(whoami)/dotfiles/fonts/* ~/Library/Fonts/ 2>/dev/null || true
+# Copy fonts
+cp -r ~/Git/$USER/dotfiles/fonts/* ~/Library/Fonts/ 2>/dev/null || true
+
+# Source asdf for the current shell session so we can use it below
+. $(brew --prefix asdf)/libexec/asdf.sh
 
 # 8. ASDF Plugins Setup
 echo "Adding asdf plugins..."
-# Using a loop to keep it clean
 ASDF_PLUGINS=(
     "awscli https://github.com/MetricMike/asdf-awscli.git"
     "firebase https://github.com/jthegedus/asdf-firebase.git"
@@ -86,16 +93,23 @@ for item in "${ASDF_PLUGINS[@]}"; do
     asdf plugin add $item || true
 done
 
+# Automate tool installations
+echo "Installing asdf tools..."
+cd ~ && asdf install
+
 # 9. Tools & Agents
 echo "Installing agents and CLI tools..."
 curl -fsSL https://claude.ai/install.sh | bash
+# pipx should be available from brew, but ensure path anyway
 pipx ensurepath
 pipx install aws-sso-util || true
 
 # 10. Neovim Provider Setup (Node only, Python/Ruby omitted for cleanliness)
+# Node is now successfully installed via asdf above, so npm will work
+echo "Setting up Neovim node provider..."
 npm install -g neovim
 
 echo -e "\n--- Manual Steps Required ---"
-echo "1. Run 'asdf install' in your HOME folder to install all language versions."
+echo "1. Populate your ~/.zsh_local file with any API keys or secrets."
 echo "2. Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom \n\n\n"
 echo -e "Installation complete!\n"
