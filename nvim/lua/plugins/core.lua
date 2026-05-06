@@ -98,7 +98,12 @@ return {
           name = "Prop Tech",
           action = create_repo_action(expand.path("~/Git/side/prop-tech")),
           section = "Repositories"
-        }
+        },
+        {
+          name = "FlowState",
+          action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/FlowState")),
+          section = "Repositories"
+        },
       }
 
       local tools = {
