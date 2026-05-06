@@ -42,7 +42,6 @@ brew bundle --file ~/Git/$USER/dotfiles/brew/Brewfile
 
 # 6. Make useful paths & Public Safety Secret File
 mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/go ~/kube_contexts
-touch ~/.zsh_local # For secrets-free config (API keys, etc.)
 
 # 7. Propagated configurations (Symlinks)
 echo "Creating symlinks..."
@@ -110,6 +109,5 @@ echo "Setting up Neovim node provider..."
 npm install -g neovim
 
 echo -e "\n--- Manual Steps Required ---"
-echo "1. Populate your ~/.zsh_local file with any API keys or secrets."
-echo "2. Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom \n\n\n"
+echo "Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom \n\n\n"
 echo -e "Installation complete!\n"
