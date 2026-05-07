@@ -111,4 +111,5 @@ npm install -g neovim
 echo -e "\n--- Manual Steps Required ---"
 echo "Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom, KeepingYouAwake, FlyCut \n\n\n"
 echo "Review Settings, Finder sidebar, Dock settings, Widgets.."
+echo "copy /ssh/config, recreate a new key, replace .PATH and invalidate old keys"
 echo -e "Installation complete!\n"
