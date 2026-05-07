@@ -109,6 +109,6 @@ echo "Setting up Neovim node provider..."
 npm install -g neovim
 
 echo -e "\n--- Manual Steps Required ---"
-echo "Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom, KeepingYouAwake \n\n\n"
+echo "Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom, KeepingYouAwake, FlyCut \n\n\n"
 echo "Review Settings, Finder sidebar, Dock settings, Widgets.."
 echo -e "Installation complete!\n"

@@ -7,12 +7,14 @@ HYPHEN_INSENSITIVE="true"
 
 ### git ###
 git config --global push.default current
+git config --global pull.default current
+git config --global url.git@github.com:.insteadof https://github.com/
 
 ### asdf ###
-. "$HOME/.asdf/asdf.sh"
 
 plugins=(
-#  alias-tips
+# alias-tips
+  asdf
   aws
   git
   kubectl
@@ -26,3 +28,6 @@ source <(kubectl completion zsh)
 source ~/Git/valentin.marlier/backups/Access/swenv_completion.zsh
 
 eval "$(starship init zsh)"
+
+# Created by `pipx` on 2026-05-06 14:22:29
+export PATH="$PATH:/Users/valentin.marlier/.local/bin"
