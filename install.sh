@@ -1,20 +1,38 @@
 #!/bin/bash
 
+# 0. Check for GitHub SSH keys
+if [ ! -f "$HOME/.ssh/github/id_ed25519" ]; then
+    echo "❌ GitHub SSH key not found at ~/.ssh/github/id_ed25519"
+    echo "Please generate a new SSH key and add it to your GitHub account before continuing."
+    echo "Instructions: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"
+    echo "Once added, re-run this script."
+    exit 1
+fi
+
 # 1. Ask for sudo upfront and keep the keep-alive alive
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 echo "Starting installation..."
 
-# 2. Setup Directory Structure & Clone Dotfiles
+# 2. Setup Directory Structure & Clone Repositories
 # We do this first so we have access to the Brewfile and .tool-versions
 mkdir -p ~/Git/$USER
+
 if [ ! -d "$HOME/Git/$USER/dotfiles" ]; then
     echo "Cloning dotfiles..."
     git clone https://github.com/vmarlier/dotfiles.git ~/Git/$USER/dotfiles
 else
     echo "Dotfiles already exist, pulling latest changes..."
     cd ~/Git/$USER/dotfiles && git pull && cd -
+fi
+
+if [ ! -d "$HOME/Git/$USER/backups" ]; then
+    echo "Cloning backups (private repo)..."
+    git clone git@github.com:vmarlier/backups.git ~/Git/$USER/backups
+else
+    echo "Backups already exist, pulling latest changes..."
+    cd ~/Git/$USER/backups && git pull && cd -
 fi
 
 # 3. Setup Homebrew
@@ -41,7 +59,8 @@ echo "Installing Brew bundle..."
 brew bundle --file ~/Git/$USER/dotfiles/brew/Brewfile
 
 # 6. Make useful paths & Public Safety Secret File
-mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/go ~/kube_contexts
+mkdir -p ~/.config ~/.kube ~/.aws ~/go ~/.local/bin
+
 
 # 7. Propagated configurations (Symlinks)
 echo "Creating symlinks..."
@@ -51,6 +70,8 @@ ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_aliases.zshrc ~/.zsh_aliases.zshrc
 ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_export.zshrc ~/.zsh_export.zshrc
 ln -sfn ~/Git/$USER/dotfiles/asdf/.tool-versions ~/.tool-versions
 ln -sfn ~/Git/$USER/dotfiles/zsh/starship.toml ~/.config/starship.toml
+ln -sfn ~/Git/$USER/backups/Access/swenv.zsh ~/.local/bin/swenv
+ln -sfn ~/.kube ~/kube_contexts
 
 # Copy fonts
 cp -r ~/Git/$USER/dotfiles/fonts/* ~/Library/Fonts/ 2>/dev/null || true

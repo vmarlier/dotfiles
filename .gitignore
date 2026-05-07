@@ -37,4 +37,7 @@ tags
 # lazy ignore
 *lazy-lock.json
 
+id_ed25519
+id_ed25519.pub
+
 # End of https://www.gitignore.io/api/git,vim,linux
