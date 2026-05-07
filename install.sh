@@ -45,7 +45,7 @@ mkdir -p ~/.config/nvim ~/.kube ~/.aws ~/go ~/kube_contexts
 
 # 7. Propagated configurations (Symlinks)
 echo "Creating symlinks..."
-ln -sfn ~/Git/$USER/dotfiles/nvim ~/.config/nvim
+ln -sfn ~/Git/$USER/dotfiles/nvim ~/.config/.
 ln -sfn ~/Git/$USER/dotfiles/zsh/.zshrc ~/.zshrc
 ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_aliases.zshrc ~/.zsh_aliases.zshrc
 ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_export.zshrc ~/.zsh_export.zshrc
