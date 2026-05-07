@@ -2,4 +2,4 @@ Host github.com
   Hostname github.com
   AddKeysToAgent yes
   UseKeychain yes
-  IdentityFile ./PATH
+  IdentityFile /Users/valentin.marlier/.ssh/github/id_ed25519
