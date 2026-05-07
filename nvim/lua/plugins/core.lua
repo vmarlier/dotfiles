@@ -271,7 +271,7 @@ return {
 
     init = function(plugin)
       require("lazy.core.loader").add_to_rtp(plugin)
-      require("nvim-treesitter.query_predicates")
+      pcall(require, "nvim-treesitter.query_predicates")
     end,
 
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
@@ -331,7 +331,10 @@ return {
     },
 
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+      local ok, configs = pcall(require, "nvim-treesitter.configs")
+      if ok then
+        configs.setup(opts)
+      end
+    end
   },
 }
