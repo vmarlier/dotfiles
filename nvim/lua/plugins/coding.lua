@@ -62,37 +62,6 @@ local servers = {
   -- prop tech project
   html = {},  -- Helpful for frontend work
   cssls = {}, -- For the frontend directory
-  -- Core: Handles the 82% TypeScript backend and React frontend
-  vtsls = {
-    settings = {
-      typescript = {
-        updateImportsOnFileMove = { enabled = "always" },
-        suggest = { completeFunctionCalls = true },
-        inlayHints = {
-          parameterNames = { enabled = "all" }, -- Essential for audit: clarifies what arguments do
-          variableTypes = { enabled = true },
-        },
-      },
-      vtsls = {
-        autoUseWorkspaceTsdk = true, -- Ensures it uses the project's version of TS
-        experimental = { completion = { enableServerSidefuzzyMatch = true } },
-      },
-    },
-  },
-  -- Quality: Essential for the project's strict linting rules
-  eslint = {
-    settings = {
-      workingDirectory = { mode = "auto" }, -- Handles the backend/frontend subfolders correctly
-      format = true,
-    },
-    on_attach = function(client, bufnr)
-      -- This specific command ensures ESLint fixes are applied on save via conform
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = bufnr,
-        command = "EslintFixAll",
-      })
-    end,
-  },
   -- Mobile: Provides IDE features for the Dart/Flutter components
   dartls = {
     settings = {
@@ -121,7 +90,6 @@ return {
         "goimports",
         "shfmt",
         -- prop tech project
-        "prettierd",     -- New: Formatter for TS/JS
         "sql-formatter", -- New: Formatter for Ledger SQL
       },
     },
@@ -244,9 +212,6 @@ return {
         lua                = { lsp_format = "first" },
         json               = { lsp_format = "first" },
         -- prop tech project
-        -- Fast, reliable formatting for the main TypeScript codebase
-        typescript         = { "prettierd", "prettier", stop_after_first = true },
-        javascript         = { "prettierd", "prettier", stop_after_first = true },
         -- Standard formatting for the Dart components
         dart               = { "dart_format" },
         -- Ensures consistent formatting for ledger SQL files
@@ -296,28 +261,4 @@ return {
       },
     },
   },
-
-  { -- Kubernetes
-    "diogo464/kubernetes.nvim",
-    ft = "yaml",
-    dependencies = { "nvim-lspconfig" },
-    config = function()
-      local kubernetes = require("kubernetes")
-      kubernetes.generate_schema(function(schema_url)
-        if schema_url then
-          local lspconfig = require("lspconfig")
-          local current_config = lspconfig.util.get_config("yamlls")
-          current_config.settings.yaml.schemas[schema_url] = "*.yaml"
-          vim.cmd("LspRestart yamlls")
-          vim.notify("Kubernetes schema loaded for yamlls.", vim.log.levels.INFO)
-        else
-          vim.notify("Could not get K8s schema. Authenticate and try again.", vim.log.levels.WARN)
-        end
-      end)
-    end,
-  },
-
-  {
-
-  }
 }

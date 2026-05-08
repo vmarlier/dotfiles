@@ -20,9 +20,6 @@ export EDITOR="nvim"
 # deal with helmrelease from fluxv1 and fluxv2
 export hr="helmrelease.helm.toolkit.fluxcd.io"
 
-# podman
-export DOCKER_HOST="unix://${HOME}/.local/share/containers/podman/machine/podman.sock"
-
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 

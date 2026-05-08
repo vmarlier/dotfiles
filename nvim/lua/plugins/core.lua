@@ -27,18 +27,6 @@ return {
         return base_cmd .. ";"
       end
 
-      local function get_fortune_cowsay()
-        if vim.fn.executable("fortune") == 1 and vim.fn.executable("cowsay") == 1 then
-          local handle = io.popen("fortune -s | cowsay")
-          if handle then
-            local result = handle:read("*a")
-            handle:close()
-            return result
-          end
-        end
-        return ""
-      end
-
       local function generate_repositories_items(base_path, section_name)
         local items = {}
         local expanded_path = expand.path(base_path)
@@ -82,7 +70,7 @@ return {
       end
 
       -- Generate items for different repository sections
-      local pleo_repos = generate_repositories_items(REPO_PATHS.pleo, 'Repositories')
+      local pleo_repos = generate_repositories_items(REPO_PATHS.pleo, 'Pleo')
 
       local worktrees_repos = generate_worktrees_items(REPO_PATHS.pleo, 'Worktree\'s')
 
@@ -90,19 +78,39 @@ return {
       -- Prefix them with a number to mark a difference
       local personal_items = {
         {
-          name = "0. Dotfiles",
+          name = "0. dotfiles",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/dotfiles")),
-          section = "Repositories"
+          section = "vmarlier"
         },
         {
-          name = "Prop Tech",
+          name = "prop tech",
           action = create_repo_action(expand.path("~/Git/side/prop-tech")),
-          section = "Repositories"
+          section = "Side"
         },
         {
-          name = "FlowState",
+          name = "propies",
+          action = create_repo_action(expand.path("~/Git/side/propies")),
+          section = "Side"
+        },
+        {
+          name = "flowState",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/FlowState")),
-          section = "Repositories"
+          section = "Labo"
+        },
+        {
+          name = "oreDb",
+          action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/OreDB")),
+          section = "Labo"
+        },
+        {
+          name = "pulseLog",
+          action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/PulseLog")),
+          section = "Labo"
+        },
+        {
+          name = "labo alloy pipeline",
+          action = create_repo_action(expand.path("~/Git/valentin.marlier/labo-alloy-pipeline")),
+          section = "Labo"
         },
       }
 
@@ -124,7 +132,6 @@ return {
       local all_repos = vim.list_extend(vim.deepcopy(personal_items), pleo_repos)
 
       local config = {
-        header = get_fortune_cowsay(),
         evaluate_single = true,
         items = {
           all_repos,
@@ -262,9 +269,9 @@ return {
     },
   },
 
-  {                  -- Syntax highlighting and code parsing
+  {                      -- Syntax highlighting and code parsing
     "nvim-treesitter/nvim-treesitter",
-    version = false, -- Use latest for best language support
+    version = "v0.10.0", -- Use latest for best language support
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     lazy = vim.fn.argc(-1) == 0,
