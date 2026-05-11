@@ -83,34 +83,29 @@ return {
           section = "vmarlier"
         },
         {
-          name = "prop tech",
-          action = create_repo_action(expand.path("~/Git/side/prop-tech")),
-          section = "Side"
-        },
-        {
-          name = "propies",
-          action = create_repo_action(expand.path("~/Git/side/propies")),
-          section = "Side"
-        },
-        {
           name = "flowState",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/FlowState")),
-          section = "Labo"
+          section = "vmarlier"
         },
         {
           name = "oreDb",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/OreDB")),
-          section = "Labo"
+          section = "vmarlier"
         },
         {
           name = "pulseLog",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/Go/PulseLog")),
-          section = "Labo"
+          section = "vmarlier"
         },
         {
           name = "labo alloy pipeline",
           action = create_repo_action(expand.path("~/Git/valentin.marlier/labo-alloy-pipeline")),
-          section = "Labo"
+          section = "vmarlier"
+        },
+        {
+          name = "homio",
+          action = create_repo_action(expand.path("~/Git/side/homio")),
+          section = "Side"
         },
       }
 
