@@ -22,10 +22,6 @@ local ensure_installed = {
   "terraform",
   "yaml",
   -- prop tech project
-  -- Core Logic: Highlighting for TypeScript, TSX, and JavaScript
-  "typescript",
-  "tsx",
-  "javascript",
   -- Mobile Support: Syntax parsing for the project's Dart files
   "dart",
   -- Database: Highlighting for Ledger migrations and Kysely SQL snippets
