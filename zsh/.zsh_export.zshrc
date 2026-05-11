@@ -7,6 +7,7 @@ export GO111MODULE=on
 export PATH=$PATH:$HOME/go/bin/
 export GOPATH=$HOME/go
 export GOPRIVATE=github.com/pleo-io
+export GOBIN=$HOME/go/bin
 
 ### Ruby gems path
 export PATH=$PATH:/usr/local/lib/ruby/gems/2.6.0/bin
@@ -21,7 +22,7 @@ export EDITOR="nvim"
 export hr="helmrelease.helm.toolkit.fluxcd.io"
 
 # krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH:$GOBIN"
 
 # brew is annoying
 export HOMEBREW_NO_AUTO_UPDATE=1
