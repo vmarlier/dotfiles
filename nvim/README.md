@@ -9,53 +9,50 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | Ruby | Not Installed |
-| Neovim | ASDF | 0.11.0 |
 | Neovim | NPM | Not Installed |
+| Neovim | Ruby | Not Installed |
 | Neovim | Pip3 | Not Installed |
+| Neovim | ASDF | 0.12.2 |
 
 ## Plugins
 
 | Plugin | Commit Hash |
 |--------|-------------|
-| amp.nvim | 3b9ad5e |
 | cmp-nvim-lsp | cbc7b02 |
 | cmp-path | c642487 |
 | cmp-under-comparator | 6857f10 |
-| conform.nvim | c2526f1 |
-| copilot.lua | 2d75114 |
-| CopilotChat.nvim | 07dcc18 |
-| dropbar.nvim | ce20224 |
+| conform.nvim | dca1a19 |
+| copilot.lua | 18a58c6 |
+| CopilotChat.nvim | 137d3bc |
+| dropbar.nvim | f0a42bd |
 | flash.nvim | fcea7ff |
-| gitsigns.nvim | 42d6aed |
-| helm-ls.nvim | f0b9a17 |
-| kubernetes.nvim | 44daf99 |
-| kulala.nvim | ad51fbc |
+| gitsigns.nvim | dd3f588 |
+| helm-ls.nvim | 20df435 |
+| kulala.nvim | 6656c9d |
 | lazy.nvim | 306a055 |
-| lualine.nvim | 47f91c4 |
-| mason-lspconfig.nvim | 80c0130 |
-| mason.nvim | 44d1e90 |
-| mini.cursorword | dda0f57 |
+| lualine.nvim | 131a558 |
+| mason-lspconfig.nvim | 51feb0a |
+| mason.nvim | e54f5bf |
+| mini.cursorword | a7e6062 |
 | mini.starter | 8ee6ce6 |
-| namu.nvim | fb13c05 |
-| nui.nvim | de74099 |
-| nvim-autopairs | c2a0dd0 |
-| nvim-cmp | 85bbfad |
-| nvim-dbee | dda5176 |
-| nvim-lspconfig | 92ee7d42 |
+| namu.nvim | e7afbdf |
+| nvim-autopairs | 7b9923a |
+| nvim-cmp | a1d5048 |
+| nvim-lspconfig | 451d4ef |
 | nvim-tabline | deb569d |
-| nvim-tree.lua | a0db8bf |
-| nvim-treesitter | 42fc28ba |
+| nvim-tree.lua | 85d1145 |
+| nvim-treesitter | 4916d659 |
 | nvim-ufo | ab3eb12 |
-| nvim-web-devicons | 8033534 |
-| plenary.nvim | b9fd522 |
+| nvim-web-devicons | 2795c26 |
+| plenary.nvim | 74b06c6 |
 | promise-async | 119e896 |
-| snacks.nvim | fe7cfe9 |
-| sonokai | 5c7f88c |
-| telescope-fzf-native.nvim | 6fea601 |
+| snacks.nvim | ad9ede6 |
+| sonokai | b023c52 |
+| sqls.nvim | dfc304f |
+| telescope-fzf-native.nvim | b25b749 |
 | toolbox.nvim | f2890d9 |
 | trouble.nvim | bd67efe |
-| vim-fugitive | 61b51c0 |
+| vim-fugitive | 3b753cf |
 | vim-wordmotion | 81d9bd2 |
 | which-key.nvim | 3aab214 |
 
@@ -64,15 +61,18 @@
 | LSP, Linter & Formatter |
 |--------|
 | bash-language-server |
+| css-lsp |
 | dockerfile-language-server |
-| goimports |
+| eslint-lsp |
 | gopls |
 | helm-ls |
+| html-lsp |
 | json-lsp |
 | lua-language-server |
 | marksman |
-| shfmt |
+| sqls |
 | terraform-ls |
+| vtsls |
 | yaml-language-server |
 
 ## Directory Tree
@@ -86,7 +86,8 @@
 │   │   ├── index.lua
 │   │   ├── lazy.lua
 │   │   ├── mappings.lua
-│   │   └── options.lua
+│   │   ├── options.lua
+│   │   └── treesitter.lua
 │   ├── plugins
 │   │   ├── ai.lua
 │   │   ├── coding.lua
