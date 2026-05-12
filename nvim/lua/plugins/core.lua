@@ -264,4 +264,144 @@ return {
     },
   },
 
+  {                      -- Syntax highlighting and code parsing
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",     -- Use main branch for Neovim 0.12+ (incompatible rewrite)
+    build = ":TSUpdate", -- Essential for the new main branch
+    lazy = false,        -- Don't lazy-load (required by new branch)
+
+    init = function()
+      -- Setup automatic parser installation and Tree-sitter highlighting
+      local function highlight(bufnr, lang)
+        -- Load the parser for this language
+        if not vim.treesitter.language.add(lang) then
+          vim.notify(
+            string.format("Treesitter cannot load parser for language: %s", lang),
+            vim.log.levels.INFO,
+            { title = "Treesitter" }
+          )
+          return
+        end
+        -- Start Tree-sitter highlighting for this buffer
+        vim.treesitter.start(bufnr)
+      end
+
+      -- Main autocmd that handles Tree-sitter setup for each file
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function(args)
+          local ft = vim.bo.filetype
+          local bt = vim.bo.buftype
+          local buf = args.buf
+
+          -- Skip special buffers
+          if bt ~= "" then
+            return
+          end
+
+          local ok, treesitter = pcall(require, "nvim-treesitter")
+          if not ok then
+            return
+          end
+
+          -- Configure folding using Tree-sitter
+          if ft == "javascriptreact" or ft == "typescriptreact" then
+            vim.opt_local.foldmethod = "indent"
+          else
+            vim.opt_local.foldmethod = "expr"
+            vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          end
+
+          -- Refresh folds after setup
+          vim.schedule(function()
+            if vim.fn.mode() ~= "t" then
+              vim.cmd("silent! normal! zx")
+            end
+          end)
+
+          -- Configure indentation (skip problematic languages)
+          if not vim.tbl_contains({ "python", "html", "yaml", "markdown" }, ft) then
+            vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+          end
+
+          -- Ensure tree-sitter CLI is available
+          if vim.fn.executable("tree-sitter") ~= 1 then
+            vim.api.nvim_echo({
+              {
+                "tree-sitter CLI not found. Parsers cannot be installed.",
+                "ErrorMsg",
+              },
+            }, true, {})
+            return false
+          end
+
+          -- Get the Tree-sitter language for this filetype
+          if not vim.treesitter.language.get_lang(ft) then
+            return
+          end
+
+          -- Install parser if not already installed, then start highlighting
+          if vim.list_contains(treesitter.get_installed(), ft) then
+            highlight(buf, ft)
+          elseif vim.list_contains(treesitter.get_available(), ft) then
+            treesitter.install(ft):await(function()
+              highlight(buf, ft)
+            end)
+          end
+        end,
+      })
+    end,
+
+    opts = {
+      -- Automatically install these parsers
+      install = {
+        "bash",
+        "css",
+        "comment",
+        "dart",
+        "diff",
+        "dockerfile",
+        "go",
+        "gomod",
+        "gosum",
+        "gowork",
+        "hcl",
+        "helm",
+        "javascript",
+        "json",
+        "json5",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "regex",
+        "sql",
+        "terraform",
+        "typescript",
+        "tsx",
+        "vimdoc",
+        "yaml",
+      },
+    },
+
+    config = function(_, opts)
+      local treesitter = require("nvim-treesitter")
+
+      -- Setup with options
+      treesitter.setup(opts)
+
+      -- Ensure tree-sitter CLI is available
+      if vim.fn.executable("tree-sitter") ~= 1 then
+        vim.api.nvim_echo({
+          {
+            "tree-sitter CLI not found. Parsers cannot be installed.",
+            "ErrorMsg",
+          },
+        }, true, {})
+        return false
+      end
+
+      -- Async install specified parsers
+      treesitter.install(opts.install)
+    end,
+  },
+
 }
