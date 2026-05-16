@@ -19,3 +19,6 @@ alias kdf="kubectl delete -f"
 
 ### others ###
 alias claud="claude"
+
+###
+alias kubectl=kubecolor

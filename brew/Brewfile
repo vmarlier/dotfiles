@@ -1,6 +1,7 @@
 brew "asdf"
 brew "aws-sso-util"
 brew "awscli"
+brew "kubecolor"
 brew "glib"
 brew "coreutils"
 brew "curl"
