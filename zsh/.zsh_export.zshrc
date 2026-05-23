@@ -29,3 +29,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # default editor for man
 export MANPAGER="nvim +Man!"
+
+# Github PAT
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(security find-generic-password -a $USER -s github-pat -w 2>/dev/null)"
