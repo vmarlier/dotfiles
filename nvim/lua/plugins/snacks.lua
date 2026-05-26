@@ -116,20 +116,12 @@ return {
               end
             end,
             term_normal = {
-              "<esc>",
+              "<C-space>",
               function(self)
-                self.esc_timer = self.esc_timer or (vim.uv or vim.loop).new_timer()
-                if self.esc_timer:is_active() then
-                  self.esc_timer:stop()
-                  vim.cmd("stopinsert")
-                else
-                  self.esc_timer:start(200, 0, function() end)
-                  return "<esc>"
-                end
+                vim.cmd("stopinsert")
               end,
               mode = "t",
-              expr = true,
-              desc = "Double escape to normal mode",
+              desc = "Exit terminal mode",
             },
           },
         }

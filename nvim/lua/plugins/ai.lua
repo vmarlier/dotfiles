@@ -60,4 +60,14 @@ return {
       model = 'gemini-3.1-pro',
     },
   },
+  { -- Claude Code integration
+    "coder/claudecode.nvim",
+    opts = {
+      provider = "snacks",
+      split_side = "right",
+      split_width_percentage = 0.35,
+      track_selection = true,
+      auto_close = true,
+    },
+  },
 }
