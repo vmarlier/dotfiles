@@ -92,7 +92,7 @@
   "Unlimited Scrollback" : true,
   "Allow Title Setting" : false,
   "Custom Command" : "No",
-  "AWDS Tab Option" : "Recycle",
+  "AWDS Tab Option" : "No",
   "Title Components" : 1,
   "Keyboard Map" : {
     "0x6c-0x140000-0x25" : {
@@ -223,7 +223,7 @@
   },
   "Name" : "Default",
   "Blinking Cursor" : false,
-  "Guid" : "9228AAB5-FBB5-4CCE-A198-7D527C946B5E",
+  "Guid" : "E3FDF7E0-891D-46E7-85A3-F16FD8B4F7FF",
   "Match Background Color" : {
     "Red Component" : 0.88627450980392153,
     "Color Space" : "P3",
