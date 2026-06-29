@@ -116,26 +116,12 @@ return {
               end
             end,
             term_normal = {
-              "<esc>",
+              "<M-Esc>",
               function(self)
-                self.esc_count = (self.esc_count or 0) + 1
-                self.esc_timer = self.esc_timer or (vim.uv or vim.loop).new_timer()
-                if self.esc_timer:is_active() then
-                  self.esc_timer:stop()
-                end
-                if self.esc_count >= 3 then
-                  self.esc_count = 0
-                  vim.cmd("stopinsert")
-                else
-                  self.esc_timer:start(400, 0, vim.schedule_wrap(function()
-                    self.esc_count = 0
-                  end))
-                  return "<esc>"
-                end
+                vim.cmd("stopinsert")
               end,
               mode = "t",
-              expr = true,
-              desc = "Triple escape to normal mode",
+              desc = "Alt+Escape to normal mode",
             },
           },
         }
