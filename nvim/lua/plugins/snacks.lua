@@ -116,12 +116,12 @@ return {
               end
             end,
             term_normal = {
-              "<M-Esc>",
+              "<M-Space>",
               function(self)
                 vim.cmd("stopinsert")
               end,
               mode = "t",
-              desc = "Alt+Escape to normal mode",
+              desc = "Alt+Space to normal mode",
             },
           },
         }
