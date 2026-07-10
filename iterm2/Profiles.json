@@ -93,7 +93,7 @@
   "Allow Title Setting" : false,
   "Custom Command" : "No",
   "AWDS Tab Option" : "No",
-  "Title Components" : 1,
+  "Title Components" : 6,
   "Keyboard Map" : {
     "0x6c-0x140000-0x25" : {
       "Version" : 2,
