@@ -31,3 +31,6 @@ eval "$(starship init zsh)"
 
 # Created by `pipx` on 2026-05-06 14:22:29
 export PATH="$PATH:/Users/valentin.marlier/.local/bin"
+
+# auto tab naming
+source ~/Git/valentin.marlier/dotfiles/zsh/.tab_title.zsh

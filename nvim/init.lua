@@ -25,3 +25,5 @@ vim.g.loaded_perl_provider = 0
 -- require sub-modules - require order is important !
 require('utils.index')
 require('config.index')
+
+require("utils.tab_title").setup()

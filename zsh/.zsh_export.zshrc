@@ -1,6 +1,7 @@
 ### OH MY ZSH ###
 export ZSH="/Users/$USER/.oh-my-zsh"
 export ZSH_DISABLE_COMPFIX=true
+export DISABLE_AUTO_TITLE=true
 
 ### Golang paths ###
 export GO111MODULE=on
