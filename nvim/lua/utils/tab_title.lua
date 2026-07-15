@@ -10,7 +10,7 @@ function M.update()
   local cwd = vim.fn.getcwd()
   local repo = vim.fn.fnamemodify(cwd, ":t")
 
-  set_iterm_tab_title("(nvim) " .. repo)
+  set_iterm_tab_title(repo)
 end
 
 function M.setup()
@@ -21,6 +21,7 @@ function M.setup()
     "DirChanged",
   }, {
     group = group,
+    desc = "Update iTerm2 tab title",
     callback = M.update,
   })
 end

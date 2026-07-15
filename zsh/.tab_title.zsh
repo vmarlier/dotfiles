@@ -5,16 +5,15 @@ typeset -gi TAB_TITLE_MAX_LENGTH=80
 _set_tab_title() {
   local title="$1"
 
-  # Replace line breaks, which would break the terminal title.
   title="${title//$'\n'/ }"
   title="${title//$'\r'/ }"
 
   if (( ${#title} > TAB_TITLE_MAX_LENGTH )); then
-    title="${title[1,$(( TAB_TITLE_MAX_LENGTH - 1 ))]}…"
+    title="${title[1,$((TAB_TITLE_MAX_LENGTH - 1))]}…"
   fi
 
   # OSC 1: iTerm2 tab title
-  # OSC 2: terminal window title
+  # OSC 2: iTerm2 window title
   printf '\e]1;%s\a\e]2;%s\a' "$title" "$title"
 }
 
@@ -28,7 +27,7 @@ _git_context() {
   local branch
   branch="$(command git branch --show-current 2>/dev/null)"
 
-  # Handle detached HEAD.
+  # Detached HEAD fallback.
   if [[ -z "$branch" ]]; then
     branch="$(command git rev-parse --short HEAD 2>/dev/null)"
   fi
@@ -53,56 +52,67 @@ _kube_context() {
   command kubectl config current-context 2>/dev/null
 }
 
+_with_kube_context() {
+  local title="$1"
+  local context="$(_kube_context)"
+
+  if [[ -n "$context" ]]; then
+    print -r -- "$title | $context"
+  else
+    print -r -- "$title"
+  fi
+}
+
 _tab_title_idle() {
-  _set_tab_title "$(_short_cwd)$(_git_context)"
+  local title="$(_short_cwd)$(_git_context)"
+  _set_tab_title "$(_with_kube_context "$title")"
 }
 
 _tab_title_running() {
   local command_line="$1"
   local -a words
 
-  # Parse the command using Zsh syntax without executing it.
+  # Parse using Zsh syntax without executing the command.
   words=("${(z)command_line}")
 
   local command_name="${words[1]:t}"
+  local title
 
   case "$command_name" in
     vim|nvim)
-      # Neovim takes ownership of the title after startup.
-      _set_tab_title "(nvim)"
+      # Neovim updates the title after VimEnter/DirChanged.
+      _set_tab_title "$(_with_kube_context "nvim")"
       ;;
 
     kubectl|k)
       local subcommand="${words[2]:-}"
-      local context="$(_kube_context)"
-      local title="$command_name"
 
+      title="$command_name"
       [[ -n "$subcommand" ]] && title+=" $subcommand"
-      [[ -n "$context" ]] && title+=" | $context"
 
-      _set_tab_title "$title"
+      _set_tab_title "$(_with_kube_context "$title")"
       ;;
 
     git)
-      local title="git"
-
+      title="git"
       [[ -n "${words[2]:-}" ]] && title+=" ${words[2]}"
+
       title+=" · $(_short_cwd)$(_git_context)"
 
-      _set_tab_title "$title"
+      _set_tab_title "$(_with_kube_context "$title")"
       ;;
 
     terraform|tofu)
-      local title="$command_name"
-
+      title="$command_name"
       [[ -n "${words[2]:-}" ]] && title+=" ${words[2]}"
+
       title+=" · $(_short_cwd)"
 
-      _set_tab_title "$title"
+      _set_tab_title "$(_with_kube_context "$title")"
       ;;
 
     docker)
-      local title="docker"
+      title="docker"
 
       if [[ "${words[2]:-}" == "compose" ]]; then
         title+=" compose"
@@ -113,20 +123,20 @@ _tab_title_running() {
 
       title+=" · $(_short_cwd)"
 
-      _set_tab_title "$title"
+      _set_tab_title "$(_with_kube_context "$title")"
       ;;
 
     make)
-      local title="make"
-
+      title="make"
       [[ -n "${words[2]:-}" ]] && title+=" ${words[2]}"
+
       title+=" · $(_short_cwd)"
 
-      _set_tab_title "$title"
+      _set_tab_title "$(_with_kube_context "$title")"
       ;;
 
     *)
-      _set_tab_title "$command_line"
+      _set_tab_title "$(_with_kube_context "$command_line")"
       ;;
   esac
 }
