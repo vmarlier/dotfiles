@@ -90,10 +90,10 @@
     "Green Component" : 0.69411764705882351
   },
   "Unlimited Scrollback" : true,
-  "Allow Title Setting" : false,
+  "Allow Title Setting" : true,
   "Custom Command" : "No",
   "AWDS Tab Option" : "No",
-  "Title Components" : 6,
+  "Title Components" : 0,
   "Keyboard Map" : {
     "0x6c-0x140000-0x25" : {
       "Version" : 2,
