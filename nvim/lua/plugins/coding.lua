@@ -196,8 +196,8 @@ return {
         end
       end
 
-      vim.highlight.priorities.semantic_tokens = 95
-      vim.lsp.set_log_level("OFF")
+      vim.hl.priorities.semantic_tokens = 95
+      vim.lsp.log.set_level("OFF")
     end,
   },
 
