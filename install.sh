@@ -72,6 +72,7 @@ ln -sfn ~/Git/$USER/dotfiles/zsh/starship.toml ~/.config/starship.toml
 ln -sfn ~/Git/$USER/dotfiles/brew/Brewfile ~/.config/Brewfile
 ln -sfn ~/Git/$USER/backups/Access/swenv.zsh ~/.local/bin/swenv
 ln -sfn ~/Git/$USER/ai/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sfn ~/Git/$USER/ai/CLAUDE.md ~/.claude/AGENTS.md
 ln -sfn ~/.kube ~/kube_contexts
 
 # Copy fonts
