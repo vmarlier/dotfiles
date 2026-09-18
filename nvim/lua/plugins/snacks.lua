@@ -115,17 +115,23 @@ return {
                 end)
               end
             end,
-            term_normal = {
-              "<M-Space>",
-              function(self)
-                vim.cmd("stopinsert")
-              end,
-              mode = "t",
-              desc = "Alt+Space to normal mode",
-            },
           },
         }
       }
     },
+    config = function(_, opts)
+      require("snacks").setup(opts)
+
+      -- Alt+Space to leave terminal mode, for any terminal buffer
+      -- (snacks_terminal, :terminal, toggleterm, etc.)
+      vim.api.nvim_create_autocmd("TermOpen", {
+        group = vim.api.nvim_create_augroup("terminal_alt_space_normal", { clear = true }),
+        callback = function(args)
+          vim.keymap.set("t", "<M-Space>", function()
+            vim.cmd("stopinsert")
+          end, { buffer = args.buf, desc = "Alt+Space to normal mode" })
+        end,
+      })
+    end,
   }
 }
