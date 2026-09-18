@@ -61,7 +61,6 @@ brew bundle --file ~/Git/$USER/dotfiles/brew/Brewfile
 # 6. Make useful paths & Public Safety Secret File
 mkdir -p ~/.config ~/.kube ~/.aws ~/go ~/.local/bin
 
-
 # 7. Propagated configurations (Symlinks)
 echo "Creating symlinks..."
 ln -sfn ~/Git/$USER/dotfiles/nvim ~/.config/.
@@ -70,7 +69,9 @@ ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_aliases.zshrc ~/.zsh_aliases.zshrc
 ln -sfn ~/Git/$USER/dotfiles/zsh/.zsh_export.zshrc ~/.zsh_export.zshrc
 ln -sfn ~/Git/$USER/dotfiles/asdf/.tool-versions ~/.tool-versions
 ln -sfn ~/Git/$USER/dotfiles/zsh/starship.toml ~/.config/starship.toml
+ln -sfn ~/Git/$USER/dotfiles/brew/Brewfile ~/.config/Brewfile
 ln -sfn ~/Git/$USER/backups/Access/swenv.zsh ~/.local/bin/swenv
+ln -sfn ~/Git/$USER/ai/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sfn ~/.kube ~/kube_contexts
 
 # Copy fonts
