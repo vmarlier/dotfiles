@@ -9,46 +9,47 @@
 
 | Package | Installer | Version |
 |--------|--------|--------|
-| Neovim | NPM | Not Installed |
-| Neovim | Ruby | Not Installed |
-| Neovim | Pip3 | Not Installed |
 | Neovim | ASDF | 0.12.2 |
+| Neovim | NPM | Not Installed |
+| Neovim | Pip3 | Not Installed |
+| Neovim | Ruby | Not Installed |
 
 ## Plugins
 
 | Plugin | Commit Hash |
 |--------|-------------|
+| claudecode.nvim | 2390c6e |
 | cmp-nvim-lsp | cbc7b02 |
 | cmp-path | c642487 |
 | cmp-under-comparator | 6857f10 |
-| conform.nvim | dca1a19 |
-| copilot.lua | 18a58c6 |
-| CopilotChat.nvim | 137d3bc |
-| dropbar.nvim | f0a42bd |
-| flash.nvim | fcea7ff |
-| gitsigns.nvim | dd3f588 |
+| conform.nvim | 016802d |
+| copilot.lua | b2b899f |
+| CopilotChat.nvim | 004ced0 |
+| dropbar.nvim | 808ba31 |
+| flash.nvim | 5f0f270 |
+| gitsigns.nvim | 8d79f24 |
 | helm-ls.nvim | 20df435 |
-| kulala.nvim | 6656c9d |
+| kulala.nvim | dcad056 |
 | lazy.nvim | 306a055 |
-| lualine.nvim | 131a558 |
-| mason-lspconfig.nvim | 51feb0a |
-| mason.nvim | e54f5bf |
-| mini.cursorword | a7e6062 |
-| mini.starter | 8ee6ce6 |
+| lualine.nvim | 221ce6b |
+| mason-lspconfig.nvim | 49b16d6 |
+| mason.nvim | 2a6940a |
+| mini.cursorword | d06a70d |
+| mini.starter | 0575c96 |
 | namu.nvim | e7afbdf |
-| nvim-autopairs | 7b9923a |
-| nvim-cmp | a1d5048 |
-| nvim-lspconfig | 451d4ef |
+| nvim-autopairs | 430522f |
+| nvim-cmp | 2ffe79f |
+| nvim-lspconfig | ffd261c0 |
 | nvim-tabline | deb569d |
-| nvim-tree.lua | 85d1145 |
-| nvim-treesitter | 4916d659 |
+| nvim-tree.lua | 531b807 |
+| nvim-treesitter | 9a168f63 |
 | nvim-ufo | ab3eb12 |
-| nvim-web-devicons | 2795c26 |
+| nvim-web-devicons | 914decf |
 | plenary.nvim | 74b06c6 |
 | promise-async | 119e896 |
-| snacks.nvim | ad9ede6 |
+| snacks.nvim | 882c996 |
 | sonokai | b023c52 |
-| sqls.nvim | dfc304f |
+| sqls.nvim | 332caa9 |
 | telescope-fzf-native.nvim | b25b749 |
 | toolbox.nvim | f2890d9 |
 | trouble.nvim | bd67efe |
@@ -83,11 +84,11 @@
 ├── lazy-lock.json
 └── lua
 │   ├── config
+│   │   ├── filetype.lua
 │   │   ├── index.lua
 │   │   ├── lazy.lua
 │   │   ├── mappings.lua
-│   │   ├── options.lua
-│   │   └── treesitter.lua
+│   │   └── options.lua
 │   ├── plugins
 │   │   ├── ai.lua
 │   │   ├── coding.lua
@@ -105,5 +106,6 @@
 │   │   ├── expand.lua
 │   │   ├── index.lua
 │   │   ├── readme.lua
+│   │   ├── tab_title.lua
 │   │   └── worktree.lua
 ```
