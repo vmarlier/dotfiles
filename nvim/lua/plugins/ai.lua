@@ -2,7 +2,7 @@
 -- Maintainer: Valentin Marlier  --
 -----------------------------------
 -- AI assistant
--- return {
+return {}
 --   { -- Enable github copilot
 --     "zbirenbaum/copilot.lua",
 --     opts = {

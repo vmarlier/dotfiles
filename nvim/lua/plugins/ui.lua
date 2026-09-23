@@ -14,7 +14,7 @@ return {
       modified_icon = '', -- Icon for showing modified buffer
       close_icon = '', -- Icon for closing tab with mouse
       separator = '▌', -- Separator icon on the left side
-      padding = 3, -- Prefix and suffix space
+      padding = 12, -- Prefix and suffix space
       color_all_icons = false, -- Color devicons in active and inactive tabs
       right_separator = false, -- Show right separator on the last tab
       show_index = true, -- Shows the index of tab before filename
@@ -26,7 +26,15 @@ return {
         count_others = true, -- display [+x] where x is the number of other windows
         buftype_blacklist = { 'nofile' }, -- do not count if buftype among theses
       },
-    }
+    },
+    config = function(_, opts)
+      require('tabline').setup(opts)
+      for _, group in ipairs({ 'TabLine', 'TabLineSel' }) do
+        local hl = vim.api.nvim_get_hl(0, { name = group })
+        hl.bold = true
+        vim.api.nvim_set_hl(0, group, hl)
+      end
+    end,
   },
   { -- Enhance folding capabilities
     "kevinhwang91/nvim-ufo",
