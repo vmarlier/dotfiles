@@ -41,4 +41,7 @@ tags
 id_ed25519
 id_ed25519.pub
 
+# litellm secrets (real keys live locally only, see litellm-keys.env.example)
+litellm/litellm-keys.env
+
 # End of https://www.gitignore.io/api/git,vim,linux

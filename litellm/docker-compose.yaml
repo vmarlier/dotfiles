@@ -1,0 +1,15 @@
+name: litellm
+
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-stable
+    container_name: litellm
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    env_file:
+      - litellm-keys.env
+    volumes:
+      - ./copilot-config.yaml:/app/config.yaml
+      - ${HOME}/.config/litellm/github_copilot:/root/.config/litellm/github_copilot
+    command: ["--config", "/app/config.yaml"]

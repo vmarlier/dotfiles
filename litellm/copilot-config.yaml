@@ -1,0 +1,15 @@
+litellm_settings:
+  drop_params: true
+
+model_list:
+  - model_name: claude-sonnet-5
+    litellm_params:
+      model: github_copilot/claude-sonnet-5
+
+  - model_name: claude-opus-5.5
+    litellm_params:
+      model: github_copilot/claude-opus-5.5
+
+  - model_name: claude-opus-5
+    litellm_params:
+      model: github_copilot/claude-opus-5

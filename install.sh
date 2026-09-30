@@ -74,6 +74,14 @@ ln -sfn ~/Git/$USER/backups/Access/swenv.zsh ~/.local/bin/swenv
 ln -sfn ~/Git/$USER/ai/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sfn ~/Git/$USER/ai/CLAUDE.md ~/AGENTS.md
 ln -sfn ~/.kube ~/kube_contexts
+ln -sfn ~/Git/$USER/dotfiles/litellm ~/.litellm
+
+# litellm-keys.env is gitignored (see litellm/README.md) - generate fresh local keys if missing
+if [ ! -f ~/Git/$USER/dotfiles/litellm/litellm-keys.env ]; then
+    echo "Generating local litellm-keys.env..."
+    printf 'LITELLM_MASTER_KEY=litellm-%s\n' "$(uuidgen)" > ~/Git/$USER/dotfiles/litellm/litellm-keys.env
+    printf 'LITELLM_SALT_KEY=litellm-%s\n' "$(uuidgen)" >> ~/Git/$USER/dotfiles/litellm/litellm-keys.env
+fi
 
 # Copy fonts
 cp -r ~/Git/$USER/dotfiles/fonts/* ~/Library/Fonts/ 2>/dev/null || true
