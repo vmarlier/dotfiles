@@ -46,10 +46,9 @@ wk.add({
   { "<TAB>am",  ":ClaudeCodeSelectModel<cr>",                                                             desc = "Select Claude model" },
   { "<TAB>aA",  ":ClaudeCodeDiffAccept<cr>",                                                              desc = "Accept diff" },
   { "<TAB>aR",  ":ClaudeCodeDiffDeny<cr>",                                                                desc = "Reject diff" },
-  { "<TAB>t",   group = "Terminal" },
-  { "<TAB>tt",  function() require('snacks').terminal.toggle(nil, { win = { position = "bottom" } }) end, desc = "Open terminal (horizontal split)" },
+  { "<TAB>t",   function() require('snacks').terminal.toggle(nil, { win = { position = "bottom" } }) end, desc = "Open terminal (horizontal split)" },
   {
-    "<TAB>ta",
+    "<TAB>T",
     function()
       vim.cmd("tabnew")
       vim.cmd("terminal")
