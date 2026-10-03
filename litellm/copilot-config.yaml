@@ -9,3 +9,9 @@ model_list:
   - model_name: claude-opus-5
     litellm_params:
       model: github_copilot/claude-opus-5
+
+  - model_name: gpt-5.3-codex
+    model_info:
+      mode: responses
+    litellm_params:
+      model: chatgpt/gpt-5.3-codex
