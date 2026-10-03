@@ -6,10 +6,6 @@ model_list:
     litellm_params:
       model: github_copilot/claude-sonnet-5
 
-  - model_name: claude-opus-5.5
-    litellm_params:
-      model: github_copilot/claude-opus-5.5
-
   - model_name: claude-opus-5
     litellm_params:
       model: github_copilot/claude-opus-5

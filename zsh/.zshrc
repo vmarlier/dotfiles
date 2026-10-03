@@ -26,6 +26,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)
 source ~/Git/valentin.marlier/backups/Access/swenv_completion.zsh
+source ~/.litellm/litellm-keys.env
 
 eval "$(starship init zsh)"
 
