@@ -9,7 +9,10 @@ services:
       - "4000:4000"
     env_file:
       - litellm-keys.env
+    environment:
+      CHATGPT_TOKEN_DIR: /root/.config/litellm/chatgpt
     volumes:
       - ./copilot-config.yaml:/app/config.yaml
       - ${HOME}/.config/litellm/github_copilot:/root/.config/litellm/github_copilot
+      - ${HOME}/.config/litellm/chatgpt:/root/.config/litellm/chatgpt
     command: ["--config", "/app/config.yaml"]
