@@ -162,11 +162,12 @@ re-authenticate with Copilot on first request.
 
 ## Codex models through your ChatGPT subscription
 
-The same proxy also exposes `gpt-5.3-codex` through LiteLLM's native
+The same proxy also exposes `gpt-6-astra` through LiteLLM's native
 `chatgpt/` provider. This uses a ChatGPT browser/device login, separately
 from Copilot. No OpenAI API key is required for this route. Model access
 and usage remain subject to your ChatGPT plan; the configured model is
-a documented example, not a guarantee of availability for every account.
+selected from this account's Codex model picker; other accounts may have
+different model availability.
 
 Reference: https://docs.litellm.ai/docs/providers/chatgpt
 
@@ -194,7 +195,7 @@ source ~/.litellm/litellm-keys.env
 curl --no-buffer http://localhost:4000/v1/responses \
   -H "Authorization: Bearer $LITELLM_MASTER_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"model":"gpt-5.3-codex","input":"Reply with OK.","stream":true}'
+  -d '{"model":"gpt-6-astra","input":"Reply with OK.","stream":true}'
 ```
 
 `CHATGPT_TOKEN_DIR` points to the bind-mounted
@@ -222,7 +223,7 @@ Launch a session with this provider explicitly:
 ```sh
 source ~/.litellm/litellm-keys.env
 export LITELLM_MASTER_KEY
-codex -c 'model_provider="litellm"' --model gpt-5.3-codex
+codex -c 'model_provider="litellm"' --model gpt-6-astra
 ```
 
 Codex authenticates to the local proxy using your LiteLLM master key.
