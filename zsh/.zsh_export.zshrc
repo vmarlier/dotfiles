@@ -25,8 +25,9 @@ export hr="helmrelease.helm.toolkit.fluxcd.io"
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH:$GOBIN"
 
-# brew is annoying
+# brew
 export HOMEBREW_NO_AUTO_UPDATE=1
+export PATH="/opt/homebrew/bin:$PATH"
 
 # default editor for man
 export MANPAGER="nvim +Man!"

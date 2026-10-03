@@ -145,3 +145,5 @@ After an approved installation or configuration change:
 4. show the relevant diff;
 5. report exactly what changed;
 6. report any unexpected side effects or remaining manual actions.
+
+@RTK.md
