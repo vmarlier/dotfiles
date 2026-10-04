@@ -86,7 +86,7 @@ source ~/.litellm/litellm-keys.env
 ANTHROPIC_BASE_URL=http://localhost:4000 \
 ANTHROPIC_AUTH_TOKEN="$LITELLM_MASTER_KEY" \
 ANTHROPIC_MODEL=claude-sonnet-5 \
-claude
+command claude
 ```
 
 Available `ANTHROPIC_MODEL` values are the `model_name` entries in
@@ -101,7 +101,7 @@ claude-copilot() {
   ANTHROPIC_BASE_URL=http://localhost:4000 \
   ANTHROPIC_AUTH_TOKEN="$LITELLM_MASTER_KEY" \
   ANTHROPIC_MODEL="${ANTHROPIC_MODEL:-claude-sonnet-5}" \
-  claude "$@"
+  command claude "$@"
 }
 ```
 
@@ -113,6 +113,15 @@ organization's claude.ai connectors for that session. This is expected and
 only affects sessions launched with those variables set.
 
 ## Troubleshooting
+
+**`Please run /login · API Error: 401 Invalid bearer token` with tokview**
+The installed `tokview wrap claude` overrides `ANTHROPIC_BASE_URL` and
+forwards messages to Anthropic, so the local LiteLLM master key reaches
+the wrong server. Launch with `command claude` as shown above to bypass
+shell aliases, and do not put `tokview wrap` in the `claude-litellm` alias.
+After changing the alias, reload it with
+`source ~/.zsh_aliases.zshrc` (or open a new terminal).
+
 
 **`API Error: 400 No connected db`**
 LiteLLM is set up with `LITELLM_MASTER_KEY` for auth but no database.

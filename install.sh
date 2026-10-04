@@ -138,6 +138,7 @@ pipx install aws-sso-util || true
 # Node is now successfully installed via asdf above, so npm will work
 echo "Setting up Neovim node provider..."
 npm install -g neovim
+npm install -g lat.md
 
 echo -e "\n--- Manual Steps Required ---"
 echo "Download manually: Arc, ITERM2, BITWARDEN, RECTANGLE, DASH, DisplayLink Manager, Find My, Jabra Direct, Logi Options+, Logitech G Hub, NordVPN, pgAdmin4, Proton Drive, Proton Mail, Proton Authenticator, Proton Pass, qBittorrent, RayCast, Signal, Stocks, VLC, Yaak, What's app, Zoom, KeepingYouAwake, FlyCut \n\n\n"

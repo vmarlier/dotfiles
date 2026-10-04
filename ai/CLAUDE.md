@@ -84,6 +84,18 @@ If RTK is available, allow it to optimize supported CLI output unless raw output
 
 Do not repeatedly read unchanged files. Reuse information already obtained during the current task.
 
+## Code intelligence
+
+When an LSP is available for the current language, use it proactively for:
+- symbol definitions
+- references
+- implementations
+- type information
+- diagnostics
+
+Prefer LSP semantic queries over textual search when reasoning about code relationships.
+Use grep/rg for textual discovery, configuration, strings, comments, or when LSP is unavailable.
+
 ## External tools and MCP
 
 Prefer, in order:
