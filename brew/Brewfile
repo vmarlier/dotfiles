@@ -1,4 +1,5 @@
 brew "asdf"
+brew "k9s"
 brew "uv"
 brew "aws-sso-util"
 brew "awscli"
