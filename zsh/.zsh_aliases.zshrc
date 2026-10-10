@@ -23,4 +23,5 @@ alias claude="tokview wrap claude"
 alias claude-litellm='source ~/.litellm/litellm-keys.env && ANTHROPIC_BASE_URL=http://localhost:4000 ANTHROPIC_AUTH_TOKEN="$LITELLM_MASTER_KEY" ANTHROPIC_MODEL=claude-sonnet-5 command claude'
 
 ###
+alias grep="rg"
 alias kubectl=kubecolor
