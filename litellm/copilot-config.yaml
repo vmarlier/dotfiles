@@ -5,7 +5,11 @@ model_list:
   - model_name: claude-sonnet-5
     litellm_params:
       model: github_copilot/claude-sonnet-5
+      additional_drop_params:
+        - safeguards
 
   - model_name: claude-opus-5
     litellm_params:
       model: github_copilot/claude-opus-5
+      additional_drop_params:
+        - safeguards
